@@ -11,26 +11,17 @@ import UIKit
 class SecondViewController: UIViewController, ViewModule, NavigationStack {
     var type: Any.Type { return SecondViewController.self }
     
-    var screenOwner: (() -> NavigationStack)?
-    var containerStack: NavigationContainerStack?
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        guard let transitionNavigationType = segue.destination as? NavigationStack else { return }
-        guard let rootView = screenOwner?() else { return }
-        transitionNavigationType.screenOwner = { return rootView }
-        transitionNavigationType.containerStack = self.containerStack
-    }
+    var navigationCoordinator: NavigationCoordinator?
     
     @IBAction func goNextView() {
-        self.screenOwner?().goNext(screen: { showView in
-            showView(self)
-        })
+        self.navigationCoordinator?.goNext(screen: { showView in
+            showView(ThirdViewController.self)
+        }, resolve: .storyboard("Main"))
     }
     
     @IBAction func goBackView() {
-        self.screenOwner?().getBack(screen: { showView in
-            showView(self.screenOwner?())
-        })
+//        navigationCoordinator?.getBack(screen: { showView in
+//            showView(self.screenOwner?())
+//        })
     }
 }

@@ -18,6 +18,7 @@
 		8CC8B616227EDFB40033C5DE /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8B610227EDFB40033C5DE /* ThirdViewController.swift */; };
 		8CC8B617227EDFB40033C5DE /* NavigationStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8B611227EDFB40033C5DE /* NavigationStackProtocol.swift */; };
 		8CC8B618227EDFB40033C5DE /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8B612227EDFB40033C5DE /* SecondViewController.swift */; };
+		8CD88344227F046F005B42FE /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD88343227F046F005B42FE /* NavigationCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		8CC8B610227EDFB40033C5DE /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		8CC8B611227EDFB40033C5DE /* NavigationStackProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationStackProtocol.swift; sourceTree = "<group>"; };
 		8CC8B612227EDFB40033C5DE /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		8CD88343227F046F005B42FE /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				8CC8B619227EF2680033C5DE /* NavigationStackContainer */,
+				8CC8B60F227EDFB40033C5DE /* ContainerView.swift */,
 				8CC8B60D227EDFB40033C5DE /* FirstViewController.swift */,
 				8CC8B612227EDFB40033C5DE /* SecondViewController.swift */,
 				8CC8B610227EDFB40033C5DE /* ThirdViewController.swift */,
@@ -83,9 +86,9 @@
 		8CC8B619227EF2680033C5DE /* NavigationStackContainer */ = {
 			isa = PBXGroup;
 			children = (
-				8CC8B60F227EDFB40033C5DE /* ContainerView.swift */,
 				8CC8B60E227EDFB40033C5DE /* NavigationContainerStack.swift */,
 				8CC8B611227EDFB40033C5DE /* NavigationStackProtocol.swift */,
+				8CD88343227F046F005B42FE /* NavigationCoordinator.swift */,
 			);
 			path = NavigationStackContainer;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 				8CC8B615227EDFB40033C5DE /* ContainerView.swift in Sources */,
 				8CC8B613227EDFB40033C5DE /* FirstViewController.swift in Sources */,
 				8CC8B5FE227EDF7D0033C5DE /* ViewController.swift in Sources */,
+				8CD88344227F046F005B42FE /* NavigationCoordinator.swift in Sources */,
 				8CC8B617227EDFB40033C5DE /* NavigationStackProtocol.swift in Sources */,
 				8CC8B614227EDFB40033C5DE /* NavigationContainerStack.swift in Sources */,
 				8CC8B616227EDFB40033C5DE /* ThirdViewController.swift in Sources */,

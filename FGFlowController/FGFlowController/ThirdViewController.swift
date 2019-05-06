@@ -12,20 +12,17 @@ class ThirdViewController: UIViewController, ViewModule, NavigationStack {
     
     var type: Any.Type { return ThirdViewController.self }
     
-    var screenOwner: (() -> NavigationStack)?
-    var containerStack: NavigationContainerStack?
+    var navigationCoordinator: NavigationCoordinator?
     
     @IBAction func goNextView() {
-        self.screenOwner?().goNext(screen: { showView in
-            showView(self)
-        })
+        self.navigationCoordinator?.goNext(screen: { showView in
+            showView(SecondViewController.self)
+        }, resolve: .storyboard("Main"))
     }
     
     @IBAction func goBackView() {
-        let viewToGetBack = containerStack?.resolve(for: FirstViewController.self)
-        
-        self.screenOwner?().getBack(screen: { showView in
-            showView(self.screenOwner?())
-        })
+//        self.navigationCoordinator?.getBack(screen: { showView in
+//            showView(self.screenOwner?())
+//        })
     }
 }

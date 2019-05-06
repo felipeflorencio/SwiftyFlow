@@ -10,44 +10,24 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var screenOwner: (() -> NavigationStack)?
-    var containerStack: NavigationContainerStack? = NavigationContainerStack()
+    // You need to make sure that you initialize this, at least for now as a pock
+    var navigationCoordinator: NavigationCoordinator!
     
     @IBOutlet weak var pushButton: UIButton!
     
     override func viewDidLoad() {
+        self.navigationCoordinator = NavigationCoordinator(navigation: self.navigationController!, container: NavigationContainerStack())
         super.viewDidLoad()
         
-        // Setup stack navigation
-        ContainerView().setupStackNavigation(using: containerStack!)
+        // Setup stack navigation - IN PROGRESS
+        ContainerView().setupStackNavigation(using: self.navigationCoordinator!.containerStack!)
     }
     
     // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        guard let transitionNavigationType = segue.destination as? NavigationStack else { return }
-        transitionNavigationType.screenOwner = { return self }
-        transitionNavigationType.containerStack = self.containerStack
-    }
-}
-
-extension ViewController: NavigationStack {
-
-    func goNext(screen view: @escaping ((UIViewController?) -> ()) -> ()) {
-        view({ viewToGo in
-            guard let view = viewToGo else { return }
-            
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "someViewController")
-
-            self.navigationController?.pushViewController(view, animated: true)
-        })
-    }
     
-    func getBack(screen view: @escaping ((UIViewController?) -> ()) -> ()) {
-        view({ viewToGetBack in
-            guard let view = viewToGetBack else { return }
-            self.navigationController?.popToViewController(view, animated: true)
-        })
+    @IBAction func pushButtonAction() {
+        self.navigationCoordinator?.goNext(screen: { viewType in
+            viewType(FirstViewController.self)
+        }, resolve: .storyboard("Main"))
     }
 }

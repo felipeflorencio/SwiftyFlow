@@ -8,19 +8,16 @@
 
 import UIKit
 
-protocol NavigationStack where Self: UIViewController {
+protocol NavigationStack: class {
+
+    var navigationCoordinator: NavigationCoordinator? { get set }
     
-    // Temporarily while we don't have DI tool / library
-    var containerStack: NavigationContainerStack? { get set }
-    
-    var screenOwner: (() -> NavigationStack)? { get set }
-    
-    func goNext(screen view: @escaping ((UIViewController?) -> ()) -> ())
-    func getBack(screen view: @escaping ((UIViewController?) -> ()) -> ())
+    func goNext<T: UIViewController>(screen view: @escaping ((T.Type) -> ()) -> (), resolve asType: ViewIntanceFrom)
+    func getBack<T: UIViewController>(screen view: @escaping ((T.Type) -> ()) -> ())
 }
 
 extension NavigationStack {
-    var screenOwner: (() -> NavigationStack)? {
+    var navigationCoordinator: NavigationCoordinator? {
         get {
             return nil
         }
@@ -30,6 +27,6 @@ extension NavigationStack {
         }
     }
 
-    func goNext(screen view: @escaping ((UIViewController?) -> ()) -> ()) { }
-    func getBack(screen view: @escaping ((UIViewController?) -> ()) -> ()) { }
+    func goNext<T: UIViewController>(screen view: @escaping ((T.Type) -> ()) -> (), resolve asType: ViewIntanceFrom) { }
+    func getBack<T: UIViewController>(screen view: @escaping ((T.Type) -> ()) -> ()) { }
 }

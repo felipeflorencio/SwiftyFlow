@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CustomNavigationTransition" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="FGFlowController" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,6 +23,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
+                                    <action selector="pushButtonAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="cbX-1J-A4H"/>
                                     <segue destination="RUH-Yg-Rc0" kind="show" id="85t-tg-t6t"/>
                                 </connections>
                             </button>
@@ -39,7 +40,7 @@
         <!--First View Controller-->
         <scene sceneID="ITw-FO-ydV">
             <objects>
-                <viewController id="RUH-Yg-Rc0" customClass="FirstViewController" customModule="CustomNavigationTransition" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstViewController" id="RUH-Yg-Rc0" customClass="FirstViewController" customModule="FGFlowController" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lOF-iP-tUG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,7 +91,7 @@
         <!--Second View Controller-->
         <scene sceneID="h75-TL-A9j">
             <objects>
-                <viewController id="jHJ-fx-HUj" customClass="SecondViewController" customModule="CustomNavigationTransition" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondViewController" id="jHJ-fx-HUj" customClass="SecondViewController" customModule="FGFlowController" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u1D-ac-ch7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -124,7 +125,7 @@
         <!--Third View Controller-->
         <scene sceneID="m8N-Ol-UqZ">
             <objects>
-                <viewController id="bKM-3O-rX9" customClass="ThirdViewController" customModule="CustomNavigationTransition" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ThirdViewController" id="bKM-3O-rX9" customClass="ThirdViewController" customModule="FGFlowController" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xnG-yV-Qlp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
