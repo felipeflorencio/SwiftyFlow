@@ -9,14 +9,23 @@
 import UIKit
 
 class SecondViewController: UIViewController, ViewModule, NavigationStack {
-    var type: Any.Type { return SecondViewController.self }
     
     var navigationCoordinator: NavigationCoordinator?
+    
+    var nameForTitle: String?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.title = nameForTitle
+    }
     
     @IBAction func goNextView() {
         self.navigationCoordinator?.goNext(screen: { showView in
             showView(ThirdViewController.self)
-        }, resolve: .storyboard("Main"))
+        }, resolve: .storyboard("Main"), resolved: { instance in
+            
+        })
     }
     
     @IBAction func goBackView() {

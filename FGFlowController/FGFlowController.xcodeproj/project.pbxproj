@@ -86,8 +86,8 @@
 		8CC8B619227EF2680033C5DE /* NavigationStackContainer */ = {
 			isa = PBXGroup;
 			children = (
-				8CC8B60E227EDFB40033C5DE /* NavigationContainerStack.swift */,
 				8CC8B611227EDFB40033C5DE /* NavigationStackProtocol.swift */,
+				8CC8B60E227EDFB40033C5DE /* NavigationContainerStack.swift */,
 				8CD88343227F046F005B42FE /* NavigationCoordinator.swift */,
 			);
 			path = NavigationStackContainer;

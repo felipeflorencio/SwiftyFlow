@@ -12,8 +12,12 @@ protocol NavigationStack: class {
 
     var navigationCoordinator: NavigationCoordinator? { get set }
     
-    func goNext<T: UIViewController>(screen view: @escaping ((T.Type) -> ()) -> (), resolve asType: ViewIntanceFrom)
-    func getBack<T: UIViewController>(screen view: @escaping ((T.Type) -> ()) -> ())
+    func goNext<T: UIViewController>(screen view: @escaping ((T.Type) -> ()) -> (),
+                                     resolve asType: ViewIntanceFrom,
+                                     resolved instance: ((T) -> ())?)
+    
+    func getBack<T: UIViewController>(pop withStyle: NavigationPopStyle,
+                                      screen view: @escaping ((T.Type) -> ()) -> ())
 }
 
 extension NavigationStack {
@@ -27,6 +31,9 @@ extension NavigationStack {
         }
     }
 
-    func goNext<T: UIViewController>(screen view: @escaping ((T.Type) -> ()) -> (), resolve asType: ViewIntanceFrom) { }
-    func getBack<T: UIViewController>(screen view: @escaping ((T.Type) -> ()) -> ()) { }
+    func goNext<T: UIViewController>(screen view: @escaping ((T.Type) -> ()) -> (),
+                                     resolve asType: ViewIntanceFrom,
+                                     resolved instance: ((T) -> ())?) { }
+    func getBack<T: UIViewController>(pop withStyle: NavigationPopStyle,
+                                      screen view: @escaping ((T.Type) -> ()) -> ()) { }
 }

@@ -9,9 +9,7 @@
 import UIKit
 
 class ThirdViewController: UIViewController, ViewModule, NavigationStack {
-    
-    var type: Any.Type { return ThirdViewController.self }
-    
+        
     var navigationCoordinator: NavigationCoordinator?
     
     @IBAction func goNextView() {
@@ -21,8 +19,8 @@ class ThirdViewController: UIViewController, ViewModule, NavigationStack {
     }
     
     @IBAction func goBackView() {
-//        self.navigationCoordinator?.getBack(screen: { showView in
-//            showView(self.screenOwner?())
-//        })
+        self.navigationCoordinator?.getBack(pop: .popTo(animated: true), screen: { viewToGo in
+            viewToGo(FirstViewController.self)
+        })
     }
 }

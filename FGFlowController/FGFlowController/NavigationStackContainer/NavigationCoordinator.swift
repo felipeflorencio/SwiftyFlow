@@ -13,6 +13,11 @@ enum ViewIntanceFrom {
     case storyboard(String)
 }
 
+enum NavigationPopStyle {
+    case pop(animated: Bool)
+    case popTo(animated: Bool)
+}
+
 class NavigationCoordinator: NavigationStack {
     
     var containerStack: NavigationContainerStack?
@@ -25,7 +30,9 @@ class NavigationCoordinator: NavigationStack {
         self.containerStack = stack
     }
     
-    func goNext<T: UIViewController>(screen view: @escaping ((T.Type) -> ()) -> (), resolve asType: ViewIntanceFrom = .nib) {
+    func goNext<T: UIViewController>(screen view: @escaping ((T.Type) -> ()) -> (),
+                                     resolve asType: ViewIntanceFrom = .nib,
+                                     resolved instance: ((T) -> ())? = nil) {
         view({ [weak self] viewToGo in
 
             guard let controller = self?.resolveInstance(viewController: asType, for: viewToGo.self) else {
@@ -34,13 +41,29 @@ class NavigationCoordinator: NavigationStack {
             }
             
             (controller as? NavigationStack)?.navigationCoordinator = self
+            instance?(controller as! T)
             
             self?.navigationController.pushViewController(controller, animated: true)
         })
     }
     
-    func getBack<T: UIViewController>(screen view: @escaping ((T.Type) -> ()) -> ()) {
+    func getBack<T: UIViewController>(pop withStyle: NavigationPopStyle = .pop(animated: true),
+                                      screen view: @escaping ((T.Type) -> ()) -> ()) {
         
+        switch withStyle {
+        case .pop(let animated):
+            self.navigationController.popViewController(animated: animated)
+        case .popTo(let animated):
+            view({ [weak self] viewToPop in                
+                guard let viewController = self?.navigationController.viewControllers.first(where: { viewController -> Bool in
+                    return type(of: viewController) == viewToPop
+                }) else {
+                    debugPrint("Have no view controller with this type \"\(String(describing: viewToPop))\" in your navigation controller stack")
+                    return
+                }
+                self?.navigationController.popToViewController(viewController, animated: animated)
+            })
+        }
     }
     
     private func resolveInstance<T: UIViewController>(viewController from: ViewIntanceFrom, for view: T.Type) -> UIViewController? {

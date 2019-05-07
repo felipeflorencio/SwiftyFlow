@@ -10,8 +10,6 @@ import UIKit
 
 class FirstViewController: UIViewController, ViewModule, NavigationStack {
     
-    var type: Any.Type { return FirstViewController.self }
-    
     var navigationCoordinator: NavigationCoordinator?
     
     override func viewDidLoad() {
@@ -23,7 +21,9 @@ class FirstViewController: UIViewController, ViewModule, NavigationStack {
         
         self.navigationCoordinator?.goNext(screen: { showView in
             showView(SecondViewController.self)
-        }, resolve: .storyboard("Main"))
+        }, resolve: .storyboard("Main"), resolved: { instance in
+            instance.nameForTitle = "PASSING TO SECOND"
+        })
     }
     
     @IBAction func goBackView() {
