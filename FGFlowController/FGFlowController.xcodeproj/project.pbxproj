@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C1247852281D076009400B4 /* ThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1247832281D076009400B4 /* ThirdViewController.xib */; };
+		8C1247862281D076009400B4 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1247842281D076009400B4 /* SecondViewController.xib */; };
+		8CBAB0A12281C7850050E8AF /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CBAB0A02281C7850050E8AF /* FirstViewController.xib */; };
 		8CC8B5FC227EDF7D0033C5DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8B5FB227EDF7D0033C5DE /* AppDelegate.swift */; };
 		8CC8B5FE227EDF7D0033C5DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8B5FD227EDF7D0033C5DE /* ViewController.swift */; };
 		8CC8B601227EDF7D0033C5DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8B5FF227EDF7D0033C5DE /* Main.storyboard */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C1247832281D076009400B4 /* ThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdViewController.xib; sourceTree = "<group>"; };
+		8C1247842281D076009400B4 /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
+		8CBAB0A02281C7850050E8AF /* FirstViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
 		8CC8B5F8227EDF7D0033C5DE /* FGFlowController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FGFlowController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CC8B5FB227EDF7D0033C5DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CC8B5FD227EDF7D0033C5DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +55,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8CBAB09E2281C7340050E8AF /* StoryboardViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8CC8B60D227EDFB40033C5DE /* FirstViewController.swift */,
+				8CC8B612227EDFB40033C5DE /* SecondViewController.swift */,
+				8CC8B610227EDFB40033C5DE /* ThirdViewController.swift */,
+			);
+			path = StoryboardViewControllers;
+			sourceTree = "<group>";
+		};
+		8CBAB09F2281C7570050E8AF /* NibViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8C1247842281D076009400B4 /* SecondViewController.xib */,
+				8C1247832281D076009400B4 /* ThirdViewController.xib */,
+				8CBAB0A02281C7850050E8AF /* FirstViewController.xib */,
+			);
+			path = NibViewControllers;
+			sourceTree = "<group>";
+		};
 		8CC8B5EF227EDF7D0033C5DE = {
 			isa = PBXGroup;
 			children = (
@@ -68,11 +94,10 @@
 		8CC8B5FA227EDF7D0033C5DE /* FGFlowController */ = {
 			isa = PBXGroup;
 			children = (
+				8CBAB09F2281C7570050E8AF /* NibViewControllers */,
+				8CBAB09E2281C7340050E8AF /* StoryboardViewControllers */,
 				8CC8B619227EF2680033C5DE /* NavigationStackContainer */,
 				8CC8B60F227EDFB40033C5DE /* ContainerView.swift */,
-				8CC8B60D227EDFB40033C5DE /* FirstViewController.swift */,
-				8CC8B612227EDFB40033C5DE /* SecondViewController.swift */,
-				8CC8B610227EDFB40033C5DE /* ThirdViewController.swift */,
 				8CC8B5FB227EDF7D0033C5DE /* AppDelegate.swift */,
 				8CC8B5FD227EDF7D0033C5DE /* ViewController.swift */,
 				8CC8B5FF227EDF7D0033C5DE /* Main.storyboard */,
@@ -153,7 +178,10 @@
 			files = (
 				8CC8B606227EDF7D0033C5DE /* LaunchScreen.storyboard in Resources */,
 				8CC8B603227EDF7D0033C5DE /* Assets.xcassets in Resources */,
+				8C1247862281D076009400B4 /* SecondViewController.xib in Resources */,
 				8CC8B601227EDF7D0033C5DE /* Main.storyboard in Resources */,
+				8C1247852281D076009400B4 /* ThirdViewController.xib in Resources */,
+				8CBAB0A12281C7850050E8AF /* FirstViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

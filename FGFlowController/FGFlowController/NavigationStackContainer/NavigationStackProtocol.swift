@@ -17,7 +17,7 @@ protocol NavigationStack: class {
                                      resolved instance: ((T) -> ())?)
     
     func getBack<T: UIViewController>(pop withStyle: NavigationPopStyle,
-                                      screen view: @escaping ((T.Type) -> ()) -> ())
+                                      screen view: (((T.Type) -> ()) -> ())?)
 }
 
 extension NavigationStack {
@@ -35,5 +35,5 @@ extension NavigationStack {
                                      resolve asType: ViewIntanceFrom,
                                      resolved instance: ((T) -> ())?) { }
     func getBack<T: UIViewController>(pop withStyle: NavigationPopStyle,
-                                      screen view: @escaping ((T.Type) -> ()) -> ()) { }
+                                      screen view: (((T.Type) -> ()) -> ())?) { }
 }

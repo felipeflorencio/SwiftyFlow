@@ -20,6 +20,7 @@ class SecondViewController: UIViewController, ViewModule, NavigationStack {
         self.title = nameForTitle
     }
     
+    // Storyboard Navigation
     @IBAction func goNextView() {
         self.navigationCoordinator?.goNext(screen: { showView in
             showView(ThirdViewController.self)
@@ -29,8 +30,20 @@ class SecondViewController: UIViewController, ViewModule, NavigationStack {
     }
     
     @IBAction func goBackView() {
-//        navigationCoordinator?.getBack(screen: { showView in
-//            showView(self.screenOwner?())
-//        })
+        navigationCoordinator?.getBack()
+    }
+    
+    // NIB Navigation
+    @IBAction func goNextNibView() {
+        
+        self.navigationCoordinator?.goNext(screen: { showView in
+            showView(ThirdViewController.self)
+        }, resolve: .nib, resolved: { instance in
+            
+        })
+    }
+    
+    @IBAction func goBackNibView() {
+        navigationCoordinator?.getBack()
     }
 }

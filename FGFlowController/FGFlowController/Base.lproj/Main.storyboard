@@ -19,20 +19,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oLb-zw-zDs">
-                                <rect key="frame" x="184" y="433" width="46" height="30"/>
+                                <rect key="frame" x="130" y="433" width="154" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="LgN-0c-IDV"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="vUa-RK-HDP"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Storyboard Navigation"/>
                                 <connections>
-                                    <action selector="pushButtonAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="cbX-1J-A4H"/>
+                                    <action selector="storyboardNavigationAction" destination="BYZ-38-t0r" eventType="touchDragInside" id="wwn-rl-p5r"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fV-uQ-WE4">
+                                <rect key="frame" x="156.5" y="481" width="101" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="ob3-NB-e1r"/>
+                                    <constraint firstAttribute="height" constant="30" id="zj8-fm-IrF"/>
+                                </constraints>
+                                <state key="normal" title="Nib Navigation"/>
+                                <connections>
+                                    <action selector="nibNavigationAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="dmE-cg-Bri"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="8fV-uQ-WE4" firstAttribute="top" secondItem="oLb-zw-zDs" secondAttribute="bottom" constant="18" id="ETS-st-VfT"/>
                             <constraint firstItem="oLb-zw-zDs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Fl6-Dn-MIf"/>
+                            <constraint firstItem="8fV-uQ-WE4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="L4d-th-vXo"/>
                             <constraint firstItem="oLb-zw-zDs" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Wue-Tp-3sT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

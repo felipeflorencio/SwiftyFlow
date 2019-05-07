@@ -25,9 +25,15 @@ class ViewController: UIViewController {
     
     // MARK: - Navigation
     
-    @IBAction func pushButtonAction() {
+    @IBAction func storyboardNavigationAction() {
         self.navigationCoordinator?.goNext(screen: { viewType in
             viewType(FirstViewController.self)
         }, resolve: .storyboard("Main"))
+    }
+    
+    @IBAction func nibNavigationAction() {
+        self.navigationCoordinator?.goNext(screen: { viewType in
+            viewType(FirstViewController.self)
+        }, resolve: .nib)
     }
 }

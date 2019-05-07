@@ -48,24 +48,29 @@ class NavigationCoordinator: NavigationStack {
     }
     
     func getBack<T: UIViewController>(pop withStyle: NavigationPopStyle = .pop(animated: true),
-                                      screen view: @escaping ((T.Type) -> ()) -> ()) {
+                                      screen view: (((T.Type) -> ()) -> ())? = nil) {
         
         switch withStyle {
         case .pop(let animated):
             self.navigationController.popViewController(animated: animated)
+            self.adjustModulesReference()
         case .popTo(let animated):
-            view({ [weak self] viewToPop in                
+            view?({ [weak self] viewToPop in
                 guard let viewController = self?.navigationController.viewControllers.first(where: { viewController -> Bool in
                     return type(of: viewController) == viewToPop
                 }) else {
                     debugPrint("Have no view controller with this type \"\(String(describing: viewToPop))\" in your navigation controller stack")
                     return
                 }
+                
                 self?.navigationController.popToViewController(viewController, animated: animated)
+                self?.adjustModulesReference()
             })
         }
     }
     
+    
+    // MARK: Helpers
     private func resolveInstance<T: UIViewController>(viewController from: ViewIntanceFrom, for view: T.Type) -> UIViewController? {
         switch from {
         case .storyboard(let storyboard):
@@ -82,12 +87,16 @@ class NavigationCoordinator: NavigationStack {
                 return controller
             })
             
-            
             return controller
         case .nib:
-            let resolvedInstance = containerStack?.resolve(for: view.self)
+            let resolvedInstance = containerStack?.resolve(for: view)
             return resolvedInstance
         }
     }
     
+    private func adjustModulesReference() {
+        // We adjust our modules list reference, we "destroy" the reference's that we have in order
+        // to next time we load again to avoid problems trying to reuse the same one twice
+        containerStack?.updateModulesReference(for: self.navigationController.viewControllers)
+    }
 }

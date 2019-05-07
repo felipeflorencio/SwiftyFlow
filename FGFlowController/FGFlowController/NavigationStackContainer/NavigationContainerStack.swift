@@ -53,6 +53,16 @@ class NavigationContainerStack {
         module?.in(scope: .weak)
         module?.updateInstance(reference: reference())
     }
+    
+    func updateModulesReference(for navigation: [UIViewController]) {        
+        let notInTheNavigation = self.modules.filter { weakContainer -> Bool in
+            return navigation.first(where: { type(of: $0) == weakContainer.forType }) == nil
+        }
+        
+        notInTheNavigation.forEach { weakContainer in
+            weakContainer.resetInstanceReference()
+        }
+    }
 }
 
 class WeakContainer<T> where T: UIViewController {

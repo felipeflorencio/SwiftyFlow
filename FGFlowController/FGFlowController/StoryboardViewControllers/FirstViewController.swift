@@ -17,6 +17,7 @@ class FirstViewController: UIViewController, ViewModule, NavigationStack {
         self.navigationController?.setNavigationBarHidden(true, animated: false)        
     }
     
+    // Storyboard Navigation
     @IBAction func goNextView() {
         
         self.navigationCoordinator?.goNext(screen: { showView in
@@ -27,8 +28,20 @@ class FirstViewController: UIViewController, ViewModule, NavigationStack {
     }
     
     @IBAction func goBackView() {
-//        navigationCoordinator?.getBack(screen: { showView in
-//            showView(self.screenOwner?())
-//        })
+        navigationCoordinator?.getBack()
+    }
+    
+    // NIB Navigation
+    @IBAction func goNextNibView() {
+        
+        self.navigationCoordinator?.goNext(screen: { showView in
+            showView(SecondViewController.self)
+        }, resolve: .nib, resolved: { instance in
+            instance.nameForTitle = "PASSING TO SECOND"
+        })
+    }
+    
+    @IBAction func goBackNibView() {
+        navigationCoordinator?.getBack()
     }
 }
