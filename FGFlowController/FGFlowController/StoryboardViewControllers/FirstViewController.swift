@@ -44,4 +44,9 @@ class FirstViewController: UIViewController, ViewModule, NavigationStack {
     @IBAction func goBackNibView() {
         navigationCoordinator?.getBack()
     }
+    
+    // This is a behaviour that for now should only be used for test
+    @IBAction func forDismissWhenPresenting() {
+        navigationCoordinator?.dismissFlowController()
+    }
 }

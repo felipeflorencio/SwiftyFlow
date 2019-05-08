@@ -10,17 +10,17 @@ import Foundation
 
 class ContainerView {
     
-    func setupStackNavigation(using container: NavigationContainerStack) {
+    func setupStackNavigation(using containerStack: NavigationContainerStack) {
         
-        container.registerModule(for: FirstViewController.self) { () -> FirstViewController in
+        containerStack.registerModule(for: FirstViewController.self) { () -> FirstViewController in
             return FirstViewController()
         }
         
-        container.registerModule(for: SecondViewController.self) { () -> SecondViewController in
+        containerStack.registerModule(for: SecondViewController.self) { () -> SecondViewController in
             return SecondViewController()
         }
         
-        container.registerModule(for: ThirdViewController.self) { () -> ThirdViewController in
+        containerStack.registerModule(for: ThirdViewController.self) { () -> ThirdViewController in
             return ThirdViewController()
         }
     }

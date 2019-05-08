@@ -24,10 +24,42 @@ class NavigationCoordinator: NavigationStack {
     var screenOwner: (() -> NavigationStack)?
     
     private(set) var navigationController: UINavigationController
+    private var rootView: UIViewController?
+    private var dismissedClosure: (() -> ())?
     
-    init(navigation controller: UINavigationController, container stack: NavigationContainerStack) {
+    init(navigation controller: UINavigationController,
+         container stack: NavigationContainerStack) {
         self.navigationController = controller
         self.containerStack = stack
+    }
+    
+    deinit {
+        debugPrint("Deallocating NavigationCoordinator")
+    }
+    
+    init<T: UIViewController>(withRoot controller: () -> T?,
+                              container stack: NavigationContainerStack,
+                              withCustom navigation: UINavigationController? = nil,
+                              finishedLoad presenting: (() -> ())? = nil,
+                              dismissed navigationFlow: (() -> ())? = nil) {
+        self.containerStack = stack
+        
+        guard let rootViewController = controller() else {
+            fatalError("You need to have a root view controller instance")
+        }
+        
+        if let customNavigation = navigation {
+            self.navigationController = customNavigation
+        } else {
+        	self.navigationController = UINavigationController(rootViewController: rootViewController)
+        }
+        
+        presentNewFlow(navigation: self.navigationController, resolved: { [weak self] in
+            self?.adjustModulesReference()
+            presenting?()
+        })
+        
+        self.dismissedClosure = navigationFlow
     }
     
     func goNext<T: UIViewController>(screen view: @escaping ((T.Type) -> ()) -> (),
@@ -69,8 +101,20 @@ class NavigationCoordinator: NavigationStack {
         }
     }
     
+    func dismissFlowController(animated: Bool = true, completion: (() -> Void)? = nil) {
+        if self.rootView == nil {
+            debugPrint("You dont't have any root view controller that is being used")
+        }
+        
+        self.rootView?.dismiss(animated: animated, completion: { [weak self] in
+            self?.adjustModulesReference()
+            self?.dismissedClosure?()
+            completion?()
+        })
+    }
     
     // MARK: Helpers
+    // Resolve instances in a generic way according to the type, if from storybooard of if from nib
     private func resolveInstance<T: UIViewController>(viewController from: ViewIntanceFrom, for view: T.Type) -> UIViewController? {
         switch from {
         case .storyboard(let storyboard):
@@ -94,9 +138,25 @@ class NavigationCoordinator: NavigationStack {
         }
     }
     
+    // This is to "clean" the references when we navigate back, in order to avoid use the same
+    // instance as soon we already navigated away from those views, make safe instantiate next
+    // time that we call again this view
     private func adjustModulesReference() {
         // We adjust our modules list reference, we "destroy" the reference's that we have in order
         // to next time we load again to avoid problems trying to reuse the same one twice
-        containerStack?.updateModulesReference(for: self.navigationController.viewControllers)
+        // beside this we automatically set the coordinator reference on our navigation view controller,
+        // so we do not need to care about, but if we do not have the type is ok too will just not set, so
+        // pay atention
+        containerStack?.updateModulesReference(for: self.navigationController.viewControllers, coordinator: self)
+    }
+    
+    private func presentNewFlow(navigation controller: UINavigationController,
+                                resolved instance: (() -> ())? = nil) {
+        guard let rootView = UIApplication.shared.keyWindow?.rootViewController else { return }
+        self.rootView = rootView
+        rootView.present(controller, animated: true) {
+            // Finished load
+            instance?()
+        }
     }
 }

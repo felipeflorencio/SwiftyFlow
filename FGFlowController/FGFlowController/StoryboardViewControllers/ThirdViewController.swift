@@ -37,4 +37,9 @@ class ThirdViewController: UIViewController, ViewModule, NavigationStack {
             viewToGo(FirstViewController.self)
         })
     }
+    
+    // This is a behaviour that for now should only be used for test
+    @IBAction func forDismissWhenPresenting() {
+        navigationCoordinator?.dismissFlowController()
+    }
 }

@@ -19,15 +19,28 @@ class NavigationContainerStack {
         modules = [WeakContainer]()
     }
     
-    func registerModule<T: ViewModule>(for type: Any.Type, resolve: @escaping () -> T) {
+    @discardableResult convenience init(for instances: (NavigationContainerStack) -> ()) {
+        self.init()
+        instances(self)
+    }
+    
+    @discardableResult func registerModule<T: ViewModule>(for type: Any.Type, resolve: @escaping () -> T) -> WeakContainer<UIViewController> {
         let weakContainer = WeakContainer(for: type) { () -> UIViewController? in
             return resolve()
         }
         modules.append(weakContainer)
+        
+        return weakContainer
     }
     
+    // Get the module list that you registered, can have itens that are not being instantiate yet
+    // or by you getting back they are nullified the reference, just need to be instantiate again
     func getModulesList() -> [WeakContainer<UIViewController>] {
         return modules
+    }
+    
+    func getModuleIfInTheList<T: UIViewController>(for type: T.Type) {
+//        let module
     }
     
     func resolve<T: UIViewController>(for item: T.Type) -> T? {
@@ -50,17 +63,25 @@ class NavigationContainerStack {
             return weakContainer.type() == type
         }
         
-        module?.in(scope: .weak)
+        module?.inScope(scope: .weak)
         module?.updateInstance(reference: reference())
     }
     
-    func updateModulesReference(for navigation: [UIViewController]) {        
+    // This is used when we get back from navigation view controller, because as we get back our dependencies
+    // still how the value from the previous reference, but should not as we will navigate again to, and by
+    // the concept will be a new again, so with this we align our modules reference to be nullified beside
+    // factory reference as he will possible be used again to get the instance again
+    func updateModulesReference<T: UIViewController>(for navigation: [T], coordinator reference: NavigationCoordinator) {
         let notInTheNavigation = self.modules.filter { weakContainer -> Bool in
             return navigation.first(where: { type(of: $0) == weakContainer.forType }) == nil
         }
         
         notInTheNavigation.forEach { weakContainer in
             weakContainer.resetInstanceReference()
+        }
+        
+        navigation.forEach { viewController in
+            (viewController as? NavigationStack)?.navigationCoordinator = reference
         }
     }
 }
@@ -75,7 +96,7 @@ class WeakContainer<T> where T: UIViewController {
     
     typealias Container = () -> T?
     private var factory: (Container)?
-    private var scope: Scope = .none
+    private var scope: Scope = .weak
     private(set) var forType: Any.Type
     private weak var weakInstance: AnyObject?
     private var strongInstance: T?
@@ -116,8 +137,10 @@ class WeakContainer<T> where T: UIViewController {
     }
     
     // Set the scope that we will want for this object
-    public func `in`(scope: Scope) {
+    @discardableResult
+    public func inScope(scope: Scope) -> Self {
         self.scope = scope
+        return self
     }
     
     // MARK: Helper to update self object reference for now when load from storyboard
