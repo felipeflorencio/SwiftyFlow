@@ -1,6 +1,6 @@
 //
-//  NavigationCoordinator.swift
-//  FGFlowController
+//  FlowManager.swift
+//  SwiftyFlow
 //
 //  Created by Felipe Florencio Garcia on 05/05/2019.
 //  Copyright © 2019 Felipe Florencio Garcia. All rights reserved.
@@ -19,27 +19,41 @@ enum NavigationPopStyle {
     case popToRoot(animated: Bool)
 }
 
-class NavigationCoordinator: NavigationStack {
+//class DefaultNavigationFlow {
+//    
+//    private(set) var defaultFlow: [ViewModule]
+//    
+//    init<T: ViewModule>(for types: [T]) {
+//        
+//    }
+//}
+
+class FlowManager: NavigationFlow {
     
-    var containerStack: NavigationContainerStack?
-    var screenOwner: (() -> NavigationStack)?
-    
+    // Public read variables
     private(set) var navigationController: UINavigationController
+    private(set) var containerStack: ContainerFlowStack?
+    
+    // Private variables
     private var rootView: UIViewController?
     private var dismissedClosure: (() -> ())?
     
+    // Private variables for you have callback when finish you flow
+    private var dismissCallBackClosure: ((Any) -> ())?
+    
+    // MARK: Initializers
     init(navigation controller: UINavigationController,
-         container stack: NavigationContainerStack) {
+         container stack: ContainerFlowStack) {
         self.navigationController = controller
         self.containerStack = stack
     }
     
     deinit {
-        debugPrint("Deallocating NavigationCoordinator")
+        debugPrint("Deallocating FlowManager")
     }
     
     init<T: UIViewController>(withRoot controller: () -> T?,
-                              container stack: NavigationContainerStack,
+                              container stack: ContainerFlowStack,
                               withCustom navigation: UINavigationController? = nil,
                               finishedLoad presenting: (() -> ())? = nil,
                               dismissed navigationFlow: (() -> ())? = nil) {
@@ -63,6 +77,7 @@ class NavigationCoordinator: NavigationStack {
         self.dismissedClosure = navigationFlow
     }
     
+    // MARK: - Navigation
     func goNext<T: UIViewController>(screen view: @escaping ((T.Type) -> ()) -> (),
                                      resolve asType: ViewIntanceFrom = .nib,
                                      resolved instance: ((T) -> ())? = nil) {
@@ -73,7 +88,7 @@ class NavigationCoordinator: NavigationStack {
                 return
             }
             
-            (controller as? NavigationStack)?.navigationCoordinator = self
+            (controller as? NavigationFlow)?.navigationFlow = self
             instance?(controller as! T)
             
             self?.navigationController.pushViewController(controller, animated: true)
@@ -83,8 +98,9 @@ class NavigationCoordinator: NavigationStack {
     // This is used to get back when you are navigating using storyboard, with this
     // you can easy get back to the root view from you navigation controller stack
     // or you can pass on type of view that you registered before and go to that view
+    @discardableResult
     func getBack<T: UIViewController>(pop withStyle: NavigationPopStyle = .pop(animated: true),
-                                      screen view: (((T.Type) -> ()) -> ())? = nil) {
+                                      screen view: (((T.Type) -> ()) -> ())? = nil) -> Self {
         
         switch withStyle {
         case .popToRoot(let animated):
@@ -106,9 +122,12 @@ class NavigationCoordinator: NavigationStack {
                 self?.adjustModulesReference()
             })
         }
+        
+        return self
     }
     
-    func dismissFlowController(animated: Bool = true, completion: (() -> Void)? = nil) {
+    @discardableResult
+    func dismissFlowController(animated: Bool = true, completion: (() -> Void)? = nil) -> Self {
         if self.rootView == nil {
             debugPrint("You dont't have any root view controller that is being used")
         }
@@ -118,6 +137,21 @@ class NavigationCoordinator: NavigationStack {
             self?.dismissedClosure?()
             completion?()
         })
+        
+        return self
+    }
+    
+    // MARK: Callback's when dismiss / close your flow
+    func finishFlowWith(parameter data: Any) {
+        dismissCallBackClosure?(data)
+    }
+    
+    // This should be called only when you instantiate your FlowManager as it's intended
+    // only to pass parameter back that you perhaps want like a response after finish
+    @discardableResult
+    func dismissedFlowWith(paramenter invoker: @escaping (Any) -> ()) -> Self {
+        dismissCallBackClosure = invoker
+        return self
     }
     
     // MARK: Helpers

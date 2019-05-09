@@ -1,6 +1,6 @@
 //
 //  SecondViewController.swift
-//  FGFlowController
+//  SwiftyFlow
 //
 //  Created by Felipe Florencio Garcia on 05/05/2019.
 //  Copyright © 2019 Felipe Florencio Garcia. All rights reserved.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class SecondViewController: UIViewController, ViewModule, NavigationStack {
+class SecondViewController: UIViewController, ViewModule, NavigationFlow {
     
-    var navigationCoordinator: NavigationCoordinator?
+    var navigationFlow: FlowManager?
     
     var nameForTitle: String?
     
@@ -22,7 +22,7 @@ class SecondViewController: UIViewController, ViewModule, NavigationStack {
     
     // Storyboard Navigation
     @IBAction func goNextView() {
-        self.navigationCoordinator?.goNext(screen: { showView in
+        self.navigationFlow?.goNext(screen: { showView in
             showView(ThirdViewController.self)
         }, resolve: .storyboard("Main"), resolved: { instance in
             
@@ -30,13 +30,13 @@ class SecondViewController: UIViewController, ViewModule, NavigationStack {
     }
     
     @IBAction func goBackView() {
-        navigationCoordinator?.getBack()
+        navigationFlow?.getBack()
     }
     
     // NIB Navigation
     @IBAction func goNextNibView() {
         
-        self.navigationCoordinator?.goNext(screen: { showView in
+        self.navigationFlow?.goNext(screen: { showView in
             showView(ThirdViewController.self)
         }, resolve: .nib, resolved: { instance in
             
@@ -44,6 +44,6 @@ class SecondViewController: UIViewController, ViewModule, NavigationStack {
     }
     
     @IBAction func goBackNibView() {
-        navigationCoordinator?.getBack()
+        navigationFlow?.getBack()
     }
 }

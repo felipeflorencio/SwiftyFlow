@@ -1,6 +1,6 @@
 //
 //  ThirdViewController.swift
-//  FGFlowController
+//  SwiftyFlow
 //
 //  Created by Felipe Florencio Garcia on 05/05/2019.
 //  Copyright © 2019 Felipe Florencio Garcia. All rights reserved.
@@ -8,29 +8,29 @@
 
 import UIKit
 
-class ThirdViewController: UIViewController, ViewModule, NavigationStack {
+class ThirdViewController: UIViewController, ViewModule, NavigationFlow {
         
-    var navigationCoordinator: NavigationCoordinator?
+    var navigationFlow: FlowManager?
     
     @IBAction func goBackToRootStoryboardNavigation() {
-        self.navigationCoordinator?.getBack(pop: .popToRoot(animated: true))
+        self.navigationFlow?.getBack(pop: .popToRoot(animated: true)).finishFlowWith(parameter: "It's me calling back - popToRoot")
     }
     
     @IBAction func goBackView() {
-        self.navigationCoordinator?.getBack(pop: .popTo(animated: true), screen: { viewToGo in
+        self.navigationFlow?.getBack(pop: .popTo(animated: true), screen: { viewToGo in
             viewToGo(FirstViewController.self)
         })
     }
     
     // NIB Navigation
     @IBAction func goBackNibView() {
-        self.navigationCoordinator?.getBack(pop: .popTo(animated: true), screen: { viewToGo in
+        self.navigationFlow?.getBack(pop: .popTo(animated: true), screen: { viewToGo in
             viewToGo(FirstViewController.self)
         })
     }
     
     // This is a behaviour that for now should only be used for test
     @IBAction func forDismissWhenPresenting() {
-        navigationCoordinator?.dismissFlowController()
+        navigationFlow?.dismissFlowController().finishFlowWith(parameter: "It's me calling back - Presenter")
     }
 }

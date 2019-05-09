@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  FGFlowController
+//  SwiftyFlow
 //
 //  Created by Felipe Florencio Garcia on 05/05/2019.
 //  Copyright © 2019 Felipe Florencio Garcia. All rights reserved.

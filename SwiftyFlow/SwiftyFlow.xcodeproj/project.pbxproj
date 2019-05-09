@@ -16,19 +16,19 @@
 		8CC8B603227EDF7D0033C5DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8B602227EDF7D0033C5DE /* Assets.xcassets */; };
 		8CC8B606227EDF7D0033C5DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8B604227EDF7D0033C5DE /* LaunchScreen.storyboard */; };
 		8CC8B613227EDFB40033C5DE /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8B60D227EDFB40033C5DE /* FirstViewController.swift */; };
-		8CC8B614227EDFB40033C5DE /* NavigationContainerStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8B60E227EDFB40033C5DE /* NavigationContainerStack.swift */; };
+		8CC8B614227EDFB40033C5DE /* ContainerFlowStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8B60E227EDFB40033C5DE /* ContainerFlowStack.swift */; };
 		8CC8B615227EDFB40033C5DE /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8B60F227EDFB40033C5DE /* ContainerView.swift */; };
 		8CC8B616227EDFB40033C5DE /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8B610227EDFB40033C5DE /* ThirdViewController.swift */; };
-		8CC8B617227EDFB40033C5DE /* NavigationStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8B611227EDFB40033C5DE /* NavigationStackProtocol.swift */; };
+		8CC8B617227EDFB40033C5DE /* NavigationFlowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8B611227EDFB40033C5DE /* NavigationFlowProtocol.swift */; };
 		8CC8B618227EDFB40033C5DE /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8B612227EDFB40033C5DE /* SecondViewController.swift */; };
-		8CD88344227F046F005B42FE /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD88343227F046F005B42FE /* NavigationCoordinator.swift */; };
+		8CD88344227F046F005B42FE /* FlowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD88343227F046F005B42FE /* FlowManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8C1247832281D076009400B4 /* ThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdViewController.xib; sourceTree = "<group>"; };
 		8C1247842281D076009400B4 /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
 		8CBAB0A02281C7850050E8AF /* FirstViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
-		8CC8B5F8227EDF7D0033C5DE /* FGFlowController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FGFlowController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CC8B5F8227EDF7D0033C5DE /* SwiftyFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CC8B5FB227EDF7D0033C5DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CC8B5FD227EDF7D0033C5DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8CC8B600227EDF7D0033C5DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -36,12 +36,12 @@
 		8CC8B605227EDF7D0033C5DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8CC8B607227EDF7D0033C5DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CC8B60D227EDFB40033C5DE /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		8CC8B60E227EDFB40033C5DE /* NavigationContainerStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationContainerStack.swift; sourceTree = "<group>"; };
+		8CC8B60E227EDFB40033C5DE /* ContainerFlowStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerFlowStack.swift; sourceTree = "<group>"; };
 		8CC8B60F227EDFB40033C5DE /* ContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		8CC8B610227EDFB40033C5DE /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
-		8CC8B611227EDFB40033C5DE /* NavigationStackProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationStackProtocol.swift; sourceTree = "<group>"; };
+		8CC8B611227EDFB40033C5DE /* NavigationFlowProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationFlowProtocol.swift; sourceTree = "<group>"; };
 		8CC8B612227EDFB40033C5DE /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		8CD88343227F046F005B42FE /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
+		8CD88343227F046F005B42FE /* FlowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +78,7 @@
 		8CC8B5EF227EDF7D0033C5DE = {
 			isa = PBXGroup;
 			children = (
-				8CC8B5FA227EDF7D0033C5DE /* FGFlowController */,
+				8CC8B5FA227EDF7D0033C5DE /* SwiftyFlow */,
 				8CC8B5F9227EDF7D0033C5DE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,12 +86,12 @@
 		8CC8B5F9227EDF7D0033C5DE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8CC8B5F8227EDF7D0033C5DE /* FGFlowController.app */,
+				8CC8B5F8227EDF7D0033C5DE /* SwiftyFlow.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8CC8B5FA227EDF7D0033C5DE /* FGFlowController */ = {
+		8CC8B5FA227EDF7D0033C5DE /* SwiftyFlow */ = {
 			isa = PBXGroup;
 			children = (
 				8CBAB09F2281C7570050E8AF /* NibViewControllers */,
@@ -105,15 +105,15 @@
 				8CC8B604227EDF7D0033C5DE /* LaunchScreen.storyboard */,
 				8CC8B607227EDF7D0033C5DE /* Info.plist */,
 			);
-			path = FGFlowController;
+			path = SwiftyFlow;
 			sourceTree = "<group>";
 		};
 		8CC8B619227EF2680033C5DE /* NavigationStackContainer */ = {
 			isa = PBXGroup;
 			children = (
-				8CC8B611227EDFB40033C5DE /* NavigationStackProtocol.swift */,
-				8CC8B60E227EDFB40033C5DE /* NavigationContainerStack.swift */,
-				8CD88343227F046F005B42FE /* NavigationCoordinator.swift */,
+				8CC8B611227EDFB40033C5DE /* NavigationFlowProtocol.swift */,
+				8CC8B60E227EDFB40033C5DE /* ContainerFlowStack.swift */,
+				8CD88343227F046F005B42FE /* FlowManager.swift */,
 			);
 			path = NavigationStackContainer;
 			sourceTree = "<group>";
@@ -121,9 +121,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8CC8B5F7227EDF7D0033C5DE /* FGFlowController */ = {
+		8CC8B5F7227EDF7D0033C5DE /* SwiftyFlow */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8CC8B60A227EDF7D0033C5DE /* Build configuration list for PBXNativeTarget "FGFlowController" */;
+			buildConfigurationList = 8CC8B60A227EDF7D0033C5DE /* Build configuration list for PBXNativeTarget "SwiftyFlow" */;
 			buildPhases = (
 				8CC8B5F4227EDF7D0033C5DE /* Sources */,
 				8CC8B5F5227EDF7D0033C5DE /* Frameworks */,
@@ -133,9 +133,9 @@
 			);
 			dependencies = (
 			);
-			name = FGFlowController;
+			name = SwiftyFlow;
 			productName = FGFlowController;
-			productReference = 8CC8B5F8227EDF7D0033C5DE /* FGFlowController.app */;
+			productReference = 8CC8B5F8227EDF7D0033C5DE /* SwiftyFlow.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -153,7 +153,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8CC8B5F3227EDF7D0033C5DE /* Build configuration list for PBXProject "FGFlowController" */;
+			buildConfigurationList = 8CC8B5F3227EDF7D0033C5DE /* Build configuration list for PBXProject "SwiftyFlow" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -166,7 +166,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8CC8B5F7227EDF7D0033C5DE /* FGFlowController */,
+				8CC8B5F7227EDF7D0033C5DE /* SwiftyFlow */,
 			);
 		};
 /* End PBXProject section */
@@ -196,9 +196,9 @@
 				8CC8B615227EDFB40033C5DE /* ContainerView.swift in Sources */,
 				8CC8B613227EDFB40033C5DE /* FirstViewController.swift in Sources */,
 				8CC8B5FE227EDF7D0033C5DE /* ViewController.swift in Sources */,
-				8CD88344227F046F005B42FE /* NavigationCoordinator.swift in Sources */,
-				8CC8B617227EDFB40033C5DE /* NavigationStackProtocol.swift in Sources */,
-				8CC8B614227EDFB40033C5DE /* NavigationContainerStack.swift in Sources */,
+				8CD88344227F046F005B42FE /* FlowManager.swift in Sources */,
+				8CC8B617227EDFB40033C5DE /* NavigationFlowProtocol.swift in Sources */,
+				8CC8B614227EDFB40033C5DE /* ContainerFlowStack.swift in Sources */,
 				8CC8B616227EDFB40033C5DE /* ThirdViewController.swift in Sources */,
 				8CC8B5FC227EDF7D0033C5DE /* AppDelegate.swift in Sources */,
 			);
@@ -348,12 +348,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9RVZM5B68T;
-				INFOPLIST_FILE = FGFlowController/Info.plist;
+				INFOPLIST_FILE = SwiftyFlow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = felipe.myself.FGFlowController;
+				PRODUCT_BUNDLE_IDENTIFIER = felipe.myself.SwifttFlow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -366,12 +366,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9RVZM5B68T;
-				INFOPLIST_FILE = FGFlowController/Info.plist;
+				INFOPLIST_FILE = SwiftyFlow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = felipe.myself.FGFlowController;
+				PRODUCT_BUNDLE_IDENTIFIER = felipe.myself.SwifttFlow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -381,7 +381,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8CC8B5F3227EDF7D0033C5DE /* Build configuration list for PBXProject "FGFlowController" */ = {
+		8CC8B5F3227EDF7D0033C5DE /* Build configuration list for PBXProject "SwiftyFlow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8CC8B608227EDF7D0033C5DE /* Debug */,
@@ -390,7 +390,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8CC8B60A227EDF7D0033C5DE /* Build configuration list for PBXNativeTarget "FGFlowController" */ = {
+		8CC8B60A227EDF7D0033C5DE /* Build configuration list for PBXNativeTarget "SwiftyFlow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8CC8B60B227EDF7D0033C5DE /* Debug */,

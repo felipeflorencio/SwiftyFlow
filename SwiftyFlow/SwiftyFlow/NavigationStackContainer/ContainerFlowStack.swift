@@ -1,6 +1,6 @@
 //
-//  NavigationContainerStack.swift
-//  FGFlowController
+//  ContainerFlowStack.swift
+//  SwiftyFlow
 //
 //  Created by Felipe Florencio Garcia on 05/05/2019.
 //  Copyright © 2019 Felipe Florencio Garcia. All rights reserved.
@@ -11,7 +11,7 @@ import UIKit
 
 protocol ViewModule where Self: UIViewController { }
 
-class NavigationContainerStack {
+class ContainerFlowStack {
     
     private(set) var modules: [WeakContainer<UIViewController>]
     
@@ -19,12 +19,14 @@ class NavigationContainerStack {
         modules = [WeakContainer]()
     }
     
-    @discardableResult convenience init(for instances: (NavigationContainerStack) -> ()) {
+    @discardableResult
+    convenience init(for instances: (ContainerFlowStack) -> ()) {
         self.init()
         instances(self)
     }
     
-    @discardableResult func registerModule<T: ViewModule>(for type: Any.Type, resolve: @escaping () -> T) -> WeakContainer<UIViewController> {
+    @discardableResult
+    func registerModule<T: ViewModule>(for type: Any.Type, resolve: @escaping () -> T) -> WeakContainer<UIViewController> {
         let weakContainer = WeakContainer(for: type) { () -> UIViewController? in
             return resolve()
         }
@@ -33,14 +35,31 @@ class NavigationContainerStack {
         return weakContainer
     }
     
+    // MARK: - Get list of items registered and the reference of an item
+    
     // Get the module list that you registered, can have itens that are not being instantiate yet
     // or by you getting back they are nullified the reference, just need to be instantiate again
     func getModulesList() -> [WeakContainer<UIViewController>] {
         return modules
     }
     
-    func getModuleIfInTheList<T: UIViewController>(for type: T.Type) {
-//        let module
+    func getModuleIfHasInstance<T: UIViewController>(for type: T.Type) -> T? {
+        
+        // First we evaluate if we have the module inside
+        guard let item = modules.first(where: { weakContainer -> Bool in
+            return weakContainer.forType == type
+        }) else {
+            return nil
+        }
+        
+        // Second we evaluate if is a resolved instance, that is `weak` or `strong`
+        // As if is `none` will generate a new instance that is not the purpouse of
+        // this method, here is to get the reference to a item that already is resolved
+        guard item.scope != .none else {
+            return nil
+        }
+        
+        return item.resolve()
     }
     
     func resolve<T: UIViewController>(for item: T.Type) -> T? {
@@ -75,7 +94,7 @@ class NavigationContainerStack {
     // ** Should not be called when get back to root, if we are getting back to root the right to do is nullify
     // all our reference's beside the closure as we can start again, and if so we should start resolving and
     // using the new instance reference
-    func updateModulesReference<T: UIViewController>(for navigation: [T], coordinator reference: NavigationCoordinator) {
+    func updateModulesReference<T: UIViewController>(for navigation: [T], coordinator reference: FlowManager) {
         let notInTheNavigation = self.modules.filter { weakContainer -> Bool in
             return navigation.first(where: { type(of: $0) == weakContainer.forType }) == nil
         }
@@ -85,7 +104,7 @@ class NavigationContainerStack {
         }
         
         navigation.forEach { viewController in
-            (viewController as? NavigationStack)?.navigationCoordinator = reference
+            (viewController as? NavigationFlow)?.navigationFlow = reference
         }
     }
     
@@ -109,7 +128,7 @@ class WeakContainer<T> where T: UIViewController {
     
     typealias Container = () -> T?
     private var factory: (Container)?
-    private var scope: Scope = .weak
+    private(set) var scope: Scope = .weak
     private(set) var forType: Any.Type
     private weak var weakInstance: AnyObject?
     private var strongInstance: T?
@@ -119,7 +138,7 @@ class WeakContainer<T> where T: UIViewController {
         forType = type
     }
     
-    // TO-DO: Verify the moments that we want to deinit for for, as we want to have
+    // TODO: (felipe) Verify the moments that we want to deinit, as we want to have
     // strong reference, but this should never lead to an retain cycle
     deinit {
         factory = nil
@@ -132,7 +151,6 @@ class WeakContainer<T> where T: UIViewController {
         case .none:
             return factory?() as? T
         case .weak:
-            // TO-DO: Validate if we really want to have the type forced to be UIViewController here
             let resolved = (weakInstance as? T) ?? (factory?() as? T)
             weakInstance = resolved as? UIViewController
             return resolved
@@ -160,7 +178,7 @@ class WeakContainer<T> where T: UIViewController {
     // for this we will nullify factory as we should not get anymore from the closure
     // and not maintain the reference as this were generated by the Navigation Coordinator
     func updateInstance<T: UIViewController>(reference object: T) {
-        // TO-DO: Validate if this behaviour is ok or need to be changed
+        // TODO: (felipe) Validate if this behaviour is ok or need to be changed
         self.strongInstance = nil
 
         self.weakInstance = object
