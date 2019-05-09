@@ -13,10 +13,10 @@ protocol ViewModule where Self: UIViewController { }
 
 class ContainerFlowStack {
     
-    private(set) var modules: [WeakContainer<UIViewController>]
+    private(set) var modules: [FlowElementContainer<UIViewController>]
     
     @discardableResult init() {
-        modules = [WeakContainer]()
+        modules = [FlowElementContainer]()
     }
     
     @discardableResult
@@ -26,28 +26,28 @@ class ContainerFlowStack {
     }
     
     @discardableResult
-    func registerModule<T: ViewModule>(for type: Any.Type, resolve: @escaping () -> T) -> WeakContainer<UIViewController> {
-        let weakContainer = WeakContainer(for: type) { () -> UIViewController? in
+    func registerModule<T: ViewModule>(for type: Any.Type, resolve: @escaping () -> T) -> FlowElementContainer<UIViewController> {
+        let elementContainer = FlowElementContainer(for: type) { () -> UIViewController? in
             return resolve()
         }
-        modules.append(weakContainer)
+        modules.append(elementContainer)
         
-        return weakContainer
+        return elementContainer
     }
     
     // MARK: - Get list of items registered and the reference of an item
     
     // Get the module list that you registered, can have itens that are not being instantiate yet
     // or by you getting back they are nullified the reference, just need to be instantiate again
-    func getModulesList() -> [WeakContainer<UIViewController>] {
+    func getModulesList() -> [FlowElementContainer<UIViewController>] {
         return modules
     }
     
     func getModuleIfHasInstance<T: UIViewController>(for type: T.Type) -> T? {
         
         // First we evaluate if we have the module inside
-        guard let item = modules.first(where: { weakContainer -> Bool in
-            return weakContainer.forType == type
+        guard let item = modules.first(where: { element -> Bool in
+            return element.forType == type
         }) else {
             return nil
         }
@@ -63,11 +63,11 @@ class ContainerFlowStack {
     }
     
     func resolve<T: UIViewController>(for item: T.Type) -> T? {
-        let module = modules.first { weakContainer -> Bool in
+        let module = modules.first { element -> Bool in
             debugPrint("Type requesting: \(item)")
-            debugPrint("Container type: \(weakContainer.type())")
+            debugPrint("Container type: \(element.forType)")
             
-            return weakContainer.type() == item
+            return element.forType == item
         }
         
         return module?.resolve()
@@ -75,11 +75,11 @@ class ContainerFlowStack {
     
     // MARK: - Update reference item inside list
     func replaceInstanceReference<T: UIViewController>(for type: T.Type, instance reference: () -> UIViewController) {
-        let module = modules.first { weakContainer -> Bool in
+        let module = modules.first { element -> Bool in
             debugPrint("Type requesting replace: \(type)")
-            debugPrint("Container type replace: \(weakContainer.type())")
+            debugPrint("Container type replace: \(element.forType)")
             
-            return weakContainer.type() == type
+            return element.forType == type
         }
         
         module?.inScope(scope: .weak)
@@ -95,12 +95,12 @@ class ContainerFlowStack {
     // all our reference's beside the closure as we can start again, and if so we should start resolving and
     // using the new instance reference
     func updateModulesReference<T: UIViewController>(for navigation: [T], coordinator reference: FlowManager) {
-        let notInTheNavigation = self.modules.filter { weakContainer -> Bool in
-            return navigation.first(where: { type(of: $0) == weakContainer.forType }) == nil
+        let notInTheNavigation = self.modules.filter { element -> Bool in
+            return navigation.first(where: { type(of: $0) == element.forType }) == nil
         }
         
-        notInTheNavigation.forEach { weakContainer in
-            weakContainer.resetInstanceReference()
+        notInTheNavigation.forEach { element in
+            element.resetInstanceReference()
         }
         
         navigation.forEach { viewController in
@@ -112,83 +112,8 @@ class ContainerFlowStack {
     // is using stobyboard or when we "dismiss" completely our navigation so we nullify
     // the reference to those objects in order to guarante that will be not there
     func destroyInstanceReferenceWhenToRoot() {
-        self.modules.forEach { weakContainer in
-            weakContainer.resetInstanceReference()
+        self.modules.forEach { element in
+            element.resetInstanceReference()
         }
-    }
-}
-
-class WeakContainer<T> where T: UIViewController {
-    
-    public enum Scope {
-        case none       // fresh instance all the time, default
-        case weak       // weak ref to instance, at leas one object
-        case strong     // keep alive
-    }
-    
-    typealias Container = () -> T?
-    private var factory: (Container)?
-    private(set) var scope: Scope = .weak
-    private(set) var forType: Any.Type
-    private weak var weakInstance: AnyObject?
-    private var strongInstance: T?
-    
-    init(for type: Any.Type, resolving: @escaping Container) {
-        factory = resolving
-        forType = type
-    }
-    
-    // TODO: (felipe) Verify the moments that we want to deinit, as we want to have
-    // strong reference, but this should never lead to an retain cycle
-    deinit {
-        factory = nil
-        weakInstance = nil
-        strongInstance = nil
-    }
-    
-    func resolve<T>() -> T? {
-        switch scope {
-        case .none:
-            return factory?() as? T
-        case .weak:
-            let resolved = (weakInstance as? T) ?? (factory?() as? T)
-            weakInstance = resolved as? UIViewController
-            return resolved
-        case .strong where strongInstance == nil:
-            strongInstance = factory?()
-            fallthrough
-        case .strong:
-            return strongInstance as? T
-        }
-    }
-
-    // To be able to see what is the type for this item
-    func type() -> Any.Type {
-        return forType
-    }
-    
-    // Set the scope that we will want for this object
-    @discardableResult
-    public func inScope(scope: Scope) -> Self {
-        self.scope = scope
-        return self
-    }
-    
-    // MARK: Helper to update self object reference for now when load from storyboard
-    // for this we will nullify factory as we should not get anymore from the closure
-    // and not maintain the reference as this were generated by the Navigation Coordinator
-    func updateInstance<T: UIViewController>(reference object: T) {
-        // TODO: (felipe) Validate if this behaviour is ok or need to be changed
-        self.strongInstance = nil
-
-        self.weakInstance = object
-    }
-    
-    // This is used to remove any object reference and make sure that if we start the flow again
-    // we will always use the fresh instance as is suppose to be
-    func resetInstanceReference() {
-        debugPrint("Destroying reference instance for \(self.forType)")
-        self.weakInstance = nil
-        self.strongInstance = nil
     }
 }

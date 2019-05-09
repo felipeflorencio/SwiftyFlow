@@ -166,7 +166,7 @@ class FlowManager: NavigationFlow {
             // As here we have a different instance, we need to update our navigation stack weak object reference with this new one
             // just to be able if we need to have the right reference variable in order to be able to pass some parameters or any one
             // need that is mandatory in order to have the right reference
-            // FOR this we need to add some new interface method that update our WeakContainer object and pass to the caller back
+            // FOR this we need to add some new interface method that update our FlowElementContainer object and pass to the caller back
             // using protocol this new value as reference so the one that instantiate can use
             containerStack?.replaceInstanceReference(for: view, instance: { () -> UIViewController in
                 return controller

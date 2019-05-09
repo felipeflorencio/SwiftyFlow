@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8C1247852281D076009400B4 /* ThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1247832281D076009400B4 /* ThirdViewController.xib */; };
 		8C1247862281D076009400B4 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1247842281D076009400B4 /* SecondViewController.xib */; };
+		8C12479422846894009400B4 /* FlowElementContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12479322846894009400B4 /* FlowElementContainer.swift */; };
 		8CBAB0A12281C7850050E8AF /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CBAB0A02281C7850050E8AF /* FirstViewController.xib */; };
 		8CC8B5FC227EDF7D0033C5DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8B5FB227EDF7D0033C5DE /* AppDelegate.swift */; };
 		8CC8B5FE227EDF7D0033C5DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8B5FD227EDF7D0033C5DE /* ViewController.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		8C1247832281D076009400B4 /* ThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdViewController.xib; sourceTree = "<group>"; };
 		8C1247842281D076009400B4 /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
+		8C12479322846894009400B4 /* FlowElementContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowElementContainer.swift; sourceTree = "<group>"; };
 		8CBAB0A02281C7850050E8AF /* FirstViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
 		8CC8B5F8227EDF7D0033C5DE /* SwiftyFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CC8B5FB227EDF7D0033C5DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				8CC8B611227EDFB40033C5DE /* NavigationFlowProtocol.swift */,
 				8CC8B60E227EDFB40033C5DE /* ContainerFlowStack.swift */,
 				8CD88343227F046F005B42FE /* FlowManager.swift */,
+				8C12479322846894009400B4 /* FlowElementContainer.swift */,
 			);
 			path = NavigationStackContainer;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				8CC8B615227EDFB40033C5DE /* ContainerView.swift in Sources */,
 				8CC8B613227EDFB40033C5DE /* FirstViewController.swift in Sources */,
 				8CC8B5FE227EDF7D0033C5DE /* ViewController.swift in Sources */,
+				8C12479422846894009400B4 /* FlowElementContainer.swift in Sources */,
 				8CD88344227F046F005B42FE /* FlowManager.swift in Sources */,
 				8CC8B617227EDFB40033C5DE /* NavigationFlowProtocol.swift in Sources */,
 				8CC8B614227EDFB40033C5DE /* ContainerFlowStack.swift in Sources */,
