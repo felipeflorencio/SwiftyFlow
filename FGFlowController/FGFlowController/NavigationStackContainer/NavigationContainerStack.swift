@@ -71,6 +71,10 @@ class NavigationContainerStack {
     // still how the value from the previous reference, but should not as we will navigate again to, and by
     // the concept will be a new again, so with this we align our modules reference to be nullified beside
     // factory reference as he will possible be used again to get the instance again
+    //
+    // ** Should not be called when get back to root, if we are getting back to root the right to do is nullify
+    // all our reference's beside the closure as we can start again, and if so we should start resolving and
+    // using the new instance reference
     func updateModulesReference<T: UIViewController>(for navigation: [T], coordinator reference: NavigationCoordinator) {
         let notInTheNavigation = self.modules.filter { weakContainer -> Bool in
             return navigation.first(where: { type(of: $0) == weakContainer.forType }) == nil
@@ -82,6 +86,15 @@ class NavigationContainerStack {
         
         navigation.forEach { viewController in
             (viewController as? NavigationStack)?.navigationCoordinator = reference
+        }
+    }
+    
+    // Helper that need to be called everytime we call methods to get back to root when
+    // is using stobyboard or when we "dismiss" completely our navigation so we nullify
+    // the reference to those objects in order to guarante that will be not there
+    func destroyInstanceReferenceWhenToRoot() {
+        self.modules.forEach { weakContainer in
+            weakContainer.resetInstanceReference()
         }
     }
 }
@@ -153,7 +166,10 @@ class WeakContainer<T> where T: UIViewController {
         self.weakInstance = object
     }
     
+    // This is used to remove any object reference and make sure that if we start the flow again
+    // we will always use the fresh instance as is suppose to be
     func resetInstanceReference() {
+        debugPrint("Destroying reference instance for \(self.forType)")
         self.weakInstance = nil
         self.strongInstance = nil
     }

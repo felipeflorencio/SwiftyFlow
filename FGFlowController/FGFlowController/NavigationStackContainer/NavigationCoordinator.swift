@@ -16,6 +16,7 @@ enum ViewIntanceFrom {
 enum NavigationPopStyle {
     case pop(animated: Bool)
     case popTo(animated: Bool)
+    case popToRoot(animated: Bool)
 }
 
 class NavigationCoordinator: NavigationStack {
@@ -79,10 +80,16 @@ class NavigationCoordinator: NavigationStack {
         })
     }
     
+    // This is used to get back when you are navigating using storyboard, with this
+    // you can easy get back to the root view from you navigation controller stack
+    // or you can pass on type of view that you registered before and go to that view
     func getBack<T: UIViewController>(pop withStyle: NavigationPopStyle = .pop(animated: true),
                                       screen view: (((T.Type) -> ()) -> ())? = nil) {
         
         switch withStyle {
+        case .popToRoot(let animated):
+            self.navigationController.popToRootViewController(animated: animated)
+            self.resetModulesInstanceReference()
         case .pop(let animated):
             self.navigationController.popViewController(animated: animated)
             self.adjustModulesReference()
@@ -107,7 +114,7 @@ class NavigationCoordinator: NavigationStack {
         }
         
         self.rootView?.dismiss(animated: animated, completion: { [weak self] in
-            self?.adjustModulesReference()
+            self?.resetModulesInstanceReference()
             self?.dismissedClosure?()
             completion?()
         })
@@ -148,6 +155,11 @@ class NavigationCoordinator: NavigationStack {
         // so we do not need to care about, but if we do not have the type is ok too will just not set, so
         // pay atention
         containerStack?.updateModulesReference(for: self.navigationController.viewControllers, coordinator: self)
+    }
+    
+    // This should be used only when call "dismiss()" or "popToRoot()"
+    private func resetModulesInstanceReference() {
+        containerStack?.destroyInstanceReferenceWhenToRoot()
     }
     
     private func presentNewFlow(navigation controller: UINavigationController,

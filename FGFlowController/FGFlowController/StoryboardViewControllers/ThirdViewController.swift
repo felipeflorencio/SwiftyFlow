@@ -12,12 +12,9 @@ class ThirdViewController: UIViewController, ViewModule, NavigationStack {
         
     var navigationCoordinator: NavigationCoordinator?
     
-    // Storyboard Navigation
-//    @IBAction func goNextView() {
-//        self.navigationCoordinator?.goNext(screen: { showView in
-//            showView(SecondViewController.self)
-//        }, resolve: .storyboard("Main"))
-//    }
+    @IBAction func goBackToRootStoryboardNavigation() {
+        self.navigationCoordinator?.getBack(pop: .popToRoot(animated: true))
+    }
     
     @IBAction func goBackView() {
         self.navigationCoordinator?.getBack(pop: .popTo(animated: true), screen: { viewToGo in
@@ -26,12 +23,6 @@ class ThirdViewController: UIViewController, ViewModule, NavigationStack {
     }
     
     // NIB Navigation
-//    @IBAction func goNextNibView() {
-//        self.navigationCoordinator?.goNext(screen: { showView in
-//            showView(SecondViewController.self)
-//        }, resolve: .nib)
-//    }
-    
     @IBAction func goBackNibView() {
         self.navigationCoordinator?.getBack(pop: .popTo(animated: true), screen: { viewToGo in
             viewToGo(FirstViewController.self)
