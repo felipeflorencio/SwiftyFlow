@@ -85,8 +85,7 @@ class FlowManager: NavigationFlow {
             fatalError("You need to have a root navigation controller instance")
         }
         
-        presentNewFlow(navigation: navigationController, resolved: { [weak self] in
-            self?.adjustModulesReference()
+        presentNewFlow(navigation: navigationController, resolved: {
             presenting?()
         })
         
@@ -248,6 +247,8 @@ class FlowManager: NavigationFlow {
         } else {
             self.rootView = rootView
         }
+        
+        self.adjustModulesReference()
         
         rootView.present(controller, animated: true) {
             // Finished load

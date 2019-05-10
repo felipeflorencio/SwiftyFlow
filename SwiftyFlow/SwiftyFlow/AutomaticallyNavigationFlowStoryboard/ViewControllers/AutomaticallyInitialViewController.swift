@@ -14,6 +14,20 @@ class AutomaticallyInitialViewController: UIViewController, NavigationFlow {
     
     var navigationFlow: FlowManager?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        addCloseNavigationButton()
+    }
+    
+    // MARK: UI Adjust
+    private func addCloseNavigationButton() {
+      self.navigationFlow?.navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(title: "Close Navigation", style: .plain, target: self, action: #selector(closeTapped))
+    }
+    
+    @objc private func closeTapped() {
+        navigationFlow?.dismissFlowController()
+    }
+    
     // MARK: - IBAction
     @IBAction func startNavigation() {
         navigationFlow?.goNext()
