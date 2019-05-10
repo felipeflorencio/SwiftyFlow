@@ -79,6 +79,34 @@
                                     <action selector="startAutomaticallyNavigationUsingNibFlow" destination="BYZ-38-t0r" eventType="touchUpInside" id="Has-hq-ave"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fc8-2A-Y5p">
+                                <rect key="frame" x="15.5" y="241" width="383" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="IcB-vD-mlG"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="260" id="jrY-Xg-Zeh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Automatically / Go Anywhere Flow Using NIB Sample">
+                                    <color key="titleColor" red="0.97646335660000005" green="0.97646335660000005" blue="0.97646335660000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="startAutomaticallyGoAnywhereNavigationUsingNibFlow" destination="BYZ-38-t0r" eventType="touchUpInside" id="fAf-sd-JGT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uyf-7e-Od5">
+                                <rect key="frame" x="77" y="291" width="260" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0wY-5a-agz"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="260" id="EMM-pB-zFf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Deeplink Flow Using NIB Sample">
+                                    <color key="titleColor" red="0.97646335660000005" green="0.97646335660000005" blue="0.97646335660000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="deepLinkNavigationUsingNibFlow" destination="BYZ-38-t0r" eventType="touchUpInside" id="eLG-xr-2eH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.68627450980392157" green="0.82352941176470584" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -89,10 +117,14 @@
                             <constraint firstItem="tNW-JG-rX5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Sfd-Zq-lFj"/>
                             <constraint firstItem="oLb-zw-zDs" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Wue-Tp-3sT"/>
                             <constraint firstItem="tNW-JG-rX5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="44" id="XVk-Ig-KMs"/>
+                            <constraint firstItem="Fc8-2A-Y5p" firstAttribute="top" secondItem="WKk-wY-wTZ" secondAttribute="bottom" constant="24" id="bnX-Uf-cW0"/>
                             <constraint firstItem="Dz5-Sh-qAb" firstAttribute="top" secondItem="8fV-uQ-WE4" secondAttribute="bottom" constant="44" id="ilz-5e-60B"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tNW-JG-rX5" secondAttribute="trailing" constant="8" id="lBo-3T-FhM"/>
                             <constraint firstItem="WKk-wY-wTZ" firstAttribute="top" secondItem="tNW-JG-rX5" secondAttribute="bottom" constant="25" id="nZC-EC-tlH"/>
+                            <constraint firstItem="Uyf-7e-Od5" firstAttribute="top" secondItem="Fc8-2A-Y5p" secondAttribute="bottom" constant="20" id="ndU-xr-gcK"/>
                             <constraint firstItem="Dz5-Sh-qAb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nyn-WS-R5r"/>
+                            <constraint firstItem="Uyf-7e-Od5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rGU-pF-tdP"/>
+                            <constraint firstItem="Fc8-2A-Y5p" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="toc-Jm-ByB"/>
                             <constraint firstItem="WKk-wY-wTZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xSh-Iy-crw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

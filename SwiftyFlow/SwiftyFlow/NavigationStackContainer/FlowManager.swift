@@ -233,17 +233,20 @@ class FlowManager: NavigationFlow {
     
     private func presentNewFlow(navigation controller: UINavigationController,
                                 resolved instance: (() -> ())? = nil) {
-        guard let rootView = UIApplication.shared.keyWindow?.rootViewController else { return }
-        
-        if rootView is UINavigationController {
-            self.rootView = (rootView as? UINavigationController)?.visibleViewController
-        } else {
-            self.rootView = rootView
+        // When we go deeper in the navigation level, there's different instances that actually
+        // is the one that is one top, with this, as you are looking for the most top view
+        // to present you new UINavigationController you will be able to do otherwise you will
+        // see an error that is not the "most on top" view controller to present
+        var topController = UIApplication.shared.keyWindow?.rootViewController
+        while ((topController?.presentedViewController) != nil) {
+            topController = topController?.presentedViewController
         }
+        
+        self.rootView = topController
         
         self.adjustModulesReference()
         
-        rootView.present(controller, animated: true) {
+        self.rootView?.present(controller, animated: true) {
             // Finished load
             instance?()
         }

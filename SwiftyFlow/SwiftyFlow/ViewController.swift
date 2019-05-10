@@ -50,6 +50,24 @@ class ViewController: UIViewController {
                     container: navigationStack)
     }
     
+    // MARK: - Automatically / Go Anywhere Navigation Flow Using NIB
+    @IBAction func startAutomaticallyGoAnywhereNavigationUsingNibFlow() {
+        let navigationStack = ContainerFlowStack()
+        GoAnywhereNavigationContainer().setupNavigationStack(using: navigationStack)
+        
+        FlowManager(root: GoAnywhereInitialViewController.self,
+                    container: navigationStack)
+    }
+    
+    // MARK: - Deeplink Navigation Flow Using NIB
+    @IBAction func deepLinkNavigationUsingNibFlow() {
+        let navigationStack = ContainerFlowStack()
+        DeeplinkNavigationContainer().setupNavigationStack(using: navigationStack)
+        
+        FlowManager(root: DeeplinkInitialViewController.self,
+                    container: navigationStack)
+    }
+    
     // MARK: - Navigation when Storyboard Views
     @IBAction func storyboardNavigationAction() {
         self.flowManager?.goNext(screen: { viewType in

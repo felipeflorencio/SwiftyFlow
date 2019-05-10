@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GoAnywhereFirstViewController" customModule="SwiftyFlow" customModuleProvider="target">
+            <connections>
+                <outlet property="picker" destination="NXI-o3-Ztq" id="LGQ-dx-kJr"/>
+                <outlet property="view" destination="iN0-l3-epB" id="JgQ-OA-LpL"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First View Controller - GoAnywhere" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2P-q6-VcV">
+                    <rect key="frame" x="25.5" y="85" width="363" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="208" id="6BD-Dg-htu"/>
+                        <constraint firstAttribute="height" constant="29" id="Ppa-JI-GCa"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For Automatically Navigation Flow - GoAnywhere" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyO-yR-Ry1">
+                    <rect key="frame" x="20.5" y="146" width="373" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="259" id="iWo-x7-nm4"/>
+                        <constraint firstAttribute="height" constant="21" id="rV6-FP-lfw"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Using this picker you can navigate to any view that you registered, select the view that you want to go and hit &quot;GO&quot;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6Z-4B-byA">
+                    <rect key="frame" x="20" y="216" width="374" height="61"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="999" constant="100" id="aVo-Fg-kPw"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="f0A-rw-Kot"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NrH-bo-IN8">
+                    <rect key="frame" x="217.5" y="647" width="176.5" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="2Jk-5Q-opT"/>
+                    </constraints>
+                    <state key="normal" title="Go Next">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="next" destination="-1" eventType="touchUpInside" id="QRj-4o-L9X"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YxG-AM-c4g">
+                    <rect key="frame" x="20" y="647" width="176.5" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="sdD-ef-gkB"/>
+                    </constraints>
+                    <state key="normal" title="Go Back">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="back" destination="-1" eventType="touchUpInside" id="vlo-2n-V67"/>
+                    </connections>
+                </button>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXI-o3-Ztq">
+                    <rect key="frame" x="0.0" y="307" width="414" height="216"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="216" id="b4R-pm-Eaj"/>
+                    </constraints>
+                </pickerView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qai-vV-7B0">
+                    <rect key="frame" x="119" y="541" width="176.5" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="sR4-Jt-eff"/>
+                        <constraint firstAttribute="width" constant="176.5" id="sgW-Nj-60g"/>
+                    </constraints>
+                    <state key="normal" title="GO">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="goAnywhere" destination="-1" eventType="touchUpInside" id="zz1-BQ-D7s"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.94564121960000003" green="0.73999440670000005" blue="0.25457382200000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="Qai-vV-7B0" firstAttribute="top" secondItem="NXI-o3-Ztq" secondAttribute="bottom" constant="18" id="4Ee-Ju-u1Y"/>
+                <constraint firstItem="NrH-bo-IN8" firstAttribute="leading" secondItem="YxG-AM-c4g" secondAttribute="trailing" constant="21" id="8PI-KD-sN5"/>
+                <constraint firstItem="a2P-q6-VcV" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="8Ve-0j-NhU"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="NrH-bo-IN8" secondAttribute="bottom" priority="900" constant="185" id="EY4-Sd-u3n"/>
+                <constraint firstItem="YxG-AM-c4g" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="FBw-JZ-vEY"/>
+                <constraint firstItem="jyO-yR-Ry1" firstAttribute="top" secondItem="a2P-q6-VcV" secondAttribute="bottom" constant="32" id="HJ1-Sf-TMj"/>
+                <constraint firstItem="NrH-bo-IN8" firstAttribute="top" secondItem="Qai-vV-7B0" secondAttribute="bottom" constant="76" id="Hpf-Nf-fhX"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="NrH-bo-IN8" secondAttribute="trailing" constant="20" id="MZz-fq-myn"/>
+                <constraint firstItem="T6Z-4B-byA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="NsX-NX-nV8"/>
+                <constraint firstItem="jyO-yR-Ry1" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="POm-d0-CGh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="YxG-AM-c4g" secondAttribute="bottom" priority="900" constant="185" id="QmZ-w5-uIs"/>
+                <constraint firstItem="NXI-o3-Ztq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Ul6-Nw-Ku4"/>
+                <constraint firstItem="a2P-q6-VcV" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="41" id="ZvJ-wE-afV"/>
+                <constraint firstItem="YxG-AM-c4g" firstAttribute="top" secondItem="Qai-vV-7B0" secondAttribute="bottom" constant="76" id="dpy-fp-WTJ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="T6Z-4B-byA" secondAttribute="trailing" constant="20" id="jLI-3F-W5J"/>
+                <constraint firstItem="NXI-o3-Ztq" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="pPx-CX-FmU"/>
+                <constraint firstItem="YxG-AM-c4g" firstAttribute="width" secondItem="NrH-bo-IN8" secondAttribute="width" id="qyM-yw-aOf"/>
+                <constraint firstItem="Qai-vV-7B0" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="rOS-Rs-2EN"/>
+                <constraint firstItem="T6Z-4B-byA" firstAttribute="top" secondItem="jyO-yR-Ry1" secondAttribute="bottom" constant="49" id="ssw-IQ-owo"/>
+                <constraint firstItem="NXI-o3-Ztq" firstAttribute="top" secondItem="T6Z-4B-byA" secondAttribute="bottom" constant="30" id="u1G-81-H76"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+</document>
