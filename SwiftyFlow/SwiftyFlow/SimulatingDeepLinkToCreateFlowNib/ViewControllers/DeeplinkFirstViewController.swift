@@ -13,15 +13,12 @@ class DeeplinkFirstViewController: UIViewController, NavigationFlow {
     var navigationFlow: FlowManager?
     
     // MARK: - IBAction
-    @IBAction func back() {
-        navigationFlow?.getBack()
-    }
-    
+
     @IBAction func backToRoot() {
-        navigationFlow?.getBack(pop: .popToRoot(animated: true))
+        navigationFlow?.dismissFlowController()
     }
     
     @IBAction func closeHoleFlow() {
-        navigationFlow?.dismissFlowController()
+        navigationFlow?.dismissFlowController().finishFlowWith(parameter: true)
     }
 }

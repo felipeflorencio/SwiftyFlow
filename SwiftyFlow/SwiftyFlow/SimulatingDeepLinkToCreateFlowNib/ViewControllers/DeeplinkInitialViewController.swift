@@ -46,13 +46,18 @@ class DeeplinkInitialViewController: UIViewController, NavigationFlow, UIPickerV
     
     // MARK: - Create your flow dinamicaly
     private func createYourNewFlow(for view: UIViewController.Type) {
-//        let navigationStack = ContainerFlowStack()
-//        GoAnywhereNavigationContainer().setupNavigationStack(using: navigationStack)
-        
+
         guard let navigationStack = self.navigationFlow?.containerStack else { return }
         
         FlowManager(root: view,
                     container: navigationStack)
+            .dismissedFlowWith { [weak self] closeAll in
+            
+            // Using this parameter for the situation that we want to dismiss both navigation from the top one
+            if (closeAll as? Bool) == true {
+                self?.navigationFlow?.dismissFlowController()
+            }
+        }
     }
     
     // MARK: - UIPickerView Delegate / DataSource
