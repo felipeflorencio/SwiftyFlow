@@ -268,6 +268,19 @@
                                     <action selector="back" destination="8af-Tr-pIP" eventType="touchUpInside" id="6hY-7H-IGa"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2j1-pE-omy">
+                                <rect key="frame" x="140" y="803" width="134" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="134" id="Xf4-Uj-sMI"/>
+                                    <constraint firstAttribute="height" constant="30" id="hwd-Rm-eYL"/>
+                                </constraints>
+                                <state key="normal" title="Close the hole Flow">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeHoleFlow" destination="8af-Tr-pIP" eventType="touchUpInside" id="ruq-Be-y39"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.68627450980392157" green="0.82352941176470584" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -276,9 +289,11 @@
                             <constraint firstItem="XtU-Yf-28x" firstAttribute="bottom" secondItem="8oM-6t-Psc" secondAttribute="bottom" constant="185" id="6vX-43-FGB"/>
                             <constraint firstItem="XtU-Yf-28x" firstAttribute="trailing" secondItem="c5b-Tu-HJm" secondAttribute="trailing" constant="20" id="6xH-FW-Li0"/>
                             <constraint firstItem="ZW7-ah-taK" firstAttribute="top" secondItem="ByD-mn-vJ4" secondAttribute="bottom" constant="32" id="8yQ-XP-z8t"/>
+                            <constraint firstItem="2j1-pE-omy" firstAttribute="centerX" secondItem="iUy-hj-Cnh" secondAttribute="centerX" id="ANs-Q9-8bp"/>
                             <constraint firstItem="ByD-mn-vJ4" firstAttribute="top" secondItem="XtU-Yf-28x" secondAttribute="top" constant="41" id="FBC-HV-fWq"/>
                             <constraint firstItem="8oM-6t-Psc" firstAttribute="width" secondItem="c5b-Tu-HJm" secondAttribute="width" id="Gjx-or-QPn"/>
                             <constraint firstItem="ByD-mn-vJ4" firstAttribute="centerX" secondItem="iUy-hj-Cnh" secondAttribute="centerX" id="Lei-0g-kDg"/>
+                            <constraint firstItem="XtU-Yf-28x" firstAttribute="bottom" secondItem="2j1-pE-omy" secondAttribute="bottom" constant="29" id="Pe8-jh-Nk1"/>
                             <constraint firstItem="c5b-Tu-HJm" firstAttribute="leading" secondItem="8oM-6t-Psc" secondAttribute="trailing" constant="21" id="TvD-7m-ht9"/>
                             <constraint firstItem="XtU-Yf-28x" firstAttribute="bottom" secondItem="c5b-Tu-HJm" secondAttribute="bottom" constant="185" id="mIc-pd-uOf"/>
                         </constraints>

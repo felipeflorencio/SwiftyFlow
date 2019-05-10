@@ -20,4 +20,8 @@ class AutomaticallyThirdViewController: UIViewController, NavigationFlow {
     @IBAction func backToRoot() {
         navigationFlow?.getBack(pop: .popToRoot(animated: true))
     }
+    
+    @IBAction func closeHoleFlow() {
+        navigationFlow?.dismissFlowController()
+    }
 }
