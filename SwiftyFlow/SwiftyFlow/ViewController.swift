@@ -31,15 +31,23 @@ class ViewController: UIViewController {
         return flowManager
     }
     
-    var testReference: FlowManager?
-    // MARK: - Automatically Navigation Flow
+    // MARK: - Automatically Navigation Flow Using Storyboard
     @IBAction func startAutomaticallyNavigationFlow() {
         let navigationStack = ContainerFlowStack()
         AutomaticallyNavigationContainer().setupNavigationStack(using: navigationStack)
 
-        testReference = FlowManager(rootType: AutomaticallyInitialViewController.self,
-                                    container: navigationStack,
-                                    setupInstance: .storyboard("AutomaticallyNavigationFlow"))
+        FlowManager(root: AutomaticallyInitialViewController.self,
+                    container: navigationStack,
+                    setupInstance: .storyboard("AutomaticallyNavigationFlow"))
+    }
+    
+    // MARK: - Automatically Navigation Flow Using NIB
+    @IBAction func startAutomaticallyNavigationUsingNibFlow() {
+        let navigationStack = ContainerFlowStack()
+        AutomaticallyNavigationContainer().setupNavigationStack(using: navigationStack)
+        
+        FlowManager(root: AutomaticallyInitialViewController.self,
+                    container: navigationStack)
     }
     
     // MARK: - Navigation when Storyboard Views
@@ -76,16 +84,8 @@ class ViewController: UIViewController {
         let navigationStack = ContainerFlowStack()
         ContainerView().setupStackNavigation(using: navigationStack)
 
-        // I'm using my container view and getting one of my first view controllers
-        // in order to be the root view controller for my custom navigation controller
-        guard let rootViewController = navigationStack.resolve(for: FirstViewController.self) else {
-            return nil
-        }
-        
         // As soon finish instantiate you will show you new navigation flow
-        return FlowManager(rootInstance: { () -> UIViewController? in
-            return rootViewController
-        }, container: navigationStack,
+        return FlowManager(root: FirstViewController.self, container: navigationStack,
            finishedLoad: {
             // Finished presenting
             debugPrint("Finished present navigation controller using present()")
@@ -95,9 +95,5 @@ class ViewController: UIViewController {
         }).dismissedFlowWith(paramenter: { parameter in
             debugPrint("Finished passing this parameter \(parameter) that has the type: \(type(of: parameter))")
         })
-    }
-    
-    @IBAction func automaticallyNavigation() {
-        self.flowManager.goNext()
     }
 }

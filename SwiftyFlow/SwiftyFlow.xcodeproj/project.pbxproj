@@ -17,6 +17,10 @@
 		8C1247A222858152009400B4 /* AutomaticallyThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1247A122858152009400B4 /* AutomaticallyThirdViewController.swift */; };
 		8C1247A422858161009400B4 /* AutomaticallyNavigationFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C1247A322858161009400B4 /* AutomaticallyNavigationFlow.storyboard */; };
 		8C1247A622858A41009400B4 /* AutomaticallyNavigationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1247A522858A41009400B4 /* AutomaticallyNavigationContainer.swift */; };
+		8C1247AA2285AF96009400B4 /* AutomaticallyInitialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1247A92285AF96009400B4 /* AutomaticallyInitialViewController.xib */; };
+		8C1247AC2285AFA8009400B4 /* AutomaticallyFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1247AB2285AFA8009400B4 /* AutomaticallyFirstViewController.xib */; };
+		8C1247AE2285AFB2009400B4 /* AutomaticallySecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1247AD2285AFB2009400B4 /* AutomaticallySecondViewController.xib */; };
+		8C1247B02285AFBB009400B4 /* AutomaticallyThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1247AF2285AFBB009400B4 /* AutomaticallyThirdViewController.xib */; };
 		8CBAB0A12281C7850050E8AF /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CBAB0A02281C7850050E8AF /* FirstViewController.xib */; };
 		8CC8B5FC227EDF7D0033C5DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8B5FB227EDF7D0033C5DE /* AppDelegate.swift */; };
 		8CC8B5FE227EDF7D0033C5DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8B5FD227EDF7D0033C5DE /* ViewController.swift */; };
@@ -43,6 +47,10 @@
 		8C1247A122858152009400B4 /* AutomaticallyThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticallyThirdViewController.swift; sourceTree = "<group>"; };
 		8C1247A322858161009400B4 /* AutomaticallyNavigationFlow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AutomaticallyNavigationFlow.storyboard; sourceTree = "<group>"; };
 		8C1247A522858A41009400B4 /* AutomaticallyNavigationContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticallyNavigationContainer.swift; sourceTree = "<group>"; };
+		8C1247A92285AF96009400B4 /* AutomaticallyInitialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AutomaticallyInitialViewController.xib; sourceTree = "<group>"; };
+		8C1247AB2285AFA8009400B4 /* AutomaticallyFirstViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AutomaticallyFirstViewController.xib; sourceTree = "<group>"; };
+		8C1247AD2285AFB2009400B4 /* AutomaticallySecondViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AutomaticallySecondViewController.xib; sourceTree = "<group>"; };
+		8C1247AF2285AFBB009400B4 /* AutomaticallyThirdViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AutomaticallyThirdViewController.xib; sourceTree = "<group>"; };
 		8CBAB0A02281C7850050E8AF /* FirstViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
 		8CC8B5F8227EDF7D0033C5DE /* SwiftyFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CC8B5FB227EDF7D0033C5DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +108,17 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		8C1247A82285AF61009400B4 /* AutomaticallyNavigationFlowNib */ = {
+			isa = PBXGroup;
+			children = (
+				8C1247A92285AF96009400B4 /* AutomaticallyInitialViewController.xib */,
+				8C1247AB2285AFA8009400B4 /* AutomaticallyFirstViewController.xib */,
+				8C1247AD2285AFB2009400B4 /* AutomaticallySecondViewController.xib */,
+				8C1247AF2285AFBB009400B4 /* AutomaticallyThirdViewController.xib */,
+			);
+			path = AutomaticallyNavigationFlowNib;
+			sourceTree = "<group>";
+		};
 		8CBAB09E2281C7340050E8AF /* StoryboardViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +158,7 @@
 		8CC8B5FA227EDF7D0033C5DE /* SwiftyFlow */ = {
 			isa = PBXGroup;
 			children = (
+				8C1247A82285AF61009400B4 /* AutomaticallyNavigationFlowNib */,
 				8C124798228580FF009400B4 /* AutomaticallyNavigationFlowStoryboard */,
 				8CBAB09F2281C7570050E8AF /* NibViewControllers */,
 				8CBAB09E2281C7340050E8AF /* StoryboardViewControllers */,
@@ -225,9 +245,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CC8B606227EDF7D0033C5DE /* LaunchScreen.storyboard in Resources */,
+				8C1247B02285AFBB009400B4 /* AutomaticallyThirdViewController.xib in Resources */,
+				8C1247AA2285AF96009400B4 /* AutomaticallyInitialViewController.xib in Resources */,
 				8CC8B603227EDF7D0033C5DE /* Assets.xcassets in Resources */,
 				8C1247862281D076009400B4 /* SecondViewController.xib in Resources */,
+				8C1247AC2285AFA8009400B4 /* AutomaticallyFirstViewController.xib in Resources */,
 				8CC8B601227EDF7D0033C5DE /* Main.storyboard in Resources */,
+				8C1247AE2285AFB2009400B4 /* AutomaticallySecondViewController.xib in Resources */,
 				8C1247852281D076009400B4 /* ThirdViewController.xib in Resources */,
 				8C1247A422858161009400B4 /* AutomaticallyNavigationFlow.storyboard in Resources */,
 				8CBAB0A12281C7850050E8AF /* FirstViewController.xib in Resources */,

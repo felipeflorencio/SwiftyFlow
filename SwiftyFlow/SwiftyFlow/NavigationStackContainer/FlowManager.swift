@@ -54,22 +54,15 @@ class FlowManager: NavigationFlow {
     //     first / root view controller using the reference from the storyboar as it's not loaded
     //     yet, so for this scenario you only pass the type of the first one that will be resolved
     //     so we hande this resolution for you, otherwise will load with a black screen your navigation
-    @discardableResult convenience init<T: UIViewController>(rootInstance resolve: (() -> T?)? = nil,
-                                                             rootType viewType: T.Type? = nil,
+    @discardableResult convenience init<T: UIViewController>(root instanceType: T.Type,
                                                              container stack: ContainerFlowStack,
                                                              withCustom navigation: UINavigationController? = nil,
-                                                             setupInstance type: ViewIntanceFrom? = nil,
+                                                             setupInstance type: ViewIntanceFrom = .nib,
                                                              finishedLoad presenting: (() -> ())? = nil,
                                                              dismissed navigationFlow: (() -> ())? = nil) {
         self.init(navigation: nil, container: stack, setupInstance: type)
         
-        var rootViewController: UIViewController?
-        
-        if let resolvedViewController = resolve?() {
-            rootViewController = resolvedViewController
-        } else if let viewIntanceType = type, let viewType = viewType {
-            rootViewController = self.resolveInstance(viewController: viewIntanceType, for: viewType)
-        }
+        let rootViewController = self.resolveInstance(viewController: type, for: instanceType)
         
         guard let rootView = rootViewController else {
             fatalError("You need to have a root view controller instance")

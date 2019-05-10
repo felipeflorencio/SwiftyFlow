@@ -15,7 +15,7 @@ class AutomaticallyNavigationContainer {
         // TODO: (felipe) This need to be done in order to test as our first view is just ViewController
         containerStack.registerModule(for: AutomaticallyInitialViewController.self) { () -> AutomaticallyInitialViewController in
             return AutomaticallyInitialViewController()
-        }.inScope(scope: .strong)
+        }
         
         containerStack.registerModule(for: AutomaticallyFirstViewController.self) { () -> AutomaticallyFirstViewController in
             return AutomaticallyFirstViewController()

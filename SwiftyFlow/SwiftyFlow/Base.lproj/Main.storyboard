@@ -52,22 +52,37 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNW-JG-rX5">
-                                <rect key="frame" x="67" y="132" width="280" height="30"/>
+                                <rect key="frame" x="8" y="132" width="398" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="260" id="aCa-E8-Lko"/>
-                                    <constraint firstAttribute="height" constant="30" id="w63-8f-lff"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="999" constant="260" id="aCa-E8-Lko"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="w63-8f-lff"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Automatically Navigation Flow Sample">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <state key="normal" title="Automatically Navigation Flow Using Storyboard Sample">
                                     <color key="titleColor" red="0.97646335659898476" green="0.97646335659898476" blue="0.97646335659898476" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="startAutomaticallyNavigationFlow" destination="BYZ-38-t0r" eventType="touchUpInside" id="taY-0P-4au"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKk-wY-wTZ">
+                                <rect key="frame" x="29.5" y="187" width="355" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="QKc-5d-za4"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="260" id="aeB-l3-j16"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Automatically Navigation Flow Using NIB Sample">
+                                    <color key="titleColor" red="0.97646335660000005" green="0.97646335660000005" blue="0.97646335660000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="startAutomaticallyNavigationUsingNibFlow" destination="BYZ-38-t0r" eventType="touchUpInside" id="Has-hq-ave"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.68627450980392157" green="0.82352941176470584" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="tNW-JG-rX5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="7JV-kR-vQT"/>
                             <constraint firstItem="8fV-uQ-WE4" firstAttribute="top" secondItem="oLb-zw-zDs" secondAttribute="bottom" constant="18" id="ETS-st-VfT"/>
                             <constraint firstItem="oLb-zw-zDs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Fl6-Dn-MIf"/>
                             <constraint firstItem="8fV-uQ-WE4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="L4d-th-vXo"/>
@@ -75,7 +90,10 @@
                             <constraint firstItem="oLb-zw-zDs" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Wue-Tp-3sT"/>
                             <constraint firstItem="tNW-JG-rX5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="44" id="XVk-Ig-KMs"/>
                             <constraint firstItem="Dz5-Sh-qAb" firstAttribute="top" secondItem="8fV-uQ-WE4" secondAttribute="bottom" constant="44" id="ilz-5e-60B"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tNW-JG-rX5" secondAttribute="trailing" constant="8" id="lBo-3T-FhM"/>
+                            <constraint firstItem="WKk-wY-wTZ" firstAttribute="top" secondItem="tNW-JG-rX5" secondAttribute="bottom" constant="25" id="nZC-EC-tlH"/>
                             <constraint firstItem="Dz5-Sh-qAb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nyn-WS-R5r"/>
+                            <constraint firstItem="WKk-wY-wTZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xSh-Iy-crw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
