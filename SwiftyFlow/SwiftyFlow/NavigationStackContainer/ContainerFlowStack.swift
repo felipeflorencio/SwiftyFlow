@@ -9,8 +9,6 @@
 import Foundation
 import UIKit
 
-protocol ViewModule where Self: UIViewController { }
-
 class ContainerFlowStack {
     
     private(set) var modules: [FlowElementContainer<UIViewController>]
@@ -26,10 +24,8 @@ class ContainerFlowStack {
     }
     
     @discardableResult
-    func registerModule<T: ViewModule>(for type: Any.Type, resolve: @escaping () -> T) -> FlowElementContainer<UIViewController> {
-        let elementContainer = FlowElementContainer(for: type) { () -> UIViewController? in
-            return resolve()
-        }
+    func registerModule<T: UIViewController>(for type: T.Type, resolve: @escaping () -> T?) -> FlowElementContainer<UIViewController> {
+        let elementContainer = FlowElementContainer<UIViewController>(for: type, resolving: resolve)
         modules.append(elementContainer)
         
         return elementContainer

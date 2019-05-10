@@ -24,11 +24,11 @@ class FlowElementContainer<T> where T: UIViewController {
     typealias Container = () -> T?
     private var factory: (Container)?
     private(set) var scope: Scope = .weak
-    private(set) var forType: Any.Type
+    private(set) var forType: T.Type
     private weak var weakInstance: AnyObject?
     private var strongInstance: T?
     
-    init(for type: Any.Type, resolving: @escaping Container) {
+    init(for type: T.Type, resolving: @escaping Container) {
         factory = resolving
         forType = type
     }

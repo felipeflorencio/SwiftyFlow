@@ -12,6 +12,11 @@ class ContainerView {
     
     func setupStackNavigation(using containerStack: ContainerFlowStack) {
         
+        // TODO: (felipe) This need to be done in order to test as our first view is just ViewController
+        containerStack.registerModule(for: ViewController.self) { () -> ViewController in
+            return ViewController()
+        }
+        
         containerStack.registerModule(for: FirstViewController.self) { () -> FirstViewController in
             return FirstViewController()
         }

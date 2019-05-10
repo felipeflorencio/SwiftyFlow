@@ -10,6 +10,13 @@
 		8C1247852281D076009400B4 /* ThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1247832281D076009400B4 /* ThirdViewController.xib */; };
 		8C1247862281D076009400B4 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1247842281D076009400B4 /* SecondViewController.xib */; };
 		8C12479422846894009400B4 /* FlowElementContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12479322846894009400B4 /* FlowElementContainer.swift */; };
+		8C1247972284988B009400B4 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1247962284988B009400B4 /* Array+Extension.swift */; };
+		8C12479A22858113009400B4 /* AutomaticallyInitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12479922858113009400B4 /* AutomaticallyInitialViewController.swift */; };
+		8C12479C22858120009400B4 /* AutomaticallyFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12479B22858120009400B4 /* AutomaticallyFirstViewController.swift */; };
+		8C12479E2285813A009400B4 /* AutomaticallySecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12479D2285813A009400B4 /* AutomaticallySecondViewController.swift */; };
+		8C1247A222858152009400B4 /* AutomaticallyThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1247A122858152009400B4 /* AutomaticallyThirdViewController.swift */; };
+		8C1247A422858161009400B4 /* AutomaticallyNavigationFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C1247A322858161009400B4 /* AutomaticallyNavigationFlow.storyboard */; };
+		8C1247A622858A41009400B4 /* AutomaticallyNavigationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1247A522858A41009400B4 /* AutomaticallyNavigationContainer.swift */; };
 		8CBAB0A12281C7850050E8AF /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CBAB0A02281C7850050E8AF /* FirstViewController.xib */; };
 		8CC8B5FC227EDF7D0033C5DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8B5FB227EDF7D0033C5DE /* AppDelegate.swift */; };
 		8CC8B5FE227EDF7D0033C5DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8B5FD227EDF7D0033C5DE /* ViewController.swift */; };
@@ -29,6 +36,13 @@
 		8C1247832281D076009400B4 /* ThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdViewController.xib; sourceTree = "<group>"; };
 		8C1247842281D076009400B4 /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
 		8C12479322846894009400B4 /* FlowElementContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowElementContainer.swift; sourceTree = "<group>"; };
+		8C1247962284988B009400B4 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		8C12479922858113009400B4 /* AutomaticallyInitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticallyInitialViewController.swift; sourceTree = "<group>"; };
+		8C12479B22858120009400B4 /* AutomaticallyFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticallyFirstViewController.swift; sourceTree = "<group>"; };
+		8C12479D2285813A009400B4 /* AutomaticallySecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticallySecondViewController.swift; sourceTree = "<group>"; };
+		8C1247A122858152009400B4 /* AutomaticallyThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticallyThirdViewController.swift; sourceTree = "<group>"; };
+		8C1247A322858161009400B4 /* AutomaticallyNavigationFlow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AutomaticallyNavigationFlow.storyboard; sourceTree = "<group>"; };
+		8C1247A522858A41009400B4 /* AutomaticallyNavigationContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticallyNavigationContainer.swift; sourceTree = "<group>"; };
 		8CBAB0A02281C7850050E8AF /* FirstViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
 		8CC8B5F8227EDF7D0033C5DE /* SwiftyFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CC8B5FB227EDF7D0033C5DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +71,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C1247952284987D009400B4 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				8C1247962284988B009400B4 /* Array+Extension.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		8C124798228580FF009400B4 /* AutomaticallyNavigationFlowStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				8C1247A722858A96009400B4 /* ViewControllers */,
+				8C1247A322858161009400B4 /* AutomaticallyNavigationFlow.storyboard */,
+				8C1247A522858A41009400B4 /* AutomaticallyNavigationContainer.swift */,
+			);
+			path = AutomaticallyNavigationFlowStoryboard;
+			sourceTree = "<group>";
+		};
+		8C1247A722858A96009400B4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8C12479922858113009400B4 /* AutomaticallyInitialViewController.swift */,
+				8C12479B22858120009400B4 /* AutomaticallyFirstViewController.swift */,
+				8C12479D2285813A009400B4 /* AutomaticallySecondViewController.swift */,
+				8C1247A122858152009400B4 /* AutomaticallyThirdViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		8CBAB09E2281C7340050E8AF /* StoryboardViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +139,7 @@
 		8CC8B5FA227EDF7D0033C5DE /* SwiftyFlow */ = {
 			isa = PBXGroup;
 			children = (
+				8C124798228580FF009400B4 /* AutomaticallyNavigationFlowStoryboard */,
 				8CBAB09F2281C7570050E8AF /* NibViewControllers */,
 				8CBAB09E2281C7340050E8AF /* StoryboardViewControllers */,
 				8CC8B619227EF2680033C5DE /* NavigationStackContainer */,
@@ -113,6 +157,7 @@
 		8CC8B619227EF2680033C5DE /* NavigationStackContainer */ = {
 			isa = PBXGroup;
 			children = (
+				8C1247952284987D009400B4 /* Helper */,
 				8CC8B611227EDFB40033C5DE /* NavigationFlowProtocol.swift */,
 				8CC8B60E227EDFB40033C5DE /* ContainerFlowStack.swift */,
 				8CD88343227F046F005B42FE /* FlowManager.swift */,
@@ -184,6 +229,7 @@
 				8C1247862281D076009400B4 /* SecondViewController.xib in Resources */,
 				8CC8B601227EDF7D0033C5DE /* Main.storyboard in Resources */,
 				8C1247852281D076009400B4 /* ThirdViewController.xib in Resources */,
+				8C1247A422858161009400B4 /* AutomaticallyNavigationFlow.storyboard in Resources */,
 				8CBAB0A12281C7850050E8AF /* FirstViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,14 +241,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C12479E2285813A009400B4 /* AutomaticallySecondViewController.swift in Sources */,
 				8CC8B618227EDFB40033C5DE /* SecondViewController.swift in Sources */,
+				8C12479A22858113009400B4 /* AutomaticallyInitialViewController.swift in Sources */,
 				8CC8B615227EDFB40033C5DE /* ContainerView.swift in Sources */,
 				8CC8B613227EDFB40033C5DE /* FirstViewController.swift in Sources */,
+				8C1247972284988B009400B4 /* Array+Extension.swift in Sources */,
+				8C12479C22858120009400B4 /* AutomaticallyFirstViewController.swift in Sources */,
 				8CC8B5FE227EDF7D0033C5DE /* ViewController.swift in Sources */,
+				8C1247A222858152009400B4 /* AutomaticallyThirdViewController.swift in Sources */,
 				8C12479422846894009400B4 /* FlowElementContainer.swift in Sources */,
 				8CD88344227F046F005B42FE /* FlowManager.swift in Sources */,
 				8CC8B617227EDFB40033C5DE /* NavigationFlowProtocol.swift in Sources */,
 				8CC8B614227EDFB40033C5DE /* ContainerFlowStack.swift in Sources */,
+				8C1247A622858A41009400B4 /* AutomaticallyNavigationContainer.swift in Sources */,
 				8CC8B616227EDFB40033C5DE /* ThirdViewController.swift in Sources */,
 				8CC8B5FC227EDF7D0033C5DE /* AppDelegate.swift in Sources */,
 			);
@@ -288,6 +340,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -342,6 +395,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

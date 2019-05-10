@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ThirdViewController: UIViewController, ViewModule, NavigationFlow {
+class ThirdViewController: UIViewController, NavigationFlow {
         
     var navigationFlow: FlowManager?
     

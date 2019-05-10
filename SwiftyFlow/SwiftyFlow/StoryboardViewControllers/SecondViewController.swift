@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController, ViewModule, NavigationFlow {
+class SecondViewController: UIViewController, NavigationFlow {
     
     var navigationFlow: FlowManager?
     

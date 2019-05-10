@@ -31,6 +31,17 @@ class ViewController: UIViewController {
         return flowManager
     }
     
+    var testReference: FlowManager?
+    // MARK: - Automatically Navigation Flow
+    @IBAction func startAutomaticallyNavigationFlow() {
+        let navigationStack = ContainerFlowStack()
+        AutomaticallyNavigationContainer().setupNavigationStack(using: navigationStack)
+
+        testReference = FlowManager(rootType: AutomaticallyInitialViewController.self,
+                                    container: navigationStack,
+                                    setupInstance: .storyboard("AutomaticallyNavigationFlow"))
+    }
+    
     // MARK: - Navigation when Storyboard Views
     @IBAction func storyboardNavigationAction() {
         self.flowManager?.goNext(screen: { viewType in
@@ -72,9 +83,10 @@ class ViewController: UIViewController {
         }
         
         // As soon finish instantiate you will show you new navigation flow
-        return FlowManager(withRoot: { rootViewController },
-                                     container: navigationStack,
-                                     finishedLoad: {
+        return FlowManager(rootInstance: { () -> UIViewController? in
+            return rootViewController
+        }, container: navigationStack,
+           finishedLoad: {
             // Finished presenting
             debugPrint("Finished present navigation controller using present()")
         }, dismissed: {
@@ -83,5 +95,9 @@ class ViewController: UIViewController {
         }).dismissedFlowWith(paramenter: { parameter in
             debugPrint("Finished passing this parameter \(parameter) that has the type: \(type(of: parameter))")
         })
+    }
+    
+    @IBAction func automaticallyNavigation() {
+        self.flowManager.goNext()
     }
 }
