@@ -180,7 +180,7 @@ class FlowManager: NavigationFlow {
     // This should be called only when you instantiate your FlowManager as it's intended
     // only to pass parameter back that you perhaps want like a response after finish
     @discardableResult
-    func dismissedFlowWith(paramenter invoker: @escaping (Any) -> ()) -> Self {
+    func dismissedFlowWith(parameter invoker: @escaping (Any) -> ()) -> Self {
         dismissCallBackClosure = invoker
         return self
     }

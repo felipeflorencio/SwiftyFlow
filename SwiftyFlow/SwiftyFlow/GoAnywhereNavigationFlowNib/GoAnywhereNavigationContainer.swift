@@ -10,7 +10,13 @@ import Foundation
 
 class GoAnywhereNavigationContainer {
     
-    func setupNavigationStack(using containerStack: ContainerFlowStack) {
+    private let containerStack: ContainerFlowStack
+
+    init(stack container: ContainerFlowStack) {
+        containerStack = container
+    }
+    
+    func setup() -> ContainerFlowStack {
         
         containerStack.registerModule(for: GoAnywhereInitialViewController.self) { () -> GoAnywhereInitialViewController in
             return GoAnywhereInitialViewController()
@@ -43,5 +49,7 @@ class GoAnywhereNavigationContainer {
         containerStack.registerModule(for: GoAnywhereSeventhViewController.self) { () -> GoAnywhereSeventhViewController in
             return GoAnywhereSeventhViewController()
         }
+        
+        return containerStack
     }
 }

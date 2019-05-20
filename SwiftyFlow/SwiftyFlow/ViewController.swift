@@ -52,11 +52,10 @@ class ViewController: UIViewController {
     
     // MARK: - Automatically / Go Anywhere Navigation Flow Using NIB
     @IBAction func startAutomaticallyGoAnywhereNavigationUsingNibFlow() {
-        let navigationStack = ContainerFlowStack()
-        GoAnywhereNavigationContainer().setupNavigationStack(using: navigationStack)
+        let container = GoAnywhereNavigationContainer(stack: ContainerFlowStack())
         
         FlowManager(root: GoAnywhereInitialViewController.self,
-                    container: navigationStack)
+                    container: container.setup())
     }
     
     // MARK: - Deeplink Navigation Flow Using NIB
@@ -110,7 +109,7 @@ class ViewController: UIViewController {
         }, dismissed: {
             // Finished dismissing navigation flow completely
             debugPrint("Finished dismiss navigation controller using dismiss()")
-        }).dismissedFlowWith(paramenter: { parameter in
+        }).dismissedFlowWith(parameter: { parameter in
             debugPrint("Finished passing this parameter \(parameter) that has the type: \(type(of: parameter))")
         })
     }
