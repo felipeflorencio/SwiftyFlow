@@ -44,6 +44,14 @@ class FlowElementContainer<T> where T: UIViewController {
         case .none:
             return factory?() as? T
         case .weak:
+            // This is a check for security reason, mainly when you call to resolve from storyboard
+            // as storyboard resolve the class everytime so we do need to use weak reference, as when
+            // call again we will use the one from storyboard, so will recreate the view and the instance
+            // class that is attached to that view, when update we want to make sure strong it's nil
+            if strongInstance != nil {
+                strongInstance = nil
+            }
+            
             let resolved = (weakInstance as? T) ?? (factory?() as? T)
             weakInstance = resolved as? UIViewController
             return resolved
@@ -75,8 +83,7 @@ class FlowElementContainer<T> where T: UIViewController {
     // This is used to remove any object reference and make sure that if we start the flow again
     // we will always use the fresh instance as is suppose to be
     func resetInstanceReference() {
-        debugPrint("Destroying reference instance for \(self.forType)")
+        debugPrint("Destroying weak reference instance for \(self.forType)")
         self.weakInstance = nil
-        self.strongInstance = nil
     }
 }

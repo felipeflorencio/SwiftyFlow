@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C015459229464A900A496EA /* AutomaticallyNavigationWithModalContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C015458229464A900A496EA /* AutomaticallyNavigationWithModalContainer.swift */; };
+		8C031C132293D18300EA63CE /* AutomaticallyFourthModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C031C112293D18200EA63CE /* AutomaticallyFourthModalViewController.swift */; };
+		8C031C192293D20600EA63CE /* AutomaticallyThirdModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C031C152293D20600EA63CE /* AutomaticallyThirdModalViewController.swift */; };
+		8C031C1A2293D20600EA63CE /* AutomaticallyThirdModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C031C172293D20600EA63CE /* AutomaticallyThirdModalViewController.xib */; };
+		8C031C1B2293D20600EA63CE /* AutomaticallyFourthModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C031C182293D20600EA63CE /* AutomaticallyFourthModalViewController.xib */; };
 		8C1247852281D076009400B4 /* ThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1247832281D076009400B4 /* ThirdViewController.xib */; };
 		8C1247862281D076009400B4 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1247842281D076009400B4 /* SecondViewController.xib */; };
 		8C12479422846894009400B4 /* FlowElementContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12479322846894009400B4 /* FlowElementContainer.swift */; };
@@ -71,6 +76,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C015458229464A900A496EA /* AutomaticallyNavigationWithModalContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticallyNavigationWithModalContainer.swift; sourceTree = "<group>"; };
+		8C031C112293D18200EA63CE /* AutomaticallyFourthModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticallyFourthModalViewController.swift; sourceTree = "<group>"; };
+		8C031C152293D20600EA63CE /* AutomaticallyThirdModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticallyThirdModalViewController.swift; sourceTree = "<group>"; };
+		8C031C172293D20600EA63CE /* AutomaticallyThirdModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutomaticallyThirdModalViewController.xib; sourceTree = "<group>"; };
+		8C031C182293D20600EA63CE /* AutomaticallyFourthModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutomaticallyFourthModalViewController.xib; sourceTree = "<group>"; };
 		8C1247832281D076009400B4 /* ThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdViewController.xib; sourceTree = "<group>"; };
 		8C1247842281D076009400B4 /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
 		8C12479322846894009400B4 /* FlowElementContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowElementContainer.swift; sourceTree = "<group>"; };
@@ -147,6 +157,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C031C102293D18200EA63CE /* AutomaticallyNavigationFlowNibWithLastModal */ = {
+			isa = PBXGroup;
+			children = (
+				8C031C162293D20600EA63CE /* Nib */,
+				8C015458229464A900A496EA /* AutomaticallyNavigationWithModalContainer.swift */,
+				8C031C152293D20600EA63CE /* AutomaticallyThirdModalViewController.swift */,
+				8C031C112293D18200EA63CE /* AutomaticallyFourthModalViewController.swift */,
+			);
+			path = AutomaticallyNavigationFlowNibWithLastModal;
+			sourceTree = "<group>";
+		};
+		8C031C162293D20600EA63CE /* Nib */ = {
+			isa = PBXGroup;
+			children = (
+				8C031C172293D20600EA63CE /* AutomaticallyThirdModalViewController.xib */,
+				8C031C182293D20600EA63CE /* AutomaticallyFourthModalViewController.xib */,
+			);
+			path = Nib;
+			sourceTree = "<group>";
+		};
 		8C1247952284987D009400B4 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +336,7 @@
 		8CC8B5FA227EDF7D0033C5DE /* SwiftyFlow */ = {
 			isa = PBXGroup;
 			children = (
+				8C031C102293D18200EA63CE /* AutomaticallyNavigationFlowNibWithLastModal */,
 				8C1247D62285C923009400B4 /* SimulatingDeepLinkToCreateFlowNib */,
 				8C1247B12285BAEE009400B4 /* GoAnywhereNavigationFlowNib */,
 				8C1247A82285AF61009400B4 /* AutomaticallyNavigationFlowNib */,
@@ -400,6 +431,7 @@
 				8C1247B02285AFBB009400B4 /* AutomaticallyThirdViewController.xib in Resources */,
 				8C1247AA2285AF96009400B4 /* AutomaticallyInitialViewController.xib in Resources */,
 				8C1247EE2285CD67009400B4 /* DeeplinkFifthViewController.xib in Resources */,
+				8C031C1A2293D20600EA63CE /* AutomaticallyThirdModalViewController.xib in Resources */,
 				8CC8B603227EDF7D0033C5DE /* Assets.xcassets in Resources */,
 				8C1247CD2285C716009400B4 /* GoAnywhereSixthViewController.xib in Resources */,
 				8C1247862281D076009400B4 /* SecondViewController.xib in Resources */,
@@ -408,6 +440,7 @@
 				8CC8B601227EDF7D0033C5DE /* Main.storyboard in Resources */,
 				8C1247ED2285CD67009400B4 /* DeeplinkSixthViewController.xib in Resources */,
 				8C1247EA2285CD67009400B4 /* DeeplinkInitialViewController.xib in Resources */,
+				8C031C1B2293D20600EA63CE /* AutomaticallyFourthModalViewController.xib in Resources */,
 				8C1247C12285BAEE009400B4 /* GoAnywhereThirdViewController.xib in Resources */,
 				8C1247EC2285CD67009400B4 /* DeeplinkFirstViewController.xib in Resources */,
 				8C1247C02285BAEE009400B4 /* GoAnywhereSecondViewController.xib in Resources */,
@@ -437,6 +470,8 @@
 				8C1247D52285C76F009400B4 /* GoAnywhereSeventhViewController.swift in Sources */,
 				8C1247BE2285BAEE009400B4 /* GoAnywhereSecondViewController.swift in Sources */,
 				8CC8B618227EDFB40033C5DE /* SecondViewController.swift in Sources */,
+				8C015459229464A900A496EA /* AutomaticallyNavigationWithModalContainer.swift in Sources */,
+				8C031C192293D20600EA63CE /* AutomaticallyThirdModalViewController.swift in Sources */,
 				8C12479A22858113009400B4 /* AutomaticallyInitialViewController.swift in Sources */,
 				8C1247BC2285BAEE009400B4 /* GoAnywhereInitialViewController.swift in Sources */,
 				8C1247F52285CD67009400B4 /* DeeplinkSecondViewController.swift in Sources */,
@@ -454,6 +489,7 @@
 				8CC8B5FE227EDF7D0033C5DE /* ViewController.swift in Sources */,
 				8C1247A222858152009400B4 /* AutomaticallyThirdViewController.swift in Sources */,
 				8C1247F82285CD67009400B4 /* DeeplinkSeventhViewController.swift in Sources */,
+				8C031C132293D18300EA63CE /* AutomaticallyFourthModalViewController.swift in Sources */,
 				8C1247FA2285CD67009400B4 /* DeeplinkFirstViewController.swift in Sources */,
 				8C12479422846894009400B4 /* FlowElementContainer.swift in Sources */,
 				8CD88344227F046F005B42FE /* FlowManager.swift in Sources */,

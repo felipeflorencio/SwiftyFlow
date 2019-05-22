@@ -17,6 +17,7 @@ enum NavigationPopStyle {
     case pop(animated: Bool)
     case popTo(animated: Bool)
     case popToRoot(animated: Bool)
+    case modal(animated: Bool)
 }
 
 class FlowManager: NavigationFlow {
@@ -32,6 +33,7 @@ class FlowManager: NavigationFlow {
     
     // Private variables for you have callback when finish you flow
     private var dismissCallBackClosure: ((Any) -> ())?
+    private var dismissModalCallBackClosure: (() -> ())?
     
     // MARK: Initializers
     init(navigation controller: UINavigationController?,
@@ -123,6 +125,59 @@ class FlowManager: NavigationFlow {
         }, resolve: asType, resolved: instance)
     }
     
+    // Modal presentation
+    // Automatically resolve and go to the next view according to the order that you declared in
+    // your ContainerFlowStack, or you can chose wich screen to pick and navigate to, if no view
+    // can be satisfy will just return and print an error
+    @discardableResult
+    func goNextAsModal<T: UIViewController>(screen view: (((T.Type) -> ()) -> ())? = nil,
+                                            resolve asType: ViewIntanceFrom = .nib,
+                                            animated modalShow: Bool = true,
+                                            resolved instance: ((T) -> ())? = nil,
+                                            completion: (() -> Void)? = nil) -> Self {
+
+        guard let navigation = self.navigationController else {
+            fatalError("You need to have a root navigation controller instance")
+        }
+        
+        var viewToGoNextType: T.Type?
+        
+        let modalPresentation: () -> Void = {
+            guard let view = viewToGoNextType else {
+                debugPrint("There's not next view to go")
+                return
+            }
+            let navigationType = self.defaultNavigationType ?? asType
+            
+            guard let controller = self.resolveInstance(viewController: navigationType, for: view.self) else {
+                debugPrint("Could not retrieve the view controller to present modally")
+                return
+            }
+            
+            (controller as? NavigationFlow)?.navigationFlow = self
+            instance?(controller as! T)
+            
+            navigation.present(controller, animated: modalShow, completion: completion)
+        }
+        
+        
+        if let viewToGo = view {
+            viewToGo({ nextView in
+                viewToGoNextType = nextView
+                modalPresentation()
+            })
+        } else {
+            guard let nextViewElement = self.findNextElementToNavigate() else {
+                debugPrint("There's no more itens to go next or there's no declared types")
+                return self
+            }
+            viewToGoNextType = nextViewElement.forType as? T.Type
+            modalPresentation()
+        }
+        
+        return self
+    }
+    
     // This is used to get back when you are navigating using storyboard, with this
     // you can easy get back to the root view from you navigation controller stack
     // or you can pass on type of view that you registered before and go to that view
@@ -151,6 +206,11 @@ class FlowManager: NavigationFlow {
                 
                 navigation.popToViewController(viewController, animated: animated)
                 self?.adjustModulesReference()
+            })
+        case .modal(let animated):
+            navigation.dismiss(animated: animated, completion: { [unowned self] in
+                self.adjustModulesReference()
+                self.dismissModalCallBackClosure?()
             })
         }
         
@@ -182,6 +242,12 @@ class FlowManager: NavigationFlow {
     @discardableResult
     func dismissedFlowWith(parameter invoker: @escaping (Any) -> ()) -> Self {
         dismissCallBackClosure = invoker
+        return self
+    }
+    
+    @discardableResult
+    func dismissedModal(_ invoker: @escaping () -> ()) -> Self {
+        dismissModalCallBackClosure = invoker
         return self
     }
     

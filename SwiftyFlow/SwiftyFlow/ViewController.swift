@@ -67,6 +67,15 @@ class ViewController: UIViewController {
                     container: navigationStack)
     }
     
+    // MARK: - Deeplink Navigation Flow Using NIB
+    @IBAction func navigationUsingNibWithModalFlow() {
+        let navigationStack = ContainerFlowStack()
+        AutomaticallyNavigationWithModalContainer().setupNavigationStack(using: navigationStack)
+        
+        FlowManager(root: AutomaticallyInitialViewController.self,
+                    container: navigationStack)
+    }
+    
     // MARK: - Navigation when Storyboard Views
     @IBAction func storyboardNavigationAction() {
         self.flowManager?.goNext(screen: { viewType in
