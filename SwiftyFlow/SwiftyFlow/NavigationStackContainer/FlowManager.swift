@@ -23,12 +23,12 @@ enum NavigationPopStyle {
 class FlowManager: NavigationFlow {
     
     // Public read variables
-    private(set) var navigationController: UINavigationController?
+    var navigationController: UINavigationController?
     private(set) var containerStack: ContainerFlowStack?
     
     // Private variables
     private var rootView: UIViewController?
-    private var dismissedClosure: (() -> ())?
+    internal var dismissedClosure: (() -> ())?
     private var defaultNavigationType: ViewIntanceFrom?
     
     // Private variables for you have callback when finish you flow
@@ -272,6 +272,8 @@ class FlowManager: NavigationFlow {
             return controller
         case .nib:
             let resolvedInstance = containerStack?.resolve(for: view)
+            
+        
             return resolvedInstance
         }
     }
@@ -297,7 +299,7 @@ class FlowManager: NavigationFlow {
         containerStack?.destroyInstanceReferenceWhenToRoot()
     }
     
-    private func presentNewFlow(navigation controller: UINavigationController,
+    internal func presentNewFlow(navigation controller: UINavigationController,
                                 resolved instance: (() -> ())? = nil) {
         // When we go deeper in the navigation level, there's different instances that actually
         // is the one that is one top, with this, as you are looking for the most top view

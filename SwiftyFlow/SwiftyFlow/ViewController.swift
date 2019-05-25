@@ -54,8 +54,13 @@ class ViewController: UIViewController {
     @IBAction func startAutomaticallyGoAnywhereNavigationUsingNibFlow() {
         let container = GoAnywhereNavigationContainer(stack: ContainerFlowStack())
         
+//        FlowManager(root: GoAnywhereInitialViewController.self,
+//                    container: container.setup())
         FlowManager(root: GoAnywhereInitialViewController.self,
-                    container: container.setup())
+                    container: container.setup(),
+                    parameters: {
+                        return ("Felipe", 3123.232)
+                    })
     }
     
     // MARK: - Deeplink Navigation Flow Using NIB

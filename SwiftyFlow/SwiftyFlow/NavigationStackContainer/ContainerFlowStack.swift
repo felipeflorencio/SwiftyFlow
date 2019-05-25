@@ -31,6 +31,15 @@ class ContainerFlowStack {
         return elementContainer
     }
     
+    @discardableResult
+    func _registerModule<T: UIViewController, Arguments>(for type: T.Type, resolve: @escaping (Arguments) -> Any?) -> FlowElementContainer<UIViewController> {
+        
+        let elementContainer = FlowElementContainer<UIViewController>(for: type, with: Arguments.self, resolving: resolve)
+        modules.append(elementContainer)
+        
+        return elementContainer
+    }
+    
     // MARK: - Get list of items registered and the reference of an item
     
     // Get the module list that you registered, can have itens that are not being instantiate yet
@@ -69,6 +78,29 @@ class ContainerFlowStack {
         return module?.resolve()
     }
     
+//    func resolve<T: UIViewController, Arguments>(for item: T.Type, with type: Arguments, resolver arguments: @escaping ((Arguments) -> Any) -> T) -> T? {
+
+    func resolve<T: UIViewController, Arguments>(for item: T.Type, with arg: Arguments) -> T? {
+        let module = modules.first { element -> Bool in
+            debugPrint("Type requesting: \(item)")
+            debugPrint("Container type: \(element.forType)")
+            
+            return element.forType == item
+        }
+        
+        let fac = module?.factoryParameter
+        debugPrint(fac)
+        let args = module?.arguments
+        debugPrint(args)
+        
+        let preResolved = module?.factoryParameter as! Arguments
+        let preArguments = module?.arguments as! Arguments
+//        let test = preResolved(preArguments)
+        let resolved = module?.factoryParameter as! (Arguments) -> Any
+        
+        return resolved(preArguments) as! T
+    }
+    
     // MARK: - Update reference item inside list
     func replaceInstanceReference<T: UIViewController>(for type: T.Type, instance reference: () -> UIViewController) {
         let module = modules.first { element -> Bool in
@@ -96,7 +128,7 @@ class ContainerFlowStack {
         }
         
         notInTheNavigation.forEach { element in
-            element.resetInstanceReference()
+            element.resetWeakInstanceReference()
         }
         
         navigation.forEach { viewController in
