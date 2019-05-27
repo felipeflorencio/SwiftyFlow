@@ -56,11 +56,16 @@ class ViewController: UIViewController {
         
 //        FlowManager(root: GoAnywhereInitialViewController.self,
 //                    container: container.setup())
+       
         FlowManager(root: GoAnywhereInitialViewController.self,
-                    container: container.setup(),
-                    parameters: {
-                        return (("Felipe", 3123.232))
-                    })
+                    container: container.setup(), parameters: {
+                    return (("Felipe", 3123.232, "Florencio", 31))
+        })
+//        FlowManager(root: GoAnywhereInitialViewController.self,
+//                    container: container.setup(),
+//                    parameters: {
+//                        return (("Felipe", 3123.232, "Florencio", 31))
+//                    })
     }
     
     // MARK: - Deeplink Navigation Flow Using NIB

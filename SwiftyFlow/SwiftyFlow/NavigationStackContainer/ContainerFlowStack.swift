@@ -11,7 +11,7 @@ import UIKit
 
 class ContainerFlowStack {
     
-    private(set) var modules: [FlowElementContainer<UIViewController>]
+    internal var modules: [FlowElementContainer<UIViewController>]
     
     @discardableResult init() {
         modules = [FlowElementContainer]()

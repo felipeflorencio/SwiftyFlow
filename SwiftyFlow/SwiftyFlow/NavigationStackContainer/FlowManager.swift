@@ -67,25 +67,27 @@ class FlowManager: NavigationFlow {
         let emptyParameter: () -> (Void) = {}
         let rootViewController = self._resolveInstance(viewController: type, for: instanceType, parameters: emptyParameter)
         
-        guard let rootView = rootViewController else {
-            fatalError("You need to have a root view controller instance")
-        }
+        self.initializerFunctionality(root: rootViewController, withCustom: navigation, finishedLoad: presenting, dismissed: navigationFlow)
         
-        if let customNavigation = navigation {
-            self.navigationController = customNavigation
-        } else {
-            self.navigationController = UINavigationController(rootViewController: rootView)
-        }
-        
-        guard let navigationController = self.navigationController else {
-            fatalError("You need to have a root navigation controller instance")
-        }
-        
-        presentNewFlow(navigation: navigationController, resolved: {
-            presenting?()
-        })
-        
-        self.dismissedClosure = navigationFlow
+//        guard let rootView = rootViewController else {
+//            fatalError("You need to have a root view controller instance")
+//        }
+//
+//        if let customNavigation = navigation {
+//            self.navigationController = customNavigation
+//        } else {
+//            self.navigationController = UINavigationController(rootViewController: rootView)
+//        }
+//
+//        guard let navigationController = self.navigationController else {
+//            fatalError("You need to have a root navigation controller instance")
+//        }
+//
+//        presentNewFlow(navigation: navigationController, resolved: {
+//            presenting?()
+//        })
+//
+//        self.dismissedClosure = navigationFlow
     }
     
     // MARK: - Navigation
@@ -254,7 +256,38 @@ class FlowManager: NavigationFlow {
         return self
     }
     
-    // MARK: Helpers
+    // MARK: Private Helpers
+    
+    // This are our initializer functionality splitted, as when we have the scenario that we
+    // are using parameters in order to initialize we have just one more item, to not fulfil
+    // only one initializer we splitted, even because we could add separetely more logic regarding
+    // the way that we are initializing on different methods.
+    internal func initializerFunctionality(root viewController: UIViewController?,
+                                           withCustom navigation: UINavigationController? = nil,
+                                           finishedLoad presenting: (() -> ())? = nil,
+                                           dismissed navigationFlow: (() -> ())? = nil) {
+        
+        guard let rootView = viewController else {
+            fatalError("You need to have a root view controller instance")
+        }
+        
+        if let customNavigation = navigation {
+            self.navigationController = customNavigation
+        } else {
+            self.navigationController = UINavigationController(rootViewController: rootView)
+        }
+        
+        guard let navigationController = self.navigationController else {
+            fatalError("You need to have a root navigation controller instance")
+        }
+        
+        presentNewFlow(navigation: navigationController, resolved: {
+            presenting?()
+        })
+        
+        self.dismissedClosure = navigationFlow
+    }
+    
     // Resolve instances in a generic way according to the type, if from storybooard of if from nib
     // In order to centralize the resolver methods that because how swift works and in order
     // to be able to be generic enough we are using types to describe how many parameter do we
