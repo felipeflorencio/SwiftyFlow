@@ -37,13 +37,13 @@ extension ContainerFlowStack {
 //        name: String? = nil,
 //        factory: @escaping (Resolver, Arg1, Arg2) -> Service) -> ServiceEntry<Service>
    
-    @discardableResult func registerModule<T: UIViewController, Arg1, Arg2>(for type: T.Type, resolve: @escaping (Arg1, Arg2) -> T?) -> FlowElementContainer<UIViewController> {
+    @discardableResult func registerModuleWith<T: UIViewController, Resolver>(for type: T.Type, resolve: @escaping ((Resolver)) -> T?) -> FlowElementContainer<UIViewController> {
         let registerModule = _registerModule(for: type, resolve: resolve)
         
         return registerModule
     }
     
-    func resolve<T: UIViewController, Arg1, Arg2>(for item: T.Type, parameters data: () -> (Arg1, Arg2)) -> T? {
+    func resolve<T: UIViewController, Resolver>(for item: T.Type, parameters data: () -> ((Resolver))) -> T? {
         let module = modules.first { element -> Bool in
             debugPrint("Type requesting: \(item)")
             debugPrint("Container type: \(element.forType)")
@@ -56,7 +56,7 @@ extension ContainerFlowStack {
 //        let args = module?.arguments as! (Arg1, Arg2)
 //        debugPrint(args)
         
-        let preResolved = module?.factoryParameter as! ((Arg1, Arg2)) -> Any?
+        let preResolved = module?.factoryParameter as! (Resolver) -> Any?
         
         let res = preResolved(data())
 //        let preArguments = module?.arguments as! Arguments

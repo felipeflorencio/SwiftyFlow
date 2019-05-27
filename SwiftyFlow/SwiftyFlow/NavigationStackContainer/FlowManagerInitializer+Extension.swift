@@ -8,18 +8,26 @@
 
 import UIKit
 
+internal enum ResolverUsingType {
+    case one
+    case two
+    case three
+    case four
+    case five
+}
+
 extension FlowManager {
     
-    @discardableResult convenience init<T: UIViewController, Arg1, Arg2>(root instanceType: T.Type,
+    @discardableResult convenience init<T: UIViewController, Resolver>(root instanceType: T.Type,
                                                                          container stack: ContainerFlowStack,
-                                                                         parameters data: () -> (Arg1, Arg2),
+                                                                         parameters data: @escaping () -> ((Resolver)),
                                                                          withCustom navigation: UINavigationController? = nil,
                                                                          setupInstance type: ViewIntanceFrom = .nib,
                                                                          finishedLoad presenting: (() -> ())? = nil,
                                                                          dismissed navigationFlow: (() -> ())? = nil) {
         self.init(navigation: nil, container: stack, setupInstance: type)
         
-        let rootViewController = self.resolveInstance(viewController: type, for: instanceType, parameters: data)
+        let rootViewController = self._resolveInstance(viewController: type, for: instanceType, parameters: data)
         
         guard let rootView = rootViewController else {
             fatalError("You need to have a root view controller instance")
@@ -42,9 +50,9 @@ extension FlowManager {
         self.dismissedClosure = navigationFlow
     }
     
-    internal func resolveInstance<T: UIViewController, Arg1, Arg2>(viewController from: ViewIntanceFrom,
+    internal func resolveInstance<T: UIViewController, Resolver>(viewController from: ViewIntanceFrom,
                                                                    for view: T.Type,
-                                                                   parameters data: () -> (Arg1, Arg2)) -> UIViewController? {
+                                                                   parameters resolver: () -> ((Resolver))) -> UIViewController? {
         switch from {
         case .storyboard(let storyboard):
             let storyboardName = storyboard.count == 0 ? "Main" : storyboard
@@ -62,11 +70,7 @@ extension FlowManager {
             
             return controller
         case .nib:
-            
-            // this is my closure when I request
-            // (Arg1, Arg2) -> T?
-            
-            let resolvedInstance = containerStack?.resolve(for: view, parameters: data)
+            let resolvedInstance = containerStack?.resolve(for: view, parameters: resolver)
             
             
             return resolvedInstance

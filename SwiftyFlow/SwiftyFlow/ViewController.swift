@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         FlowManager(root: GoAnywhereInitialViewController.self,
                     container: container.setup(),
                     parameters: {
-                        return ("Felipe", 3123.232)
+                        return (("Felipe", 3123.232))
                     })
     }
     

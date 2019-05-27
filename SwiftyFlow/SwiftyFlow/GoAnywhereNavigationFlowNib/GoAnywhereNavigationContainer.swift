@@ -18,7 +18,9 @@ class GoAnywhereNavigationContainer {
     
     func setup() -> ContainerFlowStack {
 
-        containerStack.registerModule(for: GoAnywhereInitialViewController.self) { (first: String, second: Double) -> GoAnywhereInitialViewController? in
+        containerStack.registerModuleWith(for: GoAnywhereInitialViewController.self) { (arguments: (String, Double)) -> GoAnywhereInitialViewController? in
+            
+            let (first, second) = arguments
             let firstData = first
             let secondData = second
             
@@ -28,9 +30,9 @@ class GoAnywhereNavigationContainer {
             return GoAnywhereInitialViewController()
         }
         
-        containerStack.registerModule(for: GoAnywhereInitialViewController.self) { () -> GoAnywhereInitialViewController in
-            return GoAnywhereInitialViewController()
-        }
+//        containerStack.registerModule(for: GoAnywhereInitialViewController.self) { () -> GoAnywhereInitialViewController in
+//            return GoAnywhereInitialViewController()
+//        }
         
         containerStack.registerModule(for: GoAnywhereFirstViewController.self) { () -> GoAnywhereFirstViewController in
             return GoAnywhereFirstViewController()

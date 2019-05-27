@@ -79,27 +79,27 @@ class ContainerFlowStack {
     }
     
 //    func resolve<T: UIViewController, Arguments>(for item: T.Type, with type: Arguments, resolver arguments: @escaping ((Arguments) -> Any) -> T) -> T? {
-
-    func resolve<T: UIViewController, Arguments>(for item: T.Type, with arg: Arguments) -> T? {
-        let module = modules.first { element -> Bool in
-            debugPrint("Type requesting: \(item)")
-            debugPrint("Container type: \(element.forType)")
-            
-            return element.forType == item
-        }
-        
-        let fac = module?.factoryParameter
-        debugPrint(fac)
-        let args = module?.arguments
-        debugPrint(args)
-        
-        let preResolved = module?.factoryParameter as! Arguments
-        let preArguments = module?.arguments as! Arguments
-//        let test = preResolved(preArguments)
-        let resolved = module?.factoryParameter as! (Arguments) -> Any
-        
-        return resolved(preArguments) as! T
-    }
+//
+//    func resolve<T: UIViewController, Arguments>(for item: T.Type, with arg: Arguments) -> T? {
+//        let module = modules.first { element -> Bool in
+//            debugPrint("Type requesting: \(item)")
+//            debugPrint("Container type: \(element.forType)")
+//            
+//            return element.forType == item
+//        }
+//        
+//        let fac = module?.factoryParameter
+//        debugPrint(fac)
+//        let args = module?.arguments
+//        debugPrint(args)
+//        
+//        let preResolved = module?.factoryParameter as! Arguments
+//        let preArguments = module?.arguments as! Arguments
+////        let test = preResolved(preArguments)
+//        let resolved = module?.factoryParameter as! (Arguments) -> Any
+//        
+//        return resolved(preArguments) as! T
+//    }
     
     // MARK: - Update reference item inside list
     func replaceInstanceReference<T: UIViewController>(for type: T.Type, instance reference: () -> UIViewController) {
