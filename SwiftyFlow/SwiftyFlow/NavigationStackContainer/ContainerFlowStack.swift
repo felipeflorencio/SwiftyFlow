@@ -31,15 +31,6 @@ class ContainerFlowStack {
         return elementContainer
     }
     
-    @discardableResult
-    func _registerModule<T: UIViewController, Arguments>(for type: T.Type, resolve: @escaping (Arguments) -> Any?) -> FlowElementContainer<UIViewController> {
-        
-        let elementContainer = FlowElementContainer<UIViewController>(for: type, with: Arguments.self, resolving: resolve)
-        modules.append(elementContainer)
-        
-        return elementContainer
-    }
-    
     // MARK: - Get list of items registered and the reference of an item
     
     // Get the module list that you registered, can have itens that are not being instantiate yet
