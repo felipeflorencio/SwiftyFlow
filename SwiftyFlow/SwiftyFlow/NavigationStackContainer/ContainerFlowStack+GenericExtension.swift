@@ -14,17 +14,11 @@ extension ContainerFlowStack {
     // when is regarding generic parameters that we want to pass / resolve
     @discardableResult func registerModuleWithParameter<T: UIViewController, Resolver>(for type: T.Type, resolve: @escaping ((Resolver)) -> T?) -> FlowElementContainer<UIViewController> {
         
-        let registerModule = _registerModule(for: type, resolve: resolve)
-        
-        return registerModule
+        let elementContainer = FlowElementContainer<UIViewController>(for: type, with: (Resolver).self, resolving: resolve)
+        modules.append(elementContainer)
+
+        return elementContainer
     }
-//    @discardableResult func registerModuleWithParameter<T: UIViewController, Resolver>(for type: T.Type, resolve: @escaping ((Resolver)) -> T?) -> FlowElementContainer<UIViewController> {
-//
-//        let elementContainer = FlowElementContainer<UIViewController>(for: type, with: Resolver.self, resolving: resolve)
-//        modules.append(elementContainer)
-//
-//        return elementContainer
-//    }
     
     func resolve<T: UIViewController, Resolver>(for item: T.Type, parameters data: () -> ((Resolver))) -> T? {
         let module = modules.first { element -> Bool in
@@ -38,9 +32,9 @@ extension ContainerFlowStack {
         // otherwise we can't check what is suppose to be the type to "convert back" to be able to call
         // the write closure that will pass / get the right parameter data, and resolve the instance that
         // we want back, it's very delicate, but it's the way that Swift can provide
-        let resolveInvoker = module?.factoryParameter as! (Resolver) -> Any?
+        let resolveInvoker = module?.factoryParameter as! (Resolver) -> T?
         let resolvedInstance = resolveInvoker(data())
         
-        return (resolvedInstance as! T)
+        return resolvedInstance
     }
 }
