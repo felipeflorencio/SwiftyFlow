@@ -34,23 +34,22 @@ class GoAnywhereNavigationContainer {
             return GoAnywhereInitialViewController()
         }
         
-//        containerStack.registerModuleWithParameter(for: GoAnywhereInitialViewController.self) { (arguments: (String, Double)) -> GoAnywhereInitialViewController? in
-//
-//            let (first, second) = arguments
-//            let firstData = first
-//            let secondData = second
-//
-//            debugPrint("first data: \(firstData)")
-//            debugPrint("second data: \(secondData)")
-//
-//            return GoAnywhereInitialViewController()
-//        }
-        
 //        containerStack.registerModule(for: GoAnywhereInitialViewController.self) { () -> GoAnywhereInitialViewController in
 //            return GoAnywhereInitialViewController()
 //        }
         
-        containerStack.registerModule(for: GoAnywhereFirstViewController.self) { () -> GoAnywhereFirstViewController in
+//        containerStack.registerModule(for: GoAnywhereFirstViewController.self) { () -> GoAnywhereFirstViewController in
+//            return GoAnywhereFirstViewController()
+//        }
+        
+        containerStack.registerModuleWithParameter(for: GoAnywhereFirstViewController.self) { (arguments: (String, Int)) -> GoAnywhereFirstViewController? in
+            let (first, second) = arguments
+            let firstData = first
+            let secondData = second
+
+            debugPrint("first data: \(firstData)")
+            debugPrint("second data: \(secondData)")
+
             return GoAnywhereFirstViewController()
         }
         

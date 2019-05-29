@@ -30,6 +30,14 @@ class GoAnywhereInitialViewController: UIViewController, NavigationFlow {
     
     // MARK: - IBAction
     @IBAction func startNavigation() {
-        navigationFlow?.goNext()
+//        navigationFlow?.goNext()
+        navigationFlow?.goNextWith(parameters: { () -> ((String, Int)) in
+            return ("Felipe Garcia", 232)
+        }, screen: { (nextView) in
+            nextView(GoAnywhereFirstViewController.self)
+        })
+//        navigationFlow?.goNextWith(parameters: { () -> ((String, Int)) in
+//            return ("Felipe Garcia", 232)
+//        })
     }
 }

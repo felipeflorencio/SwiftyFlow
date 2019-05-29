@@ -29,7 +29,7 @@ class FlowManager: NavigationFlow {
     // Private variables
     private var rootView: UIViewController?
     internal var dismissedClosure: (() -> ())?
-    private var defaultNavigationType: ViewIntanceFrom?
+    internal var defaultNavigationType: ViewIntanceFrom?
     
     // Private variables for you have callback when finish you flow
     private var dismissCallBackClosure: ((Any) -> ())?
@@ -68,26 +68,6 @@ class FlowManager: NavigationFlow {
         let rootViewController = self._resolveInstance(viewController: type, for: instanceType, parameters: emptyParameter)
         
         self.initializerFunctionality(root: rootViewController, withCustom: navigation, finishedLoad: presenting, dismissed: navigationFlow)
-        
-//        guard let rootView = rootViewController else {
-//            fatalError("You need to have a root view controller instance")
-//        }
-//
-//        if let customNavigation = navigation {
-//            self.navigationController = customNavigation
-//        } else {
-//            self.navigationController = UINavigationController(rootViewController: rootView)
-//        }
-//
-//        guard let navigationController = self.navigationController else {
-//            fatalError("You need to have a root navigation controller instance")
-//        }
-//
-//        presentNewFlow(navigation: navigationController, resolved: {
-//            presenting?()
-//        })
-//
-//        self.dismissedClosure = navigationFlow
     }
     
     // MARK: - Navigation
@@ -102,7 +82,7 @@ class FlowManager: NavigationFlow {
 
             let navigationType = self?.defaultNavigationType ?? asType
             
-            let emptyParameter: () -> (Void) = {}
+            let emptyParameter: (() -> (Void)) = {}
             guard let controller = self?._resolveInstance(viewController: navigationType, for: viewToGo.self, parameters: emptyParameter) else {
                 debugPrint("Could not retrieve the view controller to push")
                 return
@@ -375,7 +355,7 @@ class FlowManager: NavigationFlow {
     }
     
     // Navigation stack automatically identify next or back item according to the navigation view controllers
-    private func findNextElementToNavigate() -> FlowElementContainer<UIViewController>? {
+    internal func findNextElementToNavigate() -> FlowElementContainer<UIViewController>? {
         guard let actualView = self.navigationController?.visibleViewController else {
             return  nil
         }
