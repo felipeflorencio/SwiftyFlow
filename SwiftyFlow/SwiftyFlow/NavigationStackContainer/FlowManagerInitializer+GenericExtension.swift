@@ -25,37 +25,18 @@ extension FlowManager {
     }
     
     // This is the method that we will use in order to send parameter when resolve our instance
-    // for this we still can use the nagigate automatically, just need to have `closure` view
-    // implemented when you call, so we know that you are declaring that will say to which screen
-    // do you want to go
     // Remember that when declare the parameter data that you want to be resolved need to be inside
     // Tuple, as for swift when resolve everything need to have a type, with this we make sure that
     // always have type and the values are inside
     // For Example: (String, Double, Int)
     func goNextWith<T: UIViewController, Resolver>(parameters data: @escaping () -> ((Resolver)),
-                                                   screen view: (((T.Type) -> ()) -> ())? = nil,
+                                                   screen view: (((T.Type) -> ()) -> ()),
                                                    resolve asType: ViewIntanceFrom = .nib,
                                                    resolved instance: ((T) -> ())? = nil) {
 
-        if let nextView = view {
-            nextView({ [unowned self] viewToGo in
-                self.navigateUsingParameter(parameters: data, next: viewToGo, resolve: asType, resolved: instance)
-            })
-        } else {
-            guard let nextViewElement = self.findNextElementToNavigate() else {
-                debugPrint("There's no more itens to go next or there's no declared types")
-                return
-            }
-            
-            debugPrint(T.Type.self)
-            debugPrint(nextViewElement.forType)
-
-            // Automatically resolve is not working need to figure out
-            self.navigateUsingParameter(parameters: data,
-                                        next: nextViewElement.forType as! T.Type,
-                                        resolve: asType,
-                                        resolved: instance)
-        }
+       view({ [unowned self] viewToGo in
+            self.navigateUsingParameter(parameters: data, next: viewToGo, resolve: asType, resolved: instance)
+        })
     }
     
     internal func navigateUsingParameter<T: UIViewController, Resolver>(parameters data: @escaping () -> ((Resolver)),

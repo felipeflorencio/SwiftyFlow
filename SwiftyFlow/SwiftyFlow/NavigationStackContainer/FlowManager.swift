@@ -74,24 +74,26 @@ class FlowManager: NavigationFlow {
     func goNext<T: UIViewController>(screen view: @escaping ((T.Type) -> ()) -> (),
                                      resolve asType: ViewIntanceFrom = .nib,
                                      resolved instance: ((T) -> ())? = nil) {
-        guard let navigation = self.navigationController else {
-            fatalError("You need to have a root navigation controller instance")
-        }
+//        guard let navigation = self.navigationController else {
+//            fatalError("You need to have a root navigation controller instance")
+//        }
         
         view({ [weak self] viewToGo in
 
-            let navigationType = self?.defaultNavigationType ?? asType
-            
+//            let navigationType = self?.defaultNavigationType ?? asType
+//
             let emptyParameter: (() -> (Void)) = {}
-            guard let controller = self?._resolveInstance(viewController: navigationType, for: viewToGo.self, parameters: emptyParameter) else {
-                debugPrint("Could not retrieve the view controller to push")
-                return
-            }
-            
-            (controller as? NavigationFlow)?.navigationFlow = self
-            instance?(controller as! T)
-            
-            navigation.pushViewController(controller, animated: true)
+            self?.navigateUsingParameter(parameters: emptyParameter, next: viewToGo.self, resolve: asType, resolved: instance)
+
+//            guard let controller = self?._resolveInstance(viewController: navigationType, for: viewToGo.self, parameters: emptyParameter) else {
+//                debugPrint("Could not retrieve the view controller to push")
+//                return
+//            }
+//
+//            (controller as? NavigationFlow)?.navigationFlow = self
+//            instance?(controller as! T)
+//
+//            navigation.pushViewController(controller, animated: true)
         })
     }
     
