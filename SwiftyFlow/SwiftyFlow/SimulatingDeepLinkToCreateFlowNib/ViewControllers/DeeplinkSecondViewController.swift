@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DeeplinkSecondViewController: UIViewController, NavigationFlow {
+class DeeplinkSecondViewController: UIViewController, FlowNavigator {
     
     var navigationFlow: FlowManager?
     

@@ -10,7 +10,7 @@ import UIKit
 
 // This flow follows the MVC pattern, trying to use the most common and simples
 // setup, that is the reason that our navigation stack will start from here
-class GoAnywhereInitialViewController: UIViewController, NavigationFlow {
+class GoAnywhereInitialViewController: UIViewController, FlowNavigator {
     
     var navigationFlow: FlowManager?
     
@@ -36,8 +36,9 @@ class GoAnywhereInitialViewController: UIViewController, NavigationFlow {
 //        }, screen: { (nextView) in
 //            nextView(GoAnywhereFirstViewController.self)
 //        })
-        navigationFlow?.goNextWith(parameters: { () -> ((String, Int)) in
+        navigationFlow?.goNextWith(screen: GoAnywhereFirstViewController.self,
+                                   parameters: { () -> ((String, Int)) in
             return ("Felipe Garcia", 232)
-        }, screen: { nextView in nextView(GoAnywhereFirstViewController.self) })
+        })
     }
 }

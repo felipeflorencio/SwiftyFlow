@@ -99,8 +99,8 @@ class ContainerFlowStack {
             element.resetWeakInstanceReference()
         }
         
-        navigation.forEach { viewController in
-            (viewController as? NavigationFlow)?.navigationFlow = reference
+        navigation.forEach { controller in
+            (controller as? FlowNavigator)?.navigationFlow = reference
         }
     }
     

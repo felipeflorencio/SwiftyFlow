@@ -8,19 +8,24 @@
 
 import UIKit
 
-protocol NavigationFlow: class {
-
+protocol FlowNavigator: class {
+    
     var navigationFlow: FlowManager? { get set }
 }
 
-extension NavigationFlow {
-    var navigationFlow: FlowManager? {
-        get {
-            return nil
-        }
-        
-        set {
-            
-        }
-    }
-}
+//protocol NavigationFlow: class {
+//
+//    var navigationFlow: FlowManager? { get set }
+//}
+//
+//extension NavigationFlow {
+//    var navigationFlow: FlowManager? {
+//        get {
+//            return nil
+//        }
+//        
+//        set {
+//            
+//        }
+//    }
+//}

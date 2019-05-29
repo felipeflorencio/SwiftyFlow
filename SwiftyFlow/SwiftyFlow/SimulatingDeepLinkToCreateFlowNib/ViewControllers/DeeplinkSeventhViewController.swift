@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DeeplinkSeventhViewController: UIViewController, NavigationFlow {
+class DeeplinkSeventhViewController: UIViewController, FlowNavigator {
     
     var navigationFlow: FlowManager?
     

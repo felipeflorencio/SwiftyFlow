@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GoAnywhereSixthViewController: UIViewController, NavigationFlow {
+class GoAnywhereSixthViewController: UIViewController, FlowNavigator {
     
     var navigationFlow: FlowManager?
     

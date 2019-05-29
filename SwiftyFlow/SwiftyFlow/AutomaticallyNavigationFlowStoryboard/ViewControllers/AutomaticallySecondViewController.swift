@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AutomaticallySecondViewController: UIViewController, NavigationFlow {
+class AutomaticallySecondViewController: UIViewController, FlowNavigator {
     
     var navigationFlow: FlowManager?
     

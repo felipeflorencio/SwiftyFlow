@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GoAnywhereFirstViewController: UIViewController, NavigationFlow, UIPickerViewDelegate, UIPickerViewDataSource {
+class GoAnywhereFirstViewController: UIViewController, FlowNavigator, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var navigationFlow: FlowManager?
     
@@ -44,9 +44,7 @@ class GoAnywhereFirstViewController: UIViewController, NavigationFlow, UIPickerV
             return
         }
         
-        navigationFlow?.goNext(screen: { viewToGo in
-            viewToGo(viewSelected.forType)
-        })
+        navigationFlow?.goNext(screen: viewSelected.forType)
     }
     
     // MARK: - UIPickerView Delegate / DataSource

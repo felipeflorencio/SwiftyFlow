@@ -29,14 +29,14 @@ extension FlowManager {
     // Tuple, as for swift when resolve everything need to have a type, with this we make sure that
     // always have type and the values are inside
     // For Example: (String, Double, Int)
-    func goNextWith<T: UIViewController, Resolver>(parameters data: @escaping () -> ((Resolver)),
-                                                   screen view: ((T.Type) -> ()) -> (),
+    func goNextWith<T: UIViewController, Resolver>(screen view: T.Type,
+                                                   parameters data: @escaping () -> ((Resolver)),
                                                    resolve asType: ViewIntanceFrom = .nib,
                                                    resolved instance: ((T) -> ())? = nil) {
 
-       view({ [unowned self] viewToGo in
-            self.navigateUsingParameter(parameters: data, next: viewToGo.self, resolve: asType, resolved: instance)
-        })
+//       view({ [unowned self] viewToGo in
+            self.navigateUsingParameter(parameters: data, next: view.self, resolve: asType, resolved: instance)
+//        })
     }
     
     internal func navigateUsingParameter<T: UIViewController, Resolver>(parameters data: @escaping () -> ((Resolver)),
@@ -54,7 +54,7 @@ extension FlowManager {
             return
         }
         
-        (controller as? NavigationFlow)?.navigationFlow = self
+        (controller as? FlowNavigator)?.navigationFlow = self
         instance?(controller as! T)
         
         navigation.pushViewController(controller, animated: true)
