@@ -30,12 +30,12 @@ extension FlowManager {
     // always have type and the values are inside
     // For Example: (String, Double, Int)
     func goNextWith<T: UIViewController, Resolver>(parameters data: @escaping () -> ((Resolver)),
-                                                   screen view: (((T.Type) -> ()) -> ()),
+                                                   screen view: ((T.Type) -> ()) -> (),
                                                    resolve asType: ViewIntanceFrom = .nib,
                                                    resolved instance: ((T) -> ())? = nil) {
 
        view({ [unowned self] viewToGo in
-            self.navigateUsingParameter(parameters: data, next: viewToGo, resolve: asType, resolved: instance)
+            self.navigateUsingParameter(parameters: data, next: viewToGo.self, resolve: asType, resolved: instance)
         })
     }
     
