@@ -11,13 +11,6 @@ import UIKit
 protocol NavigationFlow: class {
 
     var navigationFlow: FlowManager? { get set }
-    
-    func goNext<T: UIViewController>(screen view: @escaping ((T.Type) -> ()) -> (),
-                                     resolve asType: ViewIntanceFrom,
-                                     resolved instance: ((T) -> ())?)
-    
-    func getBack<T: UIViewController>(pop withStyle: NavigationPopStyle,
-                                      screen view: (((T.Type) -> ()) -> ())?)
 }
 
 extension NavigationFlow {
@@ -30,10 +23,4 @@ extension NavigationFlow {
             
         }
     }
-
-    func goNext<T: UIViewController>(screen view: @escaping ((T.Type) -> ()) -> (),
-                                     resolve asType: ViewIntanceFrom,
-                                     resolved instance: ((T) -> ())?) { }
-    func getBack<T: UIViewController>(pop withStyle: NavigationPopStyle,
-                                      screen view: (((T.Type) -> ()) -> ())?) { }
 }
