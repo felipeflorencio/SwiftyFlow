@@ -11,7 +11,7 @@ import UIKit
 internal typealias CallbackFunctionType = Any
 
 // The idea of have FlowElementContainer is a way of have the reference
-// encapsulated inside a object that we can manage the referenceto our
+// encapsulated inside a object that we can manage the reference to our
 // real object, as we will be using this inside an array, we need to be
 // able to destroy easily our array without have the risk of some view
 // controller hold the reference to the object
@@ -28,7 +28,7 @@ class FlowElementContainer<T> {
     
     private(set) var factoryParameter: CallbackFunctionType?
     
-    private(set) var scope: Scope = .none
+    private(set) var scope: Scope = .weak
     private(set) var forType: T.Type
     private weak var weakInstance: AnyObject?
     private var strongInstance: T?
@@ -72,6 +72,16 @@ class FlowElementContainer<T> {
             fallthrough
         case .strong:
             return strongInstance as? T
+        }
+    }
+    
+    func resolved(with instance: (Container)) {
+        switch scope {
+        case .weak:
+            weakInstance = instance() as? UIViewController
+        case .strong:
+            strongInstance = instance()
+        default: break
         }
     }
     

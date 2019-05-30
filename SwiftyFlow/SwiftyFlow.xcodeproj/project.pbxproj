@@ -18,6 +18,7 @@
 		45E36EB322A04D3200ED9D07 /* ParameterInitialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45E36EA322A04D3200ED9D07 /* ParameterInitialViewController.xib */; };
 		45E36EB522A04D3200ED9D07 /* ParameterFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45E36EA522A04D3200ED9D07 /* ParameterFirstViewController.xib */; };
 		45E36EB622A04D3200ED9D07 /* ParameterFourthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45E36EA622A04D3200ED9D07 /* ParameterFourthViewController.xib */; };
+		45E36EC722A05EC700ED9D07 /* NavigatePassingParameterNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E36EC622A05EC700ED9D07 /* NavigatePassingParameterNib.swift */; };
 		8C015459229464A900A496EA /* AutomaticallyNavigationWithModalContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C015458229464A900A496EA /* AutomaticallyNavigationWithModalContainer.swift */; };
 		8C031C132293D18300EA63CE /* AutomaticallyFourthModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C031C112293D18200EA63CE /* AutomaticallyFourthModalViewController.swift */; };
 		8C031C192293D20600EA63CE /* AutomaticallyThirdModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C031C152293D20600EA63CE /* AutomaticallyThirdModalViewController.swift */; };
@@ -88,6 +89,16 @@
 		8CD88344227F046F005B42FE /* FlowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD88343227F046F005B42FE /* FlowManager.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		45E36EC122A05E9D00ED9D07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8CC8B5F0227EDF7D0033C5DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8CC8B5F7227EDF7D0033C5DE;
+			remoteInfo = SwiftyFlow;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		45E36E9422A04C8900ED9D07 /* ParameterNavigationContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterNavigationContainer.swift; sourceTree = "<group>"; };
 		45E36E9722A04D3200ED9D07 /* ParameterInitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterInitialViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +111,9 @@
 		45E36EA322A04D3200ED9D07 /* ParameterInitialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParameterInitialViewController.xib; sourceTree = "<group>"; };
 		45E36EA522A04D3200ED9D07 /* ParameterFirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParameterFirstViewController.xib; sourceTree = "<group>"; };
 		45E36EA622A04D3200ED9D07 /* ParameterFourthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParameterFourthViewController.xib; sourceTree = "<group>"; };
+		45E36EBC22A05E9D00ED9D07 /* SwiftyFlowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyFlowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		45E36EC022A05E9D00ED9D07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45E36EC622A05EC700ED9D07 /* NavigatePassingParameterNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatePassingParameterNib.swift; sourceTree = "<group>"; };
 		8C015458229464A900A496EA /* AutomaticallyNavigationWithModalContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticallyNavigationWithModalContainer.swift; sourceTree = "<group>"; };
 		8C031C112293D18200EA63CE /* AutomaticallyFourthModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticallyFourthModalViewController.swift; sourceTree = "<group>"; };
 		8C031C152293D20600EA63CE /* AutomaticallyThirdModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticallyThirdModalViewController.swift; sourceTree = "<group>"; };
@@ -173,6 +187,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		45E36EB922A05E9D00ED9D07 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8CC8B5F5227EDF7D0033C5DE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -215,6 +236,15 @@
 				45E36EA622A04D3200ED9D07 /* ParameterFourthViewController.xib */,
 			);
 			path = NibViews;
+			sourceTree = "<group>";
+		};
+		45E36EBD22A05E9D00ED9D07 /* SwiftyFlowTests */ = {
+			isa = PBXGroup;
+			children = (
+				45E36EC022A05E9D00ED9D07 /* Info.plist */,
+				45E36EC622A05EC700ED9D07 /* NavigatePassingParameterNib.swift */,
+			);
+			path = SwiftyFlowTests;
 			sourceTree = "<group>";
 		};
 		8C031C102293D18200EA63CE /* AutomaticallyNavigationFlowNibWithLastModal */ = {
@@ -381,6 +411,7 @@
 			isa = PBXGroup;
 			children = (
 				8CC8B5FA227EDF7D0033C5DE /* SwiftyFlow */,
+				45E36EBD22A05E9D00ED9D07 /* SwiftyFlowTests */,
 				8CC8B5F9227EDF7D0033C5DE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -389,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				8CC8B5F8227EDF7D0033C5DE /* SwiftyFlow.app */,
+				45E36EBC22A05E9D00ED9D07 /* SwiftyFlowTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -433,6 +465,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		45E36EBB22A05E9D00ED9D07 /* SwiftyFlowTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45E36EC322A05E9D00ED9D07 /* Build configuration list for PBXNativeTarget "SwiftyFlowTests" */;
+			buildPhases = (
+				45E36EB822A05E9D00ED9D07 /* Sources */,
+				45E36EB922A05E9D00ED9D07 /* Frameworks */,
+				45E36EBA22A05E9D00ED9D07 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				45E36EC222A05E9D00ED9D07 /* PBXTargetDependency */,
+			);
+			name = SwiftyFlowTests;
+			productName = SwiftyFlowTests;
+			productReference = 45E36EBC22A05E9D00ED9D07 /* SwiftyFlowTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		8CC8B5F7227EDF7D0033C5DE /* SwiftyFlow */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8CC8B60A227EDF7D0033C5DE /* Build configuration list for PBXNativeTarget "SwiftyFlow" */;
@@ -460,6 +510,10 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Felipe Florencio Garcia";
 				TargetAttributes = {
+					45E36EBB22A05E9D00ED9D07 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 8CC8B5F7227EDF7D0033C5DE;
+					};
 					8CC8B5F7227EDF7D0033C5DE = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
@@ -479,11 +533,19 @@
 			projectRoot = "";
 			targets = (
 				8CC8B5F7227EDF7D0033C5DE /* SwiftyFlow */,
+				45E36EBB22A05E9D00ED9D07 /* SwiftyFlowTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		45E36EBA22A05E9D00ED9D07 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8CC8B5F6227EDF7D0033C5DE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -528,6 +590,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		45E36EB822A05E9D00ED9D07 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45E36EC722A05EC700ED9D07 /* NavigatePassingParameterNib.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8CC8B5F4227EDF7D0033C5DE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -582,6 +652,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		45E36EC222A05E9D00ED9D07 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8CC8B5F7227EDF7D0033C5DE /* SwiftyFlow */;
+			targetProxy = 45E36EC122A05E9D00ED9D07 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		8CC8B5FF227EDF7D0033C5DE /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -602,6 +680,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		45E36EC422A05E9D00ED9D07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9RVZM5B68T;
+				INFOPLIST_FILE = SwiftyFlowTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.felipe.SwiftyFlowTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftyFlow.app/SwiftyFlow";
+			};
+			name = Debug;
+		};
+		45E36EC522A05E9D00ED9D07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9RVZM5B68T;
+				INFOPLIST_FILE = SwiftyFlowTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.felipe.SwiftyFlowTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftyFlow.app/SwiftyFlow";
+			};
+			name = Release;
+		};
 		8CC8B608227EDF7D0033C5DE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -759,6 +877,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		45E36EC322A05E9D00ED9D07 /* Build configuration list for PBXNativeTarget "SwiftyFlowTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45E36EC422A05E9D00ED9D07 /* Debug */,
+				45E36EC522A05E9D00ED9D07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8CC8B5F3227EDF7D0033C5DE /* Build configuration list for PBXProject "SwiftyFlow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

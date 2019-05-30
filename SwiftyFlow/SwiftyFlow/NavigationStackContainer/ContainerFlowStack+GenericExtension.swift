@@ -34,6 +34,7 @@ extension ContainerFlowStack {
         // we want back, it's very delicate, but it's the way that Swift can provide
         let resolveInvoker = module?.factoryParameter as! (Resolver) -> T?
         let resolvedInstance = resolveInvoker(data())
+        module?.resolved(with: { resolvedInstance })
         
         return resolvedInstance
     }

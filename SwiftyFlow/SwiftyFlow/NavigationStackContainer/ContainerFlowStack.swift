@@ -50,7 +50,7 @@ class ContainerFlowStack {
         
         // Second we evaluate if is a resolved instance, that is `weak` or `strong`
         // As if is `none` will generate a new instance that is not the purpouse of
-        // this method, here is to get the reference to a item that already is resolved
+        // this method, here is to get the reference to a item that already resolved
         guard item.scope != .none else {
             return nil
         }
