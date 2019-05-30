@@ -18,38 +18,11 @@ class GoAnywhereNavigationContainer {
     
     func setup() -> ContainerFlowStack {
 
-        containerStack.registerModuleWithParameter(for: GoAnywhereInitialViewController.self) { (arguments: (String, Double, String, Int)) -> GoAnywhereInitialViewController? in
-
-            let (first, second, third, fourth) = arguments
-            let firstData = first
-            let secondData = second
-            let thirdData = third
-            let fourthData = fourth
-
-            debugPrint("first data: \(firstData)")
-            debugPrint("second data: \(secondData)")
-            debugPrint("second data: \(thirdData)")
-            debugPrint("second data: \(fourthData)")
-
+        containerStack.registerModule(for: GoAnywhereInitialViewController.self) { () -> GoAnywhereInitialViewController in
             return GoAnywhereInitialViewController()
         }
         
-//        containerStack.registerModule(for: GoAnywhereInitialViewController.self) { () -> GoAnywhereInitialViewController in
-//            return GoAnywhereInitialViewController()
-//        }
-        
-//        containerStack.registerModule(for: GoAnywhereFirstViewController.self) { () -> GoAnywhereFirstViewController in
-//            return GoAnywhereFirstViewController()
-//        }
-        
-        containerStack.registerModuleWithParameter(for: GoAnywhereFirstViewController.self) { (arguments: (String, Int)) -> GoAnywhereFirstViewController? in
-            let (first, second) = arguments
-            let firstData = first
-            let secondData = second
-
-            debugPrint("first data: \(firstData)")
-            debugPrint("second data: \(secondData)")
-
+        containerStack.registerModule(for: GoAnywhereFirstViewController.self) { () -> GoAnywhereFirstViewController in
             return GoAnywhereFirstViewController()
         }
         
