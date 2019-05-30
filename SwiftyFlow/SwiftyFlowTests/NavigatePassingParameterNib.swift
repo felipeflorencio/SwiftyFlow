@@ -49,4 +49,23 @@ class NavigatePassingParameterNib: XCTestCase {
         XCTAssertTrue(instanceFirstView?.firstParameter == "Felipe Garcia")
         XCTAssertTrue(instanceFirstView?.secondParameter == 232)
     }
+    
+    func testNavigationStack() {
+        
+        let mockedPickerView = UIPickerView()
+        
+        // Given
+        let instanceInitial = flowManager.containerStack?.getModuleIfHasInstance(for: ParameterInitialViewController.self)
+        instanceInitial?.startNavigation()
+        
+        let instanceFirstView = flowManager.containerStack?.getModuleIfHasInstance(for: ParameterFirstViewController.self)
+        instanceFirstView?.pickerView(mockedPickerView, didSelectRow: 1, inComponent: 0)
+        instanceFirstView?.goAnywhere() // go to the second screen
+        
+        // When
+        let instanceSecondView = flowManager.containerStack?.getModuleIfHasInstance(for: ParameterSecondViewController.self)
+        
+        // Then
+        XCTAssertNotNil(instanceSecondView)
+    }
 }

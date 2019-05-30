@@ -85,6 +85,10 @@ class FlowElementContainer<T> {
         }
     }
     
+    func hasInstance() -> Bool {
+        return (weakInstance != nil || strongInstance != nil)
+    }
+    
     // Set the scope that we will want for this object
     @discardableResult
     public func inScope(scope: Scope) -> Self {

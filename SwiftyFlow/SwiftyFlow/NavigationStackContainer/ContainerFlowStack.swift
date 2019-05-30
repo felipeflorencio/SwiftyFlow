@@ -55,6 +55,10 @@ class ContainerFlowStack {
             return nil
         }
         
+        guard item.hasInstance() else {
+            return nil
+        }
+        
         return item.resolve()
     }
     
