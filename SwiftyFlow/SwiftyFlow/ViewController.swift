@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Swifty Flow"
+        
         //Setup my flow for when using Storyboard
         self.flowManager = createMyStoryboardFlowManager()
     }
@@ -54,18 +56,18 @@ class ViewController: UIViewController {
     @IBAction func startAutomaticallyGoAnywhereNavigationUsingNibFlow() {
         let container = GoAnywhereNavigationContainer(stack: ContainerFlowStack())
         
-//        FlowManager(root: GoAnywhereInitialViewController.self,
-//                    container: container.setup())
-       
         FlowManager(root: GoAnywhereInitialViewController.self,
+                    container: container.setup())
+    }
+    
+    // MARK: - Parameter Navigation Flow Using NIB
+    @IBAction func startParameterNavigationUsingNibFlow() {
+        let container = ParameterNavigationContainer(stack: ContainerFlowStack())
+        
+        FlowManager(root: ParameterInitialViewController.self,
                     container: container.setup(), parameters: {
                     return (("Felipe", 3123.232, "Florencio", 31))
         })
-//        FlowManager(root: GoAnywhereInitialViewController.self,
-//                    container: container.setup(),
-//                    parameters: {
-//                        return (("Felipe", 3123.232, "Florencio", 31))
-//                    })
     }
     
     // MARK: - Deeplink Navigation Flow Using NIB
