@@ -34,9 +34,7 @@ extension FlowManager {
                                                    resolve asType: ViewIntanceFrom = .nib,
                                                    resolved instance: ((T) -> ())? = nil) {
 
-//       view({ [unowned self] viewToGo in
-            self.navigateUsingParameter(parameters: data, next: view.self, resolve: asType, resolved: instance)
-//        })
+        self.navigateUsingParameter(parameters: data, next: view.self, resolve: asType, resolved: instance)
     }
     
     internal func navigateUsingParameter<T: UIViewController, Resolver>(parameters data: @escaping () -> ((Resolver)),

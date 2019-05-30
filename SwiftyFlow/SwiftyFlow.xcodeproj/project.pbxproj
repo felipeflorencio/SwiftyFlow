@@ -234,14 +234,14 @@
 		8C1247B22285BAEE009400B4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				8C1247CE2285C76E009400B4 /* GoAnywhereFifthViewController.swift */,
-				8C1247CF2285C76E009400B4 /* GoAnywhereFourthViewController.swift */,
-				8C1247D12285C76F009400B4 /* GoAnywhereSeventhViewController.swift */,
-				8C1247D02285C76F009400B4 /* GoAnywhereSixthViewController.swift */,
 				8C1247B32285BAEE009400B4 /* GoAnywhereInitialViewController.swift */,
 				8C1247B42285BAEE009400B4 /* GoAnywhereFirstViewController.swift */,
 				8C1247B52285BAEE009400B4 /* GoAnywhereSecondViewController.swift */,
 				8C1247B62285BAEE009400B4 /* GoAnywhereThirdViewController.swift */,
+				8C1247CF2285C76E009400B4 /* GoAnywhereFourthViewController.swift */,
+				8C1247CE2285C76E009400B4 /* GoAnywhereFifthViewController.swift */,
+				8C1247D02285C76F009400B4 /* GoAnywhereSixthViewController.swift */,
+				8C1247D12285C76F009400B4 /* GoAnywhereSeventhViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

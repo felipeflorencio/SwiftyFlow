@@ -15,7 +15,7 @@ internal typealias CallbackFunctionType = Any
 // real object, as we will be using this inside an array, we need to be
 // able to destroy easily our array without have the risk of some view
 // controller hold the reference to the object
-class FlowElementContainer<T> where T: UIViewController {
+class FlowElementContainer<T> {
     
     public enum Scope {
         case none       // fresh instance all the time, default

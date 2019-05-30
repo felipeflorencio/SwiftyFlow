@@ -74,27 +74,9 @@ class FlowManager {
     func goNext<T: UIViewController>(screen view: T.Type,
                                      resolve asType: ViewIntanceFrom = .nib,
                                      resolved instance: ((T) -> ())? = nil) {
-//        guard let navigation = self.navigationController else {
-//            fatalError("You need to have a root navigation controller instance")
-//        }
-        
-//        view({ [weak self] viewToGo in
 
-//            let navigationType = self?.defaultNavigationType ?? asType
-//
-            let emptyParameter: (() -> (Void)) = {}
-            self.navigateUsingParameter(parameters: emptyParameter, next: view, resolve: asType, resolved: instance)
-
-//            guard let controller = self?._resolveInstance(viewController: navigationType, for: viewToGo.self, parameters: emptyParameter) else {
-//                debugPrint("Could not retrieve the view controller to push")
-//                return
-//            }
-//
-//            (controller as? FlowNavigator)?.navigationFlow = self
-//            instance?(controller as! T)
-//
-//            navigation.pushViewController(controller, animated: true)
-//        })
+        let emptyParameter: (() -> (Void)) = {}
+        self.navigateUsingParameter(parameters: emptyParameter, next: view, resolve: asType, resolved: instance)
     }
     
     // Automatically resolve and go to the next view according to the order that you declared in
@@ -108,14 +90,6 @@ class FlowManager {
         }
         
         self.goNext(screen: nextViewElement.forType as! T.Type, resolve: asType, resolved: instance)
-//        self.goNext(screen: { [weak self] nextView in
-//            guard let nextViewElement = self?.findNextElementToNavigate() else {
-//                debugPrint("There's no more itens to go next or there's no declared types")
-//                return
-//            }
-//
-//            nextView(nextViewElement.forType as! T.Type)
-//        }, resolve: asType, resolved: instance)
     }
     
     // Modal presentation
@@ -123,54 +97,52 @@ class FlowManager {
     // your ContainerFlowStack, or you can chose wich screen to pick and navigate to, if no view
     // can be satisfy will just return and print an error
     @discardableResult
-    func goNextAsModal<T: UIViewController>(screen view: (((T.Type) -> ()) -> ())? = nil,
+    func goNextAsModal<T: UIViewController>(screen view: T.Type? = nil,
                                             resolve asType: ViewIntanceFrom = .nib,
                                             animated modalShow: Bool = true,
                                             resolved instance: ((T) -> ())? = nil,
                                             completion: (() -> Void)? = nil) -> Self {
-
-        guard let navigation = self.navigationController else {
-            fatalError("You need to have a root navigation controller instance")
-        }
-        
-        var viewToGoNextType: T.Type?
-        
-        let modalPresentation: () -> Void = {
-            guard let view = viewToGoNextType else {
-                debugPrint("There's not next view to go")
-                return
-            }
-            let navigationType = self.defaultNavigationType ?? asType
-            
-            let emptyParameter: () -> (Void) = {}
-            guard let controller = self._resolveInstance(viewController: navigationType, for: view.self, parameters: emptyParameter) else {
-                debugPrint("Could not retrieve the view controller to present modally")
-                return
-            }
-            
-            (controller as? FlowNavigator)?.navigationFlow = self
-            instance?(controller as! T)
-            
-            navigation.present(controller, animated: modalShow, completion: completion)
-        }
-        
-        
-        if let viewToGo = view {
-            viewToGo({ nextView in
-                viewToGoNextType = nextView
-                modalPresentation()
-            })
-        } else {
-            guard let nextViewElement = self.findNextElementToNavigate() else {
-                debugPrint("There's no more itens to go next or there's no declared types")
-                return self
-            }
-            viewToGoNextType = nextViewElement.forType as? T.Type
-            modalPresentation()
-        }
-        
-        return self
+    
+    guard let navigation = self.navigationController else {
+        fatalError("You need to have a root navigation controller instance")
     }
+    
+    var viewToGoNextType: T.Type?
+    
+    let modalPresentation: () -> Void = {
+        guard let view = viewToGoNextType else {
+            debugPrint("There's not next view to go")
+            return
+        }
+        let navigationType = self.defaultNavigationType ?? asType
+        
+        let emptyParameter: () -> (Void) = {}
+        guard let controller = self._resolveInstance(viewController: navigationType, for: view.self, parameters: emptyParameter) else {
+            debugPrint("Could not retrieve the view controller to present modally")
+            return
+        }
+        
+        (controller as? FlowNavigator)?.navigationFlow = self
+        instance?(controller as! T)
+        
+        navigation.present(controller, animated: modalShow, completion: completion)
+    }
+    
+    
+    if let viewToGo = view {
+        viewToGoNextType = viewToGo
+        modalPresentation()
+    } else {
+        guard let nextViewElement = self.findNextElementToNavigate() else {
+            debugPrint("There's no more itens to go next or there's no declared types")
+            return self
+        }
+        viewToGoNextType = nextViewElement.forType as? T.Type
+        modalPresentation()
+    }
+    
+    return self
+}
     
     // This is used to get back when you are navigating using storyboard, with this
     // you can easy get back to the root view from you navigation controller stack
