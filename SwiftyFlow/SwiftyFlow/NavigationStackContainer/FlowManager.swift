@@ -20,16 +20,16 @@ enum NavigationPopStyle {
     case modal(animated: Bool)
 }
 
-class FlowManager: NavigationFlow {
+class FlowManager {
     
     // Public read variables
-    private(set) var navigationController: UINavigationController?
+    var navigationController: UINavigationController?
     private(set) var containerStack: ContainerFlowStack?
     
     // Private variables
     private var rootView: UIViewController?
-    private var dismissedClosure: (() -> ())?
-    private var defaultNavigationType: ViewIntanceFrom?
+    internal var dismissedClosure: (() -> ())?
+    internal var defaultNavigationType: ViewIntanceFrom?
     
     // Private variables for you have callback when finish you flow
     private var dismissCallBackClosure: ((Any) -> ())?
@@ -64,65 +64,32 @@ class FlowManager: NavigationFlow {
                                                              dismissed navigationFlow: (() -> ())? = nil) {
         self.init(navigation: nil, container: stack, setupInstance: type)
         
-        let rootViewController = self.resolveInstance(viewController: type, for: instanceType)
+        let emptyParameter: () -> (Void) = {}
+        let rootViewController = self._resolveInstance(viewController: type, for: instanceType, parameters: emptyParameter)
         
-        guard let rootView = rootViewController else {
-            fatalError("You need to have a root view controller instance")
-        }
-        
-        if let customNavigation = navigation {
-            self.navigationController = customNavigation
-        } else {
-            self.navigationController = UINavigationController(rootViewController: rootView)
-        }
-        
-        guard let navigationController = self.navigationController else {
-            fatalError("You need to have a root navigation controller instance")
-        }
-        
-        presentNewFlow(navigation: navigationController, resolved: {
-            presenting?()
-        })
-        
-        self.dismissedClosure = navigationFlow
+        self.initializerFunctionality(root: rootViewController, withCustom: navigation, finishedLoad: presenting, dismissed: navigationFlow)
     }
     
     // MARK: - Navigation
-    func goNext<T: UIViewController>(screen view: @escaping ((T.Type) -> ()) -> (),
+    func goNext<T: UIViewController>(screen view: T.Type,
                                      resolve asType: ViewIntanceFrom = .nib,
                                      resolved instance: ((T) -> ())? = nil) {
-        guard let navigation = self.navigationController else {
-            fatalError("You need to have a root navigation controller instance")
-        }
-        
-        view({ [weak self] viewToGo in
 
-            let navigationType = self?.defaultNavigationType ?? asType
-            
-            guard let controller = self?.resolveInstance(viewController: navigationType, for: viewToGo.self) else {
-                debugPrint("Could not retrieve the view controller to push")
-                return
-            }
-            
-            (controller as? NavigationFlow)?.navigationFlow = self
-            instance?(controller as! T)
-            
-            navigation.pushViewController(controller, animated: true)
-        })
+        let emptyParameter: (() -> (Void)) = {}
+        self.navigateUsingParameter(parameters: emptyParameter, next: view, resolve: asType, resolved: instance)
     }
     
     // Automatically resolve and go to the next view according to the order that you declared in
     // your ContainerFlowStack, if no item found will just not navigation we do not throw any error
     func goNext<T: UIViewController>(resolve asType: ViewIntanceFrom = .nib,
                                      resolved instance: ((T) -> ())? = nil) {
-        self.goNext(screen: { [weak self] nextView in
-            guard let nextViewElement = self?.findNextElementToNavigate() else {
-                debugPrint("There's no more itens to go next or there's no declared types")
-                return
-            }
-            
-            nextView(nextViewElement.forType as! T.Type)
-        }, resolve: asType, resolved: instance)
+        
+        guard let nextViewElement = self.findNextElementToNavigate() else {
+            debugPrint("There's no more itens to go next or there's no declared types")
+            return
+        }
+        
+        self.goNext(screen: nextViewElement.forType as! T.Type, resolve: asType, resolved: instance)
     }
     
     // Modal presentation
@@ -130,53 +97,52 @@ class FlowManager: NavigationFlow {
     // your ContainerFlowStack, or you can chose wich screen to pick and navigate to, if no view
     // can be satisfy will just return and print an error
     @discardableResult
-    func goNextAsModal<T: UIViewController>(screen view: (((T.Type) -> ()) -> ())? = nil,
+    func goNextAsModal<T: UIViewController>(screen view: T.Type? = nil,
                                             resolve asType: ViewIntanceFrom = .nib,
                                             animated modalShow: Bool = true,
                                             resolved instance: ((T) -> ())? = nil,
                                             completion: (() -> Void)? = nil) -> Self {
-
-        guard let navigation = self.navigationController else {
-            fatalError("You need to have a root navigation controller instance")
-        }
-        
-        var viewToGoNextType: T.Type?
-        
-        let modalPresentation: () -> Void = {
-            guard let view = viewToGoNextType else {
-                debugPrint("There's not next view to go")
-                return
-            }
-            let navigationType = self.defaultNavigationType ?? asType
-            
-            guard let controller = self.resolveInstance(viewController: navigationType, for: view.self) else {
-                debugPrint("Could not retrieve the view controller to present modally")
-                return
-            }
-            
-            (controller as? NavigationFlow)?.navigationFlow = self
-            instance?(controller as! T)
-            
-            navigation.present(controller, animated: modalShow, completion: completion)
-        }
-        
-        
-        if let viewToGo = view {
-            viewToGo({ nextView in
-                viewToGoNextType = nextView
-                modalPresentation()
-            })
-        } else {
-            guard let nextViewElement = self.findNextElementToNavigate() else {
-                debugPrint("There's no more itens to go next or there's no declared types")
-                return self
-            }
-            viewToGoNextType = nextViewElement.forType as? T.Type
-            modalPresentation()
-        }
-        
-        return self
+    
+    guard let navigation = self.navigationController else {
+        fatalError("You need to have a root navigation controller instance")
     }
+    
+    var viewToGoNextType: T.Type?
+    
+    let modalPresentation: () -> Void = {
+        guard let view = viewToGoNextType else {
+            debugPrint("There's not next view to go")
+            return
+        }
+        let navigationType = self.defaultNavigationType ?? asType
+        
+        let emptyParameter: () -> (Void) = {}
+        guard let controller = self._resolveInstance(viewController: navigationType, for: view.self, parameters: emptyParameter) else {
+            debugPrint("Could not retrieve the view controller to present modally")
+            return
+        }
+        
+        (controller as? FlowNavigator)?.navigationFlow = self
+        instance?(controller as! T)
+        
+        navigation.present(controller, animated: modalShow, completion: completion)
+    }
+    
+    
+    if let viewToGo = view {
+        viewToGoNextType = viewToGo
+        modalPresentation()
+    } else {
+        guard let nextViewElement = self.findNextElementToNavigate() else {
+            debugPrint("There's no more itens to go next or there's no declared types")
+            return self
+        }
+        viewToGoNextType = nextViewElement.forType as? T.Type
+        modalPresentation()
+    }
+    
+    return self
+}
     
     // This is used to get back when you are navigating using storyboard, with this
     // you can easy get back to the root view from you navigation controller stack
@@ -251,9 +217,43 @@ class FlowManager: NavigationFlow {
         return self
     }
     
-    // MARK: Helpers
+    // MARK: Private Helpers
+    
+    // This are our initializer functionality splitted, as when we have the scenario that we
+    // are using parameters in order to initialize we have just one more item, to not fulfil
+    // only one initializer we splitted, even because we could add separetely more logic regarding
+    // the way that we are initializing on different methods.
+    internal func initializerFunctionality(root viewController: UIViewController?,
+                                           withCustom navigation: UINavigationController? = nil,
+                                           finishedLoad presenting: (() -> ())? = nil,
+                                           dismissed navigationFlow: (() -> ())? = nil) {
+        
+        guard let rootView = viewController else {
+            fatalError("You need to have a root view controller instance")
+        }
+        
+        if let customNavigation = navigation {
+            self.navigationController = customNavigation
+        } else {
+            self.navigationController = UINavigationController(rootViewController: rootView)
+        }
+        
+        guard let navigationController = self.navigationController else {
+            fatalError("You need to have a root navigation controller instance")
+        }
+        
+        presentNewFlow(navigation: navigationController, resolved: {
+            presenting?()
+        })
+        
+        self.dismissedClosure = navigationFlow
+    }
+    
     // Resolve instances in a generic way according to the type, if from storybooard of if from nib
-    private func resolveInstance<T: UIViewController>(viewController from: ViewIntanceFrom, for view: T.Type) -> UIViewController? {
+    // In order to centralize the resolver methods that because how swift works and in order
+    // to be able to be generic enough we are using types to describe how many parameter do we
+    // have in order to be able to know which resolve we will call
+    internal func _resolveInstance<T: UIViewController, Resolver>(viewController from: ViewIntanceFrom, for view: T.Type, parameters resolver: (() -> ((Resolver)))? = nil) -> UIViewController? {
         switch from {
         case .storyboard(let storyboard):
             let storyboardName = storyboard.count == 0 ? "Main" : storyboard
@@ -271,7 +271,24 @@ class FlowManager: NavigationFlow {
             
             return controller
         case .nib:
-            let resolvedInstance = containerStack?.resolve(for: view)
+            var resolvedInstance: T?
+            
+            // If we sucess cast our value to this type of closure, this means that we are using
+            // no parameter's in order to try to satisfy our `resolve`, how we can check which
+            // type of resolve we can use as is generic and we can only validate checking the type
+            // because when we call our `_resolveInstance` from a place that I do now want to have
+            // any parameter it's not possible just to set nil, you need to have some type because
+            // otherwise the compiler will complaing that he can't identify the type as is generic
+            if let _ = resolver as? () -> (Void) {
+                resolvedInstance = containerStack?.resolve(for: view)
+            } else {
+                guard let resolverParameters = resolver else {
+                    debugPrint("Check if you properly set any argument(s) as we don't have so something is missing")
+                    return nil
+                }
+                resolvedInstance = containerStack?.resolve(for: view, parameters: resolverParameters)
+            }
+        
             return resolvedInstance
         }
     }
@@ -297,7 +314,7 @@ class FlowManager: NavigationFlow {
         containerStack?.destroyInstanceReferenceWhenToRoot()
     }
     
-    private func presentNewFlow(navigation controller: UINavigationController,
+    internal func presentNewFlow(navigation controller: UINavigationController,
                                 resolved instance: (() -> ())? = nil) {
         // When we go deeper in the navigation level, there's different instances that actually
         // is the one that is one top, with this, as you are looking for the most top view
@@ -319,7 +336,7 @@ class FlowManager: NavigationFlow {
     }
     
     // Navigation stack automatically identify next or back item according to the navigation view controllers
-    private func findNextElementToNavigate() -> FlowElementContainer<UIViewController>? {
+    internal func findNextElementToNavigate() -> FlowElementContainer<UIViewController>? {
         guard let actualView = self.navigationController?.visibleViewController else {
             return  nil
         }

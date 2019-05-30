@@ -8,32 +8,7 @@
 
 import UIKit
 
-protocol NavigationFlow: class {
-
+protocol FlowNavigator: class {
+    
     var navigationFlow: FlowManager? { get set }
-    
-    func goNext<T: UIViewController>(screen view: @escaping ((T.Type) -> ()) -> (),
-                                     resolve asType: ViewIntanceFrom,
-                                     resolved instance: ((T) -> ())?)
-    
-    func getBack<T: UIViewController>(pop withStyle: NavigationPopStyle,
-                                      screen view: (((T.Type) -> ()) -> ())?)
-}
-
-extension NavigationFlow {
-    var navigationFlow: FlowManager? {
-        get {
-            return nil
-        }
-        
-        set {
-            
-        }
-    }
-
-    func goNext<T: UIViewController>(screen view: @escaping ((T.Type) -> ()) -> (),
-                                     resolve asType: ViewIntanceFrom,
-                                     resolved instance: ((T) -> ())?) { }
-    func getBack<T: UIViewController>(pop withStyle: NavigationPopStyle,
-                                      screen view: (((T.Type) -> ()) -> ())?) { }
 }

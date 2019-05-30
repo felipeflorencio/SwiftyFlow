@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AutomaticallyThirdModalViewController: UIViewController, NavigationFlow {
+class AutomaticallyThirdModalViewController: UIViewController, FlowNavigator {
     
     var navigationFlow: FlowManager?
     

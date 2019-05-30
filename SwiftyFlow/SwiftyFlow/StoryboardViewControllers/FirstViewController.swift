@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController, NavigationFlow {
+class FirstViewController: UIViewController, FlowNavigator {
     
     var navigationFlow: FlowManager?
     
@@ -19,10 +19,8 @@ class FirstViewController: UIViewController, NavigationFlow {
     
     // Storyboard Navigation
     @IBAction func goNextView() {
-        
-        self.navigationFlow?.goNext(screen: { showView in
-            showView(SecondViewController.self)
-        }, resolve: .storyboard("Main"), resolved: { instance in
+
+        navigationFlow?.goNext(screen: SecondViewController.self, resolve: .storyboard("Main"), resolved: { instance in
             instance.nameForTitle = "PASSING TO SECOND"
         })
     }
@@ -33,10 +31,13 @@ class FirstViewController: UIViewController, NavigationFlow {
     
     // NIB Navigation
     @IBAction func goNextNibView() {
+//        navigationFlow?.goNextWith(parameters: { () -> ((String, Int)) in
+//            return ("Felipe Garcia", 232)
+//        }, screen: { nextView in nextView(GoAnywhereFirstViewController.self) })
+
         
-        self.navigationFlow?.goNext(screen: { showView in
-            showView(SecondViewController.self)
-        }, resolve: .nib, resolved: { instance in
+//        ((T.Type) -> ()) -> ()
+        self.navigationFlow?.goNext(screen: SecondViewController.self, resolve: .nib, resolved: { instance in
             instance.nameForTitle = "PASSING TO SECOND"
         })
     }

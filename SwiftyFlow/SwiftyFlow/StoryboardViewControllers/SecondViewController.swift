@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController, NavigationFlow {
+class SecondViewController: UIViewController, FlowNavigator {
     
     var navigationFlow: FlowManager?
     
@@ -22,11 +22,16 @@ class SecondViewController: UIViewController, NavigationFlow {
     
     // Storyboard Navigation
     @IBAction func goNextView() {
-        self.navigationFlow?.goNext(screen: { showView in
-            showView(ThirdViewController.self)
-        }, resolve: .storyboard("Main"), resolved: { instance in
+
+        self.navigationFlow?.goNext(screen: ThirdViewController.self, resolve: .storyboard("Main"), resolved: { instance in
             
         })
+        
+//        self.navigationFlow?.goNext(screen: { showView in
+//            showView(ThirdViewController.self)
+//        }, resolve: .storyboard("Main"), resolved: { instance in
+//
+//        })
     }
     
     @IBAction func goBackView() {
@@ -36,9 +41,7 @@ class SecondViewController: UIViewController, NavigationFlow {
     // NIB Navigation
     @IBAction func goNextNibView() {
         
-        self.navigationFlow?.goNext(screen: { showView in
-            showView(ThirdViewController.self)
-        }, resolve: .nib, resolved: { instance in
+        self.navigationFlow?.goNext(screen: ThirdViewController.self, resolve: .nib, resolved: { instance in
             
         })
     }

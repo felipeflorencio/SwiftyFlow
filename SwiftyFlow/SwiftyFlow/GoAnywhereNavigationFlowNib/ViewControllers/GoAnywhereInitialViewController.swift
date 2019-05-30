@@ -10,7 +10,7 @@ import UIKit
 
 // This flow follows the MVC pattern, trying to use the most common and simples
 // setup, that is the reason that our navigation stack will start from here
-class GoAnywhereInitialViewController: UIViewController, NavigationFlow {
+class GoAnywhereInitialViewController: UIViewController, FlowNavigator {
     
     var navigationFlow: FlowManager?
     

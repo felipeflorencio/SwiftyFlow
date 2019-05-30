@@ -1,17 +1,23 @@
 //
-//  GoAnywhereFirstViewController.swift
+//  ParameterFirstViewController.swift
 //  SwiftyFlow
 //
-//  Created by Felipe Florencio Garcia on 10/05/2019.
+//  Created by Felipe Florencio Garcia on 30/05/19.
 //  Copyright © 2019 Felipe Florencio Garcia. All rights reserved.
 //
 
 import UIKit
 
-class GoAnywhereFirstViewController: UIViewController, FlowNavigator, UIPickerViewDelegate, UIPickerViewDataSource {
+class ParameterFirstViewController: UIViewController, FlowNavigator, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    @IBOutlet weak var firstParameterLabel: UILabel!
+    @IBOutlet weak var secondParameterLabel: UILabel!
     
     var navigationFlow: FlowManager?
     
+    var firstParameter: String?
+    var secondParameter: Int?
+
     @IBOutlet weak var picker: UIPickerView!
     
     private var selectedItem: FlowElementContainer<UIViewController>?
@@ -21,6 +27,12 @@ class GoAnywhereFirstViewController: UIViewController, FlowNavigator, UIPickerVi
         
         self.picker.delegate = self
         self.picker.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        firstParameterLabel.text = "1 - \(String(describing: firstParameter!))"
+        secondParameterLabel.text = "2 - \(String(describing: secondParameter!))"
     }
     
     // MARK: - IBAction
@@ -53,11 +65,11 @@ class GoAnywhereFirstViewController: UIViewController, FlowNavigator, UIPickerVi
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return navigationFlow?.containerStack?.getModulesList().filter({ $0.forType != GoAnywhereInitialViewController.self }).count ?? 0
+        return navigationFlow?.containerStack?.getModulesList().filter({ $0.forType != ParameterInitialViewController.self }).count ?? 0
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        guard let viewName = navigationFlow?.containerStack?.getModulesList().filter({ $0.forType != GoAnywhereInitialViewController.self })[safe: row]?.forType else {
+        guard let viewName = navigationFlow?.containerStack?.getModulesList().filter({ $0.forType != ParameterInitialViewController.self })[safe: row]?.forType else {
             return nil
         }
         
@@ -65,6 +77,12 @@ class GoAnywhereFirstViewController: UIViewController, FlowNavigator, UIPickerVi
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedItem = navigationFlow?.containerStack?.getModulesList().filter({ $0.forType != GoAnywhereInitialViewController.self })[safe: row]
+        selectedItem = navigationFlow?.containerStack?.getModulesList().filter({ $0.forType != ParameterInitialViewController.self })[safe: row]
+    }
+    
+    // MARK: Receive parameters
+    func setParameters(first data: String, _ second: Int) {
+        firstParameter = data
+        secondParameter = second
     }
 }

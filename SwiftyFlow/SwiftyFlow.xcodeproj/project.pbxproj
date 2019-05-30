@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45E36E9522A04C8900ED9D07 /* ParameterNavigationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E36E9422A04C8900ED9D07 /* ParameterNavigationContainer.swift */; };
+		45E36EA822A04D3200ED9D07 /* ParameterInitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E36E9722A04D3200ED9D07 /* ParameterInitialViewController.swift */; };
+		45E36EAB22A04D3200ED9D07 /* ParameterFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E36E9A22A04D3200ED9D07 /* ParameterFirstViewController.swift */; };
+		45E36EAD22A04D3200ED9D07 /* ParameterSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E36E9C22A04D3200ED9D07 /* ParameterSecondViewController.swift */; };
+		45E36EAE22A04D3200ED9D07 /* ParameterFourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E36E9D22A04D3200ED9D07 /* ParameterFourthViewController.swift */; };
+		45E36EAF22A04D3200ED9D07 /* ParameterThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E36E9E22A04D3200ED9D07 /* ParameterThirdViewController.swift */; };
+		45E36EB122A04D3200ED9D07 /* ParameterSecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45E36EA122A04D3200ED9D07 /* ParameterSecondViewController.xib */; };
+		45E36EB222A04D3200ED9D07 /* ParameterThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45E36EA222A04D3200ED9D07 /* ParameterThirdViewController.xib */; };
+		45E36EB322A04D3200ED9D07 /* ParameterInitialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45E36EA322A04D3200ED9D07 /* ParameterInitialViewController.xib */; };
+		45E36EB522A04D3200ED9D07 /* ParameterFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45E36EA522A04D3200ED9D07 /* ParameterFirstViewController.xib */; };
+		45E36EB622A04D3200ED9D07 /* ParameterFourthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45E36EA622A04D3200ED9D07 /* ParameterFourthViewController.xib */; };
+		45E36EC722A05EC700ED9D07 /* NavigatePassingParameterNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E36EC622A05EC700ED9D07 /* NavigatePassingParameterNib.swift */; };
 		8C015459229464A900A496EA /* AutomaticallyNavigationWithModalContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C015458229464A900A496EA /* AutomaticallyNavigationWithModalContainer.swift */; };
 		8C031C132293D18300EA63CE /* AutomaticallyFourthModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C031C112293D18200EA63CE /* AutomaticallyFourthModalViewController.swift */; };
 		8C031C192293D20600EA63CE /* AutomaticallyThirdModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C031C152293D20600EA63CE /* AutomaticallyThirdModalViewController.swift */; };
@@ -60,6 +72,8 @@
 		8C1247F82285CD67009400B4 /* DeeplinkSeventhViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1247E72285CD67009400B4 /* DeeplinkSeventhViewController.swift */; };
 		8C1247F92285CD67009400B4 /* DeeplinkFifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1247E82285CD67009400B4 /* DeeplinkFifthViewController.swift */; };
 		8C1247FA2285CD67009400B4 /* DeeplinkFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1247E92285CD67009400B4 /* DeeplinkFirstViewController.swift */; };
+		8C6C8D502297C6B70079E552 /* ContainerFlowStack+GenericExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6C8D4F2297C6B70079E552 /* ContainerFlowStack+GenericExtension.swift */; };
+		8C6C8D53229926C00079E552 /* FlowManagerInitializer+GenericExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6C8D52229926BF0079E552 /* FlowManagerInitializer+GenericExtension.swift */; };
 		8CBAB0A12281C7850050E8AF /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CBAB0A02281C7850050E8AF /* FirstViewController.xib */; };
 		8CC8B5FC227EDF7D0033C5DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8B5FB227EDF7D0033C5DE /* AppDelegate.swift */; };
 		8CC8B5FE227EDF7D0033C5DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8B5FD227EDF7D0033C5DE /* ViewController.swift */; };
@@ -75,7 +89,31 @@
 		8CD88344227F046F005B42FE /* FlowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD88343227F046F005B42FE /* FlowManager.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		45E36EC122A05E9D00ED9D07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8CC8B5F0227EDF7D0033C5DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8CC8B5F7227EDF7D0033C5DE;
+			remoteInfo = SwiftyFlow;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		45E36E9422A04C8900ED9D07 /* ParameterNavigationContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterNavigationContainer.swift; sourceTree = "<group>"; };
+		45E36E9722A04D3200ED9D07 /* ParameterInitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterInitialViewController.swift; sourceTree = "<group>"; };
+		45E36E9A22A04D3200ED9D07 /* ParameterFirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterFirstViewController.swift; sourceTree = "<group>"; };
+		45E36E9C22A04D3200ED9D07 /* ParameterSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterSecondViewController.swift; sourceTree = "<group>"; };
+		45E36E9D22A04D3200ED9D07 /* ParameterFourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterFourthViewController.swift; sourceTree = "<group>"; };
+		45E36E9E22A04D3200ED9D07 /* ParameterThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterThirdViewController.swift; sourceTree = "<group>"; };
+		45E36EA122A04D3200ED9D07 /* ParameterSecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParameterSecondViewController.xib; sourceTree = "<group>"; };
+		45E36EA222A04D3200ED9D07 /* ParameterThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParameterThirdViewController.xib; sourceTree = "<group>"; };
+		45E36EA322A04D3200ED9D07 /* ParameterInitialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParameterInitialViewController.xib; sourceTree = "<group>"; };
+		45E36EA522A04D3200ED9D07 /* ParameterFirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParameterFirstViewController.xib; sourceTree = "<group>"; };
+		45E36EA622A04D3200ED9D07 /* ParameterFourthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParameterFourthViewController.xib; sourceTree = "<group>"; };
+		45E36EBC22A05E9D00ED9D07 /* SwiftyFlowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyFlowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		45E36EC022A05E9D00ED9D07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45E36EC622A05EC700ED9D07 /* NavigatePassingParameterNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatePassingParameterNib.swift; sourceTree = "<group>"; };
 		8C015458229464A900A496EA /* AutomaticallyNavigationWithModalContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticallyNavigationWithModalContainer.swift; sourceTree = "<group>"; };
 		8C031C112293D18200EA63CE /* AutomaticallyFourthModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticallyFourthModalViewController.swift; sourceTree = "<group>"; };
 		8C031C152293D20600EA63CE /* AutomaticallyThirdModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticallyThirdModalViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +167,8 @@
 		8C1247E72285CD67009400B4 /* DeeplinkSeventhViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeeplinkSeventhViewController.swift; sourceTree = "<group>"; };
 		8C1247E82285CD67009400B4 /* DeeplinkFifthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeeplinkFifthViewController.swift; sourceTree = "<group>"; };
 		8C1247E92285CD67009400B4 /* DeeplinkFirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeeplinkFirstViewController.swift; sourceTree = "<group>"; };
+		8C6C8D4F2297C6B70079E552 /* ContainerFlowStack+GenericExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContainerFlowStack+GenericExtension.swift"; sourceTree = "<group>"; };
+		8C6C8D52229926BF0079E552 /* FlowManagerInitializer+GenericExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FlowManagerInitializer+GenericExtension.swift"; sourceTree = "<group>"; };
 		8CBAB0A02281C7850050E8AF /* FirstViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
 		8CC8B5F8227EDF7D0033C5DE /* SwiftyFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CC8B5FB227EDF7D0033C5DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +187,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		45E36EB922A05E9D00ED9D07 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8CC8B5F5227EDF7D0033C5DE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -157,6 +204,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45E36E9322A04C4400ED9D07 /* NavigatePassingParameterNib */ = {
+			isa = PBXGroup;
+			children = (
+				45E36E9F22A04D3200ED9D07 /* NibViews */,
+				45E36E9622A04D3200ED9D07 /* ViewControllers */,
+				45E36E9422A04C8900ED9D07 /* ParameterNavigationContainer.swift */,
+			);
+			path = NavigatePassingParameterNib;
+			sourceTree = "<group>";
+		};
+		45E36E9622A04D3200ED9D07 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				45E36E9722A04D3200ED9D07 /* ParameterInitialViewController.swift */,
+				45E36E9A22A04D3200ED9D07 /* ParameterFirstViewController.swift */,
+				45E36E9C22A04D3200ED9D07 /* ParameterSecondViewController.swift */,
+				45E36E9E22A04D3200ED9D07 /* ParameterThirdViewController.swift */,
+				45E36E9D22A04D3200ED9D07 /* ParameterFourthViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		45E36E9F22A04D3200ED9D07 /* NibViews */ = {
+			isa = PBXGroup;
+			children = (
+				45E36EA322A04D3200ED9D07 /* ParameterInitialViewController.xib */,
+				45E36EA522A04D3200ED9D07 /* ParameterFirstViewController.xib */,
+				45E36EA122A04D3200ED9D07 /* ParameterSecondViewController.xib */,
+				45E36EA222A04D3200ED9D07 /* ParameterThirdViewController.xib */,
+				45E36EA622A04D3200ED9D07 /* ParameterFourthViewController.xib */,
+			);
+			path = NibViews;
+			sourceTree = "<group>";
+		};
+		45E36EBD22A05E9D00ED9D07 /* SwiftyFlowTests */ = {
+			isa = PBXGroup;
+			children = (
+				45E36EC022A05E9D00ED9D07 /* Info.plist */,
+				45E36EC622A05EC700ED9D07 /* NavigatePassingParameterNib.swift */,
+			);
+			path = SwiftyFlowTests;
+			sourceTree = "<group>";
+		};
 		8C031C102293D18200EA63CE /* AutomaticallyNavigationFlowNibWithLastModal */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,14 +320,14 @@
 		8C1247B22285BAEE009400B4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				8C1247CE2285C76E009400B4 /* GoAnywhereFifthViewController.swift */,
-				8C1247CF2285C76E009400B4 /* GoAnywhereFourthViewController.swift */,
-				8C1247D12285C76F009400B4 /* GoAnywhereSeventhViewController.swift */,
-				8C1247D02285C76F009400B4 /* GoAnywhereSixthViewController.swift */,
 				8C1247B32285BAEE009400B4 /* GoAnywhereInitialViewController.swift */,
 				8C1247B42285BAEE009400B4 /* GoAnywhereFirstViewController.swift */,
 				8C1247B52285BAEE009400B4 /* GoAnywhereSecondViewController.swift */,
 				8C1247B62285BAEE009400B4 /* GoAnywhereThirdViewController.swift */,
+				8C1247CF2285C76E009400B4 /* GoAnywhereFourthViewController.swift */,
+				8C1247CE2285C76E009400B4 /* GoAnywhereFifthViewController.swift */,
+				8C1247D02285C76F009400B4 /* GoAnywhereSixthViewController.swift */,
+				8C1247D12285C76F009400B4 /* GoAnywhereSeventhViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -321,6 +411,7 @@
 			isa = PBXGroup;
 			children = (
 				8CC8B5FA227EDF7D0033C5DE /* SwiftyFlow */,
+				45E36EBD22A05E9D00ED9D07 /* SwiftyFlowTests */,
 				8CC8B5F9227EDF7D0033C5DE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -329,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				8CC8B5F8227EDF7D0033C5DE /* SwiftyFlow.app */,
+				45E36EBC22A05E9D00ED9D07 /* SwiftyFlowTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -336,6 +428,7 @@
 		8CC8B5FA227EDF7D0033C5DE /* SwiftyFlow */ = {
 			isa = PBXGroup;
 			children = (
+				45E36E9322A04C4400ED9D07 /* NavigatePassingParameterNib */,
 				8C031C102293D18200EA63CE /* AutomaticallyNavigationFlowNibWithLastModal */,
 				8C1247D62285C923009400B4 /* SimulatingDeepLinkToCreateFlowNib */,
 				8C1247B12285BAEE009400B4 /* GoAnywhereNavigationFlowNib */,
@@ -361,7 +454,9 @@
 				8C1247952284987D009400B4 /* Helper */,
 				8CC8B611227EDFB40033C5DE /* NavigationFlowProtocol.swift */,
 				8CC8B60E227EDFB40033C5DE /* ContainerFlowStack.swift */,
+				8C6C8D4F2297C6B70079E552 /* ContainerFlowStack+GenericExtension.swift */,
 				8CD88343227F046F005B42FE /* FlowManager.swift */,
+				8C6C8D52229926BF0079E552 /* FlowManagerInitializer+GenericExtension.swift */,
 				8C12479322846894009400B4 /* FlowElementContainer.swift */,
 			);
 			path = NavigationStackContainer;
@@ -370,6 +465,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		45E36EBB22A05E9D00ED9D07 /* SwiftyFlowTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45E36EC322A05E9D00ED9D07 /* Build configuration list for PBXNativeTarget "SwiftyFlowTests" */;
+			buildPhases = (
+				45E36EB822A05E9D00ED9D07 /* Sources */,
+				45E36EB922A05E9D00ED9D07 /* Frameworks */,
+				45E36EBA22A05E9D00ED9D07 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				45E36EC222A05E9D00ED9D07 /* PBXTargetDependency */,
+			);
+			name = SwiftyFlowTests;
+			productName = SwiftyFlowTests;
+			productReference = 45E36EBC22A05E9D00ED9D07 /* SwiftyFlowTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		8CC8B5F7227EDF7D0033C5DE /* SwiftyFlow */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8CC8B60A227EDF7D0033C5DE /* Build configuration list for PBXNativeTarget "SwiftyFlow" */;
@@ -397,6 +510,10 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Felipe Florencio Garcia";
 				TargetAttributes = {
+					45E36EBB22A05E9D00ED9D07 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 8CC8B5F7227EDF7D0033C5DE;
+					};
 					8CC8B5F7227EDF7D0033C5DE = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
@@ -416,11 +533,19 @@
 			projectRoot = "";
 			targets = (
 				8CC8B5F7227EDF7D0033C5DE /* SwiftyFlow */,
+				45E36EBB22A05E9D00ED9D07 /* SwiftyFlowTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		45E36EBA22A05E9D00ED9D07 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8CC8B5F6227EDF7D0033C5DE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -430,6 +555,8 @@
 				8C1247F02285CD67009400B4 /* DeeplinkSeventhViewController.xib in Resources */,
 				8C1247B02285AFBB009400B4 /* AutomaticallyThirdViewController.xib in Resources */,
 				8C1247AA2285AF96009400B4 /* AutomaticallyInitialViewController.xib in Resources */,
+				45E36EB122A04D3200ED9D07 /* ParameterSecondViewController.xib in Resources */,
+				45E36EB622A04D3200ED9D07 /* ParameterFourthViewController.xib in Resources */,
 				8C1247EE2285CD67009400B4 /* DeeplinkFifthViewController.xib in Resources */,
 				8C031C1A2293D20600EA63CE /* AutomaticallyThirdModalViewController.xib in Resources */,
 				8CC8B603227EDF7D0033C5DE /* Assets.xcassets in Resources */,
@@ -439,9 +566,12 @@
 				8C1247EF2285CD67009400B4 /* DeeplinkThirdViewController.xib in Resources */,
 				8CC8B601227EDF7D0033C5DE /* Main.storyboard in Resources */,
 				8C1247ED2285CD67009400B4 /* DeeplinkSixthViewController.xib in Resources */,
+				45E36EB522A04D3200ED9D07 /* ParameterFirstViewController.xib in Resources */,
+				45E36EB222A04D3200ED9D07 /* ParameterThirdViewController.xib in Resources */,
 				8C1247EA2285CD67009400B4 /* DeeplinkInitialViewController.xib in Resources */,
 				8C031C1B2293D20600EA63CE /* AutomaticallyFourthModalViewController.xib in Resources */,
 				8C1247C12285BAEE009400B4 /* GoAnywhereThirdViewController.xib in Resources */,
+				45E36EB322A04D3200ED9D07 /* ParameterInitialViewController.xib in Resources */,
 				8C1247EC2285CD67009400B4 /* DeeplinkFirstViewController.xib in Resources */,
 				8C1247C02285BAEE009400B4 /* GoAnywhereSecondViewController.xib in Resources */,
 				8C1247AE2285AFB2009400B4 /* AutomaticallySecondViewController.xib in Resources */,
@@ -460,19 +590,32 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		45E36EB822A05E9D00ED9D07 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45E36EC722A05EC700ED9D07 /* NavigatePassingParameterNib.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8CC8B5F4227EDF7D0033C5DE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				8C1247F72285CD67009400B4 /* DeeplinkThirdViewController.swift in Sources */,
+				45E36EAE22A04D3200ED9D07 /* ParameterFourthViewController.swift in Sources */,
 				8C12479E2285813A009400B4 /* AutomaticallySecondViewController.swift in Sources */,
 				8C1247D22285C76F009400B4 /* GoAnywhereFifthViewController.swift in Sources */,
 				8C1247D52285C76F009400B4 /* GoAnywhereSeventhViewController.swift in Sources */,
 				8C1247BE2285BAEE009400B4 /* GoAnywhereSecondViewController.swift in Sources */,
 				8CC8B618227EDFB40033C5DE /* SecondViewController.swift in Sources */,
 				8C015459229464A900A496EA /* AutomaticallyNavigationWithModalContainer.swift in Sources */,
+				45E36EAF22A04D3200ED9D07 /* ParameterThirdViewController.swift in Sources */,
+				45E36EA822A04D3200ED9D07 /* ParameterInitialViewController.swift in Sources */,
 				8C031C192293D20600EA63CE /* AutomaticallyThirdModalViewController.swift in Sources */,
+				8C6C8D502297C6B70079E552 /* ContainerFlowStack+GenericExtension.swift in Sources */,
 				8C12479A22858113009400B4 /* AutomaticallyInitialViewController.swift in Sources */,
+				8C6C8D53229926C00079E552 /* FlowManagerInitializer+GenericExtension.swift in Sources */,
 				8C1247BC2285BAEE009400B4 /* GoAnywhereInitialViewController.swift in Sources */,
 				8C1247F52285CD67009400B4 /* DeeplinkSecondViewController.swift in Sources */,
 				8CC8B615227EDFB40033C5DE /* ContainerView.swift in Sources */,
@@ -487,16 +630,19 @@
 				8C1247D32285C76F009400B4 /* GoAnywhereFourthViewController.swift in Sources */,
 				8C1247D42285C76F009400B4 /* GoAnywhereSixthViewController.swift in Sources */,
 				8CC8B5FE227EDF7D0033C5DE /* ViewController.swift in Sources */,
+				45E36EAB22A04D3200ED9D07 /* ParameterFirstViewController.swift in Sources */,
 				8C1247A222858152009400B4 /* AutomaticallyThirdViewController.swift in Sources */,
 				8C1247F82285CD67009400B4 /* DeeplinkSeventhViewController.swift in Sources */,
 				8C031C132293D18300EA63CE /* AutomaticallyFourthModalViewController.swift in Sources */,
 				8C1247FA2285CD67009400B4 /* DeeplinkFirstViewController.swift in Sources */,
+				45E36E9522A04C8900ED9D07 /* ParameterNavigationContainer.swift in Sources */,
 				8C12479422846894009400B4 /* FlowElementContainer.swift in Sources */,
 				8CD88344227F046F005B42FE /* FlowManager.swift in Sources */,
 				8CC8B617227EDFB40033C5DE /* NavigationFlowProtocol.swift in Sources */,
 				8CC8B614227EDFB40033C5DE /* ContainerFlowStack.swift in Sources */,
 				8C1247A622858A41009400B4 /* AutomaticallyNavigationContainer.swift in Sources */,
 				8C1247F32285CD67009400B4 /* DeeplinkFourthViewController.swift in Sources */,
+				45E36EAD22A04D3200ED9D07 /* ParameterSecondViewController.swift in Sources */,
 				8C1247F22285CD67009400B4 /* DeeplinkNavigationContainer.swift in Sources */,
 				8CC8B616227EDFB40033C5DE /* ThirdViewController.swift in Sources */,
 				8C1247F92285CD67009400B4 /* DeeplinkFifthViewController.swift in Sources */,
@@ -505,6 +651,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		45E36EC222A05E9D00ED9D07 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8CC8B5F7227EDF7D0033C5DE /* SwiftyFlow */;
+			targetProxy = 45E36EC122A05E9D00ED9D07 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8CC8B5FF227EDF7D0033C5DE /* Main.storyboard */ = {
@@ -526,6 +680,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		45E36EC422A05E9D00ED9D07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9RVZM5B68T;
+				INFOPLIST_FILE = SwiftyFlowTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.felipe.SwiftyFlowTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftyFlow.app/SwiftyFlow";
+			};
+			name = Debug;
+		};
+		45E36EC522A05E9D00ED9D07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9RVZM5B68T;
+				INFOPLIST_FILE = SwiftyFlowTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.felipe.SwiftyFlowTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftyFlow.app/SwiftyFlow";
+			};
+			name = Release;
+		};
 		8CC8B608227EDF7D0033C5DE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -683,6 +877,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		45E36EC322A05E9D00ED9D07 /* Build configuration list for PBXNativeTarget "SwiftyFlowTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45E36EC422A05E9D00ED9D07 /* Debug */,
+				45E36EC522A05E9D00ED9D07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8CC8B5F3227EDF7D0033C5DE /* Build configuration list for PBXProject "SwiftyFlow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

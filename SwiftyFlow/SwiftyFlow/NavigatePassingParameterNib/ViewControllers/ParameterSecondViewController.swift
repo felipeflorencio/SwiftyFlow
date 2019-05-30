@@ -1,14 +1,14 @@
 //
-//  AutomaticallySecondViewController.swift
+//  ParameterSecondViewController.swift
 //  SwiftyFlow
 //
-//  Created by Felipe Florencio Garcia on 10/05/2019.
+//  Created by Felipe Florencio Garcia on 30/05/19.
 //  Copyright © 2019 Felipe Florencio Garcia. All rights reserved.
 //
 
 import UIKit
 
-class AutomaticallySecondViewController: UIViewController, FlowNavigator {
+class ParameterSecondViewController: UIViewController, FlowNavigator {
     
     var navigationFlow: FlowManager?
     

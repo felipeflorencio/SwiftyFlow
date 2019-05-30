@@ -8,12 +8,14 @@
 
 import UIKit
 
+internal typealias CallbackFunctionType = Any
+
 // The idea of have FlowElementContainer is a way of have the reference
-// encapsulated inside a object that we can manage the referenceto our
+// encapsulated inside a object that we can manage the reference to our
 // real object, as we will be using this inside an array, we need to be
 // able to destroy easily our array without have the risk of some view
 // controller hold the reference to the object
-class FlowElementContainer<T> where T: UIViewController {
+class FlowElementContainer<T> {
     
     public enum Scope {
         case none       // fresh instance all the time, default
@@ -23,14 +25,24 @@ class FlowElementContainer<T> where T: UIViewController {
     
     typealias Container = () -> T?
     private var factory: (Container)?
+    
+    private(set) var factoryParameter: CallbackFunctionType?
+    
     private(set) var scope: Scope = .weak
     private(set) var forType: T.Type
     private weak var weakInstance: AnyObject?
     private var strongInstance: T?
+    private(set) var arguments: Any?
     
     init(for type: T.Type, resolving: @escaping Container) {
         factory = resolving
         forType = type
+    }
+    
+    init(for type: T.Type, with arg: Any, resolving: CallbackFunctionType) {
+        factoryParameter = resolving
+        forType = type
+        arguments = arg
     }
     
     deinit {
@@ -63,6 +75,16 @@ class FlowElementContainer<T> where T: UIViewController {
         }
     }
     
+    func resolved(with instance: (Container)) {
+        switch scope {
+        case .weak:
+            weakInstance = instance() as? UIViewController
+        case .strong:
+            strongInstance = instance()
+        default: break
+        }
+    }
+    
     // Set the scope that we will want for this object
     @discardableResult
     public func inScope(scope: Scope) -> Self {
@@ -82,8 +104,14 @@ class FlowElementContainer<T> where T: UIViewController {
     
     // This is used to remove any object reference and make sure that if we start the flow again
     // we will always use the fresh instance as is suppose to be
+    func resetWeakInstanceReference() {
+        debugPrint("Destroying weak reference instance for: \(self.forType)")
+        self.weakInstance = nil
+    }
+    
     func resetInstanceReference() {
-        debugPrint("Destroying weak reference instance for \(self.forType)")
+        debugPrint("Destroying strong and weak reference instance for: \(self.forType)")
+        self.strongInstance = nil
         self.weakInstance = nil
     }
 }

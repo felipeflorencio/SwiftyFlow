@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Swifty Flow"
+        
         //Setup my flow for when using Storyboard
         self.flowManager = createMyStoryboardFlowManager()
     }
@@ -58,6 +60,16 @@ class ViewController: UIViewController {
                     container: container.setup())
     }
     
+    // MARK: - Parameter Navigation Flow Using NIB
+    @IBAction func startParameterNavigationUsingNibFlow() {
+        let container = ParameterNavigationContainer(stack: ContainerFlowStack())
+        
+        FlowManager(root: ParameterInitialViewController.self,
+                    container: container.setup(), parameters: {
+                    return (("Felipe", 3123.232, "Florencio", 31))
+        })
+    }
+    
     // MARK: - Deeplink Navigation Flow Using NIB
     @IBAction func deepLinkNavigationUsingNibFlow() {
         let navigationStack = ContainerFlowStack()
@@ -78,9 +90,7 @@ class ViewController: UIViewController {
     
     // MARK: - Navigation when Storyboard Views
     @IBAction func storyboardNavigationAction() {
-        self.flowManager?.goNext(screen: { viewType in
-            viewType(FirstViewController.self)
-        }, resolve: .storyboard("Main"))
+        self.flowManager?.goNext(screen: FirstViewController.self, resolve: .storyboard("Main"))
         
         self.flowManager.dismissedFlowWith { parameter in
             debugPrint("Finished passing this parameter \(parameter) that has the type: \(type(of: parameter))")
@@ -89,9 +99,7 @@ class ViewController: UIViewController {
     
     // MARK: - Navigation when Nib Views
     @IBAction func nibNavigationAction() {
-        self.flowManager?.goNext(screen: { viewType in
-            viewType(FirstViewController.self)
-        }, resolve: .nib)
+        self.flowManager?.goNext(screen: FirstViewController.self, resolve: .nib)
     }
     
     // MARK: - Navigation with custom Navigation Controller
