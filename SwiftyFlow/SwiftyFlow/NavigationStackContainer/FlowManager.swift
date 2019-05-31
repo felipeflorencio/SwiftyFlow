@@ -56,20 +56,20 @@ class FlowManager {
     //     first / root view controller using the reference from the storyboar as it's not loaded
     //     yet, so for this scenario you only pass the type of the first one that will be resolved
     //     so we hande this resolution for you, otherwise will load with a black screen your navigation
-    @discardableResult convenience init<T: UIViewController>(root instanceType: T.Type,
-                                                             container stack: ContainerFlowStack,
-                                                             withCustom navigation: UINavigationController? = nil,
-                                                             setupInstance type: ViewIntanceFrom = .nib,
-                                                             finishedLoad presenting: (() -> ())? = nil,
-                                                             dismissed navigationFlow: (() -> ())? = nil) {
+    convenience init<T: UIViewController>(root instanceType: T.Type,
+                                          container stack: ContainerFlowStack,
+                                          withCustom navigation: UINavigationController? = nil,
+                                          setupInstance type: ViewIntanceFrom = .nib,
+                                          finishedLoad presenting: (() -> ())? = nil,
+                                          dismissed navigationFlow: (() -> ())? = nil) {
         self.init(navigation: nil, container: stack, setupInstance: type)
-        
+
         let emptyParameter: () -> (Void) = {}
         let rootViewController = self._resolveInstance(viewController: type, for: instanceType, parameters: emptyParameter)
-        
+
         self.initializerFunctionality(root: rootViewController, withCustom: navigation, finishedLoad: presenting, dismissed: navigationFlow)
     }
-    
+
     // MARK: - Navigation
     func goNext<T: UIViewController>(screen view: T.Type,
                                      resolve asType: ViewIntanceFrom = .nib,
@@ -327,10 +327,9 @@ class FlowManager {
         
         self.rootView = topController
         
-        self.adjustModulesReference()
-        
-        self.rootView?.present(controller, animated: true) {
+        self.rootView?.present(controller, animated: true) { [weak self] in
             // Finished load
+            self?.adjustModulesReference()
             instance?()
         }
     }

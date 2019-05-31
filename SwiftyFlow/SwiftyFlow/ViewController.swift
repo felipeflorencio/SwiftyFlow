@@ -34,58 +34,83 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Automatically Navigation Flow Using Storyboard
+    // If you do not set the return for some class variable after being allocated the
+    // the object will be deallocated as is the normal behaviour in order to avoid
+    // retain cycle
+    var flowManagerAutomaticallyNavigationFlow: FlowManager?
     @IBAction func startAutomaticallyNavigationFlow() {
         let navigationStack = ContainerFlowStack()
         AutomaticallyNavigationContainer().setupNavigationStack(using: navigationStack)
 
-        FlowManager(root: AutomaticallyInitialViewController.self,
-                    container: navigationStack,
-                    setupInstance: .storyboard("AutomaticallyNavigationFlow"))
+        flowManagerAutomaticallyNavigationFlow = FlowManager(root: AutomaticallyInitialViewController.self,
+                                                             container: navigationStack,
+                                                             setupInstance: .storyboard("AutomaticallyNavigationFlow"))
     }
     
     // MARK: - Automatically Navigation Flow Using NIB
+    // If you do not set the return for some class variable after being allocated the
+    // the object will be deallocated as is the normal behaviour in order to avoid
+    // retain cycle
+    var flowManagerAutomaticallyNavigationUsingNibFlow: FlowManager?
     @IBAction func startAutomaticallyNavigationUsingNibFlow() {
         let navigationStack = ContainerFlowStack()
         AutomaticallyNavigationContainer().setupNavigationStack(using: navigationStack)
         
-        FlowManager(root: AutomaticallyInitialViewController.self,
-                    container: navigationStack)
+        flowManagerAutomaticallyNavigationUsingNibFlow = FlowManager(root: AutomaticallyInitialViewController.self,
+                                                                     container: navigationStack)
     }
     
     // MARK: - Automatically / Go Anywhere Navigation Flow Using NIB
+    // If you do not set the return for some class variable after being allocated the
+    // the object will be deallocated as is the normal behaviour in order to avoid
+    // retain cycle
+    var flowManagerAutomaticallyGoAnywhereNavigationUsingNibFlow: FlowManager?
     @IBAction func startAutomaticallyGoAnywhereNavigationUsingNibFlow() {
         let container = GoAnywhereNavigationContainer(stack: ContainerFlowStack())
         
-        FlowManager(root: GoAnywhereInitialViewController.self,
-                    container: container.setup())
+        flowManagerAutomaticallyGoAnywhereNavigationUsingNibFlow = FlowManager(root: GoAnywhereInitialViewController.self,
+                                                                               container: container.setup())
     }
     
+    
     // MARK: - Parameter Navigation Flow Using NIB
+    // If you do not set the return for some class variable after being allocated the
+    // the object will be deallocated as is the normal behaviour in order to avoid
+    // retain cycle
+    var flowManagerParameterNavigationUsingNibFlow: FlowManager?
     @IBAction func startParameterNavigationUsingNibFlow() {
         let container = ParameterNavigationContainer(stack: ContainerFlowStack())
         
-        FlowManager(root: ParameterInitialViewController.self,
-                    container: container.setup(), parameters: {
+        flowManagerParameterNavigationUsingNibFlow = FlowManager(root: ParameterInitialViewController.self,
+                                                                 container: container.setup(), parameters: {
                     return (("Felipe", 3123.232, "Florencio", 31))
         })
     }
     
     // MARK: - Deeplink Navigation Flow Using NIB
+    // If you do not set the return for some class variable after being allocated the
+    // the object will be deallocated as is the normal behaviour in order to avoid
+    // retain cycle
+    var flowManagerDeepLinkNavigationUsingNibFlow: FlowManager?
     @IBAction func deepLinkNavigationUsingNibFlow() {
         let navigationStack = ContainerFlowStack()
         DeeplinkNavigationContainer().setupNavigationStack(using: navigationStack)
         
-        FlowManager(root: DeeplinkInitialViewController.self,
-                    container: navigationStack)
+        flowManagerDeepLinkNavigationUsingNibFlow = FlowManager(root: DeeplinkInitialViewController.self,
+                                                                container: navigationStack)
     }
     
     // MARK: - Deeplink Navigation Flow Using NIB
+    // If you do not set the return for some class variable after being allocated the
+    // the object will be deallocated as is the normal behaviour in order to avoid
+    // retain cycle
+    var flowManagerUsingNibWithModalFlow: FlowManager?
     @IBAction func navigationUsingNibWithModalFlow() {
         let navigationStack = ContainerFlowStack()
         AutomaticallyNavigationWithModalContainer().setupNavigationStack(using: navigationStack)
         
-        FlowManager(root: AutomaticallyInitialViewController.self,
-                    container: navigationStack)
+        flowManagerUsingNibWithModalFlow = FlowManager(root: AutomaticallyInitialViewController.self,
+                                                       container: navigationStack)
     }
     
     // MARK: - Navigation when Storyboard Views
