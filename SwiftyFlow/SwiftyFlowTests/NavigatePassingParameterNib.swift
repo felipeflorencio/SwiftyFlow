@@ -52,7 +52,7 @@ class NavigatePassingParameterNib: XCTestCase {
         XCTAssertTrue(instanceFirstView?.secondParameter == 232)
     }
     
-    func testNavigationStack() {
+    func testNavigationToSecondViewStack() {
         
         flowManager.start()
         let mockedPickerView = UIPickerView()
@@ -70,5 +70,49 @@ class NavigatePassingParameterNib: XCTestCase {
         
         // Then
         XCTAssertNotNil(instanceSecondView)
+    }
+    
+    func testNavigationBackOneFromSecondStack() {
+        
+        flowManager.start()
+        let mockedPickerView = UIPickerView()
+        
+        // Given
+        let instanceInitial = flowManager.containerStack?.getModuleIfHasInstance(for: ParameterInitialViewController.self)
+        instanceInitial?.startNavigation()
+        
+        let instanceFirstView = flowManager.containerStack?.getModuleIfHasInstance(for: ParameterFirstViewController.self)
+        instanceFirstView?.pickerView(mockedPickerView, didSelectRow: 1, inComponent: 0)
+        instanceFirstView?.goAnywhere() // go to the second screen
+        let instanceSecondView = flowManager.containerStack?.getModuleIfHasInstance(for: ParameterSecondViewController.self)
+        instanceSecondView?.back()
+        
+        // When
+        let instanceSecondAfterBackView = flowManager.containerStack?.getModuleIfHasInstance(for: ParameterSecondViewController.self)
+
+        // Then
+        XCTAssertNil(instanceSecondAfterBackView)
+    }
+    
+    func testNavigationToThirdViewStack() {
+        
+        flowManager.start()
+        let mockedPickerView = UIPickerView()
+        
+        // Given
+        let instanceInitial = flowManager.containerStack?.getModuleIfHasInstance(for: ParameterInitialViewController.self)
+        instanceInitial?.startNavigation()
+        
+        let instanceFirstView = flowManager.containerStack?.getModuleIfHasInstance(for: ParameterFirstViewController.self)
+        instanceFirstView?.pickerView(mockedPickerView, didSelectRow: 1, inComponent: 0)
+        instanceFirstView?.goAnywhere() // go to the second screen
+        let instanceSecondView = flowManager.containerStack?.getModuleIfHasInstance(for: ParameterSecondViewController.self)
+        instanceSecondView?.next()
+        
+        // When
+        let instanceThirdView = flowManager.containerStack?.getModuleIfHasInstance(for: ParameterThirdViewController.self)
+
+        // Then
+        XCTAssertNotNil(instanceThirdView)
     }
 }

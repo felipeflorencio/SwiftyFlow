@@ -343,18 +343,35 @@ class FlowManager {
         }
     }
     
-    // Navigation stack automatically identify next or back item according to the navigation view controllers
+    // Testing as when testing you don't have an UINavigationController on the screen
+    // so the stack is not mathing our actual navigation need more test to validate
     internal func findNextElementToNavigate() -> FlowElementContainer<UIViewController>? {
-        guard let actualView = self.navigationController?.visibleViewController else {
-            return  nil
-        }
         
-        guard let actualViewPosition: Int = self.containerStack?.modules.firstIndex(where: { $0.forType == type(of: actualView)}) else {
-            debugPrint("The view that is now is \(String(describing: actualView)), and is not registered in you container stack")
+        // This stack work the same way that you declared you navigation
+        
+        // TODO: (felipe) validate the need for us have a reference on which one is the last screen
+        // this is for the scenarios that we set our container to be strong or use none, on those
+        // when we get back will not be possible to check this way, it's only valid when using weak
+        // reference
+        guard let nextView = self.containerStack?.modules.first(where: { !$0.hasInstance() }) else {
             return nil
         }
-        let nextViewToShow = self.containerStack?.modules[safe: (actualViewPosition + 1)]
-        
-        return nextViewToShow
+
+        return nextView
     }
+    
+    // Navigation stack automatically identify next or back item according to the navigation view controllers
+//    internal func findNextElementToNavigate() -> FlowElementContainer<UIViewController>? {
+//        guard let actualView = self.navigationController?.visibleViewController else {
+//            return  nil
+//        }
+//
+//        guard let actualViewPosition: Int = self.containerStack?.modules.firstIndex(where: { $0.forType == type(of: actualView)}) else {
+//            debugPrint("The view that is now is \(String(describing: actualView)), and is not registered in you container stack")
+//            return nil
+//        }
+//        let nextViewToShow = self.containerStack?.modules[safe: (actualViewPosition + 1)]
+//
+//        return nextViewToShow
+//    }
 }
