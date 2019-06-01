@@ -36,9 +36,9 @@ class FlowManager {
     private var dismissModalCallBackClosure: (() -> ())?
     
     // MARK: Initializers
-    init(navigation controller: UINavigationController?,
-         container stack: ContainerFlowStack,
-         setupInstance type: ViewIntanceFrom? = nil) {
+    internal init(navigation controller: UINavigationController?,
+                  container stack: ContainerFlowStack,
+                  setupInstance type: ViewIntanceFrom? = nil) {
         self.navigationController = controller
         self.containerStack = stack
         self.defaultNavigationType = type
@@ -60,17 +60,26 @@ class FlowManager {
                                           container stack: ContainerFlowStack,
                                           withCustom navigation: UINavigationController? = nil,
                                           setupInstance type: ViewIntanceFrom = .nib,
-                                          finishedLoad presenting: (() -> ())? = nil,
                                           dismissed navigationFlow: (() -> ())? = nil) {
         self.init(navigation: nil, container: stack, setupInstance: type)
 
         let emptyParameter: () -> (Void) = {}
         let rootViewController = self._resolveInstance(viewController: type, for: instanceType, parameters: emptyParameter)
 
-        self.initializerFunctionality(root: rootViewController, withCustom: navigation, finishedLoad: presenting, dismissed: navigationFlow)
+        self.initializerFunctionality(root: rootViewController, withCustom: navigation, dismissed: navigationFlow)
     }
 
     // MARK: - Navigation
+    func start(finishedLoad presenting: (() -> ())? = nil) {
+        guard let navigationController = self.navigationController else {
+            fatalError("You need to have a root navigation controller instance")
+        }
+        
+        presentNewFlow(navigation: navigationController, resolved: {
+            presenting?()
+        })
+    }
+    
     func goNext<T: UIViewController>(screen view: T.Type,
                                      resolve asType: ViewIntanceFrom = .nib,
                                      resolved instance: ((T) -> ())? = nil) {
@@ -160,7 +169,7 @@ class FlowManager {
             self.resetModulesInstanceReference()
         case .pop(let animated):
             navigation.popViewController(animated: animated)
-            self.adjustModulesReference()
+            self.adjustModulesReference(finished: {})
         case .popTo(let animated):
             view?({ [weak self] viewToPop in
                 guard let viewController = navigation.viewControllers.first(where: { viewController -> Bool in
@@ -171,11 +180,11 @@ class FlowManager {
                 }
                 
                 navigation.popToViewController(viewController, animated: animated)
-                self?.adjustModulesReference()
+                self?.adjustModulesReference(finished: {})
             })
         case .modal(let animated):
             navigation.dismiss(animated: animated, completion: { [unowned self] in
-                self.adjustModulesReference()
+                self.adjustModulesReference(finished: {})
                 self.dismissModalCallBackClosure?()
             })
         }
@@ -225,7 +234,6 @@ class FlowManager {
     // the way that we are initializing on different methods.
     internal func initializerFunctionality(root viewController: UIViewController?,
                                            withCustom navigation: UINavigationController? = nil,
-                                           finishedLoad presenting: (() -> ())? = nil,
                                            dismissed navigationFlow: (() -> ())? = nil) {
         
         guard let rootView = viewController else {
@@ -237,14 +245,6 @@ class FlowManager {
         } else {
             self.navigationController = UINavigationController(rootViewController: rootView)
         }
-        
-        guard let navigationController = self.navigationController else {
-            fatalError("You need to have a root navigation controller instance")
-        }
-        
-        presentNewFlow(navigation: navigationController, resolved: {
-            presenting?()
-        })
         
         self.dismissedClosure = navigationFlow
     }
@@ -296,7 +296,7 @@ class FlowManager {
     // This is to "clean" the references when we navigate back, in order to avoid use the same
     // instance as soon we already navigated away from those views, make safe instantiate next
     // time that we call again this view
-    private func adjustModulesReference() {
+    private func adjustModulesReference(finished adjust: () -> ()) {
         // We adjust our modules list reference, we "destroy" the reference's that we have in order
         // to next time we load again to avoid problems trying to reuse the same one twice
         // beside this we automatically set the coordinator reference on our navigation view controller,
@@ -306,7 +306,7 @@ class FlowManager {
             fatalError("You need to have a root navigation controller instance")
         }
         
-        containerStack?.updateModulesReference(for: navigation.viewControllers, coordinator: self)
+        containerStack?.updateModulesReference(for: navigation.viewControllers, coordinator: self, done: adjust)
     }
     
     // This should be used only when call "dismiss()" or "popToRoot()"
@@ -315,7 +315,7 @@ class FlowManager {
     }
     
     internal func presentNewFlow(navigation controller: UINavigationController,
-                                resolved instance: (() -> ())? = nil) {
+                                 resolved instance: (() -> ())? = nil) {
         // When we go deeper in the navigation level, there's different instances that actually
         // is the one that is one top, with this, as you are looking for the most top view
         // to present you new UINavigationController you will be able to do otherwise you will
@@ -327,10 +327,13 @@ class FlowManager {
         
         self.rootView = topController
         
-        self.rootView?.present(controller, animated: true) { [weak self] in
-            // Finished load
-            self?.adjustModulesReference()
-            instance?()
+        // First we adjust the reference as is an important step, and after we call the navigation
+        // otherwise we can happen that we try to set the reference for the navigation but the view
+        // controller itself is not yet fully loaded creating `running problem`
+        self.adjustModulesReference { [weak self] in
+            self?.rootView?.present(controller, animated: true, completion: {
+                instance?()
+            })
         }
     }
     

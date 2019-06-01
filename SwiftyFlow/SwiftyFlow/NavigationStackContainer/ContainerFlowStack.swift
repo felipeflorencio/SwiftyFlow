@@ -94,7 +94,12 @@ class ContainerFlowStack {
     // ** Should not be called when get back to root, if we are getting back to root the right to do is nullify
     // all our reference's beside the closure as we can start again, and if so we should start resolving and
     // using the new instance reference
-    func updateModulesReference<T: UIViewController>(for navigation: [T], coordinator reference: FlowManager) {
+    func updateModulesReference<T: UIViewController>(for navigation: [T], coordinator reference: FlowManager, done update: () -> ()) {
+        
+        defer {
+            update()
+        }
+        
         let notInTheNavigation = self.modules.filter { element -> Bool in
             return navigation.first(where: { type(of: $0) == element.forType }) == nil
         }

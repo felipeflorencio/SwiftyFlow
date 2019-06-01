@@ -45,6 +45,7 @@ class ViewController: UIViewController {
         flowManagerAutomaticallyNavigationFlow = FlowManager(root: AutomaticallyInitialViewController.self,
                                                              container: navigationStack,
                                                              setupInstance: .storyboard("AutomaticallyNavigationFlow"))
+        flowManagerAutomaticallyNavigationFlow?.start()
     }
     
     // MARK: - Automatically Navigation Flow Using NIB
@@ -58,6 +59,7 @@ class ViewController: UIViewController {
         
         flowManagerAutomaticallyNavigationUsingNibFlow = FlowManager(root: AutomaticallyInitialViewController.self,
                                                                      container: navigationStack)
+        flowManagerAutomaticallyNavigationUsingNibFlow?.start()
     }
     
     // MARK: - Automatically / Go Anywhere Navigation Flow Using NIB
@@ -70,6 +72,7 @@ class ViewController: UIViewController {
         
         flowManagerAutomaticallyGoAnywhereNavigationUsingNibFlow = FlowManager(root: GoAnywhereInitialViewController.self,
                                                                                container: container.setup())
+        flowManagerAutomaticallyGoAnywhereNavigationUsingNibFlow?.start()
     }
     
     
@@ -85,6 +88,7 @@ class ViewController: UIViewController {
                                                                  container: container.setup(), parameters: {
                     return (("Felipe", 3123.232, "Florencio", 31))
         })
+        flowManagerParameterNavigationUsingNibFlow?.start()
     }
     
     // MARK: - Deeplink Navigation Flow Using NIB
@@ -98,6 +102,7 @@ class ViewController: UIViewController {
         
         flowManagerDeepLinkNavigationUsingNibFlow = FlowManager(root: DeeplinkInitialViewController.self,
                                                                 container: navigationStack)
+        flowManagerDeepLinkNavigationUsingNibFlow?.start()
     }
     
     // MARK: - Deeplink Navigation Flow Using NIB
@@ -110,7 +115,11 @@ class ViewController: UIViewController {
         AutomaticallyNavigationWithModalContainer().setupNavigationStack(using: navigationStack)
         
         flowManagerUsingNibWithModalFlow = FlowManager(root: AutomaticallyInitialViewController.self,
-                                                       container: navigationStack)
+                                                       container: navigationStack,
+                                                       dismissed: {
+                                                        debugPrint("finished")
+        })
+        flowManagerUsingNibWithModalFlow?.start()
     }
     
     // MARK: - Navigation when Storyboard Views
@@ -132,10 +141,9 @@ class ViewController: UIViewController {
         // With this you can have you instance and handle dismiss and do what ever you want
         // Using this format as soon you finish load your navigation flow manager you will
         // present you navigation controller flow automatically
-        let fromScratchCoordinator = createNavigationFromScratch()
+        flowManagerFromScratch = createNavigationFromScratch()
         
-        // This is not mandatory, but shows that you can still have the reference to your flow
-        flowManagerFromScratch = fromScratchCoordinator
+        flowManagerFromScratch?.start()
     }
     
     // Helper To Create the container
@@ -145,10 +153,7 @@ class ViewController: UIViewController {
 
         // As soon finish instantiate you will show you new navigation flow
         return FlowManager(root: FirstViewController.self, container: navigationStack,
-           finishedLoad: {
-            // Finished presenting
-            debugPrint("Finished present navigation controller using present()")
-        }, dismissed: {
+           dismissed: {
             // Finished dismissing navigation flow completely
             debugPrint("Finished dismiss navigation controller using dismiss()")
         }).dismissedFlowWith(parameter: { parameter in

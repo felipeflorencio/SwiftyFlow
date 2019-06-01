@@ -38,6 +38,8 @@ class NavigatePassingParameterNib: XCTestCase {
     
     func testFirstViewControllerReceivedParameters() {
         
+        flowManager.start()
+        
         // Given
         let instanceInitial = flowManager.containerStack?.getModuleIfHasInstance(for: ParameterInitialViewController.self)
         instanceInitial?.startNavigation()
@@ -52,6 +54,7 @@ class NavigatePassingParameterNib: XCTestCase {
     
     func testNavigationStack() {
         
+        flowManager.start()
         let mockedPickerView = UIPickerView()
         
         // Given
