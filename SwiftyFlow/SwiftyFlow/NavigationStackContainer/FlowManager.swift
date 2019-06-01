@@ -166,7 +166,7 @@ class FlowManager {
         switch withStyle {
         case .popToRoot(let animated):
             navigation.popToRootViewController(animated: animated)
-            self.resetModulesInstanceReference()
+            self.adjustModulesReference(finished: {})
         case .pop(let animated):
             navigation.popViewController(animated: animated)
             self.adjustModulesReference(finished: {})
@@ -311,6 +311,12 @@ class FlowManager {
     
     // This should be used only when call "dismiss()" or "popToRoot()"
     private func resetModulesInstanceReference() {
+        defer {
+            containerStack = nil
+        }
+        
+        self.rootView = nil
+        self.navigationController = nil
         containerStack?.destroyInstanceReferenceWhenToRoot()
     }
     

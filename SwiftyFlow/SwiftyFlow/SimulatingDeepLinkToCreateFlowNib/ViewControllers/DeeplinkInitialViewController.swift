@@ -57,7 +57,7 @@ class DeeplinkInitialViewController: UIViewController, FlowNavigator, UIPickerVi
             if (closeAll as? Bool) == true {
                 self?.navigationFlow?.dismissFlowController()
             }
-        }
+        }.start()
     }
     
     // MARK: - UIPickerView Delegate / DataSource

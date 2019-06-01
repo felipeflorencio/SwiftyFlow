@@ -23,6 +23,10 @@ class ContainerFlowStack {
         instances(self)
     }
     
+    deinit {
+        debugPrint("Deallocating ContainerFlowStack")
+    }
+    
     @discardableResult
     func registerModule<T: UIViewController>(for type: T.Type, resolve: @escaping () -> T?) -> FlowElementContainer<UIViewController> {
         let elementContainer = FlowElementContainer<UIViewController>(for: type, resolving: resolve)

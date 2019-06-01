@@ -375,14 +375,14 @@
 		8C1247E12285CD67009400B4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				8C1247E22285CD67009400B4 /* DeeplinkFourthViewController.swift */,
-				8C1247E32285CD67009400B4 /* DeeplinkSixthViewController.swift */,
-				8C1247E42285CD67009400B4 /* DeeplinkSecondViewController.swift */,
 				8C1247E52285CD67009400B4 /* DeeplinkInitialViewController.swift */,
-				8C1247E62285CD67009400B4 /* DeeplinkThirdViewController.swift */,
-				8C1247E72285CD67009400B4 /* DeeplinkSeventhViewController.swift */,
-				8C1247E82285CD67009400B4 /* DeeplinkFifthViewController.swift */,
 				8C1247E92285CD67009400B4 /* DeeplinkFirstViewController.swift */,
+				8C1247E42285CD67009400B4 /* DeeplinkSecondViewController.swift */,
+				8C1247E62285CD67009400B4 /* DeeplinkThirdViewController.swift */,
+				8C1247E22285CD67009400B4 /* DeeplinkFourthViewController.swift */,
+				8C1247E82285CD67009400B4 /* DeeplinkFifthViewController.swift */,
+				8C1247E32285CD67009400B4 /* DeeplinkSixthViewController.swift */,
+				8C1247E72285CD67009400B4 /* DeeplinkSeventhViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
