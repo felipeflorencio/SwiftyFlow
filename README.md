@@ -15,7 +15,7 @@ With Swifty Flow you can pass parameter to the next view controller that you are
 
 The navigation can happen in two ways one if you don't want to pass any parameter you can just declare your flow navigation, and the order that you declared will happen just simple need to call `goNext()` of `back()` simple like this.
 
-Or you can say any moment where you want to go or make the navigation the way that you want, for this just need to say the type, only using the type of the class that you declared the library will resolve all for your self.
+Or you can say at any moment where you want to go or make the navigation the way that you want, for this just need to say the type of your next view controller, only using the type of the class that you declared the library will resolve all for your self.
 
-Do you want to dismiss the hole flow in one click? You want to have a callback that your flow was closed? You want to know when your flow finished load? You want to pass any value back when finishing your flow?!?! It's all possible with this library without need to care about delegate, notification or any other pattern in order to acomplish this simple task :D :D
+Do you want to dismiss the hole flow in one click? You want to have a callback that your flow was closed? You want to know when your flow is finished loading? You want to pass any value back when finishing your flow?!?! It's all possible with this library without need to care about delegate, notification or any other pattern in order to acomplish this simple task :D :D
 
