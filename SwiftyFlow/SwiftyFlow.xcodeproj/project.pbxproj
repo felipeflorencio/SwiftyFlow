@@ -72,6 +72,7 @@
 		8C1247F82285CD67009400B4 /* DeeplinkSeventhViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1247E72285CD67009400B4 /* DeeplinkSeventhViewController.swift */; };
 		8C1247F92285CD67009400B4 /* DeeplinkFifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1247E82285CD67009400B4 /* DeeplinkFifthViewController.swift */; };
 		8C1247FA2285CD67009400B4 /* DeeplinkFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1247E92285CD67009400B4 /* DeeplinkFirstViewController.swift */; };
+		8C1FAD4722A5796E0034BC41 /* NavigateAutomaticallyNibWithLastModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1FAD4622A5796E0034BC41 /* NavigateAutomaticallyNibWithLastModal.swift */; };
 		8C6C8D502297C6B70079E552 /* ContainerFlowStack+GenericExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6C8D4F2297C6B70079E552 /* ContainerFlowStack+GenericExtension.swift */; };
 		8C6C8D53229926C00079E552 /* FlowManagerInitializer+GenericExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6C8D52229926BF0079E552 /* FlowManagerInitializer+GenericExtension.swift */; };
 		8CBAB0A12281C7850050E8AF /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CBAB0A02281C7850050E8AF /* FirstViewController.xib */; };
@@ -167,6 +168,7 @@
 		8C1247E72285CD67009400B4 /* DeeplinkSeventhViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeeplinkSeventhViewController.swift; sourceTree = "<group>"; };
 		8C1247E82285CD67009400B4 /* DeeplinkFifthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeeplinkFifthViewController.swift; sourceTree = "<group>"; };
 		8C1247E92285CD67009400B4 /* DeeplinkFirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeeplinkFirstViewController.swift; sourceTree = "<group>"; };
+		8C1FAD4622A5796E0034BC41 /* NavigateAutomaticallyNibWithLastModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigateAutomaticallyNibWithLastModal.swift; sourceTree = "<group>"; };
 		8C6C8D4F2297C6B70079E552 /* ContainerFlowStack+GenericExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContainerFlowStack+GenericExtension.swift"; sourceTree = "<group>"; };
 		8C6C8D52229926BF0079E552 /* FlowManagerInitializer+GenericExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FlowManagerInitializer+GenericExtension.swift"; sourceTree = "<group>"; };
 		8CBAB0A02281C7850050E8AF /* FirstViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 			children = (
 				45E36EC022A05E9D00ED9D07 /* Info.plist */,
 				45E36EC622A05EC700ED9D07 /* NavigatePassingParameterNib.swift */,
+				8C1FAD4622A5796E0034BC41 /* NavigateAutomaticallyNibWithLastModal.swift */,
 			);
 			path = SwiftyFlowTests;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C1FAD4722A5796E0034BC41 /* NavigateAutomaticallyNibWithLastModal.swift in Sources */,
 				45E36EC722A05EC700ED9D07 /* NavigatePassingParameterNib.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

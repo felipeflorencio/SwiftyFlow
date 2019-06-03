@@ -11,11 +11,10 @@ import XCTest
 
 class NavigatePassingParameterNib: XCTestCase {
 
-    var container: ParameterNavigationContainer!
     var flowManager: FlowManager!
     
     override func setUp() {
-        container = ParameterNavigationContainer(stack: ContainerFlowStack())
+        let container = ParameterNavigationContainer(stack: ContainerFlowStack())
         
         // Given
         flowManager = FlowManager(root: ParameterInitialViewController.self,
@@ -51,9 +50,8 @@ class NavigatePassingParameterNib: XCTestCase {
     
     func testFirstViewControllerReceivedParameters() {
         
-        flowManager.start()
-        
         // Given
+        flowManager.start()
         let instanceInitial = flowManager.containerStack?.getModuleIfHasInstance(for: ParameterInitialViewController.self)
         instanceInitial?.startNavigation()
         
