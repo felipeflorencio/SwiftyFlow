@@ -194,15 +194,18 @@ class FlowManager {
 
     @discardableResult
     func dismissFlowController(animated: Bool = true, completion: (() -> Void)? = nil) -> Self {
-        if self.rootView == nil {
-            debugPrint("You dont't have any root view controller that is being used")
+        
+        defer {
+            if self.rootView == nil {
+                debugPrint("You dont't have any root view controller that is being used")
+            }
+            
+            self.resetModulesInstanceReference()
+            self.dismissedClosure?()
+            completion?()
         }
         
-        self.rootView?.dismiss(animated: animated, completion: { [weak self] in
-            self?.resetModulesInstanceReference()
-            self?.dismissedClosure?()
-            completion?()
-        })
+        self.rootView?.dismiss(animated: animated, completion: nil)
         
         return self
     }

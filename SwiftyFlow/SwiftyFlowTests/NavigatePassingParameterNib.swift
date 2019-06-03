@@ -36,6 +36,19 @@ class NavigatePassingParameterNib: XCTestCase {
         XCTAssertTrue(instance?.fourthParameter == 31)
     }
     
+    func testInitialViewControllerCloseFlow() {
+        
+        // Given
+        flowManager.start()
+        let instance = flowManager.containerStack?.getModuleIfHasInstance(for: ParameterInitialViewController.self)
+
+        // When
+        instance?.navigationFlow?.dismissFlowController()
+        
+        // Then
+        XCTAssertNil(flowManager.containerStack?.getModuleIfHasInstance(for: ParameterInitialViewController.self))
+    }
+    
     func testFirstViewControllerReceivedParameters() {
         
         flowManager.start()
@@ -114,5 +127,60 @@ class NavigatePassingParameterNib: XCTestCase {
 
         // Then
         XCTAssertNotNil(instanceThirdView)
+    }
+    
+    func testNavigationToThirdViewAndGetBackToRoot() {
+        
+        flowManager.start()
+        let mockedPickerView = UIPickerView()
+        
+        // Given
+        let instanceInitial = flowManager.containerStack?.getModuleIfHasInstance(for: ParameterInitialViewController.self)
+        instanceInitial?.startNavigation()
+        
+        let instanceFirstView = flowManager.containerStack?.getModuleIfHasInstance(for: ParameterFirstViewController.self)
+        instanceFirstView?.pickerView(mockedPickerView, didSelectRow: 1, inComponent: 0)
+        instanceFirstView?.goAnywhere() // go to the second screen
+        
+        let instanceSecondView = flowManager.containerStack?.getModuleIfHasInstance(for: ParameterSecondViewController.self)
+        instanceSecondView?.next()
+        
+        let instanceThirdView = flowManager.containerStack?.getModuleIfHasInstance(for: ParameterThirdViewController.self)
+        
+        // When
+        instanceThirdView?.backToRoot()
+        
+        // Then
+        XCTAssertNil(flowManager.containerStack?.getModuleIfHasInstance(for: ParameterFirstViewController.self))
+        XCTAssertNil(flowManager.containerStack?.getModuleIfHasInstance(for: ParameterSecondViewController.self))
+        XCTAssertNil(flowManager.containerStack?.getModuleIfHasInstance(for: ParameterThirdViewController.self))
+    }
+    
+    func testNavigationToThirdViewAndCloseTheHoleFlow() {
+        
+        // Given
+        flowManager.start()
+        let mockedPickerView = UIPickerView()
+        
+        let instanceInitial = flowManager.containerStack?.getModuleIfHasInstance(for: ParameterInitialViewController.self)
+        instanceInitial?.startNavigation()
+        
+        let instanceFirstView = flowManager.containerStack?.getModuleIfHasInstance(for: ParameterFirstViewController.self)
+        instanceFirstView?.pickerView(mockedPickerView, didSelectRow: 1, inComponent: 0)
+        instanceFirstView?.goAnywhere() // go to the second screen
+        
+        let instanceSecondView = flowManager.containerStack?.getModuleIfHasInstance(for: ParameterSecondViewController.self)
+        instanceSecondView?.next()
+        
+        let instanceThirdView = flowManager.containerStack?.getModuleIfHasInstance(for: ParameterThirdViewController.self)
+        
+        // When
+        instanceThirdView?.closeHoleFlow()
+        
+        // Then
+        XCTAssertNil(flowManager.containerStack?.getModuleIfHasInstance(for: ParameterInitialViewController.self))
+        XCTAssertNil(flowManager.containerStack?.getModuleIfHasInstance(for: ParameterFirstViewController.self))
+        XCTAssertNil(flowManager.containerStack?.getModuleIfHasInstance(for: ParameterSecondViewController.self))
+        XCTAssertNil(flowManager.containerStack?.getModuleIfHasInstance(for: ParameterThirdViewController.self))
     }
 }
