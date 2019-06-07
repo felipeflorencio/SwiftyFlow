@@ -54,6 +54,9 @@ extension FlowManager {
         (controller as? FlowNavigator)?.navigationFlow = self
         instance?(controller as! T)
         
+        // It's mandatory to have this in order to have track about where we are
+        self.adjustViewReferenceState(for: type(of: controller.self))
+        
         navigation.pushViewController(controller, animated: true)
     }
 }

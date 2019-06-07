@@ -90,15 +90,10 @@ class ContainerFlowStack {
         module?.updateInstance(reference: reference())
     }
     
-    // This is used when we get back from navigation view controller, because as we get back our dependencies
-    // still how the value from the previous reference, but should not as we will navigate again to, and by
-    // the concept will be a new again, so with this we align our modules reference to be nullified beside
-    // factory reference as he will possible be used again to get the instance again
-    //
-    // ** Should not be called when get back to root, if we are getting back to root the right to do is nullify
-    // all our reference's beside the closure as we can start again, and if so we should start resolving and
-    // using the new instance reference
-    func updateModulesReference<T: UIViewController>(for navigation: [T], coordinator reference: FlowManager, done update: () -> ()) {
+    // Here actually we need now to know where we are in the navigation and everything
+    // `after` we set back to nil, this of course should only be exception to when we have strong
+    // reference, that we will not nullify as the user accepted this way of using
+    func updateModulesReference<T>(for navigation: [T], coordinator reference: FlowManager, done update: () -> ()) {
         
         defer {
             update()
@@ -114,6 +109,15 @@ class ContainerFlowStack {
         
         navigation.forEach { controller in
             (controller as? FlowNavigator)?.navigationFlow = reference
+        }
+    }
+    
+    func adjustModuleReference<T: UIViewController>(for view: T.Type) {
+        
+        let viewToAdjust = modules.first(where: { $0.forType == view })
+        
+        if viewToAdjust?.scope == .weak {
+           viewToAdjust?.resetWeakInstanceReference()
         }
     }
     

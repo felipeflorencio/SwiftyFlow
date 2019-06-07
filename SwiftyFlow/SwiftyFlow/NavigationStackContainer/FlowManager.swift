@@ -20,6 +20,11 @@ enum NavigationPopStyle {
     case modal(animated: Bool)
 }
 
+enum NavigationDirection {
+    case next
+    case back
+}
+
 class FlowManager {
     
     // Public read variables
@@ -134,6 +139,9 @@ class FlowManager {
         (controller as? FlowNavigator)?.navigationFlow = self
         instance?(controller as! T)
         
+        // It's mandatory to have this in order to have track about where we are
+        self.adjustViewReferenceState(for: type(of: controller.self))
+        
         navigation.present(controller, animated: modalShow, completion: completion)
     }
     
@@ -165,11 +173,24 @@ class FlowManager {
         
         switch withStyle {
         case .popToRoot(let animated):
+            
+            // It's mandatory to have this in order to have track about where we are
+            guard let view = self.whichScreenTo(pop: withStyle) else {
+                debugPrint("Something really wrong happened so we can't say which screen we are getting back")
+                return self
+            }
+            self.adjustViewReferenceState(for: view.forType, back: withStyle)
+            
             navigation.popToRootViewController(animated: animated)
-            self.adjustModulesReference(finished: {})
         case .pop(let animated):
+            
+            guard let view = self.whichScreenTo(pop: withStyle) else {
+                debugPrint("Something really wrong happened so we can't say which screen we are getting back")
+                return self
+            }
+            self.adjustViewReferenceState(for: view.forType, back: withStyle)
+            
             navigation.popViewController(animated: animated)
-            self.adjustModulesReference(finished: {})
         case .popTo(let animated):
             view?({ [weak self] viewToPop in
                 guard let viewController = navigation.viewControllers.first(where: { viewController -> Bool in
@@ -178,13 +199,19 @@ class FlowManager {
                     debugPrint("Have no view controller with this type \"\(String(describing: viewToPop))\" in your navigation controller stack")
                     return
                 }
+                self?.adjustViewReferenceState(for: type(of: viewController), back: withStyle)
                 
                 navigation.popToViewController(viewController, animated: animated)
-                self?.adjustModulesReference(finished: {})
             })
         case .modal(let animated):
+            
+            guard let view = self.whichScreenTo(pop: withStyle) else {
+                debugPrint("Something really wrong happened so we can't say which screen we are getting back")
+                return self
+            }
+            self.adjustViewReferenceState(for: view.forType, back: withStyle)
+            
             navigation.dismiss(animated: animated, completion: { [unowned self] in
-                self.adjustModulesReference(finished: {})
                 self.dismissModalCallBackClosure?()
             })
         }
@@ -196,13 +223,13 @@ class FlowManager {
     func dismissFlowController(animated: Bool = true, completion: (() -> Void)? = nil) -> Self {
         
         defer {
-            if self.rootView == nil {
-                debugPrint("You dont't have any root view controller that is being used")
-            }
-            
             self.resetModulesInstanceReference()
             self.dismissedClosure?()
             completion?()
+        }
+        
+        if self.rootView == nil {
+            debugPrint("You dont't have any root view controller that is being used")
         }
         
         self.rootView?.dismiss(animated: animated, completion: nil)
@@ -239,16 +266,24 @@ class FlowManager {
                                            withCustom navigation: UINavigationController? = nil,
                                            dismissed navigationFlow: (() -> ())? = nil) {
         
-        guard let rootView = viewController else {
-            fatalError("You need to have a root view controller instance")
+        guard (viewController != nil) || (navigation != nil) else {
+            fatalError("You need to have a root view controller instance or navigation")
         }
         
         if let customNavigation = navigation {
             self.navigationController = customNavigation
         } else {
+            guard let rootView = viewController else {
+                fatalError("You need to have a root view controller instance")
+            }
             self.navigationController = UINavigationController(rootViewController: rootView)
         }
         
+        guard let firsView = self.navigationController?.viewControllers.first else {
+            fatalError("It's not possible reach here without if happen something really wrong happened")
+        }
+        (firsView as? FlowNavigator)?.navigationFlow = self
+
         self.dismissedClosure = navigationFlow
     }
     
@@ -299,17 +334,21 @@ class FlowManager {
     // This is to "clean" the references when we navigate back, in order to avoid use the same
     // instance as soon we already navigated away from those views, make safe instantiate next
     // time that we call again this view
-    private func adjustModulesReference(finished adjust: () -> ()) {
-        // We adjust our modules list reference, we "destroy" the reference's that we have in order
-        // to next time we load again to avoid problems trying to reuse the same one twice
-        // beside this we automatically set the coordinator reference on our navigation view controller,
-        // so we do not need to care about, but if we do not have the type is ok too will just not set, so
-        // pay atention
-        guard let navigation = self.navigationController else {
-            fatalError("You need to have a root navigation controller instance")
-        }
+    private func adjustModulesReference<T: UIViewController>(for view: T.Type, popToRoot navigation: Bool = false) {
         
-        containerStack?.updateModulesReference(for: navigation.viewControllers, coordinator: self, done: adjust)
+        if navigation {
+            containerStack?.modules.forEach({ element in
+                debugPrint("View: \(view)")
+                debugPrint("Element: \(element.forType)")
+                
+                // here is still where we are we need to check for the root of the stack / navigation
+                if element.forType != view {
+                    containerStack?.adjustModuleReference(for: element.forType)
+                }
+            })
+        } else {
+            containerStack?.adjustModuleReference(for: view)
+        }
     }
     
     // This should be used only when call "dismiss()" or "popToRoot()"
@@ -335,46 +374,122 @@ class FlowManager {
         }
         
         self.rootView = topController
-        
+
         // First we adjust the reference as is an important step, and after we call the navigation
         // otherwise we can happen that we try to set the reference for the navigation but the view
         // controller itself is not yet fully loaded creating `running problem`
-        self.adjustModulesReference { [weak self] in
-            self?.rootView?.present(controller, animated: true, completion: {
-                instance?()
-            })
-        }
+        
+        self.adjustViewReferenceState(for: type(of: controller.viewControllers.first!))
+        self.rootView?.present(controller, animated: true, completion: {
+            instance?()
+        })
     }
     
-    // Testing as when testing you don't have an UINavigationController on the screen
-    // so the stack is not mathing our actual navigation need more test to validate
-    internal func findNextElementToNavigate() -> FlowElementContainer<UIViewController>? {
+    // The idea is to always have the reference of the view that we are presenting, and
+    // make sure always one, as we can't rely on navigation controller stack as when you
+    // are testing you don't have the stack, for unit testing most probably will not even
+    // show you screen so the stack is not even create, for this reason we need to maintain
+    // a `reference` for what is happen
+    internal func adjustViewReferenceState(for typeView: UIViewController.Type, back navigation: NavigationPopStyle? = nil) {
         
-        // This stack work the same way that you declared you navigation
-        
-        // TODO: (felipe) validate the need for us have a reference on which one is the last screen
-        // this is for the scenarios that we set our container to be strong or use none, on those
-        // when we get back will not be possible to check this way, it's only valid when using weak
-        // reference
-        guard let nextView = self.containerStack?.modules.first(where: { !$0.hasInstance() }) else {
-            return nil
+        // Inner function that set the previous or next view that is set as showing to false
+        func setViewShownStateToFalseBack() {
+            if let viewAlreadySet = self.containerStack?.modules.first(where: { $0.viewShowing }) {
+                self.adjustModulesReference(for: viewAlreadySet.forType)
+                viewAlreadySet.showingView(false)
+            }
         }
 
-        return nextView
+        func setViewShownStateToFalseNext(next viewToShow: FlowElementContainer<UIViewController>) {
+            if let viewAlreadySet = self.containerStack?.modules.first(where: { $0.viewShowing }) {
+                
+                // Verifying if the next view is the same that already was presented and destroy
+                // the weak reference, on validation
+                if viewToShow.forType == viewAlreadySet.forType {
+                    self.adjustModulesReference(for: viewAlreadySet.forType)
+                }
+                
+                viewAlreadySet.showingView(false)
+            }
+        }
+
+        
+        if navigation == nil, let view = self.containerStack?.modules.first(where: { $0.forType == typeView }) {
+            // If find we always check if already has another view that is set for being `show`
+            // and remove that, this is to avoid have more than one view that is being shown
+            
+            setViewShownStateToFalseNext(next: view)
+            
+            view.showingView(true)
+        } else {
+            guard let navigationStyle = navigation else {
+                debugPrint("Failed trying to identify which screen we are trying to get back")
+                return
+            }
+            
+            // It's important to get the previous view that we want to get back before we adjust
+            // the view state, otherwise after `destroy` will not be possible and we will be on
+            // dead end how to know where to go
+            let screenThatWeAreGoingBack = self.whichScreenTo(pop: navigationStyle)
+            
+            // As we are getting back, we need to set that this view is not being shown anymore
+            // so first we go there and set that the view that we are now is not the one that is
+            // being shown and after this we set the view that we want that is the one that will
+            // show
+            setViewShownStateToFalseBack()
+            
+            screenThatWeAreGoingBack?.showingView(true)
+            
+            // This need to be done in order to validate if is root, and if is we will destroy
+            // all the reference for the other `screens` / instances as we are getting back to
+            // root, but, always only for week reference here.
+            if let navStyle = navigation, let rootScreen = screenThatWeAreGoingBack {
+                switch navStyle {
+                case .popToRoot(animated: _):
+                    adjustModulesReference(for: rootScreen.forType, popToRoot: true)
+                default: break
+                }
+            }
+        }
+        
     }
     
     // Navigation stack automatically identify next or back item according to the navigation view controllers
-//    internal func findNextElementToNavigate() -> FlowElementContainer<UIViewController>? {
-//        guard let actualView = self.navigationController?.visibleViewController else {
-//            return  nil
-//        }
-//
-//        guard let actualViewPosition: Int = self.containerStack?.modules.firstIndex(where: { $0.forType == type(of: actualView)}) else {
-//            debugPrint("The view that is now is \(String(describing: actualView)), and is not registered in you container stack")
-//            return nil
-//        }
-//        let nextViewToShow = self.containerStack?.modules[safe: (actualViewPosition + 1)]
-//
-//        return nextViewToShow
-//    }
+    internal func findNextElementToNavigate() -> FlowElementContainer<UIViewController>? {
+
+        guard let actualViewPosition: Int = self.containerStack?.modules.firstIndex(where: { $0.viewShowing }) else {
+            debugPrint("Something went wrong about get the actual view")
+            return nil
+        }
+        let nextViewToShow = self.containerStack?.modules[safe: (actualViewPosition + 1)]
+
+        return nextViewToShow
+    }
+    
+    internal func whichScreenTo(pop style: NavigationPopStyle) -> FlowElementContainer<UIViewController>? {
+        
+        // Inner function
+        func previousView() -> FlowElementContainer<UIViewController>? {
+            guard let actualViewPosition: Int = self.containerStack?.modules.firstIndex(where: { $0.viewShowing }) else {
+                debugPrint("Something went wrong about get the actual view to pop")
+                return nil
+            }
+            let previousView = self.containerStack?.modules[safe: (actualViewPosition - 1)]
+            
+            return previousView
+        }
+        
+        switch style {
+        case .popToRoot(animated: _):
+            return self.containerStack?.modules.first
+        case .pop(animated: _):
+            return previousView()
+        case .popTo(animated: _):
+            // For popTo we don't need to check as we receive this as parameter
+            return nil
+        case .modal(animated: _):
+            return previousView()
+        }
+    }
+
 }

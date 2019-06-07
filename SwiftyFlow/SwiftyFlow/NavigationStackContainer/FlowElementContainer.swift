@@ -33,6 +33,7 @@ class FlowElementContainer<T> {
     private weak var weakInstance: AnyObject?
     private var strongInstance: T?
     private(set) var arguments: Any?
+    private(set) var viewShowing: Bool = false
     
     init(for type: T.Type, resolving: @escaping Container) {
         factory = resolving
@@ -83,6 +84,10 @@ class FlowElementContainer<T> {
             strongInstance = instance()
         default: break
         }
+    }
+    
+    func showingView(_ isShowing: Bool) {
+        self.viewShowing = isShowing
     }
     
     func hasInstance() -> Bool {

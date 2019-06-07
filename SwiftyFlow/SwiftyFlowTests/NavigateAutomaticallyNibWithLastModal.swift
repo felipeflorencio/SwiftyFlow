@@ -38,7 +38,6 @@ class NavigateAutomaticallyNibWithLastModal: XCTestCase {
     func testGoToFirstViewController() {
         
         // Given
-        flowManager.start()
         let instance = flowManager.containerStack?.getModuleIfHasInstance(for: AutomaticallyInitialViewController.self)
         instance?.startNavigation()
         
@@ -52,7 +51,6 @@ class NavigateAutomaticallyNibWithLastModal: XCTestCase {
     func testGoToSecondViewController() {
         
         // Given
-        flowManager.start()
         let instance = flowManager.containerStack?.getModuleIfHasInstance(for: AutomaticallyInitialViewController.self)
         instance?.startNavigation()
         let firstView = flowManager.containerStack?.getModuleIfHasInstance(for: AutomaticallyFirstViewController.self)
@@ -68,7 +66,6 @@ class NavigateAutomaticallyNibWithLastModal: XCTestCase {
     func testGoToThirdViewController() {
         
         // Given
-        flowManager.start()
         let instance = flowManager.containerStack?.getModuleIfHasInstance(for: AutomaticallyInitialViewController.self)
         instance?.startNavigation()
         let firstView = flowManager.containerStack?.getModuleIfHasInstance(for: AutomaticallyFirstViewController.self)
@@ -86,7 +83,6 @@ class NavigateAutomaticallyNibWithLastModal: XCTestCase {
     func testGoToModalViewController() {
         
         // Given
-        flowManager.start()
         let instance = flowManager.containerStack?.getModuleIfHasInstance(for: AutomaticallyInitialViewController.self)
         instance?.startNavigation()
         let firstView = flowManager.containerStack?.getModuleIfHasInstance(for: AutomaticallyFirstViewController.self)
@@ -103,31 +99,29 @@ class NavigateAutomaticallyNibWithLastModal: XCTestCase {
         XCTAssertNotNil(modalView)
     }
     
-//    func testBackOneFromThirdViewController() {
-//        
-//        // Given
-//        flowManager.start()
-//        let instance = flowManager.containerStack?.getModuleIfHasInstance(for: AutomaticallyInitialViewController.self)
-//        instance?.startNavigation()
-//        let firstView = flowManager.containerStack?.getModuleIfHasInstance(for: AutomaticallyFirstViewController.self)
-//        firstView?.next()
-//        let secondView = flowManager.containerStack?.getModuleIfHasInstance(for: AutomaticallySecondViewController.self)
-//        secondView?.next()
-//        let thirdView = flowManager.containerStack?.getModuleIfHasInstance(for: AutomaticallyThirdModalViewController.self)
-//        
-//        // When
-//        thirdView?.back()
-//        
-//        // Then
-//        XCTAssertNil(flowManager.containerStack?.getModuleIfHasInstance(for: AutomaticallyThirdModalViewController.self))
-//        XCTAssertNotNil(flowManager.containerStack?.getModuleIfHasInstance(for: AutomaticallySecondViewController.self))
-//        XCTAssertNotNil(flowManager.containerStack?.getModuleIfHasInstance(for: AutomaticallyFirstViewController.self))
-//    }
+    func testBackOneFromThirdViewController() {
+        
+        // Given
+        let instance = flowManager.containerStack?.getModuleIfHasInstance(for: AutomaticallyInitialViewController.self)
+        instance?.startNavigation()
+        let firstView = flowManager.containerStack?.getModuleIfHasInstance(for: AutomaticallyFirstViewController.self)
+        firstView?.next()
+        let secondView = flowManager.containerStack?.getModuleIfHasInstance(for: AutomaticallySecondViewController.self)
+        secondView?.next()
+        let thirdView = flowManager.containerStack?.getModuleIfHasInstance(for: AutomaticallyThirdModalViewController.self)
+        
+        // When
+        thirdView?.back()
+        
+        // Then
+        XCTAssertNil(flowManager.containerStack?.getModuleIfHasInstance(for: AutomaticallyThirdModalViewController.self))
+        XCTAssertNotNil(flowManager.containerStack?.getModuleIfHasInstance(for: AutomaticallySecondViewController.self))
+        XCTAssertNotNil(flowManager.containerStack?.getModuleIfHasInstance(for: AutomaticallyFirstViewController.self))
+    }
     
     func testBackToRootFromThirdViewController() {
         
         // Given
-        flowManager.start()
         let instance = flowManager.containerStack?.getModuleIfHasInstance(for: AutomaticallyInitialViewController.self)
         instance?.startNavigation()
         let firstView = flowManager.containerStack?.getModuleIfHasInstance(for: AutomaticallyFirstViewController.self)
@@ -148,7 +142,6 @@ class NavigateAutomaticallyNibWithLastModal: XCTestCase {
     func testCloseHoleFlowFromThirdViewController() {
         
         // Given
-        flowManager.start()
         let instance = flowManager.containerStack?.getModuleIfHasInstance(for: AutomaticallyInitialViewController.self)
         instance?.startNavigation()
         let firstView = flowManager.containerStack?.getModuleIfHasInstance(for: AutomaticallyFirstViewController.self)
