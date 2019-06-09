@@ -1,6 +1,7 @@
 ![SwiftyFlow](https://raw.githubusercontent.com/felipeflorencio/SwiftyFlow/master/screenshots/SwiftyFlow-Logo.png)
 
 [![Build Status](https://travis-ci.com/felipeflorencio/SwiftyFlow.svg?branch=master)](https://travis-ci.com/felipeflorencio/SwiftyFlow)
+[![codecov](https://codecov.io/gh/felipeflorencio/SwiftyFlow/branch/master/graph/badge.svg)](https://codecov.io/gh/felipeflorencio/SwiftyFlow)
 
 ## BETA - In development documentation being created
 # SwiftyFlow
