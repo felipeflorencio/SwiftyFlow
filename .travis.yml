@@ -1,0 +1,19 @@
+language: swift
+osx_image: xcode10.2
+# xcode_project: SwiftyFlow/SwiftyFlow.xcodeproj
+# xcode_scheme: SwiftyFlow
+# xcode_sdk: iphoneos12.2
+
+env:
+  global:
+  - LANG=en_US.UTF-8
+  - PROJECT="SwiftyFlow/SwiftyFlow.xcodeproj"
+  - SCHEME="SwiftyFlow"
+  - APP_NAME="SwiftyFlow"
+  - EMAILS="felipeflorencio@me.com"
+  matrix:
+  - DESTINATION="generic/platform=iOS" SDK="iphoneos"
+  
+script:
+  - xcodebuild clean build test -project "$PROJECT" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" CODE_SIGN_IDENTITY="" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+  
