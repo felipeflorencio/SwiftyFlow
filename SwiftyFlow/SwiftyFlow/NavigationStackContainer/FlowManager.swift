@@ -52,7 +52,7 @@ class FlowManager {
     deinit {
         debugPrint("Deallocating FlowManager")
     }
-        
+    
     // We have two ways of loading
     // 1 - When we are already in one storyboard, and we want to load another viewcontroller
     //     that is inside this storyboard you can resolve using `rootInstance` to resolve and
@@ -67,13 +67,13 @@ class FlowManager {
                                           setupInstance type: ViewIntanceFrom = .nib,
                                           dismissed navigationFlow: (() -> ())? = nil) {
         self.init(navigation: nil, container: stack, setupInstance: type)
-
+        
         let emptyParameter: () -> (Void) = {}
         let rootViewController = self._resolveInstance(viewController: type, for: instanceType, parameters: emptyParameter)
-
+        
         self.initializerFunctionality(root: rootViewController, withCustom: navigation, dismissed: navigationFlow)
     }
-
+    
     // MARK: - Navigation
     func start(finishedLoad presenting: (() -> ())? = nil) {
         guard let navigationController = self.navigationController else {
@@ -88,7 +88,7 @@ class FlowManager {
     func goNext<T: UIViewController>(screen view: T.Type,
                                      resolve asType: ViewIntanceFrom = .nib,
                                      resolved instance: ((T) -> ())? = nil) {
-
+        
         let emptyParameter: (() -> (Void)) = {}
         self.navigateUsingParameter(parameters: emptyParameter, next: view, resolve: asType, resolved: instance)
     }
@@ -116,50 +116,50 @@ class FlowManager {
                                             animated modalShow: Bool = true,
                                             resolved instance: ((T) -> ())? = nil,
                                             completion: (() -> Void)? = nil) -> Self {
-    
-    guard let navigation = self.navigationController else {
-        fatalError("You need to have a root navigation controller instance")
-    }
-    
-    var viewToGoNextType: T.Type?
-    
-    let modalPresentation: () -> Void = {
-        guard let view = viewToGoNextType else {
-            debugPrint("There's not next view to go")
-            return
-        }
-        let navigationType = self.defaultNavigationType ?? asType
         
-        let emptyParameter: () -> (Void) = {}
-        guard let controller = self._resolveInstance(viewController: navigationType, for: view.self, parameters: emptyParameter) else {
-            debugPrint("Could not retrieve the view controller to present modally")
-            return
+        guard let navigation = self.navigationController else {
+            fatalError("You need to have a root navigation controller instance")
         }
         
-        (controller as? FlowNavigator)?.navigationFlow = self
-        instance?(controller as! T)
+        var viewToGoNextType: T.Type?
         
-        // It's mandatory to have this in order to have track about where we are
-        self.adjustViewReferenceState(for: type(of: controller.self))
-        
-        navigation.present(controller, animated: modalShow, completion: completion)
-    }
-    
-    
-    if let viewToGo = view {
-        viewToGoNextType = viewToGo
-        modalPresentation()
-    } else {
-        guard let nextViewElement = self.findNextElementToNavigate() else {
-            debugPrint("There's no more itens to go next or there's no declared types")
-            return self
+        let modalPresentation: () -> Void = {
+            guard let view = viewToGoNextType else {
+                debugPrint("There's not next view to go")
+                return
+            }
+            let navigationType = self.defaultNavigationType ?? asType
+            
+            let emptyParameter: () -> (Void) = {}
+            guard let controller = self._resolveInstance(viewController: navigationType, for: view.self, parameters: emptyParameter) else {
+                debugPrint("Could not retrieve the view controller to present modally")
+                return
+            }
+            
+            (controller as? FlowNavigator)?.navigationFlow = self
+            instance?(controller as! T)
+            
+            // It's mandatory to have this in order to have track about where we are
+            self.adjustViewReferenceState(for: type(of: controller.self))
+            
+            navigation.present(controller, animated: modalShow, completion: completion)
         }
-        viewToGoNextType = nextViewElement.forType as? T.Type
-        modalPresentation()
+        
+        
+        if let viewToGo = view {
+            viewToGoNextType = viewToGo
+            modalPresentation()
+        } else {
+            guard let nextViewElement = self.findNextElementToNavigate() else {
+                debugPrint("There's no more itens to go next or there's no declared types")
+                return self
+            }
+            viewToGoNextType = nextViewElement.forType as? T.Type
+            modalPresentation()
+        }
+        
+        return self
     }
-    
-    return self
-}
     
     // This is used to get back when you are navigating using storyboard, with this
     // you can easy get back to the root view from you navigation controller stack
@@ -218,7 +218,7 @@ class FlowManager {
         
         return self
     }
-
+    
     @discardableResult
     func dismissFlowController(animated: Bool = true, completion: (() -> Void)? = nil) -> Self {
         
@@ -283,7 +283,7 @@ class FlowManager {
             fatalError("It's not possible reach here without if happen something really wrong happened")
         }
         (firsView as? FlowNavigator)?.navigationFlow = self
-
+        
         self.dismissedClosure = navigationFlow
     }
     
@@ -326,7 +326,7 @@ class FlowManager {
                 }
                 resolvedInstance = containerStack?.resolve(for: view, parameters: resolverParameters)
             }
-        
+            
             return resolvedInstance
         }
     }
@@ -374,7 +374,7 @@ class FlowManager {
         }
         
         self.rootView = topController
-
+        
         // First we adjust the reference as is an important step, and after we call the navigation
         // otherwise we can happen that we try to set the reference for the navigation but the view
         // controller itself is not yet fully loaded creating `running problem`
@@ -399,7 +399,7 @@ class FlowManager {
                 viewAlreadySet.showingView(false)
             }
         }
-
+        
         func setViewShownStateToFalseNext(next viewToShow: FlowElementContainer<UIViewController>) {
             if let viewAlreadySet = self.containerStack?.modules.first(where: { $0.viewShowing }) {
                 
@@ -412,7 +412,7 @@ class FlowManager {
                 viewAlreadySet.showingView(false)
             }
         }
-
+        
         
         if navigation == nil, let view = self.containerStack?.modules.first(where: { $0.forType == typeView }) {
             // If find we always check if already has another view that is set for being `show`
@@ -456,13 +456,13 @@ class FlowManager {
     
     // Navigation stack automatically identify next or back item according to the navigation view controllers
     internal func findNextElementToNavigate() -> FlowElementContainer<UIViewController>? {
-
+        
         guard let actualViewPosition: Int = self.containerStack?.modules.firstIndex(where: { $0.viewShowing }) else {
             debugPrint("Something went wrong about get the actual view")
             return nil
         }
         let nextViewToShow = self.containerStack?.modules[safe: (actualViewPosition + 1)]
-
+        
         return nextViewToShow
     }
     
@@ -491,5 +491,4 @@ class FlowManager {
             return previousView()
         }
     }
-
 }
