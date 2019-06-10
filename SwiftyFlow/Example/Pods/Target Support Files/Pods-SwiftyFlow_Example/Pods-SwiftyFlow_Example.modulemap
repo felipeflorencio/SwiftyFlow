@@ -1,0 +1,6 @@
+framework module Pods_SwiftyFlow_Example {
+  umbrella header "Pods-SwiftyFlow_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

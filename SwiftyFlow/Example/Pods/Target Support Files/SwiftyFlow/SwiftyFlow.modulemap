@@ -1,0 +1,6 @@
+framework module SwiftyFlow {
+  umbrella header "SwiftyFlow-umbrella.h"
+
+  export *
+  module * { export * }
+}

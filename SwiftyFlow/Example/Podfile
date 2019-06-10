@@ -1,0 +1,11 @@
+platform :ios, '10.0'
+use_frameworks!
+
+target 'SwiftyFlow_Example' do
+  pod 'SwiftyFlow', :path => '../'
+
+  target 'SwiftyFlow_Tests' do
+    inherit! :search_paths
+    
+  end
+end

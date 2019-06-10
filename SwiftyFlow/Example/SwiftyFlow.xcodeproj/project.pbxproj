@@ -1,0 +1,983 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01C9BD4D0D6F8B630C2B4DF7 /* Pods_SwiftyFlow_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A358D733CB09A20240D6FCE /* Pods_SwiftyFlow_Example.framework */; };
+		455D1A3622AEE46100FF9D29 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D19E522AEE46100FF9D29 /* ThirdViewController.swift */; };
+		455D1A3722AEE46100FF9D29 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D19E622AEE46100FF9D29 /* FirstViewController.swift */; };
+		455D1A3822AEE46100FF9D29 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D19E722AEE46100FF9D29 /* SecondViewController.swift */; };
+		455D1A3922AEE46100FF9D29 /* AutomaticallyFourthModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D19E922AEE46100FF9D29 /* AutomaticallyFourthModalViewController.swift */; };
+		455D1A3A22AEE46100FF9D29 /* AutomaticallyThirdModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D19EB22AEE46100FF9D29 /* AutomaticallyThirdModalViewController.xib */; };
+		455D1A3B22AEE46100FF9D29 /* AutomaticallyFourthModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D19EC22AEE46100FF9D29 /* AutomaticallyFourthModalViewController.xib */; };
+		455D1A3C22AEE46100FF9D29 /* AutomaticallyNavigationWithModalContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D19ED22AEE46100FF9D29 /* AutomaticallyNavigationWithModalContainer.swift */; };
+		455D1A3D22AEE46100FF9D29 /* AutomaticallyThirdModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D19EE22AEE46100FF9D29 /* AutomaticallyThirdModalViewController.swift */; };
+		455D1A3E22AEE46100FF9D29 /* GoAnywhereNavigationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D19F022AEE46100FF9D29 /* GoAnywhereNavigationContainer.swift */; };
+		455D1A3F22AEE46100FF9D29 /* GoAnywhereInitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D19F222AEE46100FF9D29 /* GoAnywhereInitialViewController.swift */; };
+		455D1A4022AEE46100FF9D29 /* GoAnywhereSixthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D19F322AEE46100FF9D29 /* GoAnywhereSixthViewController.swift */; };
+		455D1A4122AEE46100FF9D29 /* GoAnywhereFifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D19F422AEE46100FF9D29 /* GoAnywhereFifthViewController.swift */; };
+		455D1A4222AEE46100FF9D29 /* GoAnywhereFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D19F522AEE46100FF9D29 /* GoAnywhereFirstViewController.swift */; };
+		455D1A4322AEE46100FF9D29 /* GoAnywhereSeventhViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D19F622AEE46100FF9D29 /* GoAnywhereSeventhViewController.swift */; };
+		455D1A4422AEE46100FF9D29 /* GoAnywhereSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D19F722AEE46100FF9D29 /* GoAnywhereSecondViewController.swift */; };
+		455D1A4522AEE46100FF9D29 /* GoAnywhereFourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D19F822AEE46100FF9D29 /* GoAnywhereFourthViewController.swift */; };
+		455D1A4622AEE46100FF9D29 /* GoAnywhereThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D19F922AEE46100FF9D29 /* GoAnywhereThirdViewController.swift */; };
+		455D1A4722AEE46100FF9D29 /* GoAnywhereSixthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D19FB22AEE46100FF9D29 /* GoAnywhereSixthViewController.xib */; };
+		455D1A4822AEE46100FF9D29 /* GoAnywhereSecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D19FC22AEE46100FF9D29 /* GoAnywhereSecondViewController.xib */; };
+		455D1A4922AEE46100FF9D29 /* GoAnywhereThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D19FD22AEE46100FF9D29 /* GoAnywhereThirdViewController.xib */; };
+		455D1A4A22AEE46100FF9D29 /* GoAnywhereInitialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D19FE22AEE46100FF9D29 /* GoAnywhereInitialViewController.xib */; };
+		455D1A4B22AEE46100FF9D29 /* GoAnywhereFifthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D19FF22AEE46100FF9D29 /* GoAnywhereFifthViewController.xib */; };
+		455D1A4C22AEE46100FF9D29 /* GoAnywhereFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A0022AEE46100FF9D29 /* GoAnywhereFirstViewController.xib */; };
+		455D1A4D22AEE46100FF9D29 /* GoAnywhereFourthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A0122AEE46100FF9D29 /* GoAnywhereFourthViewController.xib */; };
+		455D1A4E22AEE46100FF9D29 /* GoAnywhereSeventhViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A0222AEE46100FF9D29 /* GoAnywhereSeventhViewController.xib */; };
+		455D1A4F22AEE46100FF9D29 /* ParameterNavigationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A0422AEE46100FF9D29 /* ParameterNavigationContainer.swift */; };
+		455D1A5022AEE46100FF9D29 /* ParameterFourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A0622AEE46100FF9D29 /* ParameterFourthViewController.swift */; };
+		455D1A5122AEE46100FF9D29 /* ParameterFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A0722AEE46100FF9D29 /* ParameterFirstViewController.swift */; };
+		455D1A5222AEE46100FF9D29 /* ParameterThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A0822AEE46100FF9D29 /* ParameterThirdViewController.swift */; };
+		455D1A5322AEE46100FF9D29 /* ParameterSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A0922AEE46100FF9D29 /* ParameterSecondViewController.swift */; };
+		455D1A5422AEE46100FF9D29 /* ParameterInitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A0A22AEE46100FF9D29 /* ParameterInitialViewController.swift */; };
+		455D1A5522AEE46100FF9D29 /* ParameterSecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A0C22AEE46100FF9D29 /* ParameterSecondViewController.xib */; };
+		455D1A5622AEE46100FF9D29 /* ParameterThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A0D22AEE46100FF9D29 /* ParameterThirdViewController.xib */; };
+		455D1A5722AEE46100FF9D29 /* ParameterInitialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A0E22AEE46100FF9D29 /* ParameterInitialViewController.xib */; };
+		455D1A5822AEE46100FF9D29 /* ParameterFourthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A0F22AEE46100FF9D29 /* ParameterFourthViewController.xib */; };
+		455D1A5922AEE46100FF9D29 /* ParameterFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A1022AEE46100FF9D29 /* ParameterFirstViewController.xib */; };
+		455D1A5A22AEE46100FF9D29 /* AutomaticallyThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A1222AEE46100FF9D29 /* AutomaticallyThirdViewController.xib */; };
+		455D1A5B22AEE46100FF9D29 /* AutomaticallyInitialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A1322AEE46100FF9D29 /* AutomaticallyInitialViewController.xib */; };
+		455D1A5C22AEE46100FF9D29 /* AutomaticallySecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A1422AEE46100FF9D29 /* AutomaticallySecondViewController.xib */; };
+		455D1A5D22AEE46100FF9D29 /* AutomaticallyFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A1522AEE46100FF9D29 /* AutomaticallyFirstViewController.xib */; };
+		455D1A5E22AEE46100FF9D29 /* DeeplinkFourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A1822AEE46100FF9D29 /* DeeplinkFourthViewController.swift */; };
+		455D1A5F22AEE46100FF9D29 /* DeeplinkSixthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A1922AEE46100FF9D29 /* DeeplinkSixthViewController.swift */; };
+		455D1A6022AEE46100FF9D29 /* DeeplinkSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A1A22AEE46100FF9D29 /* DeeplinkSecondViewController.swift */; };
+		455D1A6122AEE46100FF9D29 /* DeeplinkInitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A1B22AEE46100FF9D29 /* DeeplinkInitialViewController.swift */; };
+		455D1A6222AEE46100FF9D29 /* DeeplinkThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A1C22AEE46100FF9D29 /* DeeplinkThirdViewController.swift */; };
+		455D1A6322AEE46100FF9D29 /* DeeplinkSeventhViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A1D22AEE46100FF9D29 /* DeeplinkSeventhViewController.swift */; };
+		455D1A6422AEE46100FF9D29 /* DeeplinkFifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A1E22AEE46100FF9D29 /* DeeplinkFifthViewController.swift */; };
+		455D1A6522AEE46100FF9D29 /* DeeplinkFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A1F22AEE46100FF9D29 /* DeeplinkFirstViewController.swift */; };
+		455D1A6622AEE46100FF9D29 /* DeeplinkNavigationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A2022AEE46100FF9D29 /* DeeplinkNavigationContainer.swift */; };
+		455D1A6722AEE46100FF9D29 /* DeeplinkInitialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A2222AEE46100FF9D29 /* DeeplinkInitialViewController.xib */; };
+		455D1A6822AEE46100FF9D29 /* DeeplinkSecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A2322AEE46100FF9D29 /* DeeplinkSecondViewController.xib */; };
+		455D1A6922AEE46100FF9D29 /* DeeplinkFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A2422AEE46100FF9D29 /* DeeplinkFirstViewController.xib */; };
+		455D1A6A22AEE46100FF9D29 /* DeeplinkSixthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A2522AEE46100FF9D29 /* DeeplinkSixthViewController.xib */; };
+		455D1A6B22AEE46100FF9D29 /* DeeplinkFifthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A2622AEE46100FF9D29 /* DeeplinkFifthViewController.xib */; };
+		455D1A6C22AEE46100FF9D29 /* DeeplinkThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A2722AEE46100FF9D29 /* DeeplinkThirdViewController.xib */; };
+		455D1A6D22AEE46100FF9D29 /* DeeplinkSeventhViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A2822AEE46100FF9D29 /* DeeplinkSeventhViewController.xib */; };
+		455D1A6E22AEE46100FF9D29 /* DeeplinkFourthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A2922AEE46100FF9D29 /* DeeplinkFourthViewController.xib */; };
+		455D1A6F22AEE46100FF9D29 /* AutomaticallyNavigationFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A2B22AEE46100FF9D29 /* AutomaticallyNavigationFlow.storyboard */; };
+		455D1A7022AEE46100FF9D29 /* AutomaticallyFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A2D22AEE46100FF9D29 /* AutomaticallyFirstViewController.swift */; };
+		455D1A7122AEE46100FF9D29 /* AutomaticallyInitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A2E22AEE46100FF9D29 /* AutomaticallyInitialViewController.swift */; };
+		455D1A7222AEE46100FF9D29 /* AutomaticallySecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A2F22AEE46100FF9D29 /* AutomaticallySecondViewController.swift */; };
+		455D1A7322AEE46100FF9D29 /* AutomaticallyThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A3022AEE46100FF9D29 /* AutomaticallyThirdViewController.swift */; };
+		455D1A7422AEE46100FF9D29 /* AutomaticallyNavigationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A3122AEE46100FF9D29 /* AutomaticallyNavigationContainer.swift */; };
+		455D1A7522AEE46100FF9D29 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A3322AEE46100FF9D29 /* FirstViewController.xib */; };
+		455D1A7622AEE46100FF9D29 /* ThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A3422AEE46100FF9D29 /* ThirdViewController.xib */; };
+		455D1A7722AEE46100FF9D29 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A3522AEE46100FF9D29 /* SecondViewController.xib */; };
+		455D1A7C22AEEC8300FF9D29 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A7B22AEEC8200FF9D29 /* ContainerView.swift */; };
+		455D1A7F22AEED2300FF9D29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A7D22AEED2200FF9D29 /* LaunchScreen.storyboard */; };
+		455D1A8422AEEE2600FF9D29 /* NavigatePassingParameterNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A8122AEEDC300FF9D29 /* NavigatePassingParameterNib.swift */; };
+		455D1A8522AEEE2C00FF9D29 /* NavigateAutomaticallyNibWithLastModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A8022AEEDC300FF9D29 /* NavigateAutomaticallyNibWithLastModal.swift */; };
+		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
+		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
+		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
+		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
+		7ABE50EE0EE998D4B1C32E8B /* Pods_SwiftyFlow_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA8A7440F3990CC7B0C0BE5 /* Pods_SwiftyFlow_Tests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		607FACE61AFB9204008FA782 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
+			remoteInfo = SwiftyFlow;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1D6384A37DAED15D716E2D17 /* Pods-SwiftyFlow_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyFlow_Tests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftyFlow_Tests/Pods-SwiftyFlow_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		1FC8A539FC2EA81628CCBB0C /* SwiftyFlow.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SwiftyFlow.podspec; path = ../SwiftyFlow.podspec; sourceTree = "<group>"; };
+		455D19E522AEE46100FF9D29 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		455D19E622AEE46100FF9D29 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		455D19E722AEE46100FF9D29 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		455D19E922AEE46100FF9D29 /* AutomaticallyFourthModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticallyFourthModalViewController.swift; sourceTree = "<group>"; };
+		455D19EB22AEE46100FF9D29 /* AutomaticallyThirdModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutomaticallyThirdModalViewController.xib; sourceTree = "<group>"; };
+		455D19EC22AEE46100FF9D29 /* AutomaticallyFourthModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutomaticallyFourthModalViewController.xib; sourceTree = "<group>"; };
+		455D19ED22AEE46100FF9D29 /* AutomaticallyNavigationWithModalContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticallyNavigationWithModalContainer.swift; sourceTree = "<group>"; };
+		455D19EE22AEE46100FF9D29 /* AutomaticallyThirdModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticallyThirdModalViewController.swift; sourceTree = "<group>"; };
+		455D19F022AEE46100FF9D29 /* GoAnywhereNavigationContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoAnywhereNavigationContainer.swift; sourceTree = "<group>"; };
+		455D19F222AEE46100FF9D29 /* GoAnywhereInitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoAnywhereInitialViewController.swift; sourceTree = "<group>"; };
+		455D19F322AEE46100FF9D29 /* GoAnywhereSixthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoAnywhereSixthViewController.swift; sourceTree = "<group>"; };
+		455D19F422AEE46100FF9D29 /* GoAnywhereFifthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoAnywhereFifthViewController.swift; sourceTree = "<group>"; };
+		455D19F522AEE46100FF9D29 /* GoAnywhereFirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoAnywhereFirstViewController.swift; sourceTree = "<group>"; };
+		455D19F622AEE46100FF9D29 /* GoAnywhereSeventhViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoAnywhereSeventhViewController.swift; sourceTree = "<group>"; };
+		455D19F722AEE46100FF9D29 /* GoAnywhereSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoAnywhereSecondViewController.swift; sourceTree = "<group>"; };
+		455D19F822AEE46100FF9D29 /* GoAnywhereFourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoAnywhereFourthViewController.swift; sourceTree = "<group>"; };
+		455D19F922AEE46100FF9D29 /* GoAnywhereThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoAnywhereThirdViewController.swift; sourceTree = "<group>"; };
+		455D19FB22AEE46100FF9D29 /* GoAnywhereSixthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoAnywhereSixthViewController.xib; sourceTree = "<group>"; };
+		455D19FC22AEE46100FF9D29 /* GoAnywhereSecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoAnywhereSecondViewController.xib; sourceTree = "<group>"; };
+		455D19FD22AEE46100FF9D29 /* GoAnywhereThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoAnywhereThirdViewController.xib; sourceTree = "<group>"; };
+		455D19FE22AEE46100FF9D29 /* GoAnywhereInitialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoAnywhereInitialViewController.xib; sourceTree = "<group>"; };
+		455D19FF22AEE46100FF9D29 /* GoAnywhereFifthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoAnywhereFifthViewController.xib; sourceTree = "<group>"; };
+		455D1A0022AEE46100FF9D29 /* GoAnywhereFirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoAnywhereFirstViewController.xib; sourceTree = "<group>"; };
+		455D1A0122AEE46100FF9D29 /* GoAnywhereFourthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoAnywhereFourthViewController.xib; sourceTree = "<group>"; };
+		455D1A0222AEE46100FF9D29 /* GoAnywhereSeventhViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoAnywhereSeventhViewController.xib; sourceTree = "<group>"; };
+		455D1A0422AEE46100FF9D29 /* ParameterNavigationContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterNavigationContainer.swift; sourceTree = "<group>"; };
+		455D1A0622AEE46100FF9D29 /* ParameterFourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterFourthViewController.swift; sourceTree = "<group>"; };
+		455D1A0722AEE46100FF9D29 /* ParameterFirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterFirstViewController.swift; sourceTree = "<group>"; };
+		455D1A0822AEE46100FF9D29 /* ParameterThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterThirdViewController.swift; sourceTree = "<group>"; };
+		455D1A0922AEE46100FF9D29 /* ParameterSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterSecondViewController.swift; sourceTree = "<group>"; };
+		455D1A0A22AEE46100FF9D29 /* ParameterInitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterInitialViewController.swift; sourceTree = "<group>"; };
+		455D1A0C22AEE46100FF9D29 /* ParameterSecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParameterSecondViewController.xib; sourceTree = "<group>"; };
+		455D1A0D22AEE46100FF9D29 /* ParameterThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParameterThirdViewController.xib; sourceTree = "<group>"; };
+		455D1A0E22AEE46100FF9D29 /* ParameterInitialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParameterInitialViewController.xib; sourceTree = "<group>"; };
+		455D1A0F22AEE46100FF9D29 /* ParameterFourthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParameterFourthViewController.xib; sourceTree = "<group>"; };
+		455D1A1022AEE46100FF9D29 /* ParameterFirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParameterFirstViewController.xib; sourceTree = "<group>"; };
+		455D1A1222AEE46100FF9D29 /* AutomaticallyThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutomaticallyThirdViewController.xib; sourceTree = "<group>"; };
+		455D1A1322AEE46100FF9D29 /* AutomaticallyInitialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutomaticallyInitialViewController.xib; sourceTree = "<group>"; };
+		455D1A1422AEE46100FF9D29 /* AutomaticallySecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutomaticallySecondViewController.xib; sourceTree = "<group>"; };
+		455D1A1522AEE46100FF9D29 /* AutomaticallyFirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutomaticallyFirstViewController.xib; sourceTree = "<group>"; };
+		455D1A1822AEE46100FF9D29 /* DeeplinkFourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeeplinkFourthViewController.swift; sourceTree = "<group>"; };
+		455D1A1922AEE46100FF9D29 /* DeeplinkSixthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeeplinkSixthViewController.swift; sourceTree = "<group>"; };
+		455D1A1A22AEE46100FF9D29 /* DeeplinkSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeeplinkSecondViewController.swift; sourceTree = "<group>"; };
+		455D1A1B22AEE46100FF9D29 /* DeeplinkInitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeeplinkInitialViewController.swift; sourceTree = "<group>"; };
+		455D1A1C22AEE46100FF9D29 /* DeeplinkThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeeplinkThirdViewController.swift; sourceTree = "<group>"; };
+		455D1A1D22AEE46100FF9D29 /* DeeplinkSeventhViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeeplinkSeventhViewController.swift; sourceTree = "<group>"; };
+		455D1A1E22AEE46100FF9D29 /* DeeplinkFifthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeeplinkFifthViewController.swift; sourceTree = "<group>"; };
+		455D1A1F22AEE46100FF9D29 /* DeeplinkFirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeeplinkFirstViewController.swift; sourceTree = "<group>"; };
+		455D1A2022AEE46100FF9D29 /* DeeplinkNavigationContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeeplinkNavigationContainer.swift; sourceTree = "<group>"; };
+		455D1A2222AEE46100FF9D29 /* DeeplinkInitialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeeplinkInitialViewController.xib; sourceTree = "<group>"; };
+		455D1A2322AEE46100FF9D29 /* DeeplinkSecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeeplinkSecondViewController.xib; sourceTree = "<group>"; };
+		455D1A2422AEE46100FF9D29 /* DeeplinkFirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeeplinkFirstViewController.xib; sourceTree = "<group>"; };
+		455D1A2522AEE46100FF9D29 /* DeeplinkSixthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeeplinkSixthViewController.xib; sourceTree = "<group>"; };
+		455D1A2622AEE46100FF9D29 /* DeeplinkFifthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeeplinkFifthViewController.xib; sourceTree = "<group>"; };
+		455D1A2722AEE46100FF9D29 /* DeeplinkThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeeplinkThirdViewController.xib; sourceTree = "<group>"; };
+		455D1A2822AEE46100FF9D29 /* DeeplinkSeventhViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeeplinkSeventhViewController.xib; sourceTree = "<group>"; };
+		455D1A2922AEE46100FF9D29 /* DeeplinkFourthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeeplinkFourthViewController.xib; sourceTree = "<group>"; };
+		455D1A2B22AEE46100FF9D29 /* AutomaticallyNavigationFlow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AutomaticallyNavigationFlow.storyboard; sourceTree = "<group>"; };
+		455D1A2D22AEE46100FF9D29 /* AutomaticallyFirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticallyFirstViewController.swift; sourceTree = "<group>"; };
+		455D1A2E22AEE46100FF9D29 /* AutomaticallyInitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticallyInitialViewController.swift; sourceTree = "<group>"; };
+		455D1A2F22AEE46100FF9D29 /* AutomaticallySecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticallySecondViewController.swift; sourceTree = "<group>"; };
+		455D1A3022AEE46100FF9D29 /* AutomaticallyThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticallyThirdViewController.swift; sourceTree = "<group>"; };
+		455D1A3122AEE46100FF9D29 /* AutomaticallyNavigationContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticallyNavigationContainer.swift; sourceTree = "<group>"; };
+		455D1A3322AEE46100FF9D29 /* FirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
+		455D1A3422AEE46100FF9D29 /* ThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdViewController.xib; sourceTree = "<group>"; };
+		455D1A3522AEE46100FF9D29 /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
+		455D1A7B22AEEC8200FF9D29 /* ContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
+		455D1A7E22AEED2200FF9D29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		455D1A8022AEEDC300FF9D29 /* NavigateAutomaticallyNibWithLastModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigateAutomaticallyNibWithLastModal.swift; sourceTree = "<group>"; };
+		455D1A8122AEEDC300FF9D29 /* NavigatePassingParameterNib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigatePassingParameterNib.swift; sourceTree = "<group>"; };
+		501A9A90E0C06E35943C5B44 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		607FACD01AFB9204008FA782 /* SwiftyFlow_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyFlow_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		607FACE51AFB9204008FA782 /* SwiftyFlow_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyFlow_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67FC5CF129450BA9B485DEE1 /* Pods-SwiftyFlow_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyFlow_Example.debug.xcconfig"; path = "Target Support Files/Pods-SwiftyFlow_Example/Pods-SwiftyFlow_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		6FA8A7440F3990CC7B0C0BE5 /* Pods_SwiftyFlow_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyFlow_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A358D733CB09A20240D6FCE /* Pods_SwiftyFlow_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyFlow_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5EAF46B8CAF6E0829DAB0FC /* Pods-SwiftyFlow_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyFlow_Example.release.xcconfig"; path = "Target Support Files/Pods-SwiftyFlow_Example/Pods-SwiftyFlow_Example.release.xcconfig"; sourceTree = "<group>"; };
+		C198F4C7F755E690E671755A /* Pods-SwiftyFlow_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyFlow_Tests.release.xcconfig"; path = "Target Support Files/Pods-SwiftyFlow_Tests/Pods-SwiftyFlow_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		F06811F08D8B21E2ADD931A0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		607FACCD1AFB9204008FA782 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01C9BD4D0D6F8B630C2B4DF7 /* Pods_SwiftyFlow_Example.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		607FACE21AFB9204008FA782 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7ABE50EE0EE998D4B1C32E8B /* Pods_SwiftyFlow_Tests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		455D19E422AEE46100FF9D29 /* StoryboardViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				455D19E522AEE46100FF9D29 /* ThirdViewController.swift */,
+				455D19E622AEE46100FF9D29 /* FirstViewController.swift */,
+				455D19E722AEE46100FF9D29 /* SecondViewController.swift */,
+			);
+			path = StoryboardViewControllers;
+			sourceTree = "<group>";
+		};
+		455D19E822AEE46100FF9D29 /* AutomaticallyNavigationFlowNibWithLastModal */ = {
+			isa = PBXGroup;
+			children = (
+				455D19E922AEE46100FF9D29 /* AutomaticallyFourthModalViewController.swift */,
+				455D19EA22AEE46100FF9D29 /* Nib */,
+				455D19ED22AEE46100FF9D29 /* AutomaticallyNavigationWithModalContainer.swift */,
+				455D19EE22AEE46100FF9D29 /* AutomaticallyThirdModalViewController.swift */,
+			);
+			path = AutomaticallyNavigationFlowNibWithLastModal;
+			sourceTree = "<group>";
+		};
+		455D19EA22AEE46100FF9D29 /* Nib */ = {
+			isa = PBXGroup;
+			children = (
+				455D19EB22AEE46100FF9D29 /* AutomaticallyThirdModalViewController.xib */,
+				455D19EC22AEE46100FF9D29 /* AutomaticallyFourthModalViewController.xib */,
+			);
+			path = Nib;
+			sourceTree = "<group>";
+		};
+		455D19EF22AEE46100FF9D29 /* GoAnywhereNavigationFlowNib */ = {
+			isa = PBXGroup;
+			children = (
+				455D19F022AEE46100FF9D29 /* GoAnywhereNavigationContainer.swift */,
+				455D19F122AEE46100FF9D29 /* ViewControllers */,
+				455D19FA22AEE46100FF9D29 /* NibViews */,
+			);
+			path = GoAnywhereNavigationFlowNib;
+			sourceTree = "<group>";
+		};
+		455D19F122AEE46100FF9D29 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				455D19F222AEE46100FF9D29 /* GoAnywhereInitialViewController.swift */,
+				455D19F322AEE46100FF9D29 /* GoAnywhereSixthViewController.swift */,
+				455D19F422AEE46100FF9D29 /* GoAnywhereFifthViewController.swift */,
+				455D19F522AEE46100FF9D29 /* GoAnywhereFirstViewController.swift */,
+				455D19F622AEE46100FF9D29 /* GoAnywhereSeventhViewController.swift */,
+				455D19F722AEE46100FF9D29 /* GoAnywhereSecondViewController.swift */,
+				455D19F822AEE46100FF9D29 /* GoAnywhereFourthViewController.swift */,
+				455D19F922AEE46100FF9D29 /* GoAnywhereThirdViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		455D19FA22AEE46100FF9D29 /* NibViews */ = {
+			isa = PBXGroup;
+			children = (
+				455D19FB22AEE46100FF9D29 /* GoAnywhereSixthViewController.xib */,
+				455D19FC22AEE46100FF9D29 /* GoAnywhereSecondViewController.xib */,
+				455D19FD22AEE46100FF9D29 /* GoAnywhereThirdViewController.xib */,
+				455D19FE22AEE46100FF9D29 /* GoAnywhereInitialViewController.xib */,
+				455D19FF22AEE46100FF9D29 /* GoAnywhereFifthViewController.xib */,
+				455D1A0022AEE46100FF9D29 /* GoAnywhereFirstViewController.xib */,
+				455D1A0122AEE46100FF9D29 /* GoAnywhereFourthViewController.xib */,
+				455D1A0222AEE46100FF9D29 /* GoAnywhereSeventhViewController.xib */,
+			);
+			path = NibViews;
+			sourceTree = "<group>";
+		};
+		455D1A0322AEE46100FF9D29 /* NavigatePassingParameterNib */ = {
+			isa = PBXGroup;
+			children = (
+				455D1A0422AEE46100FF9D29 /* ParameterNavigationContainer.swift */,
+				455D1A0522AEE46100FF9D29 /* ViewControllers */,
+				455D1A0B22AEE46100FF9D29 /* NibViews */,
+			);
+			path = NavigatePassingParameterNib;
+			sourceTree = "<group>";
+		};
+		455D1A0522AEE46100FF9D29 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				455D1A0622AEE46100FF9D29 /* ParameterFourthViewController.swift */,
+				455D1A0722AEE46100FF9D29 /* ParameterFirstViewController.swift */,
+				455D1A0822AEE46100FF9D29 /* ParameterThirdViewController.swift */,
+				455D1A0922AEE46100FF9D29 /* ParameterSecondViewController.swift */,
+				455D1A0A22AEE46100FF9D29 /* ParameterInitialViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		455D1A0B22AEE46100FF9D29 /* NibViews */ = {
+			isa = PBXGroup;
+			children = (
+				455D1A0C22AEE46100FF9D29 /* ParameterSecondViewController.xib */,
+				455D1A0D22AEE46100FF9D29 /* ParameterThirdViewController.xib */,
+				455D1A0E22AEE46100FF9D29 /* ParameterInitialViewController.xib */,
+				455D1A0F22AEE46100FF9D29 /* ParameterFourthViewController.xib */,
+				455D1A1022AEE46100FF9D29 /* ParameterFirstViewController.xib */,
+			);
+			path = NibViews;
+			sourceTree = "<group>";
+		};
+		455D1A1122AEE46100FF9D29 /* AutomaticallyNavigationFlowNib */ = {
+			isa = PBXGroup;
+			children = (
+				455D1A1222AEE46100FF9D29 /* AutomaticallyThirdViewController.xib */,
+				455D1A1322AEE46100FF9D29 /* AutomaticallyInitialViewController.xib */,
+				455D1A1422AEE46100FF9D29 /* AutomaticallySecondViewController.xib */,
+				455D1A1522AEE46100FF9D29 /* AutomaticallyFirstViewController.xib */,
+			);
+			path = AutomaticallyNavigationFlowNib;
+			sourceTree = "<group>";
+		};
+		455D1A1622AEE46100FF9D29 /* SimulatingDeepLinkToCreateFlowNib */ = {
+			isa = PBXGroup;
+			children = (
+				455D1A1722AEE46100FF9D29 /* ViewControllers */,
+				455D1A2022AEE46100FF9D29 /* DeeplinkNavigationContainer.swift */,
+				455D1A2122AEE46100FF9D29 /* NibViews */,
+			);
+			path = SimulatingDeepLinkToCreateFlowNib;
+			sourceTree = "<group>";
+		};
+		455D1A1722AEE46100FF9D29 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				455D1A1822AEE46100FF9D29 /* DeeplinkFourthViewController.swift */,
+				455D1A1922AEE46100FF9D29 /* DeeplinkSixthViewController.swift */,
+				455D1A1A22AEE46100FF9D29 /* DeeplinkSecondViewController.swift */,
+				455D1A1B22AEE46100FF9D29 /* DeeplinkInitialViewController.swift */,
+				455D1A1C22AEE46100FF9D29 /* DeeplinkThirdViewController.swift */,
+				455D1A1D22AEE46100FF9D29 /* DeeplinkSeventhViewController.swift */,
+				455D1A1E22AEE46100FF9D29 /* DeeplinkFifthViewController.swift */,
+				455D1A1F22AEE46100FF9D29 /* DeeplinkFirstViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		455D1A2122AEE46100FF9D29 /* NibViews */ = {
+			isa = PBXGroup;
+			children = (
+				455D1A2222AEE46100FF9D29 /* DeeplinkInitialViewController.xib */,
+				455D1A2322AEE46100FF9D29 /* DeeplinkSecondViewController.xib */,
+				455D1A2422AEE46100FF9D29 /* DeeplinkFirstViewController.xib */,
+				455D1A2522AEE46100FF9D29 /* DeeplinkSixthViewController.xib */,
+				455D1A2622AEE46100FF9D29 /* DeeplinkFifthViewController.xib */,
+				455D1A2722AEE46100FF9D29 /* DeeplinkThirdViewController.xib */,
+				455D1A2822AEE46100FF9D29 /* DeeplinkSeventhViewController.xib */,
+				455D1A2922AEE46100FF9D29 /* DeeplinkFourthViewController.xib */,
+			);
+			path = NibViews;
+			sourceTree = "<group>";
+		};
+		455D1A2A22AEE46100FF9D29 /* AutomaticallyNavigationFlowStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				455D1A2B22AEE46100FF9D29 /* AutomaticallyNavigationFlow.storyboard */,
+				455D1A2C22AEE46100FF9D29 /* ViewControllers */,
+				455D1A3122AEE46100FF9D29 /* AutomaticallyNavigationContainer.swift */,
+			);
+			path = AutomaticallyNavigationFlowStoryboard;
+			sourceTree = "<group>";
+		};
+		455D1A2C22AEE46100FF9D29 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				455D1A2D22AEE46100FF9D29 /* AutomaticallyFirstViewController.swift */,
+				455D1A2E22AEE46100FF9D29 /* AutomaticallyInitialViewController.swift */,
+				455D1A2F22AEE46100FF9D29 /* AutomaticallySecondViewController.swift */,
+				455D1A3022AEE46100FF9D29 /* AutomaticallyThirdViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		455D1A3222AEE46100FF9D29 /* NibViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				455D1A3322AEE46100FF9D29 /* FirstViewController.xib */,
+				455D1A3422AEE46100FF9D29 /* ThirdViewController.xib */,
+				455D1A3522AEE46100FF9D29 /* SecondViewController.xib */,
+			);
+			path = NibViewControllers;
+			sourceTree = "<group>";
+		};
+		607FACC71AFB9204008FA782 = {
+			isa = PBXGroup;
+			children = (
+				607FACF51AFB993E008FA782 /* Podspec Metadata */,
+				607FACD21AFB9204008FA782 /* Example for SwiftyFlow */,
+				607FACE81AFB9204008FA782 /* Tests */,
+				607FACD11AFB9204008FA782 /* Products */,
+				8CF8FE179D56E34802318828 /* Pods */,
+				8E6A4F9FB5431A3336A2EB59 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		607FACD11AFB9204008FA782 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD01AFB9204008FA782 /* SwiftyFlow_Example.app */,
+				607FACE51AFB9204008FA782 /* SwiftyFlow_Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		607FACD21AFB9204008FA782 /* Example for SwiftyFlow */ = {
+			isa = PBXGroup;
+			children = (
+				455D1A1122AEE46100FF9D29 /* AutomaticallyNavigationFlowNib */,
+				455D19E822AEE46100FF9D29 /* AutomaticallyNavigationFlowNibWithLastModal */,
+				455D1A2A22AEE46100FF9D29 /* AutomaticallyNavigationFlowStoryboard */,
+				455D19EF22AEE46100FF9D29 /* GoAnywhereNavigationFlowNib */,
+				455D1A0322AEE46100FF9D29 /* NavigatePassingParameterNib */,
+				455D1A3222AEE46100FF9D29 /* NibViewControllers */,
+				455D1A1622AEE46100FF9D29 /* SimulatingDeepLinkToCreateFlowNib */,
+				455D19E422AEE46100FF9D29 /* StoryboardViewControllers */,
+				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				455D1A7B22AEEC8200FF9D29 /* ContainerView.swift */,
+				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				455D1A7D22AEED2200FF9D29 /* LaunchScreen.storyboard */,
+				607FACDC1AFB9204008FA782 /* Images.xcassets */,
+				607FACD31AFB9204008FA782 /* Supporting Files */,
+			);
+			name = "Example for SwiftyFlow";
+			path = SwiftyFlow;
+			sourceTree = "<group>";
+		};
+		607FACD31AFB9204008FA782 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD41AFB9204008FA782 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		607FACE81AFB9204008FA782 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				455D1A8022AEEDC300FF9D29 /* NavigateAutomaticallyNibWithLastModal.swift */,
+				455D1A8122AEEDC300FF9D29 /* NavigatePassingParameterNib.swift */,
+				607FACE91AFB9204008FA782 /* Supporting Files */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		607FACE91AFB9204008FA782 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				607FACEA1AFB9204008FA782 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				1FC8A539FC2EA81628CCBB0C /* SwiftyFlow.podspec */,
+				F06811F08D8B21E2ADD931A0 /* README.md */,
+				501A9A90E0C06E35943C5B44 /* LICENSE */,
+			);
+			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		8CF8FE179D56E34802318828 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				67FC5CF129450BA9B485DEE1 /* Pods-SwiftyFlow_Example.debug.xcconfig */,
+				A5EAF46B8CAF6E0829DAB0FC /* Pods-SwiftyFlow_Example.release.xcconfig */,
+				1D6384A37DAED15D716E2D17 /* Pods-SwiftyFlow_Tests.debug.xcconfig */,
+				C198F4C7F755E690E671755A /* Pods-SwiftyFlow_Tests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8E6A4F9FB5431A3336A2EB59 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8A358D733CB09A20240D6FCE /* Pods_SwiftyFlow_Example.framework */,
+				6FA8A7440F3990CC7B0C0BE5 /* Pods_SwiftyFlow_Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		607FACCF1AFB9204008FA782 /* SwiftyFlow_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "SwiftyFlow_Example" */;
+			buildPhases = (
+				737144DFDC08DDB96001EB77 /* [CP] Check Pods Manifest.lock */,
+				607FACCC1AFB9204008FA782 /* Sources */,
+				607FACCD1AFB9204008FA782 /* Frameworks */,
+				607FACCE1AFB9204008FA782 /* Resources */,
+				E86EDA594222BF6D1CA7E6E2 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftyFlow_Example;
+			productName = SwiftyFlow;
+			productReference = 607FACD01AFB9204008FA782 /* SwiftyFlow_Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+		607FACE41AFB9204008FA782 /* SwiftyFlow_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "SwiftyFlow_Tests" */;
+			buildPhases = (
+				C629ED9CEB7F91BA04734C8B /* [CP] Check Pods Manifest.lock */,
+				607FACE11AFB9204008FA782 /* Sources */,
+				607FACE21AFB9204008FA782 /* Frameworks */,
+				607FACE31AFB9204008FA782 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				607FACE71AFB9204008FA782 /* PBXTargetDependency */,
+			);
+			name = SwiftyFlow_Tests;
+			productName = Tests;
+			productReference = 607FACE51AFB9204008FA782 /* SwiftyFlow_Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		607FACC81AFB9204008FA782 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = CocoaPods;
+				TargetAttributes = {
+					607FACCF1AFB9204008FA782 = {
+						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0900;
+					};
+					607FACE41AFB9204008FA782 = {
+						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0900;
+						TestTargetID = 607FACCF1AFB9204008FA782;
+					};
+				};
+			};
+			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "SwiftyFlow" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+				Base,
+			);
+			mainGroup = 607FACC71AFB9204008FA782;
+			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				607FACCF1AFB9204008FA782 /* SwiftyFlow_Example */,
+				607FACE41AFB9204008FA782 /* SwiftyFlow_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		607FACCE1AFB9204008FA782 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				455D1A6822AEE46100FF9D29 /* DeeplinkSecondViewController.xib in Resources */,
+				455D1A6A22AEE46100FF9D29 /* DeeplinkSixthViewController.xib in Resources */,
+				455D1A6C22AEE46100FF9D29 /* DeeplinkThirdViewController.xib in Resources */,
+				455D1A4C22AEE46100FF9D29 /* GoAnywhereFirstViewController.xib in Resources */,
+				455D1A5A22AEE46100FF9D29 /* AutomaticallyThirdViewController.xib in Resources */,
+				455D1A5822AEE46100FF9D29 /* ParameterFourthViewController.xib in Resources */,
+				455D1A5722AEE46100FF9D29 /* ParameterInitialViewController.xib in Resources */,
+				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				455D1A3B22AEE46100FF9D29 /* AutomaticallyFourthModalViewController.xib in Resources */,
+				455D1A6722AEE46100FF9D29 /* DeeplinkInitialViewController.xib in Resources */,
+				455D1A6F22AEE46100FF9D29 /* AutomaticallyNavigationFlow.storyboard in Resources */,
+				455D1A5C22AEE46100FF9D29 /* AutomaticallySecondViewController.xib in Resources */,
+				455D1A4822AEE46100FF9D29 /* GoAnywhereSecondViewController.xib in Resources */,
+				455D1A4B22AEE46100FF9D29 /* GoAnywhereFifthViewController.xib in Resources */,
+				455D1A7522AEE46100FF9D29 /* FirstViewController.xib in Resources */,
+				455D1A6E22AEE46100FF9D29 /* DeeplinkFourthViewController.xib in Resources */,
+				455D1A3A22AEE46100FF9D29 /* AutomaticallyThirdModalViewController.xib in Resources */,
+				455D1A7F22AEED2300FF9D29 /* LaunchScreen.storyboard in Resources */,
+				455D1A5622AEE46100FF9D29 /* ParameterThirdViewController.xib in Resources */,
+				455D1A4D22AEE46100FF9D29 /* GoAnywhereFourthViewController.xib in Resources */,
+				455D1A6B22AEE46100FF9D29 /* DeeplinkFifthViewController.xib in Resources */,
+				455D1A4A22AEE46100FF9D29 /* GoAnywhereInitialViewController.xib in Resources */,
+				455D1A5B22AEE46100FF9D29 /* AutomaticallyInitialViewController.xib in Resources */,
+				455D1A5D22AEE46100FF9D29 /* AutomaticallyFirstViewController.xib in Resources */,
+				455D1A4722AEE46100FF9D29 /* GoAnywhereSixthViewController.xib in Resources */,
+				455D1A5522AEE46100FF9D29 /* ParameterSecondViewController.xib in Resources */,
+				455D1A7622AEE46100FF9D29 /* ThirdViewController.xib in Resources */,
+				455D1A5922AEE46100FF9D29 /* ParameterFirstViewController.xib in Resources */,
+				455D1A6D22AEE46100FF9D29 /* DeeplinkSeventhViewController.xib in Resources */,
+				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				455D1A6922AEE46100FF9D29 /* DeeplinkFirstViewController.xib in Resources */,
+				455D1A4922AEE46100FF9D29 /* GoAnywhereThirdViewController.xib in Resources */,
+				455D1A7722AEE46100FF9D29 /* SecondViewController.xib in Resources */,
+				455D1A4E22AEE46100FF9D29 /* GoAnywhereSeventhViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		607FACE31AFB9204008FA782 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		737144DFDC08DDB96001EB77 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftyFlow_Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C629ED9CEB7F91BA04734C8B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftyFlow_Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E86EDA594222BF6D1CA7E6E2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftyFlow_Example/Pods-SwiftyFlow_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftyFlow/SwiftyFlow.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyFlow.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftyFlow_Example/Pods-SwiftyFlow_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		607FACCC1AFB9204008FA782 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				455D1A4622AEE46100FF9D29 /* GoAnywhereThirdViewController.swift in Sources */,
+				455D1A7022AEE46100FF9D29 /* AutomaticallyFirstViewController.swift in Sources */,
+				455D1A5222AEE46100FF9D29 /* ParameterThirdViewController.swift in Sources */,
+				455D1A5322AEE46100FF9D29 /* ParameterSecondViewController.swift in Sources */,
+				455D1A6322AEE46100FF9D29 /* DeeplinkSeventhViewController.swift in Sources */,
+				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				455D1A6022AEE46100FF9D29 /* DeeplinkSecondViewController.swift in Sources */,
+				455D1A4322AEE46100FF9D29 /* GoAnywhereSeventhViewController.swift in Sources */,
+				455D1A4F22AEE46100FF9D29 /* ParameterNavigationContainer.swift in Sources */,
+				455D1A7122AEE46100FF9D29 /* AutomaticallyInitialViewController.swift in Sources */,
+				455D1A3622AEE46100FF9D29 /* ThirdViewController.swift in Sources */,
+				455D1A5F22AEE46100FF9D29 /* DeeplinkSixthViewController.swift in Sources */,
+				455D1A6422AEE46100FF9D29 /* DeeplinkFifthViewController.swift in Sources */,
+				455D1A3E22AEE46100FF9D29 /* GoAnywhereNavigationContainer.swift in Sources */,
+				455D1A7222AEE46100FF9D29 /* AutomaticallySecondViewController.swift in Sources */,
+				455D1A6222AEE46100FF9D29 /* DeeplinkThirdViewController.swift in Sources */,
+				455D1A5E22AEE46100FF9D29 /* DeeplinkFourthViewController.swift in Sources */,
+				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				455D1A4022AEE46100FF9D29 /* GoAnywhereSixthViewController.swift in Sources */,
+				455D1A4422AEE46100FF9D29 /* GoAnywhereSecondViewController.swift in Sources */,
+				455D1A7322AEE46100FF9D29 /* AutomaticallyThirdViewController.swift in Sources */,
+				455D1A7422AEE46100FF9D29 /* AutomaticallyNavigationContainer.swift in Sources */,
+				455D1A6622AEE46100FF9D29 /* DeeplinkNavigationContainer.swift in Sources */,
+				455D1A5122AEE46100FF9D29 /* ParameterFirstViewController.swift in Sources */,
+				455D1A3822AEE46100FF9D29 /* SecondViewController.swift in Sources */,
+				455D1A6522AEE46100FF9D29 /* DeeplinkFirstViewController.swift in Sources */,
+				455D1A3922AEE46100FF9D29 /* AutomaticallyFourthModalViewController.swift in Sources */,
+				455D1A4122AEE46100FF9D29 /* GoAnywhereFifthViewController.swift in Sources */,
+				455D1A6122AEE46100FF9D29 /* DeeplinkInitialViewController.swift in Sources */,
+				455D1A3F22AEE46100FF9D29 /* GoAnywhereInitialViewController.swift in Sources */,
+				455D1A3C22AEE46100FF9D29 /* AutomaticallyNavigationWithModalContainer.swift in Sources */,
+				455D1A4222AEE46100FF9D29 /* GoAnywhereFirstViewController.swift in Sources */,
+				455D1A7C22AEEC8300FF9D29 /* ContainerView.swift in Sources */,
+				455D1A5022AEE46100FF9D29 /* ParameterFourthViewController.swift in Sources */,
+				455D1A3D22AEE46100FF9D29 /* AutomaticallyThirdModalViewController.swift in Sources */,
+				455D1A3722AEE46100FF9D29 /* FirstViewController.swift in Sources */,
+				455D1A5422AEE46100FF9D29 /* ParameterInitialViewController.swift in Sources */,
+				455D1A4522AEE46100FF9D29 /* GoAnywhereFourthViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		607FACE11AFB9204008FA782 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				455D1A8522AEEE2C00FF9D29 /* NavigateAutomaticallyNibWithLastModal.swift in Sources */,
+				455D1A8422AEEE2600FF9D29 /* NavigatePassingParameterNib.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		607FACE71AFB9204008FA782 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 607FACCF1AFB9204008FA782 /* SwiftyFlow_Example */;
+			targetProxy = 607FACE61AFB9204008FA782 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		455D1A7D22AEED2200FF9D29 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				455D1A7E22AEED2200FF9D29 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				607FACDA1AFB9204008FA782 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		607FACED1AFB9204008FA782 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		607FACEE1AFB9204008FA782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		607FACF01AFB9204008FA782 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67FC5CF129450BA9B485DEE1 /* Pods-SwiftyFlow_Example.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SwiftyFlow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MODULE_NAME = ExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		607FACF11AFB9204008FA782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5EAF46B8CAF6E0829DAB0FC /* Pods-SwiftyFlow_Example.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SwiftyFlow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MODULE_NAME = ExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		607FACF31AFB9204008FA782 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D6384A37DAED15D716E2D17 /* Pods-SwiftyFlow_Tests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftyFlow_Example.app/SwiftyFlow_Example";
+			};
+			name = Debug;
+		};
+		607FACF41AFB9204008FA782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C198F4C7F755E690E671755A /* Pods-SwiftyFlow_Tests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftyFlow_Example.app/SwiftyFlow_Example";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "SwiftyFlow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				607FACED1AFB9204008FA782 /* Debug */,
+				607FACEE1AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "SwiftyFlow_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				607FACF01AFB9204008FA782 /* Debug */,
+				607FACF11AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "SwiftyFlow_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				607FACF31AFB9204008FA782 /* Debug */,
+				607FACF41AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 607FACC81AFB9204008FA782 /* Project object */;
+}

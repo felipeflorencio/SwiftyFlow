@@ -1,0 +1,16 @@
+PODS:
+  - SwiftyFlow (0.1.0)
+
+DEPENDENCIES:
+  - SwiftyFlow (from `../`)
+
+EXTERNAL SOURCES:
+  SwiftyFlow:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SwiftyFlow: bdd27b0c15fc1a712966af69d85acf89a1c29f11
+
+PODFILE CHECKSUM: ba7827888ce8b391f8ceee759315e37be6889bc5
+
+COCOAPODS: 1.7.1
