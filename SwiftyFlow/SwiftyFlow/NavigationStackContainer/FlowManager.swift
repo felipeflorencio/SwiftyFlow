@@ -20,11 +20,6 @@ enum NavigationPopStyle {
     case modal(animated: Bool)
 }
 
-enum NavigationDirection {
-    case next
-    case back
-}
-
 class FlowManager {
     
     // Public read variables

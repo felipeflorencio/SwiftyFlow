@@ -90,28 +90,6 @@ class ContainerFlowStack {
         module?.updateInstance(reference: reference())
     }
     
-    // Here actually we need now to know where we are in the navigation and everything
-    // `after` we set back to nil, this of course should only be exception to when we have strong
-    // reference, that we will not nullify as the user accepted this way of using
-    func updateModulesReference<T>(for navigation: [T], coordinator reference: FlowManager, done update: () -> ()) {
-        
-        defer {
-            update()
-        }
-        
-        let notInTheNavigation = self.modules.filter { element -> Bool in
-            return navigation.first(where: { type(of: $0) == element.forType }) == nil
-        }
-        
-        notInTheNavigation.forEach { element in
-            element.resetWeakInstanceReference()
-        }
-        
-        navigation.forEach { controller in
-            (controller as? FlowNavigator)?.navigationFlow = reference
-        }
-    }
-    
     func adjustModuleReference<T: UIViewController>(for view: T.Type) {
         
         let viewToAdjust = modules.first(where: { $0.forType == view })
