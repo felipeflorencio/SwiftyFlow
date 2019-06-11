@@ -42,7 +42,7 @@ pod 'SwiftyFlow'
 
 ## Author
 
-felipeflorencio, 2136475+felipeflorencio@users.noreply.github.com
+Felipe F Garcia, felipeflorencio@me.com
 
 ## License
 
