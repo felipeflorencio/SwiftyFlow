@@ -8,6 +8,7 @@
 
 import XCTest
 import SwiftyFlow
+@testable import SwiftyFlow_Example
 
 class NavigateAutomaticallyNibWithLastModal: XCTestCase {
 
