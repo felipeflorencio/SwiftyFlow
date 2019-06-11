@@ -1,18 +1,25 @@
 language: swift
 osx_image: xcode10.2
+cache: cocoapods
+podfile: Example/Podfile
 
 env:
   global:
   - LANG=en_US.UTF-8
-  - PROJECT="SwiftyFlow/SwiftyFlow.xcodeproj"
-  - SCHEME="SwiftyFlow"
+  - WORKSPACE="Example/SwiftyFlow.xcworkspace"
+  - SCHEME="SwiftyFlow-Example"
   - APP_NAME="SwiftyFlow"
   - EMAILS="felipeflorencio@me.com"
   matrix:
   - DESTINATION="platform=iOS Simulator,OS=12.2,name=iPhone X" SDK="iphoneos12.2"
-  
+
+before_install:
+  - gem install cocoapods # Since Travis is not always on latest version
+  - pod install --project-directory=Example
+
 script:
-  - xcodebuild clean build -project "$PROJECT" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" CODE_SIGN_IDENTITY="" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
-  - xcodebuild clean build test -enableCodeCoverage YES -project "$PROJECT" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" CODE_SIGN_IDENTITY="" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+  - set -o pipefail && xcodebuild clean build -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" CODE_SIGN_IDENTITY="" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO | xcpretty
+  - set -o pipefail && xcodebuild clean build test -enableCodeCoverage YES -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" CODE_SIGN_IDENTITY="" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO | xcpretty
+  - pod lib lint
 
 after_script: bash <(curl -s https://codecov.io/bash) -t "$CODECOV_TOKEN"

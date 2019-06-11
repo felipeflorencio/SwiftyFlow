@@ -53,34 +53,34 @@
 		2F79A26995BC29D5664D33193FB64142 /* Array+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		301DD4CF7515DCB073E94E17ABB3107C /* Pods-SwiftyFlow_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SwiftyFlow_Example.modulemap"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		3BE266318783A5C2E7BD0CCFF3FF512D /* SwiftyFlow.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = SwiftyFlow.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		3BE266318783A5C2E7BD0CCFF3FF512D /* SwiftyFlow.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = SwiftyFlow.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		459521FA394080A8D81C00E974D8FA9B /* SwiftyFlow.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyFlow.modulemap; sourceTree = "<group>"; };
 		52DF866A5D83DAD701A385F2BBB39013 /* NavigationFlowProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NavigationFlowProtocol.swift; path = SwiftyFlow/Classes/NavigationFlowProtocol.swift; sourceTree = "<group>"; };
-		54AA95EB56F92E10A90A008B1DA1D0ED /* Pods_SwiftyFlow_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyFlow_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		54AA95EB56F92E10A90A008B1DA1D0ED /* Pods_SwiftyFlow_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SwiftyFlow_Tests.framework; path = "Pods-SwiftyFlow_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55A6ED7BD6B6620D9ED261F50C6B437E /* Pods-SwiftyFlow_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SwiftyFlow_Tests.modulemap"; sourceTree = "<group>"; };
 		5878B0961A033C71589679AF1415293E /* SwiftyFlow.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyFlow.xcconfig; sourceTree = "<group>"; };
 		5C3636194CC473E6BF3B8D21DB9C1A82 /* Pods-SwiftyFlow_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftyFlow_Tests-dummy.m"; sourceTree = "<group>"; };
 		61D43B43232D77BC3859D4733189340A /* FlowManagerInitializer+GenericExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "FlowManagerInitializer+GenericExtension.swift"; path = "SwiftyFlow/Classes/FlowManagerInitializer+GenericExtension.swift"; sourceTree = "<group>"; };
-		75399C25B470234C7A1D7A2A806C5690 /* SwiftyFlow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyFlow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75399C25B470234C7A1D7A2A806C5690 /* SwiftyFlow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyFlow.framework; path = SwiftyFlow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		847C0EF2242752B4C8E3432E1F055878 /* ContainerFlowStack+GenericExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ContainerFlowStack+GenericExtension.swift"; path = "SwiftyFlow/Classes/ContainerFlowStack+GenericExtension.swift"; sourceTree = "<group>"; };
 		8B03A93B1236B6ABC34E47B935EE6676 /* Pods-SwiftyFlow_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftyFlow_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9010EEEC8919983529321CA52648A0E9 /* SwiftyFlow-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyFlow-umbrella.h"; sourceTree = "<group>"; };
 		907A58E285C40908CD25F66C870332D2 /* SwiftyFlow-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftyFlow-Info.plist"; sourceTree = "<group>"; };
 		92DAD79BA00050A51D2D118C9B2A8F1E /* Pods-SwiftyFlow_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftyFlow_Tests-umbrella.h"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9FC3265CFDE1239E36AD04C059789B8A /* FlowElementContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FlowElementContainer.swift; path = SwiftyFlow/Classes/FlowElementContainer.swift; sourceTree = "<group>"; };
-		A8B68AEFDCA981F39A4B8D67938A96FB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A8B68AEFDCA981F39A4B8D67938A96FB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		AC0D87AAE536773F064ED174E18FC183 /* SwiftyFlow-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyFlow-prefix.pch"; sourceTree = "<group>"; };
 		B5B641EA02CD2FA3DED513B52ECB37FA /* ContainerFlowStack.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ContainerFlowStack.swift; path = SwiftyFlow/Classes/ContainerFlowStack.swift; sourceTree = "<group>"; };
 		C303C198B4503445C325F351C8EF4257 /* Pods-SwiftyFlow_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftyFlow_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C4DFF4A466F89BDB00F4AB33A9346526 /* Pods-SwiftyFlow_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftyFlow_Example-dummy.m"; sourceTree = "<group>"; };
 		CA9E0ED6866D8F5BD0DF1BF1677AC98C /* FlowManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FlowManager.swift; path = SwiftyFlow/Classes/FlowManager.swift; sourceTree = "<group>"; };
-		DB207C36B2809619807E92642D9B92EB /* Pods_SwiftyFlow_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyFlow_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB207C36B2809619807E92642D9B92EB /* Pods_SwiftyFlow_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SwiftyFlow_Example.framework; path = "Pods-SwiftyFlow_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8FE784A5C19AB89DE0CAE7981114FE /* SwiftyFlow-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyFlow-dummy.m"; sourceTree = "<group>"; };
 		E28D116D6839F0D769F34BED717CBDDB /* Pods-SwiftyFlow_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftyFlow_Example-umbrella.h"; sourceTree = "<group>"; };
 		E7A17F484EAC85B4B29A81734CFBD95C /* Pods-SwiftyFlow_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftyFlow_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		E7A8114FBA1B6887CD7BB1EDBD5E6D46 /* Pods-SwiftyFlow_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftyFlow_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		EDF4E58993AEE7E997F781DA768C9A12 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		EDF4E58993AEE7E997F781DA768C9A12 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -349,7 +349,6 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = 157E1B9DCA878909089B025B7AFF8C08 /* Products */;
@@ -571,7 +570,7 @@
 			};
 			name = Release;
 		};
-		9EB7660B05AC3D9C8BDAF548C6B850E5 /* Debug */ = {
+		4EA4A39707C52136F8A67E6D15AB3A3D /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5878B0961A033C71589679AF1415293E /* SwiftyFlow.xcconfig */;
 			buildSettings = {
@@ -596,7 +595,40 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8D9EA70308D73A613110723E187081E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5878B0961A033C71589679AF1415293E /* SwiftyFlow.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyFlow/SwiftyFlow-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyFlow/SwiftyFlow-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftyFlow/SwiftyFlow.modulemap";
+				PRODUCT_MODULE_NAME = SwiftyFlow;
+				PRODUCT_NAME = SwiftyFlow;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -690,42 +722,10 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
-		};
-		C56294E771986529D1CA620DDAF7177B /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5878B0961A033C71589679AF1415293E /* SwiftyFlow.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftyFlow/SwiftyFlow-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftyFlow/SwiftyFlow-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftyFlow/SwiftyFlow.modulemap";
-				PRODUCT_MODULE_NAME = SwiftyFlow;
-				PRODUCT_NAME = SwiftyFlow;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -778,8 +778,8 @@
 		7B9189873244735D9D8A2909772EA4C9 /* Build configuration list for PBXNativeTarget "SwiftyFlow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9EB7660B05AC3D9C8BDAF548C6B850E5 /* Debug */,
-				C56294E771986529D1CA620DDAF7177B /* Release */,
+				8D9EA70308D73A613110723E187081E6 /* Debug */,
+				4EA4A39707C52136F8A67E6D15AB3A3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

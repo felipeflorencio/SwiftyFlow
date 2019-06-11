@@ -3,6 +3,9 @@
 [![Build Status](https://travis-ci.com/felipeflorencio/SwiftyFlow.svg?branch=master)](https://travis-ci.com/felipeflorencio/SwiftyFlow)
 [![codecov](https://codecov.io/gh/felipeflorencio/SwiftyFlow/branch/master/graph/badge.svg)](https://codecov.io/gh/felipeflorencio/SwiftyFlow)
 [![codebeat badge](https://codebeat.co/badges/20415fbf-b83f-46a7-8b53-6cdf813efa12)](https://codebeat.co/projects/github-com-felipeflorencio-swiftyflow-master)
+[![Version](https://img.shields.io/cocoapods/v/SwiftyFlow.svg?style=flat)](https://cocoapods.org/pods/SwiftyFlow)
+[![License](https://img.shields.io/cocoapods/l/SwiftyFlow.svg?style=flat)](https://cocoapods.org/pods/SwiftyFlow)
+[![Platform](https://img.shields.io/cocoapods/p/SwiftyFlow.svg?style=flat)](https://cocoapods.org/pods/SwiftyFlow)
 
 ## BETA - In development documentation being created
 # SwiftyFlow
@@ -16,9 +19,31 @@ Beside all the possibilities the biggest advantage is the possibility to test yo
 
 With Swifty Flow you can pass parameter to the next view controller that you are calling and you can instantiate this next view controller already injecting those values, beside this all the values that you pass are all typed, this make sure that any change you are in control and you can test this in your tests.
 
-The navigation can happen in two ways one if you don't want to pass any parameter you can just declare your flow navigation, and the order that you declared will happen just simple need to call `goNext()` of `back()` simple like this.
+The navigation can happen in two ways one if you don't want to pass any parameter you can just declare your flow navigation, and the order that you declared will happen just simple need to call `goNext()` or `back()` simple like this.
 
 Or you can say at any moment where you want to go or make the navigation the way that you want, for this just need to say the type of your next view controller, only using the type of the class that you declared the library will resolve all for your self.
 
-Do you want to dismiss the hole flow in one click? You want to have a callback that your flow was closed? You want to know when your flow is finished loading? You want to pass any value back when finishing your flow?!?! It's all possible with this library without need to care about delegate, notification or any other pattern in order to acomplish this simple task :D :D
+Do you want to dismiss the hole flow in one click? You want to have a callback that your flow was closed? You want to know when your flow is finished loading? You want to pass any value back when finishing your flow?!?! It's all possible with this library without need to care about delegate, notification or any other pattern in order to acomplish this simple task :D :D .
 
+## Example
+
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+## Requirements
+
+## Installation
+
+SwiftyFlow is available through [CocoaPods](https://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod 'SwiftyFlow'
+```
+
+## Author
+
+felipeflorencio, 2136475+felipeflorencio@users.noreply.github.com
+
+## License
+
+SwiftyFlow is available under the GPL-3.0 license. See the LICENSE file for more info.
