@@ -34,6 +34,7 @@ public class FlowManager {
     // Private variables for you have callback when finish you flow
     private var dismissCallBackClosure: ((Any) -> ())?
     private var dismissModalCallBackClosure: (() -> ())?
+    internal var parameterFactory: AnyObject?
     
     // MARK: Initializers
     public init(navigation controller: UINavigationController?,

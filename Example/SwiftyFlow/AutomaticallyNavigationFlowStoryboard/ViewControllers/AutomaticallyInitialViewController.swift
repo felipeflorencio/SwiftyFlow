@@ -31,6 +31,6 @@ class AutomaticallyInitialViewController: UIViewController, FlowNavigator {
     
     // MARK: - IBAction
     @IBAction func startNavigation() {
-        navigationFlow?.goNext()
+        navigationFlow?.goNextWith(screen: AutomaticallyFirstViewController.self, parameters: { ("Felipe", 3123.232, "Florencio", 31) })
     }
 }

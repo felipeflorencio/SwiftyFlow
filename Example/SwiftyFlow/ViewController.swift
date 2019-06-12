@@ -115,7 +115,7 @@ class ViewController: UIViewController {
         let navigationStack = ContainerFlowStack()
         AutomaticallyNavigationWithModalContainer().setupNavigationStack(using: navigationStack)
         
-        flowManagerUsingNibWithModalFlow = FlowManager(root: AutomaticallyInitialViewController.self,
+        flowManagerUsingNibWithModalFlow = FlowManager(root: AutomaticallyInitialModalViewController.self,
                                                        container: navigationStack,
                                                        dismissed: {
                                                         debugPrint("finished")

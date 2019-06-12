@@ -83,6 +83,8 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		7ABE50EE0EE998D4B1C32E8B /* Pods_SwiftyFlow_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA8A7440F3990CC7B0C0BE5 /* Pods_SwiftyFlow_Tests.framework */; };
+		8CD0BDD622B0E867003F7E62 /* AutomaticallyInitialModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD0BDD522B0E867003F7E62 /* AutomaticallyInitialModalViewController.swift */; };
+		8CD0BDD822B0EA6C003F7E62 /* AutomaticallyInitialModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CD0BDD722B0EA6C003F7E62 /* AutomaticallyInitialModalViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,6 +182,8 @@
 		67FC5CF129450BA9B485DEE1 /* Pods-SwiftyFlow_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyFlow_Example.debug.xcconfig"; path = "Target Support Files/Pods-SwiftyFlow_Example/Pods-SwiftyFlow_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		6FA8A7440F3990CC7B0C0BE5 /* Pods_SwiftyFlow_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyFlow_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A358D733CB09A20240D6FCE /* Pods_SwiftyFlow_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyFlow_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CD0BDD522B0E867003F7E62 /* AutomaticallyInitialModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticallyInitialModalViewController.swift; sourceTree = "<group>"; };
+		8CD0BDD722B0EA6C003F7E62 /* AutomaticallyInitialModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AutomaticallyInitialModalViewController.xib; sourceTree = "<group>"; };
 		A5EAF46B8CAF6E0829DAB0FC /* Pods-SwiftyFlow_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyFlow_Example.release.xcconfig"; path = "Target Support Files/Pods-SwiftyFlow_Example/Pods-SwiftyFlow_Example.release.xcconfig"; sourceTree = "<group>"; };
 		C198F4C7F755E690E671755A /* Pods-SwiftyFlow_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyFlow_Tests.release.xcconfig"; path = "Target Support Files/Pods-SwiftyFlow_Tests/Pods-SwiftyFlow_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		F06811F08D8B21E2ADD931A0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 				455D19EA22AEE46100FF9D29 /* Nib */,
 				455D19ED22AEE46100FF9D29 /* AutomaticallyNavigationWithModalContainer.swift */,
 				455D19EE22AEE46100FF9D29 /* AutomaticallyThirdModalViewController.swift */,
+				8CD0BDD522B0E867003F7E62 /* AutomaticallyInitialModalViewController.swift */,
 			);
 			path = AutomaticallyNavigationFlowNibWithLastModal;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 			children = (
 				455D19EB22AEE46100FF9D29 /* AutomaticallyThirdModalViewController.xib */,
 				455D19EC22AEE46100FF9D29 /* AutomaticallyFourthModalViewController.xib */,
+				8CD0BDD722B0EA6C003F7E62 /* AutomaticallyInitialModalViewController.xib */,
 			);
 			path = Nib;
 			sourceTree = "<group>";
@@ -540,7 +546,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 1020;
-				ORGANIZATIONNAME = CocoaPods;
+				ORGANIZATIONNAME = "Felipe F Garcia";
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -582,6 +588,7 @@
 				455D1A6C22AEE46100FF9D29 /* DeeplinkThirdViewController.xib in Resources */,
 				455D1A4C22AEE46100FF9D29 /* GoAnywhereFirstViewController.xib in Resources */,
 				455D1A5A22AEE46100FF9D29 /* AutomaticallyThirdViewController.xib in Resources */,
+				8CD0BDD822B0EA6C003F7E62 /* AutomaticallyInitialModalViewController.xib in Resources */,
 				455D1A5822AEE46100FF9D29 /* ParameterFourthViewController.xib in Resources */,
 				455D1A5722AEE46100FF9D29 /* ParameterInitialViewController.xib in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
@@ -725,6 +732,7 @@
 				455D1A3F22AEE46100FF9D29 /* GoAnywhereInitialViewController.swift in Sources */,
 				455D1A3C22AEE46100FF9D29 /* AutomaticallyNavigationWithModalContainer.swift in Sources */,
 				455D1A4222AEE46100FF9D29 /* GoAnywhereFirstViewController.swift in Sources */,
+				8CD0BDD622B0E867003F7E62 /* AutomaticallyInitialModalViewController.swift in Sources */,
 				455D1A7C22AEEC8300FF9D29 /* ContainerView.swift in Sources */,
 				455D1A5022AEE46100FF9D29 /* ParameterFourthViewController.swift in Sources */,
 				455D1A3D22AEE46100FF9D29 /* AutomaticallyThirdModalViewController.swift in Sources */,

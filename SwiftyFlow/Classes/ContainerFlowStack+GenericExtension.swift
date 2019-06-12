@@ -33,7 +33,9 @@ extension ContainerFlowStack {
         // otherwise we can't check what is suppose to be the type to "convert back" to be able to call
         // the write closure that will pass / get the right parameter data, and resolve the instance that
         // we want back, it's very delicate, but it's the way that Swift can provide
-        let resolveInvoker = module?.factoryParameter as! (Resolver) -> T?
+        guard let factory = module?.factoryParameter else { return nil }
+        
+        let resolveInvoker = factory as! (Resolver) -> T?
         let resolvedInstance = resolveInvoker(data())
         module?.resolved(with: { resolvedInstance })
         

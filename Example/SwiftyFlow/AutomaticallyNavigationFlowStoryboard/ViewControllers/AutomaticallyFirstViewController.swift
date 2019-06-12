@@ -13,6 +13,11 @@ class AutomaticallyFirstViewController: UIViewController, FlowNavigator {
     
     var navigationFlow: FlowManager?
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        requestData()
+    }
+    
     // MARK: - IBAction
     @IBAction func next() {
         navigationFlow?.goNext()
@@ -20,5 +25,15 @@ class AutomaticallyFirstViewController: UIViewController, FlowNavigator {
     
     @IBAction func back() {
         navigationFlow?.getBack()
+    }
+    
+    func requestData() {
+        navigationFlow?.dataFromPreviousController(data: { (arguments: (String, Double, String, Int)) in
+            let (first, second, third, fourth) = arguments
+            debugPrint("First parameter: \(first) - Storyboard Automatically Navigation")
+            debugPrint("Second parameter: \(second) - Storyboard Automatically Navigation")
+            debugPrint("Third parameter: \(third) - Storyboard Automatically Navigation")
+            debugPrint("Fourth parameter: \(fourth) - Storyboard Automatically Navigation")
+        })
     }
 }

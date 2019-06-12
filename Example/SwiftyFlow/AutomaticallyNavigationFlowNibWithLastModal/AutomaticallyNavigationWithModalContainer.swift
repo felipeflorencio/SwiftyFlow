@@ -13,8 +13,8 @@ class AutomaticallyNavigationWithModalContainer {
     
     func setupNavigationStack(using containerStack: ContainerFlowStack) {
         
-        containerStack.registerModule(for: AutomaticallyInitialViewController.self) { () -> AutomaticallyInitialViewController in
-            return AutomaticallyInitialViewController()
+        containerStack.registerModule(for: AutomaticallyInitialModalViewController.self) { () -> AutomaticallyInitialModalViewController in
+            return AutomaticallyInitialModalViewController()
         }
         
         containerStack.registerModule(for: AutomaticallyFirstViewController.self) { () -> AutomaticallyFirstViewController in
