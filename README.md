@@ -113,7 +113,7 @@ func createOurNavigation() {
 
 Let's dig into and understand the "why's".
 
-1 - If you pay attention actually you do not need to have that class called `ContainerView`, I just added to not have all those declaration in one place, what we need is to have one `ContainerFlowStack` and declare all our dependencies there, if you want you can make the "shortcut format":
+> If you pay attention actually you do not need to have that class called `ContainerView`, I just added to not have all those declaration in one place, what we need is to have one `ContainerFlowStack` and declare all our dependencies there, if you want you can make the "shortcut format":
 
 ```swift
 let navigationStack = ContainerFlowStack { container in
@@ -131,14 +131,16 @@ Pretty much this regarding the configurantion it self, now you are able to start
 
 To start you just need to call the `start()` method from your flow manager, you can set a class variable and call latter or just call direct from your flow manager as soon you instantiate, for example:
 
-1 - Call direct from the instance:
-```
+1. Call direct from the instance:
+
+```swift
 FlowManager(root: FirstViewController.self, container: navigationStack).start()
+
 ```
 
 This will just start your navigation flow.
 
-2 - Start latter, just set the flow manager to some variable and call latter:
+2. Start latter, just set the flow manager to some variable and call latter:
 
 ```swift
 flowManagerVariable = FlowManager(root: FirstViewController.self, container: navigationStack)
@@ -149,11 +151,11 @@ flowManagerVariable.start()
 
 Regarding start / create this is all, now regarding the navigation the simple on you will have to use basically 3 methods.
 
-1 - To navigate to the next screen using the "automatically navigation" just use the method `goNext()` to go to next screen, will follow the order that you declared in your container;
+1. To navigate to the next screen using the "automatically navigation" just use the method `goNext()` to go to next screen, will follow the order that you declared in your container;
 
-2 - Go back it's the same, just call `getBack()` and will get back to the previous screen;
+2. Go back it's the same, just call `getBack()` and will get back to the previous screen;
 
-3 - Close the flow just call at any time `dismissFlowController()`.
+3. Close the flow just call at any time `dismissFlowController()`.
 
 That's it's all, with this setup you can easily navigate.
 
@@ -174,32 +176,223 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 <details>
 <summary>Automatically navigation using Storyboard</summary>
 
+
 First, what does mean have "automatically" navigation?
-This mean that in the order that you declared your view controllers, when you call `goNext()` and `getBack()` you will not need to specify to where.
+This mean that the order that you declared your view controllers, when you call `goNext()` and `getBack()` you will not need to specify to where.
 
 Features in this sample:
 Automatically navigation using View Controller that have View inside Storyboard.
 Pass parameter from one View Controller to another View controller using the framework.
+
+1. The navigation will use the automatically way, that use 2 methods:
+  1. `goNext()`
+  1. `getBack()`
+
+2. To pass parameter's when using storyboard you have a little different approach, let's understand the problem:
+When you instantiate using the storyboard, what actually happen is you Storyboard that actually instantiate you instance, your view controller class.
+Because this, is not possible (until the last apple update from WWDC 2019) to pass any parameter in the initialiser, the only solution is after you have the instance you pass using method injection, variable injection.
+
+But this is not the end, what we did in order to be able to test is, you still send when call go to the next one, specify the parameters and in your instance you "listen" to the parameter, let's see.
+
+First, you will need to use a different method to call you next view, you will use: 
+
+```swift
+navigationFlow?.goNextWith(screen: AutomaticallyFirstViewController.self, parameters: { ("Felipe", 3123.232, "Florencio", 31) })
+```
+
+- We need to specify where we want to go, which screen;
+- The parameters are typed, this means that on the other side you will need to specify the type the same way that you are sending, this is one important part for the test, make sure what you are sending is being receiving the same way.
+
+> Parameters: We are using tuple, as in generic's we need to have a type, so you can just send a tuple, that has a type that swift understand and inside declare the other values, can be just 1 item, one custom object anything.
+
+In the class that you called, in our scenario was `AutomaticallyFirstViewController.self` you will need to implement the method that will receive.
+
+What I did was create a method that is being called on my `func viewWillAppear(_ animated: Bool)` method that will listen, the method that will listen will be like this:
+
+```swift
+func requestData() {
+        navigationFlow?.dataFromPreviousController(data: { (arguments: (String, Double, String, Int)) in
+            let (first, second, third, fourth) = arguments
+            debugPrint("First parameter: \(first) - Storyboard Automatically Navigation")
+            debugPrint("Second parameter: \(second) - Storyboard Automatically Navigation")
+            debugPrint("Third parameter: \(third) - Storyboard Automatically Navigation")
+            debugPrint("Fourth parameter: \(fourth) - Storyboard Automatically Navigation")
+        })
+    }
+```
+
+As you can see, `dataFromPreviousController(` it's a closure, that receive a "type", the types need to be the same that we are sending on the previous screen, even the same order.
+
+These are the main features from this sample flow, take a look into the code.
+
+---
 
 </details>
 
 <details>
 <summary>Automatically navigation using NIB</summary>
 
+This is pretty much follow the same as when use the storyboard, but the difference here is that you are using NIB's and you are using the instances that will be generated.
+
+Features in this sample:
+Automatically navigation using NIB's.
+> It's mandatory for the NIB have the same name as your view controller class, as when both have the same name iOS knows how to instantiate.
+
+- Important to know here is, when you use this method, the instance that we will use is the one that you registered into the container, for example:
+
+```swift
+containerStack.registerModule(for: AutomaticallyFirstViewController.self) { () -> AutomaticallyFirstViewController in
+            return AutomaticallyFirstViewController()
+        }
+```
+
+When our flow manager request for the class `AutomaticallyFirstViewController` he will came to this registration and get this object / instance, if you want you can instantiate by your self, set some value using some method or even variable and return, for example:
+
+```swift
+containerStack.registerModule(for: AutomaticallyFirstViewController.self) { () -> AutomaticallyFirstViewController in
+			var viewController = AutomaticallyFirstViewController()
+			viewController.myVariable = "Test Data"
+			viewController.myMethod("With some data")
+            return viewController
+        }
+```
+
+This will work's fine too, when you use NIB's I see more advantages because you have better ways of instantiate your object, in this way you can fulfil your instance with any need before you actually show, in the sample using NIB passing parameter you will see even more advantages.
+
+1. The navigation will use the automatically way, that use 2 methods:
+  1. `goNext()`
+  1. `getBack()`
+
+---
+
 </details>
 
 <details>
 <summary>Automatically navigation using NIB with the possibility to go to any other view controller that you chose</summary>
+
+This format follows the same as **Automatically navigation using NIB** but with the difference here that we are using other method to go to any view controller that we declared inside our `Container`, so we still can use the `goNext()` but we are using another one that is called `goNext(screen: ViewController.self)`.
+
+For example, we have in this sample from `GoAnywhereFirstViewController` to `GoAnywhereSeventhViewController` the only thing that we need to do is from this flow manager use this method `goNext` specifying the type that will resolve automatically.
+
+Example:
+
+```swift
+navigationFlow?.goNext(screen: GoAnywhereSeventhViewController.self)
+```
+
+---
 
 </details>
 
 <details>
 <summary>Deeplink concept</summary>
 
+This is basically an "idea" of the advantage of use this framework, deeplink sometimes it's used in order to receive some data that will redirect us to some screen / view inside the app, we do need to know where of course, and there's many ways of doing this, here I will present how you can use the framework to facilitate this.
+
+- Example: You need to have a logic that, when we receive a deeplink user click we send some parameter, I will use as sample that your passing as parameter where you want to go, the name of the controller, and we will need to generate a new Flow Manager using the root of the navigation controller using the type.
+
+- Another requirement is, you want to when this new "flow" that will be generate automatically when user finishes this flow you want to send back some value, like a *boolean* that you can evaluate in your callback to know that user finished.
+
+> *You can use anything as parameter, as soon you have a object that receive this and "translate" to the view type that you want to initiate it's ok
+
+
+Sample:
+
+```swift
+// MARK: - Create your flow dinamicaly
+    private func createYourNewFlow(for view: UIViewController.Type) {
+
+        guard let navigationStack = self.navigationFlow?.container() else { return }
+        
+        FlowManager(root: view,
+                    container: navigationStack)
+            .dismissedFlowWith { [weak self] closeAll in
+            
+            // Using this parameter for the situation that we want to dismiss both navigation from the top one
+            if (closeAll as? Bool) == true {
+                self?.navigationFlow?.dismissFlowController()
+            }
+        }.start()
+    }
+```
+
+1. As for us know where to go we need to know any `UIViewController` type, that's why we are receiving this as parameter in this method.
+2. It's mandatory for you have container where you declared all your possible view controllers that you will be able to go.
+3. Create you `FlowManager`.
+4. Implement the method `dismissedFlowWith` that have as parameter one closure that receive `Any` as type, you just need to check the type if you want or just if receive any value.
+  4. In this scenario I'm using the dismiss callback to close the flow, but you can close by yourself at the end, but as we want to validate the callback it's indicate to finish here, we finish using: `self?.navigationFlow?.dismissFlowController()`
+
+How to finish you flow passing some call back?
+It the `DeeplinkFirstViewController` we the dismiss method passing as parameter a **boolean** value:
+
+```swift
+navigationFlow?.dismissFlowController().finishFlowWith(parameter: true)
+```
+
+Other method that you will see being used in this flow to get back beside the `getBack()` or the `dismissFlowController()` it self is:
+
+```swift
+navigationFlow?.getBack(pop: .popToRoot(animated: true))
+```
+
+This method as the name suggest we just get back to the root of this navigation controller saying if we want to do this animated or not.
+
+---
+
 </details>
 
 <details>
 <summary>Navigation flow using NIB and with Modal view presentation</summary>
+
+This navigation there's no difference regarding the navigation itself, the goal here is how I can open a new view using the `modal` format.
+
+For this we have two ways of doing, both we will use a different method to show as modal, we use the method `.goNextAsModal()`, following the principle of automatic navigation, if I do not specify to which screen I want to go, we will look which screen is the next in the stack and will resolve automatically.
+
+Going to `AutomaticallyThirdModalViewController` you will see the implementation as following:
+
+```swift
+navigationFlow?.goNextAsModal().dismissedModal({ [unowned self] in
+            debugPrint("Finished close modal view")
+            self.getSomeDataFromClosedModal()
+        })
+```
+
+- What we have here is another helper method, that is not mandatory but we used, it's `dismissModal` that is an callback when we dismiss our modal, in case that we want to know that was closed to do something, in this scenario we created a method that will get the reference to this modal view and see the parameters inside that instance:
+
+```swift
+private func getSomeDataFromClosedModal() {
+        let modalViewController = self.navigationFlow?.container()?.getModuleIfHasInstance(for: AutomaticallyFourthModalViewController.self)
+        // Getting from variable
+        if let fromVariable = modalViewController?.someData {
+            debugPrint("Getting data from modal as variable: \(fromVariable)")
+        }
+        // Getting from function
+        if let fromFunction = modalViewController?.modalViewSampleData() {
+            debugPrint("Getting data from modal as function: \(fromFunction)")
+        }
+    }
+```
+
+If you pay attention we have some important thing to analize here, everytime that we close any modal view, or even get back, navigation controller will always *destroy* that object reference, so how we can still have the reference to this object that was close?
+
+On this container, when I registered I said that I want to this object as soon was instantiate have an ***strong*** reference, this means that when we navigate back we will not destroy the reference.
+The only moment that will be destroid is when we completely close our `FlowManager`.
+
+How we register as strong:
+
+```swift
+containerStack.registerModule(for: AutomaticallyFourthModalViewController.self) { () -> AutomaticallyFourthModalViewController in
+            return AutomaticallyFourthModalViewController()
+        }.inScope(scope: .strong)
+```
+
+We are using the method `.inScope(scope: .strong)` that will say to our framework after instantiate do not nullify the reference to this object, and here you need to pay attention, the normal behavior that we have is when get back and go next again, we have a new instance, in this scenario will use the same instance, so, you need to pay attention.
+
+Getting back to `getSomeDataFromClosedModal` how do we access our instance? For this we have in our flow manager the access to our ***container***, and inside we have a method to get the object instance it's: `.getModuleIfHasInstance(for: AutomaticallyFourthModalViewController.self)`, passing the type of the instance that we want to check, if exist will return.
+
+To dismiss the presented modal view we need to use another method, as the dismiss when presented as modal it's different, for this we use the method inside the modal view controller `navigationFlow?.getBack(pop: .modal(animated: true))`, passing the type that is ***modal*** and if will be animated or not will dismiss.
+
+---
 
 </details>
 
