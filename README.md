@@ -7,11 +7,9 @@
 [![License](https://img.shields.io/cocoapods/l/SwiftyFlow.svg?style=flat)](https://cocoapods.org/pods/SwiftyFlow)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftyFlow.svg?style=flat)](https://cocoapods.org/pods/SwiftyFlow)
 
-## BETA - In development documentation being created
 # SwiftyFlow
 
 
-## Swifty Flow
 
 It's the first library that allow you control your navigation as "flows", you can use both .NIB or Storyboard, you can declare the expected flow that you want to have and in a simple way create.
 
@@ -98,9 +96,16 @@ class ContainerView {
 }
 ```
 
+#### What's this container? Why I need to register?
+
+>This container is the place that we declare all the types that we want to have in this ***Flow Manager*** that we will use to navigate.
+
+>Another important part here is that we are just declaring the types, we are for now just registering the classes that latter we will use, we do not instantiate this classes while we are declaring, only when we start the navigation and we request the **type** that our framework will ask if we have that type declared, if yes, will go to your container look for the registration and ***resolve*** the instance and return to be shown.
+
+
 Inside your class, the one that you want to start your navigation flow you need to create your flow manager.
 
-Imagine that we have a class called `AppInitialViewController` and inside this class I will create a method that will create our stack and call.
+Imagine that we have a class called `AppInitialViewController` and inside this class I will create a method that will create our stack and set to our `FlowManager` which container to use.
 
 ```swift
 func createOurNavigation() {
@@ -110,6 +115,19 @@ func createOurNavigation() {
     FlowManager(root: FirstViewController.self, container: navigationStack)
 }
 ```
+
+One important information to know about is, how our flow manager knows that we are using Storyboard or NIB files?
+
+When we are create our `FlowManager` by default will be created specting that our navigation will have NIB files as View Controller, if you want to use a Storyboard then you need to specify like this:
+
+```swift
+FlowManager(root: AutomaticallyInitialViewController.self, 
+			container: navigationStack,
+			setupInstance: .storyboard("AutomaticallyNavigationFlow"))
+```
+
+- We say that we want to have this flow using storyboard and we say the name of the Storyboard.
+
 
 Let's dig into and understand the "why's".
 
@@ -174,7 +192,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 
 <details>
-<summary>Automatically navigation using Storyboard</summary>
+<summary>Automatically navigation using Storyboard and pass parameter</summary>
 
 
 First, what does mean have "automatically" navigation?
@@ -183,6 +201,7 @@ This mean that the order that you declared your view controllers, when you call 
 Features in this sample:
 Automatically navigation using View Controller that have View inside Storyboard.
 Pass parameter from one View Controller to another View controller using the framework.
+
 
 1. The navigation will use the automatically way, that use 2 methods:
   1. `goNext()`
@@ -399,12 +418,67 @@ To dismiss the presented modal view we need to use another method, as the dismis
 <details>
 <summary>Navigation flow using NIB and passing parameters to the next view</summary>
 
+Here we will follow the same principles used for a navigation using NIB files, but with the possibilitie to send parameter to the next view that we are calling.
+
+For this we need to change how we register our view inside our ***Container***, because we will need to say which parameter we are expecting, and for this the parameter are **typed** this mean that the type that I say that i'm expecting will need to be that one otherwise will not resolve.
+
+Go to the class `ParameterNavigationContainer` where we register the class to this module, this is one sample:
+
+```swift
+containerStack.registerModuleWithParameter(for: ParameterInitialViewController.self) { (arguments: (String, Double, String, Int)) -> ParameterInitialViewController? in
+            
+            let (first, second, third, fourth) = arguments
+
+            let initialViewController = ParameterInitialViewController()
+            initialViewController.setParameters(first: first, second, third, fourth)
+            
+            return initialViewController
+        }
+```
+
+1. First we need to register using another method, we need to use `.registerModuleWithParameter(for:`, and we have as parameter an closure that will receive the arguments, and for this we need to specify what we will receive.
+2. In our scenario we will instantiate the `ParameterInitialViewController()`, and will set the parameters that we are receiving, after this we return the instance that we want to be resolved when we call this.
+
+Now let's see how we call this class, as this change, I will show two possibilities, one is the when create our `FlowManager` that we need to specify the first view controller that will be show, and for this should be possible to pass any argument / parameter that we want.
+
+1. FlowManager setting the parameter to the root view;
+
+```swift
+FlowManager(root: ParameterInitialViewController.self, container: container.setup(), parameters: {
+                    return (("Felipe", 3123.232, "Florencio", 31))
+        })
+```
+
+- As you can see we are specifying the same type and order that we spect to be resolved, so, as in our container we described that we are specting one tuple with this pattern `(String, Double, String, Int)` will be resolved with success.
+
+2. Calling the navigation method to go next passing any argument.
+  2. First the sample of the registration:
+
+  ```swift
+  containerStack.registerModuleWithParameter(for: ParameterFirstViewController.self) { (arguments: (String, Int)) -> ParameterFirstViewController? in
+            let (first, second) = arguments
+            
+            let firstViewController = ParameterFirstViewController()
+            firstViewController.setParameters(first: first, second)
+            
+            return firstViewController
+        }
+  ```
+
+Now inside the `ParameterInitialViewController` we have the method that call `ParameterFirstViewController` this way:
+
+```swift
+navigationFlow?.goNextWith(screen: ParameterFirstViewController.self, parameters: { () -> ((String, Int)) in
+            return ("Felipe Garcia", 232)
+        })
+```
+
+3. As you can see we use the method `goNextWith` that need to know the type of the screen that we want to go and a closure that expect back the parameter that will send to the register to be resolved.
+
+---
+
 </details>
 
-<details>
-<summary>Navigation flow using Storyboard and passing parameters to the next view</summary>
-
-</details>
 
 ## Requirements
 
@@ -424,3 +498,7 @@ Felipe F Garcia, felipeflorencio@me.com
 ## License
 
 SwiftyFlow is available under the GPL-3.0 license. See the LICENSE file for more info.
+
+___
+
+#### BETA - Improving the documentation, will be generated documentation to all methods that you can use with explanation to all.
