@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwiftyFlow'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'SwiftyFlow is a navigation manager that let you create your flow using a declarative format, being able to unit test the hole flow.'
 
   s.description      = <<-DESC
@@ -19,6 +19,7 @@ Pod::Spec.new do |s|
 
   s.homepage         = 'https://github.com/felipeflorencio/SwiftyFlow'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.documentation_url = 'https://felipeflorencio.github.io/SwiftyFlow/'
   s.license          = { :type => 'GPL-3.0', :file => 'LICENSE' }
   s.author           = { 'Felipe F Garcia' => 'felipeflorencio@me.com' }
   s.source           = { :git => 'https://github.com/felipeflorencio/SwiftyFlow.git', :tag => s.version.to_s }
