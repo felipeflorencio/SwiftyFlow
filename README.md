@@ -4,6 +4,7 @@
 [![codecov](https://codecov.io/gh/felipeflorencio/SwiftyFlow/branch/master/graph/badge.svg)](https://codecov.io/gh/felipeflorencio/SwiftyFlow)
 [![codebeat badge](https://codebeat.co/badges/20415fbf-b83f-46a7-8b53-6cdf813efa12)](https://codebeat.co/projects/github-com-felipeflorencio-swiftyflow-master)
 [![Version](https://img.shields.io/cocoapods/v/SwiftyFlow.svg?style=flat)](https://cocoapods.org/pods/SwiftyFlow)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License](https://img.shields.io/cocoapods/l/SwiftyFlow.svg?style=flat)](https://cocoapods.org/pods/SwiftyFlow)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftyFlow.svg?style=flat)](https://cocoapods.org/pods/SwiftyFlow)
 [![Documentation](https://felipeflorencio.github.io/SwiftyFlow/badge.svg?style=flat)](https://felipeflorencio.github.io/SwiftyFlow/)
@@ -501,6 +502,15 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'SwiftyFlow'
+```
+
+### Carthage
+
+To install Swinject with Carthage, add the following line to your `Cartfile`.
+
+
+```
+github "felipeflorencio/SwiftyFlow" ~> 0.0.3
 ```
 
 ## Documentation

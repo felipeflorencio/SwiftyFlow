@@ -71,3 +71,14 @@ fastlane/test_output
 .DS_Store
 .AppleDouble
 .LSOverride
+
+# Carthage
+Carthage
+
+# xcode
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+*.xcscmblueprint
+*.xcuserdatad
+*.xcbkptlist
