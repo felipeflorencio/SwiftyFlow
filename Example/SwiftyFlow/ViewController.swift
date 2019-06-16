@@ -41,7 +41,7 @@ class ViewController: UIViewController {
     var flowManagerAutomaticallyNavigationFlow: FlowManager?
     @IBAction func startAutomaticallyNavigationFlow() {
         let navigationStack = ContainerFlowStack()
-        AutomaticallyNavigationContainer().setupNavigationStack(using: navigationStack)
+        AutomaticallyNavigationStoryboardContainer().setupNavigationStack(using: navigationStack)
 
         flowManagerAutomaticallyNavigationFlow = FlowManager(root: AutomaticallyInitialViewController.self,
                                                              container: navigationStack,
@@ -56,9 +56,9 @@ class ViewController: UIViewController {
     var flowManagerAutomaticallyNavigationUsingNibFlow: FlowManager?
     @IBAction func startAutomaticallyNavigationUsingNibFlow() {
         let navigationStack = ContainerFlowStack()
-        AutomaticallyNavigationContainer().setupNavigationStack(using: navigationStack)
+        AutomaticallyNavigationNibContainer().setupNavigationStack(using: navigationStack)
         
-        flowManagerAutomaticallyNavigationUsingNibFlow = FlowManager(root: AutomaticallyInitialViewController.self,
+        flowManagerAutomaticallyNavigationUsingNibFlow = FlowManager(root: AutomaticallyNibInitialViewController.self,
                                                                      container: navigationStack)
         flowManagerAutomaticallyNavigationUsingNibFlow?.start()
     }

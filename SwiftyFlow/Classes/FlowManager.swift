@@ -8,11 +8,17 @@
 
 import UIKit
 
+/**
+ Enum that will be utilized when create your flow manager to identify which type is the views that we will need to resolve
+ */
 public enum ViewIntanceFrom {
     case nib
     case storyboard(String)
 }
 
+/**
+ Enum type that will be utilized when we are navigating back, `poping` the navigation, this is important in order to correct dismiss you screen.
+ */
 public enum NavigationPopStyle {
     case pop(animated: Bool)
     case popTo(animated: Bool)
@@ -20,6 +26,9 @@ public enum NavigationPopStyle {
     case modal(animated: Bool)
 }
 
+/**
+ Flow Manager is the core of our navigation system, it's using this thay you will be able to make your navigation flow, it's the important piece for you test your flows.
+ */
 public class FlowManager {
     
     // Public read variables
@@ -37,9 +46,17 @@ public class FlowManager {
     internal var parameterFactory: AnyObject?
     
     // MARK: Initializers
+    /**
+     Flow Manager initialiser
+     
+     - Parameters:
+        - navigation: This is the basic and convenient custom UINavigationController instance if you want to have your custom one, to work is mandatory, so, if use this you need to set.
+        - container: It's the `ContainerFlowStack` instance, it's where we will look for the registered View Controller types in order to resolve and show on the screen.
+        - setupInstance: It's how will be our navigation, it's a enum, if you don't set we will assume that is nib view that you will be using.
+     */
     public init(navigation controller: UINavigationController?,
                   container stack: ContainerFlowStack,
-                  setupInstance type: ViewIntanceFrom? = nil) {
+                  setupInstance type: ViewIntanceFrom? = .nib) {
         self.navigationController = controller
         self.containerStack = stack
         self.defaultNavigationType = type
@@ -49,14 +66,32 @@ public class FlowManager {
         debugPrint("Deallocating FlowManager")
     }
     
-    // We have two ways of loading
-    // 1 - When we are already in one storyboard, and we want to load another viewcontroller
-    //     that is inside this storyboard you can resolve using `rootInstance` to resolve and
-    //     will be set to as your root view controller inside your navigation controller
-    // 2 - When you are loading a completely new storyboard, as you will need to resolve your
-    //     first / root view controller using the reference from the storyboar as it's not loaded
-    //     yet, so for this scenario you only pass the type of the first one that will be resolved
-    //     so we hande this resolution for you, otherwise will load with a black screen your navigation
+    /**
+     Flow Manager convenience initialiser
+     
+     1 - When we are already in one storyboard, and we want to load another viewcontroller
+         that is inside this storyboard you can resolve using `rootInstance` to resolve and
+         will be set to as your root view controller inside your navigation controller.
+     
+     Example:
+        We have setup our Storyboard, and we embed in on our view controllers our UINavigationController
+        Them as we want to use the Flow Manager to handle our navigation, we need to get the reference to our
+        view controller and set as our `custom navigation`, but we need to know who is the root of this
+        navigation, so for this we pass the `root` type of the view.
+
+     2 - When you are loading a completely new storyboard, as you will need to resolve your
+         first / root view controller using the reference from the storyboar as it's not loaded
+         yet, so for this scenario you only pass the type of the first one `root` that will be resolved
+         so we hande this resolution for you, otherwise will load with a black screen your navigation.
+
+     - Parameters:
+        - root: The view controller type that you will have as `root` view controller for you navigation controller.
+        - container: It's the `ContainerFlowStack` instance, it's where we will look for the registered View Controller types in order to resolve and show on the screen.
+        - withCustom: `optional` - Custom UINavigationController it's optional, if not we will use the default one from UIKit.
+        - setupInstance: `optional` - It's how will be our navigation, it's a enum, if you don't set we will assume that is nib view that you will be using.
+        - dismissed: `optional` - Closure optional that can tell you when this navigation controller was completely closed.
+
+     */
     public convenience init<T: UIViewController>(root instanceType: T.Type,
                                                  container stack: ContainerFlowStack,
                                                  withCustom navigation: UINavigationController? = nil,
@@ -71,6 +106,11 @@ public class FlowManager {
     }
     
     // MARK: - Navigation
+    /**
+     The method responsible to start the flow, we do not start automatically when instantiate our FlowManager, so you can start as soon you want.
+     
+     - Parameter finishedLoad: `optional` - Convenience closure that will let you know when you finished the flow.
+     */
     public func start(finishedLoad presenting: (() -> ())? = nil) {
         guard let navigationController = self.navigationController else {
             fatalError("You need to have a root navigation controller instance")
@@ -81,6 +121,23 @@ public class FlowManager {
         })
     }
     
+    /**
+     Method responsible to navigate to the next screen
+     
+     - Parameters:
+        - screen: The type of the screen that you want to go, need to be registered in your container flow stack.
+        - resolve: `optional` - How the view for this screen will be loaded, the default one is `.nib`.
+        - resolved: `optional` - Convenience closure that will return the loaded instance reference for this loaded view, it's good when you want to set some values or pass any parameter not using the custom resolve, you will have the right reference to pass value.
+     
+     ### Usage Example: ###
+     ````
+        navigationFlow?.goNext(screen: SecondViewController.self,
+                               resolve: .nib,
+                               resolved: { resolveViewInstance in
+            resolveViewInstance.nameForTitle = "Setting value on the next view"
+        })
+     ````
+     */
     public func goNext<T: UIViewController>(screen view: T.Type,
                                             resolve asType: ViewIntanceFrom = .nib,
                                             resolved instance: ((T) -> ())? = nil) {
@@ -89,8 +146,27 @@ public class FlowManager {
         self.navigateUsingParameter(parameters: emptyParameter, next: view, resolve: asType, resolved: instance)
     }
     
-    // Automatically resolve and go to the next view according to the order that you declared in
-    // your ContainerFlowStack, if no item found will just not navigation we do not throw any error
+    /**
+     Method responsible to navigate to the next screen automatically resolve and go to the
+     next view according to the order that you declared in your ContainerFlowStack, if no
+     item found will just not navigation we do not throw any error
+     
+     - Parameters:
+        - resolve: `optional` - How the view for this screen will be loaded, the default one is `.nib`.
+        - resolved: `optional` - Convenience closure that will return the loaded instance reference for this loaded view, it's good when you want to set some values or pass any parameter not using the custom resolve, you will have the right reference to pass value.
+     
+     ### Usage Example: ###
+     ````
+        // Without using any parameter - Indicated to the automatically navigation
+         navigationFlow?.goNext()
+     
+        // Using the parameters available
+         navigationFlow?.goNext(resolve: .nib,
+                                resolved: { resolveViewInstance in
+                resolveViewInstance.nameForTitle = "Setting value on the next view"
+         })
+     ````
+     */
     public func goNext<T: UIViewController>(resolve asType: ViewIntanceFrom = .nib,
                                             resolved instance: ((T) -> ())? = nil) {
         
@@ -102,10 +178,38 @@ public class FlowManager {
         self.goNext(screen: nextViewElement.forType as! T.Type, resolve: asType, resolved: instance)
     }
     
-    // Modal presentation
-    // Automatically resolve and go to the next view according to the order that you declared in
-    // your ContainerFlowStack, or you can chose wich screen to pick and navigate to, if no view
-    // can be satisfy will just return and print an error
+    /**
+     Method responsible to navigate to the next screen using `Modal Presentation`, this method can
+     automatically resolve too, if you do not need any of the parameters argument just call the method
+     without implement any of the arguments and will automatically resolve according to you container
+     stack declared.
+     
+     
+     - Parameters:
+        - screen: `optional` - The type of the screen that you want to go, need to be registered in your container flow stack.
+        - resolve: `optional` - How the view for this screen will be loaded, the default one is `.nib`.
+        - animated: `optional` - If you want to show the modal view presentation animated or not, default is animated.
+        - resolved: `optional` - Convenience closure that will return the loaded instance reference for this loaded view, it's good when you want to set some values or pass any parameter not using the custom resolve, you will have the right reference to pass value.
+        - completion: `optional` - Called when the modal view is presented, so you know when success show.
+     
+     - Note: It has `@discardableResult` because you can use other helper methods just after calling this method as we always return FlowManager instance.
+     
+     ### Usage Example: ###
+     ````
+        // Simple implementation indicated for automatically navigation
+        navigationFlow?.goNextAsModal()
+     
+        // Full implementation using all parameters
+         navigationFlow?.goNextAsModal(screen: SecondViewController.self,
+                                       resolve: .nib,
+                                       animated: true,
+                                       resolved: { resolveViewInstance in
+                resolveViewInstance.nameForTitle = "Setting value on the next view"
+         }, completion: {
+            // Finished presenting this modal.
+         })
+     ````
+     */
     @discardableResult
     public func goNextAsModal<T: UIViewController>(screen view: T.Type? = nil,
                                                    resolve asType: ViewIntanceFrom = .nib,
@@ -157,9 +261,29 @@ public class FlowManager {
         return self
     }
     
-    // This is used to get back when you are navigating using storyboard, with this
-    // you can easy get back to the root view from you navigation controller stack
-    // or you can pass on type of view that you registered before and go to that view
+    /**
+     This is used to get back when you are navigating using flow manager, with this
+     you can easy get back just one view or get back to the root view from you
+     navigation controller stack, it's even possible pass say to which screen you want
+     to get back passing the type.
+     
+     - Parameters:
+        - pop: `optional` - Type of the pop action that you want to do, check NavigationPopStyle to see all possibilities, default is back one animated.
+        - screen: `optional` - The type of the screen that you want to go, need to be registered in your container flow stack.
+  
+     - Note: It has `@discardableResult` because you can use other helper methods just after calling this method as we always return FlowManager instance.
+
+     ### Usage Example: ###
+     ````
+         // Basic pop, just get back one screen animated
+         navigationFlow?.getBack()
+     
+         // Specifying what type of the pop and the view that you want to get back
+         navigationFlow?.getBack(pop: .pop(animated: true), screen: { viewToGo in
+                viewToGo(FirstViewController.self)
+         })
+     ````
+     */
     @discardableResult
     public func getBack<T: UIViewController>(pop withStyle: NavigationPopStyle = .pop(animated: true),
                                              screen view: (((T.Type) -> ()) -> ())? = nil) -> Self {
@@ -215,6 +339,26 @@ public class FlowManager {
         return self
     }
     
+    /**
+     Method used to dismiss completely your flow.
+     
+     - Parameters:
+     - animated: `optional` - If you want to animated the dismiss of your flow default is `true`.
+     - completion: `optional` - Closure that you will receive an callback that you flow finished dismiss *(remember that if your instance is not strong you may not get this callback called.
+     
+     - Note: It has `@discardableResult` because you can use other helper methods just after calling this method as we always return FlowManager instance.
+     
+     ### Usage Example: ###
+     ````
+        // Basic call, withoud parameters
+        navigationFlow?.dismissFlowController()
+     
+        // Calling passing parameters
+        navigationFlow?.dismissFlowController(animated: true, completion: {
+            // Finished dismiss flow
+        })
+     ````
+     */
     @discardableResult
     public func dismissFlowController(animated: Bool = true, completion: (() -> Void)? = nil) -> Self {
         
@@ -234,29 +378,89 @@ public class FlowManager {
     }
     
     // MARK: Callback's when dismiss / close your flow
+    /**
+     Method used to pass `Any` parameter back when finish flow, as soon you implement the closure
+     to receive parameter back when flow finish as soon you pass using this method, the parameter
+     will be sent, it's not typed, it's `Any` so you need to cast if you want to identify and have
+     typed parameter back, It's recommended to use after call the `dismissFlowController()` method.
+     
+     - Parameter parameter: Any value that you want to pass back when flow finish.
+     
+     ### Usage Example: ###
+     ````
+        // Basic call, withoud parameters
+        navigationFlow?.dismissFlowController().finishFlowWith(parameter: "Finished")
+     ````
+     */
     public func finishFlowWith(parameter data: Any) {
         dismissCallBackClosure?(data)
     }
     
-    // This should be called only when you instantiate your FlowManager as it's intended
-    // only to pass parameter back that you perhaps want like a response after finish
+    /**
+     This should be called only when you instantiate your FlowManager as it's intended
+     only to pass parameter back that you perhaps want like a response after finish
+     
+     - Parameter parameter: Any value that you want to pass back when flow finish.
+     
+     - Note: It has `@discardableResult` because you can use other helper methods just after calling this method as we always return FlowManager instance.
+     
+     ### Usage Example: ###
+     ````
+        // Here we set after intantiate the `Flow Manager` that when dismiss
+        // we want to `listen` any paramter that will be sent back
+         FlowManager(root: view,
+                     container: navigationStack).dismissedFlowWith { [weak self] closeAll in
+     
+            // Using this parameter for the situation that we want to dismiss both navigation from the top one
+            if (closeAll as? Bool) == true {
+                self?.navigationFlow?.dismissFlowController()
+            }
+         }.start()
+     
+        // And for use, to pass back we just need when dismiss call the method `.finishFlowWith(parameter: )`
+        navigationFlow?.dismissFlowController().finishFlowWith(parameter: true)
+     ````
+     */
     @discardableResult
     public func dismissedFlowWith(parameter invoker: @escaping (Any) -> ()) -> Self {
         dismissCallBackClosure = invoker
         return self
     }
     
+    /**
+     This is intended to you know when you dismiss your presented modal view controller and
+     you want to know if already finished close the presented one.
+     
+     - Parameter parameter: Any value that you want to pass back when flow finish.
+     
+     - Note: It has `@discardableResult` because you can use other helper methods just after calling this method as we always return FlowManager instance.
+     
+     ### Usage Example: ###
+     ````
+         navigationFlow?.goNextAsModal().dismissedModal(callback: { [unowned self] in
+            debugPrint("Finished close modal view")
+            self.getSomeDataFromClosedModal()
+         })
+     ````
+     */
     @discardableResult
-    public func dismissedModal(_ invoker: @escaping () -> ()) -> Self {
+    public func dismissedModal(callback invoker: @escaping () -> ()) -> Self {
         dismissModalCallBackClosure = invoker
         return self
     }
     
     // MARK: Public variable accessor
+    /**
+     Helper method that you can get the instance reference to the
+     `UINavigationController` in case you do not provided a custom one
+     */
     public func managerNavigation() -> UINavigationController? {
         return self.navigationController
     }
     
+    /**
+     Helper method that give you back the container flow stack reference
+     */
     public func container() -> ContainerFlowStack? {
         return self.containerStack
     }
@@ -339,9 +543,9 @@ public class FlowManager {
     // This is to "clean" the references when we navigate back, in order to avoid use the same
     // instance as soon we already navigated away from those views, make safe instantiate next
     // time that we call again this view
-    private func adjustModulesReference<T: UIViewController>(for view: T.Type, popToRoot navigation: Bool = false) {
+    private func adjustModulesReference<T: UIViewController>(for view: T.Type, popToRoot navigationBack: Bool = false) {
         
-        if navigation {
+        if navigationBack {
             containerStack?.modules.forEach({ element in
                 debugPrint("View: \(view)")
                 debugPrint("Element: \(element.forType)")

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FlowElementContainer Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/FlowElementContainer" class="dashAnchor"></a>
+    <a title="FlowElementContainer Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">SwiftyFlow Docs</a> (81% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">SwiftyFlow Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        FlowElementContainer Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ContainerFlowStack.html">ContainerFlowStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FlowElementContainer.html">FlowElementContainer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FlowElementContainer/Scope.html">– Scope</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FlowManager.html">FlowManager</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/NavigationPopStyle.html">NavigationPopStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ViewIntanceFrom.html">ViewIntanceFrom</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/FlowNavigator.html">FlowNavigator</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:10SwiftyFlow20CallbackFunctionTypea">CallbackFunctionType</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>FlowElementContainer</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">FlowElementContainer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+
+                </div>
+              </div>
+            <p>The idea of have FlowElementContainer is a way of have the reference
+encapsulated inside a object that we can manage the reference to our
+real object, as we will be using this inside an array, we need to be
+able to destroy easily our array without have the risk of some view
+controller hold the reference to the object</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow0B16ElementContainerC5ScopeO"></a>
+                    <a name="//apple_ref/swift/Enum/Scope" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B16ElementContainerC5ScopeO">Scope</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enum that will say which type of the registration you want to your instance</p>
+
+                        <a href="../Classes/FlowElementContainer/Scope.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Scope</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow0B16ElementContainerC0D0a"></a>
+                    <a name="//apple_ref/swift/Alias/Container" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B16ElementContainerC0D0a">Container</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Typealias</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Container</span> <span class="o">=</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow0B16ElementContainerC3for9resolvingACyxGxm_xSgyctcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(for:resolving:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B16ElementContainerC3for9resolvingACyxGxm_xSgyctcfc">init(for:resolving:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Flow element container initialiser</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="k">for</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span> <span class="nv">resolving</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/FlowElementContainer.html#/s:10SwiftyFlow0B16ElementContainerC0D0a">Container</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>for</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The type of the View Controller that you want to register.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>resolving</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Is the closure that will be called when Flow Manager need to get the instance of the type that you declared</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow0B16ElementContainerC3for4with9resolvingACyxGxm_ypyptcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(for:with:resolving:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B16ElementContainerC3for4with9resolvingACyxGxm_ypyptcfc">init(for:with:resolving:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Flow element container initialiser for when you want to resolving receiving the parameters from the caller</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="k">for</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span> <span class="n">with</span> <span class="nv">arg</span><span class="p">:</span> <span class="kt">Any</span><span class="p">,</span> <span class="nv">resolving</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10SwiftyFlow20CallbackFunctionTypea">CallbackFunctionType</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>for</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The type of the View Controller that you want to register.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>with</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The arguments that you will want to have, <code>Any</code> as type.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>resolving</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Is the closure that will be called when Flow Manager need to get the instance of the type that you declared.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public%20methods"></a>
+                <a name="//apple_ref/swift/Section/Public methods" class="dashAnchor"></a>
+                <a href="#/Public%20methods">
+                  <h3 class="section-name">Public methods</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow0B16ElementContainerC7inScope5scopeACyxGXDAC0F0Oyx_G_tF"></a>
+                    <a name="//apple_ref/swift/Method/inScope(scope:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B16ElementContainerC7inScope5scopeACyxGXDAC0F0Oyx_G_tF">inScope(scope:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set the scope that we will want for this object</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>It has <code>@discardableResult</code> because you can use other helper methods just after calling this method as we always return FlowElementContainer instance.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">inScope</span><span class="p">(</span><span class="nv">scope</span><span class="p">:</span> <span class="kt"><a href="../Classes/FlowElementContainer/Scope.html">Scope</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>scope</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The scope that you want to have your instance reference, <code>.weak</code>, <code>.strong</code>, or default is <code>.none</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow0B16ElementContainerC4typexmyF"></a>
+                    <a name="//apple_ref/swift/Method/type()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B16ElementContainerC4typexmyF">type()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Return the type of this element</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">type</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://github.com/felipeflorencio/SwiftyFlow" target="_blank" rel="external">Felipe F Garcia</a>. All rights reserved. (Last updated: 2019-06-16)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

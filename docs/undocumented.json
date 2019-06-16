@@ -1,0 +1,68 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/felipeflorencio/PersonalProjects/SwiftyFlow/SwiftyFlow/Classes/FlowElementContainer.swift",
+      "line": 29,
+      "symbol": "FlowElementContainer.Scope.none",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/felipeflorencio/PersonalProjects/SwiftyFlow/SwiftyFlow/Classes/FlowElementContainer.swift",
+      "line": 30,
+      "symbol": "FlowElementContainer.Scope.weak",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/felipeflorencio/PersonalProjects/SwiftyFlow/SwiftyFlow/Classes/FlowElementContainer.swift",
+      "line": 31,
+      "symbol": "FlowElementContainer.Scope.strong",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/felipeflorencio/PersonalProjects/SwiftyFlow/SwiftyFlow/Classes/FlowManager.swift",
+      "line": 15,
+      "symbol": "ViewIntanceFrom.nib",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/felipeflorencio/PersonalProjects/SwiftyFlow/SwiftyFlow/Classes/FlowManager.swift",
+      "line": 16,
+      "symbol": "ViewIntanceFrom.storyboard(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/felipeflorencio/PersonalProjects/SwiftyFlow/SwiftyFlow/Classes/FlowManager.swift",
+      "line": 23,
+      "symbol": "NavigationPopStyle.pop(animated:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/felipeflorencio/PersonalProjects/SwiftyFlow/SwiftyFlow/Classes/FlowManager.swift",
+      "line": 24,
+      "symbol": "NavigationPopStyle.popTo(animated:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/felipeflorencio/PersonalProjects/SwiftyFlow/SwiftyFlow/Classes/FlowManager.swift",
+      "line": 25,
+      "symbol": "NavigationPopStyle.popToRoot(animated:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/felipeflorencio/PersonalProjects/SwiftyFlow/SwiftyFlow/Classes/FlowManager.swift",
+      "line": 26,
+      "symbol": "NavigationPopStyle.modal(animated:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/felipeflorencio/PersonalProjects/SwiftyFlow"
+}

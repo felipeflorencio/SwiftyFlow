@@ -1,5 +1,5 @@
 //
-//  AutomaticallyNavigationContainer.swift
+//  AutomaticallyNavigationStoryboardContainer.swift
 //  SwiftyFlow
 //
 //  Created by Felipe Florencio Garcia on 10/05/2019.
@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyFlow
 
-class AutomaticallyNavigationContainer {
+class AutomaticallyNavigationStoryboardContainer {
     
     func setupNavigationStack(using containerStack: ContainerFlowStack) {
         

@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FlowManager Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/FlowManager" class="dashAnchor"></a>
+    <a title="FlowManager Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">SwiftyFlow Docs</a> (81% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">SwiftyFlow Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        FlowManager Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ContainerFlowStack.html">ContainerFlowStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FlowElementContainer.html">FlowElementContainer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FlowElementContainer/Scope.html">– Scope</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FlowManager.html">FlowManager</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/NavigationPopStyle.html">NavigationPopStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ViewIntanceFrom.html">ViewIntanceFrom</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/FlowNavigator.html">FlowNavigator</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:10SwiftyFlow20CallbackFunctionTypea">CallbackFunctionType</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>FlowManager</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">FlowManager</span></code></pre>
+
+                </div>
+              </div>
+            <p>Flow Manager is the core of our navigation system, it&rsquo;s using this thay you will be able to make your navigation flow, it&rsquo;s the important piece for you test your flows.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Initializers"></a>
+                <a name="//apple_ref/swift/Section/Initializers" class="dashAnchor"></a>
+                <a href="#/Initializers">
+                  <h3 class="section-name">Initializers</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow0B7ManagerC10navigation9container13setupInstanceACSo22UINavigationControllerCSg_AA09ContainerB5StackCAA15ViewIntanceFromOSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(navigation:container:setupInstance:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC10navigation9container13setupInstanceACSo22UINavigationControllerCSg_AA09ContainerB5StackCAA15ViewIntanceFromOSgtcfc">init(navigation:container:setupInstance:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Flow Manager initialiser</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">navigation</span> <span class="nv">controller</span><span class="p">:</span> <span class="kt">UINavigationController</span><span class="p">?,</span>
+              <span class="n">container</span> <span class="nv">stack</span><span class="p">:</span> <span class="kt"><a href="../Classes/ContainerFlowStack.html">ContainerFlowStack</a></span><span class="p">,</span>
+              <span class="n">setupInstance</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Enums/ViewIntanceFrom.html">ViewIntanceFrom</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="n">nib</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>navigation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>This is the basic and convenient custom UINavigationController instance if you want to have your custom one, to work is mandatory, so, if use this you need to set.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>container</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>It&rsquo;s the <code><a href="../Classes/ContainerFlowStack.html">ContainerFlowStack</a></code> instance, it&rsquo;s where we will look for the registered View Controller types in order to resolve and show on the screen.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>setupInstance</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>It&rsquo;s how will be our navigation, it&rsquo;s a enum, if you don&rsquo;t set we will assume that is nib view that you will be using.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow0B7ManagerC4root9container10withCustom13setupInstance9dismissedACxm_AA09ContainerB5StackCSo22UINavigationControllerCSgAA15ViewIntanceFromOyycSgtcSo06UIViewN0CRbzlufc"></a>
+                    <a name="//apple_ref/swift/Method/init(root:container:withCustom:setupInstance:dismissed:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC4root9container10withCustom13setupInstance9dismissedACxm_AA09ContainerB5StackCSo22UINavigationControllerCSgAA15ViewIntanceFromOyycSgtcSo06UIViewN0CRbzlufc">init(root:container:withCustom:setupInstance:dismissed:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Flow Manager convenience initialiser</p>
+
+<p>1 - When we are already in one storyboard, and we want to load another viewcontroller
+    that is inside this storyboard you can resolve using <code>rootInstance</code> to resolve and
+    will be set to as your root view controller inside your navigation controller.</p>
+
+<p>Example:
+   We have setup our Storyboard, and we embed in on our view controllers our UINavigationController
+   Them as we want to use the Flow Manager to handle our navigation, we need to get the reference to our
+   view controller and set as our <code>custom navigation</code>, but we need to know who is the root of this
+   navigation, so for this we pass the <code>root</code> type of the view.</p>
+
+<p>2 - When you are loading a completely new storyboard, as you will need to resolve your
+    first / root view controller using the reference from the storyboar as it&rsquo;s not loaded
+    yet, so for this scenario you only pass the type of the first one <code>root</code> that will be resolved
+    so we hande this resolution for you, otherwise will load with a black screen your navigation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="o">&gt;</span><span class="p">(</span><span class="n">root</span> <span class="nv">instanceType</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span>
+                                             <span class="n">container</span> <span class="nv">stack</span><span class="p">:</span> <span class="kt"><a href="../Classes/ContainerFlowStack.html">ContainerFlowStack</a></span><span class="p">,</span>
+                                             <span class="n">withCustom</span> <span class="nv">navigation</span><span class="p">:</span> <span class="kt">UINavigationController</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+                                             <span class="n">setupInstance</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Enums/ViewIntanceFrom.html">ViewIntanceFrom</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
+                                             <span class="n">dismissed</span> <span class="nv">navigationFlow</span><span class="p">:</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>root</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The view controller type that you will have as <code>root</code> view controller for you navigation controller.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>container</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>It&rsquo;s the <code><a href="../Classes/ContainerFlowStack.html">ContainerFlowStack</a></code> instance, it&rsquo;s where we will look for the registered View Controller types in order to resolve and show on the screen.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>withCustom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - Custom UINavigationController it&rsquo;s optional, if not we will use the default one from UIKit.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>setupInstance</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - It&rsquo;s how will be our navigation, it&rsquo;s a enum, if you don&rsquo;t set we will assume that is nib view that you will be using.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>dismissed</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - Closure optional that can tell you when this navigation controller was completely closed.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Navigation"></a>
+                <a name="//apple_ref/swift/Section/Navigation" class="dashAnchor"></a>
+                <a href="#/Navigation">
+                  <h3 class="section-name">Navigation</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow0B7ManagerC5start12finishedLoadyyycSg_tF"></a>
+                    <a name="//apple_ref/swift/Method/start(finishedLoad:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC5start12finishedLoadyyycSg_tF">start(finishedLoad:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The method responsible to start the flow, we do not start automatically when instantiate our FlowManager, so you can start as soon you want.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">start</span><span class="p">(</span><span class="n">finishedLoad</span> <span class="nv">presenting</span><span class="p">:</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>finishedLoad</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - Convenience closure that will let you know when you finished the flow.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow0B7ManagerC6goNext6screen7resolve8resolvedyxm_AA15ViewIntanceFromOyxcSgtSo16UIViewControllerCRbzlF"></a>
+                    <a name="//apple_ref/swift/Method/goNext(screen:resolve:resolved:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC6goNext6screen7resolve8resolvedyxm_AA15ViewIntanceFromOyxcSgtSo16UIViewControllerCRbzlF">goNext(screen:resolve:resolved:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Method responsible to navigate to the next screen</p>
+<h3 id='usage-example' class='heading'>Usage Example:</h3>
+<pre class="highlight swift"><code>   <span class="n">navigationFlow</span><span class="p">?</span><span class="o">.</span><span class="nf">goNext</span><span class="p">(</span><span class="nv">screen</span><span class="p">:</span> <span class="kt">SecondViewController</span><span class="o">.</span><span class="k">self</span><span class="p">,</span>
+                          <span class="nv">resolve</span><span class="p">:</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
+                          <span class="nv">resolved</span><span class="p">:</span> <span class="p">{</span> <span class="n">resolveViewInstance</span> <span class="k">in</span>
+       <span class="n">resolveViewInstance</span><span class="o">.</span><span class="n">nameForTitle</span> <span class="o">=</span> <span class="s">"Setting value on the next view"</span>
+   <span class="p">})</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">goNext</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="o">&gt;</span><span class="p">(</span><span class="n">screen</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span>
+                                        <span class="n">resolve</span> <span class="nv">asType</span><span class="p">:</span> <span class="kt"><a href="../Enums/ViewIntanceFrom.html">ViewIntanceFrom</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
+                                        <span class="n">resolved</span> <span class="nv">instance</span><span class="p">:</span> <span class="p">((</span><span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>screen</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The type of the screen that you want to go, need to be registered in your container flow stack.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>resolve</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - How the view for this screen will be loaded, the default one is <code>.nib</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>resolved</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - Convenience closure that will return the loaded instance reference for this loaded view, it&rsquo;s good when you want to set some values or pass any parameter not using the custom resolve, you will have the right reference to pass value.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow0B7ManagerC6goNext7resolve8resolvedyAA15ViewIntanceFromO_yxcSgtSo16UIViewControllerCRbzlF"></a>
+                    <a name="//apple_ref/swift/Method/goNext(resolve:resolved:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC6goNext7resolve8resolvedyAA15ViewIntanceFromO_yxcSgtSo16UIViewControllerCRbzlF">goNext(resolve:resolved:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Method responsible to navigate to the next screen automatically resolve and go to the
+next view according to the order that you declared in your ContainerFlowStack, if no
+item found will just not navigation we do not throw any error</p>
+<h3 id='usage-example' class='heading'>Usage Example:</h3>
+<pre class="highlight swift"><code>   <span class="c1">// Without using any parameter - Indicated to the automatically navigation</span>
+    <span class="n">navigationFlow</span><span class="p">?</span><span class="o">.</span><span class="nf">goNext</span><span class="p">()</span>
+
+   <span class="c1">// Using the parameters available</span>
+    <span class="n">navigationFlow</span><span class="p">?</span><span class="o">.</span><span class="nf">goNext</span><span class="p">(</span><span class="nv">resolve</span><span class="p">:</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
+                           <span class="nv">resolved</span><span class="p">:</span> <span class="p">{</span> <span class="n">resolveViewInstance</span> <span class="k">in</span>
+           <span class="n">resolveViewInstance</span><span class="o">.</span><span class="n">nameForTitle</span> <span class="o">=</span> <span class="s">"Setting value on the next view"</span>
+    <span class="p">})</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">goNext</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="o">&gt;</span><span class="p">(</span><span class="n">resolve</span> <span class="nv">asType</span><span class="p">:</span> <span class="kt"><a href="../Enums/ViewIntanceFrom.html">ViewIntanceFrom</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
+                                        <span class="n">resolved</span> <span class="nv">instance</span><span class="p">:</span> <span class="p">((</span><span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>resolve</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - How the view for this screen will be loaded, the default one is <code>.nib</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>resolved</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - Convenience closure that will return the loaded instance reference for this loaded view, it&rsquo;s good when you want to set some values or pass any parameter not using the custom resolve, you will have the right reference to pass value.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow0B7ManagerC13goNextAsModal6screen7resolve8animated8resolved10completionACXDxmSg_AA15ViewIntanceFromOSbyxcSgyycSgtSo16UIViewControllerCRbzlF"></a>
+                    <a name="//apple_ref/swift/Method/goNextAsModal(screen:resolve:animated:resolved:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC13goNextAsModal6screen7resolve8animated8resolved10completionACXDxmSg_AA15ViewIntanceFromOSbyxcSgyycSgtSo16UIViewControllerCRbzlF">goNextAsModal(screen:resolve:animated:resolved:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Method responsible to navigate to the next screen using <code>Modal Presentation</code>, this method can
+automatically resolve too, if you do not need any of the parameters argument just call the method
+without implement any of the arguments and will automatically resolve according to you container
+stack declared.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>It has <code>@discardableResult</code> because you can use other helper methods just after calling this method as we always return FlowManager instance.</p>
+
+</div>
+<h3 id='usage-example' class='heading'>Usage Example:</h3>
+<pre class="highlight swift"><code>   <span class="c1">// Simple implementation indicated for automatically navigation</span>
+   <span class="n">navigationFlow</span><span class="p">?</span><span class="o">.</span><span class="nf">goNextAsModal</span><span class="p">()</span>
+
+   <span class="c1">// Full implementation using all parameters</span>
+    <span class="n">navigationFlow</span><span class="p">?</span><span class="o">.</span><span class="nf">goNextAsModal</span><span class="p">(</span><span class="nv">screen</span><span class="p">:</span> <span class="kt">SecondViewController</span><span class="o">.</span><span class="k">self</span><span class="p">,</span>
+                                  <span class="nv">resolve</span><span class="p">:</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
+                                  <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                                  <span class="nv">resolved</span><span class="p">:</span> <span class="p">{</span> <span class="n">resolveViewInstance</span> <span class="k">in</span>
+           <span class="n">resolveViewInstance</span><span class="o">.</span><span class="n">nameForTitle</span> <span class="o">=</span> <span class="s">"Setting value on the next view"</span>
+    <span class="p">},</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">{</span>
+       <span class="c1">// Finished presenting this modal.</span>
+    <span class="p">})</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="n">goNextAsModal</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="o">&gt;</span><span class="p">(</span><span class="n">screen</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+                                               <span class="n">resolve</span> <span class="nv">asType</span><span class="p">:</span> <span class="kt"><a href="../Enums/ViewIntanceFrom.html">ViewIntanceFrom</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
+                                               <span class="n">animated</span> <span class="nv">modalShow</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+                                               <span class="n">resolved</span> <span class="nv">instance</span><span class="p">:</span> <span class="p">((</span><span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+                                               <span class="nv">completion</span><span class="p">:</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>screen</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - The type of the screen that you want to go, need to be registered in your container flow stack.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>resolve</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - How the view for this screen will be loaded, the default one is <code>.nib</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>animated</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - If you want to show the modal view presentation animated or not, default is animated.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>resolved</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - Convenience closure that will return the loaded instance reference for this loaded view, it&rsquo;s good when you want to set some values or pass any parameter not using the custom resolve, you will have the right reference to pass value.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - Called when the modal view is presented, so you know when success show.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow0B7ManagerC7getBack3pop6screenACXDAA18NavigationPopStyleO_yyxmXEcSgtSo16UIViewControllerCRbzlF"></a>
+                    <a name="//apple_ref/swift/Method/getBack(pop:screen:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC7getBack3pop6screenACXDAA18NavigationPopStyleO_yyxmXEcSgtSo16UIViewControllerCRbzlF">getBack(pop:screen:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This is used to get back when you are navigating using flow manager, with this
+you can easy get back just one view or get back to the root view from you
+navigation controller stack, it&rsquo;s even possible pass say to which screen you want
+to get back passing the type.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>It has <code>@discardableResult</code> because you can use other helper methods just after calling this method as we always return FlowManager instance.</p>
+
+</div>
+<h3 id='usage-example' class='heading'>Usage Example:</h3>
+<pre class="highlight swift"><code>    <span class="c1">// Basic pop, just get back one screen animated</span>
+    <span class="n">navigationFlow</span><span class="p">?</span><span class="o">.</span><span class="nf">getBack</span><span class="p">()</span>
+
+    <span class="c1">// Specifying what type of the pop and the view that you want to get back</span>
+    <span class="n">navigationFlow</span><span class="p">?</span><span class="o">.</span><span class="nf">getBack</span><span class="p">(</span><span class="nv">pop</span><span class="p">:</span> <span class="o">.</span><span class="nf">pop</span><span class="p">(</span><span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">),</span> <span class="nv">screen</span><span class="p">:</span> <span class="p">{</span> <span class="n">viewToGo</span> <span class="k">in</span>
+           <span class="nf">viewToGo</span><span class="p">(</span><span class="kt">FirstViewController</span><span class="o">.</span><span class="k">self</span><span class="p">)</span>
+    <span class="p">})</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="n">getBack</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pop</span> <span class="nv">withStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/NavigationPopStyle.html">NavigationPopStyle</a></span> <span class="o">=</span> <span class="o">.</span><span class="nf">pop</span><span class="p">(</span><span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">),</span>
+                                         <span class="n">screen</span> <span class="nv">view</span><span class="p">:</span> <span class="p">(((</span><span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())</span> <span class="o">-&gt;</span> <span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pop</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - Type of the pop action that you want to do, check NavigationPopStyle to see all possibilities, default is back one animated.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>screen</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - The type of the screen that you want to go, need to be registered in your container flow stack.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow0B7ManagerC07dismissB10Controller8animated10completionACXDSb_yycSgtF"></a>
+                    <a name="//apple_ref/swift/Method/dismissFlowController(animated:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC07dismissB10Controller8animated10completionACXDSb_yycSgtF">dismissFlowController(animated:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Method used to dismiss completely your flow.</p>
+<li>animated: <code>optional</code> - If you want to animated the dismiss of your flow default is <code>true</code>.</li>
+<li><p>completion: <code>optional</code> - Closure that you will receive an callback that you flow finished dismiss *(remember that if your instance is not strong you may not get this callback called.</p></li>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>It has <code>@discardableResult</code> because you can use other helper methods just after calling this method as we always return FlowManager instance.</p>
+
+</div>
+<h3 id='usage-example' class='heading'>Usage Example:</h3>
+<pre class="highlight swift"><code>   <span class="c1">// Basic call, withoud parameters</span>
+   <span class="n">navigationFlow</span><span class="p">?</span><span class="o">.</span><span class="nf">dismissFlowController</span><span class="p">()</span>
+
+   <span class="c1">// Calling passing parameters</span>
+   <span class="n">navigationFlow</span><span class="p">?</span><span class="o">.</span><span class="nf">dismissFlowController</span><span class="p">(</span><span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">{</span>
+       <span class="c1">// Finished dismiss flow</span>
+   <span class="p">})</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">dismissFlowController</span><span class="p">(</span><span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Callback&#39;s%20when%20dismiss%20/%20close%20your%20flow"></a>
+                <a name="//apple_ref/swift/Section/Callback&#39;s when dismiss / close your flow" class="dashAnchor"></a>
+                <a href="#/Callback&#39;s%20when%20dismiss%20/%20close%20your%20flow">
+                  <h3 class="section-name">Callback&#39;s when dismiss / close your flow</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow0B7ManagerC06finishB4With9parameteryyp_tF"></a>
+                    <a name="//apple_ref/swift/Method/finishFlowWith(parameter:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC06finishB4With9parameteryyp_tF">finishFlowWith(parameter:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Method used to pass <code>Any</code> parameter back when finish flow, as soon you implement the closure
+to receive parameter back when flow finish as soon you pass using this method, the parameter
+will be sent, it&rsquo;s not typed, it&rsquo;s <code>Any</code> so you need to cast if you want to identify and have
+typed parameter back, It&rsquo;s recommended to use after call the <code>dismissFlowController()</code> method.</p>
+<h3 id='usage-example' class='heading'>Usage Example:</h3>
+<pre class="highlight swift"><code>   <span class="c1">// Basic call, withoud parameters</span>
+   <span class="n">navigationFlow</span><span class="p">?</span><span class="o">.</span><span class="nf">dismissFlowController</span><span class="p">()</span><span class="o">.</span><span class="nf">finishFlowWith</span><span class="p">(</span><span class="nv">parameter</span><span class="p">:</span> <span class="s">"Finished"</span><span class="p">)</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">finishFlowWith</span><span class="p">(</span><span class="n">parameter</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Any</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameter</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Any value that you want to pass back when flow finish.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow0B7ManagerC09dismissedB4With9parameterACXDyypc_tF"></a>
+                    <a name="//apple_ref/swift/Method/dismissedFlowWith(parameter:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC09dismissedB4With9parameterACXDyypc_tF">dismissedFlowWith(parameter:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This should be called only when you instantiate your FlowManager as it&rsquo;s intended
+only to pass parameter back that you perhaps want like a response after finish</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>It has <code>@discardableResult</code> because you can use other helper methods just after calling this method as we always return FlowManager instance.</p>
+
+</div>
+<h3 id='usage-example' class='heading'>Usage Example:</h3>
+<pre class="highlight swift"><code>   <span class="c1">// Here we set after intantiate the `Flow Manager` that when dismiss</span>
+   <span class="c1">// we want to `listen` any paramter that will be sent back</span>
+    <span class="kt">FlowManager</span><span class="p">(</span><span class="nv">root</span><span class="p">:</span> <span class="n">view</span><span class="p">,</span>
+                <span class="nv">container</span><span class="p">:</span> <span class="n">navigationStack</span><span class="p">)</span><span class="o">.</span><span class="n">dismissedFlowWith</span> <span class="p">{</span> <span class="p">[</span><span class="k">weak</span> <span class="k">self</span><span class="p">]</span> <span class="n">closeAll</span> <span class="k">in</span>
+
+       <span class="c1">// Using this parameter for the situation that we want to dismiss both navigation from the top one</span>
+       <span class="k">if</span> <span class="p">(</span><span class="n">closeAll</span> <span class="k">as?</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">==</span> <span class="kc">true</span> <span class="p">{</span>
+           <span class="k">self</span><span class="p">?</span><span class="o">.</span><span class="n">navigationFlow</span><span class="p">?</span><span class="o">.</span><span class="nf">dismissFlowController</span><span class="p">()</span>
+       <span class="p">}</span>
+    <span class="p">}</span><span class="o">.</span><span class="nf">start</span><span class="p">()</span>
+
+   <span class="c1">// And for use, to pass back we just need when dismiss call the method `.finishFlowWith(parameter: )`</span>
+   <span class="n">navigationFlow</span><span class="p">?</span><span class="o">.</span><span class="nf">dismissFlowController</span><span class="p">()</span><span class="o">.</span><span class="nf">finishFlowWith</span><span class="p">(</span><span class="nv">parameter</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">dismissedFlowWith</span><span class="p">(</span><span class="n">parameter</span> <span class="nv">invoker</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameter</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Any value that you want to pass back when flow finish.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow0B7ManagerC14dismissedModal8callbackACXDyyc_tF"></a>
+                    <a name="//apple_ref/swift/Method/dismissedModal(callback:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC14dismissedModal8callbackACXDyyc_tF">dismissedModal(callback:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This is intended to you know when you dismiss your presented modal view controller and
+you want to know if already finished close the presented one.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>It has <code>@discardableResult</code> because you can use other helper methods just after calling this method as we always return FlowManager instance.</p>
+
+</div>
+<h3 id='usage-example' class='heading'>Usage Example:</h3>
+<pre class="highlight swift"><code>    <span class="n">navigationFlow</span><span class="p">?</span><span class="o">.</span><span class="nf">goNextAsModal</span><span class="p">()</span><span class="o">.</span><span class="nf">dismissedModal</span><span class="p">(</span><span class="nv">callback</span><span class="p">:</span> <span class="p">{</span> <span class="p">[</span><span class="k">unowned</span> <span class="k">self</span><span class="p">]</span> <span class="k">in</span>
+       <span class="nf">debugPrint</span><span class="p">(</span><span class="s">"Finished close modal view"</span><span class="p">)</span>
+       <span class="k">self</span><span class="o">.</span><span class="nf">getSomeDataFromClosedModal</span><span class="p">()</span>
+    <span class="p">})</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">dismissedModal</span><span class="p">(</span><span class="n">callback</span> <span class="nv">invoker</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="p">())</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameter</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Any value that you want to pass back when flow finish.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public%20variable%20accessor"></a>
+                <a name="//apple_ref/swift/Section/Public variable accessor" class="dashAnchor"></a>
+                <a href="#/Public%20variable%20accessor">
+                  <h3 class="section-name">Public variable accessor</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow0B7ManagerC17managerNavigationSo22UINavigationControllerCSgyF"></a>
+                    <a name="//apple_ref/swift/Method/managerNavigation()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC17managerNavigationSo22UINavigationControllerCSgyF">managerNavigation()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Helper method that you can get the instance reference to the
+<code>UINavigationController</code> in case you do not provided a custom one</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">managerNavigation</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UINavigationController</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow0B7ManagerC9containerAA09ContainerB5StackCSgyF"></a>
+                    <a name="//apple_ref/swift/Method/container()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC9containerAA09ContainerB5StackCSgyF">container()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Helper method that give you back the container flow stack reference</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">container</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/ContainerFlowStack.html">ContainerFlowStack</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow0B7ManagerC4root9container10parameters10withCustom13setupInstance9dismissedACxm_AA09ContainerB5StackCq_ycSo22UINavigationControllerCSgAA15ViewIntanceFromOyycSgtcSo06UIViewO0CRbzr0_lufc"></a>
+                    <a name="//apple_ref/swift/Method/init(root:container:parameters:withCustom:setupInstance:dismissed:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC4root9container10parameters10withCustom13setupInstance9dismissedACxm_AA09ContainerB5StackCq_ycSo22UINavigationControllerCSgAA15ViewIntanceFromOyycSgtcSo06UIViewO0CRbzr0_lufc">init(root:container:parameters:withCustom:setupInstance:dismissed:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Flow Manager convenience initialiser for when you want to resolve the root view controller from your navigation controller receiving parameters.</p>
+
+<p>1 - When we are already in one storyboard, and we want to load another viewcontroller
+    that is inside this storyboard you can resolve using <code>rootInstance</code> to resolve and
+    will be set to as your root view controller inside your navigation controller.</p>
+
+<p>Example:
+   We have setup our Storyboard, and we embed in on our view controllers our UINavigationController
+   Them as we want to use the Flow Manager to handle our navigation, we need to get the reference to our
+   view controller and set as our <code>custom navigation</code>, but we need to know who is the root of this
+   navigation, so for this we pass the <code>root</code> type of the view.</p>
+
+<p>2 - When you are loading a completely new storyboard, as you will need to resolve your
+    first / root view controller using the reference from the storyboar as it&rsquo;s not loaded
+    yet, so for this scenario you only pass the type of the first one <code>root</code> that will be resolved
+    so we hande this resolution for you, otherwise will load with a black screen your navigation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">Resolver</span><span class="o">&gt;</span><span class="p">(</span><span class="n">root</span> <span class="nv">instanceType</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span>
+                                                       <span class="n">container</span> <span class="nv">stack</span><span class="p">:</span> <span class="kt"><a href="../Classes/ContainerFlowStack.html">ContainerFlowStack</a></span><span class="p">,</span>
+                                                       <span class="n">parameters</span> <span class="nv">data</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="p">((</span><span class="kt">Resolver</span><span class="p">)),</span>
+                                                       <span class="n">withCustom</span> <span class="nv">navigation</span><span class="p">:</span> <span class="kt">UINavigationController</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+                                                       <span class="n">setupInstance</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Enums/ViewIntanceFrom.html">ViewIntanceFrom</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
+                                                       <span class="n">dismissed</span> <span class="nv">navigationFlow</span><span class="p">:</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>root</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The view controller type that you will have as <code>root</code> view controller for you navigation controller.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>container</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>It&rsquo;s the <code><a href="../Classes/ContainerFlowStack.html">ContainerFlowStack</a></code> instance, it&rsquo;s where we will look for the registered View Controller types in order to resolve and show on the screen.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Closure that expect the parameter that you want to be passed to when we resolve, need to follow the same order and type of the register that is expecting this parameter(s).</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>withCustom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - Custom UINavigationController it&rsquo;s optional, if not we will use the default one from UIKit.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>setupInstance</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - It&rsquo;s how will be our navigation, it&rsquo;s a enum, if you don&rsquo;t set we will assume that is nib view that you will be using.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>dismissed</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - Closure optional that can tell you when this navigation controller was completely closed.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow0B7ManagerC10goNextWith6screen10parameters7resolve8resolvedyxm_q_ycAA15ViewIntanceFromOyxcSgtSo16UIViewControllerCRbzr0_lF"></a>
+                    <a name="//apple_ref/swift/Method/goNextWith(screen:parameters:resolve:resolved:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC10goNextWith6screen10parameters7resolve8resolvedyxm_q_ycAA15ViewIntanceFromOyxcSgtSo16UIViewControllerCRbzr0_lF">goNextWith(screen:parameters:resolve:resolved:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This is the method that we will use in order to send parameter when resolve our instance
+Remember that when declare the parameter data that you want to be resolved need to be inside
+Tuple, as for swift when resolve everything need to have a type, with this we make sure that
+always have type and the values are inside</p>
+<h3 id='usage-example' class='heading'>Usage Example:</h3>
+<pre class="highlight swift"><code>   <span class="c1">// Basic implementation</span>
+    <span class="n">navigationFlow</span><span class="p">?</span><span class="o">.</span><span class="nf">goNextWith</span><span class="p">(</span><span class="nv">screen</span><span class="p">:</span> <span class="kt">ParameterFirstViewController</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="p">((</span><span class="kt">String</span><span class="p">,</span> <span class="kt">Int</span><span class="p">))</span> <span class="k">in</span>
+       <span class="nf">return</span> <span class="p">(</span><span class="s">"Felipe Garcia"</span><span class="p">,</span> <span class="mi">232</span><span class="p">)</span>
+    <span class="p">})</span>
+
+   <span class="c1">// Using the parameters available</span>
+    <span class="n">navigationFlow</span><span class="p">?</span><span class="o">.</span><span class="nf">goNextWith</span><span class="p">(</span><span class="nv">screen</span><span class="p">:</span> <span class="kt">ParameterFirstViewController</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="p">((</span><span class="kt">String</span><span class="p">,</span> <span class="kt">Int</span><span class="p">))</span> <span class="k">in</span>
+       <span class="nf">return</span> <span class="p">(</span><span class="s">"Felipe Garcia"</span><span class="p">,</span> <span class="mi">232</span><span class="p">)</span>
+    <span class="p">},</span> <span class="nv">resolve</span><span class="p">:</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span> <span class="nv">resolved</span><span class="p">:</span> <span class="p">{</span> <span class="n">resolveView</span> <span class="k">in</span>
+       <span class="c1">// resolve view</span>
+    <span class="p">})</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">goNextWith</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">Resolver</span><span class="o">&gt;</span><span class="p">(</span><span class="n">screen</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span>
+                                                      <span class="n">parameters</span> <span class="nv">data</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="p">((</span><span class="kt">Resolver</span><span class="p">)),</span>
+                                                      <span class="n">resolve</span> <span class="nv">asType</span><span class="p">:</span> <span class="kt"><a href="../Enums/ViewIntanceFrom.html">ViewIntanceFrom</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
+                                                      <span class="n">resolved</span> <span class="nv">instance</span><span class="p">:</span> <span class="p">((</span><span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>screen</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The type of the view controller that you want to next.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>paramer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Closure that expect a <code>type</code> that will be used when resolve this screen that you are calling.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>resolve</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - How the view for this screen will be loaded, the default one is <code>.nib</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>resolved</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - Convenience closure that will return the loaded instance reference for this loaded view, it&rsquo;s good when you want to set some values or pass any parameter not using the custom resolve, you will have the right reference to pass value.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow0B7ManagerC26dataFromPreviousController0D0yyxXE_tlF"></a>
+                    <a name="//apple_ref/swift/Method/dataFromPreviousController(data:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC26dataFromPreviousController0D0yyxXE_tlF">dataFromPreviousController(data:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This is intend to when you are sending parameter but you are using Storyboard as navigation
+as when it&rsquo;s the Storyboard the one responsible for resolve your instance, the best that we
+can provide is if you implement this method in our class so as soon was instantiated we will
+send and you will be able to receive parameter from the caller.</p>
+<h3 id='usage-example' class='heading'>Usage Example:</h3>
+<pre class="highlight swift"><code>    <span class="c1">// Send the data to the next view controller when using Storyboard</span>
+    <span class="n">navigationFlow</span><span class="p">?</span><span class="o">.</span><span class="nf">goNextWith</span><span class="p">(</span><span class="nv">screen</span><span class="p">:</span> <span class="kt">AutomaticallyFirstViewController</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="s">"Felipe"</span><span class="p">,</span> <span class="mf">3123.232</span><span class="p">,</span> <span class="s">"Florencio"</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span> <span class="p">})</span>
+
+   <span class="c1">// Implemented in the View Controller that you intend to receive the data that will be sent.</span>
+    <span class="n">navigationFlow</span><span class="p">?</span><span class="o">.</span><span class="nf">dataFromPreviousController</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="nv">arguments</span><span class="p">:</span> <span class="p">(</span><span class="kt">String</span><span class="p">,</span> <span class="kt">Double</span><span class="p">,</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">Int</span><span class="p">))</span> <span class="k">in</span>
+       <span class="k">let</span> <span class="p">(</span><span class="nv">first</span><span class="p">,</span> <span class="nv">second</span><span class="p">,</span> <span class="nv">third</span><span class="p">,</span> <span class="nv">fourth</span><span class="p">)</span> <span class="o">=</span> <span class="n">arguments</span>
+       <span class="nf">debugPrint</span><span class="p">(</span><span class="s">"First parameter: </span><span class="se">\(</span><span class="n">first</span><span class="se">)</span><span class="s"> - Storyboard Automatically Navigation"</span><span class="p">)</span>
+       <span class="nf">debugPrint</span><span class="p">(</span><span class="s">"Second parameter: </span><span class="se">\(</span><span class="n">second</span><span class="se">)</span><span class="s"> - Storyboard Automatically Navigation"</span><span class="p">)</span>
+       <span class="nf">debugPrint</span><span class="p">(</span><span class="s">"Third parameter: </span><span class="se">\(</span><span class="n">third</span><span class="se">)</span><span class="s"> - Storyboard Automatically Navigation"</span><span class="p">)</span>
+       <span class="nf">debugPrint</span><span class="p">(</span><span class="s">"Fourth parameter: </span><span class="se">\(</span><span class="n">fourth</span><span class="se">)</span><span class="s"> - Storyboard Automatically Navigation"</span><span class="p">)</span>
+    <span class="p">})</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">dataFromPreviousController</span><span class="o">&lt;</span><span class="kt">Parameter</span><span class="o">&gt;</span><span class="p">(</span><span class="n">data</span> <span class="nv">parameter</span><span class="p">:</span> <span class="p">(</span><span class="kt">Parameter</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Closure that will receive the parameter, you need to declare the types the same order that you are expecting.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://github.com/felipeflorencio/SwiftyFlow" target="_blank" rel="external">Felipe F Garcia</a>. All rights reserved. (Last updated: 2019-06-16)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

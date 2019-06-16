@@ -45,7 +45,7 @@
 		455D1A5822AEE46100FF9D29 /* ParameterFourthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A0F22AEE46100FF9D29 /* ParameterFourthViewController.xib */; };
 		455D1A5922AEE46100FF9D29 /* ParameterFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A1022AEE46100FF9D29 /* ParameterFirstViewController.xib */; };
 		455D1A5A22AEE46100FF9D29 /* AutomaticallyThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A1222AEE46100FF9D29 /* AutomaticallyThirdViewController.xib */; };
-		455D1A5B22AEE46100FF9D29 /* AutomaticallyInitialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A1322AEE46100FF9D29 /* AutomaticallyInitialViewController.xib */; };
+		455D1A5B22AEE46100FF9D29 /* AutomaticallyNibInitialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A1322AEE46100FF9D29 /* AutomaticallyNibInitialViewController.xib */; };
 		455D1A5C22AEE46100FF9D29 /* AutomaticallySecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A1422AEE46100FF9D29 /* AutomaticallySecondViewController.xib */; };
 		455D1A5D22AEE46100FF9D29 /* AutomaticallyFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A1522AEE46100FF9D29 /* AutomaticallyFirstViewController.xib */; };
 		455D1A5E22AEE46100FF9D29 /* DeeplinkFourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A1822AEE46100FF9D29 /* DeeplinkFourthViewController.swift */; };
@@ -70,7 +70,7 @@
 		455D1A7122AEE46100FF9D29 /* AutomaticallyInitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A2E22AEE46100FF9D29 /* AutomaticallyInitialViewController.swift */; };
 		455D1A7222AEE46100FF9D29 /* AutomaticallySecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A2F22AEE46100FF9D29 /* AutomaticallySecondViewController.swift */; };
 		455D1A7322AEE46100FF9D29 /* AutomaticallyThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A3022AEE46100FF9D29 /* AutomaticallyThirdViewController.swift */; };
-		455D1A7422AEE46100FF9D29 /* AutomaticallyNavigationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A3122AEE46100FF9D29 /* AutomaticallyNavigationContainer.swift */; };
+		455D1A7422AEE46100FF9D29 /* AutomaticallyNavigationStoryboardContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A3122AEE46100FF9D29 /* AutomaticallyNavigationStoryboardContainer.swift */; };
 		455D1A7522AEE46100FF9D29 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A3322AEE46100FF9D29 /* FirstViewController.xib */; };
 		455D1A7622AEE46100FF9D29 /* ThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A3422AEE46100FF9D29 /* ThirdViewController.xib */; };
 		455D1A7722AEE46100FF9D29 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A3522AEE46100FF9D29 /* SecondViewController.xib */; };
@@ -78,6 +78,8 @@
 		455D1A7F22AEED2300FF9D29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455D1A7D22AEED2200FF9D29 /* LaunchScreen.storyboard */; };
 		455D1A8422AEEE2600FF9D29 /* NavigatePassingParameterNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A8122AEEDC300FF9D29 /* NavigatePassingParameterNib.swift */; };
 		455D1A8522AEEE2C00FF9D29 /* NavigateAutomaticallyNibWithLastModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D1A8022AEEDC300FF9D29 /* NavigateAutomaticallyNibWithLastModal.swift */; };
+		45FEB19C22B5B7CB00C90110 /* AutomaticallyNavigationNibContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FEB19B22B5B7CB00C90110 /* AutomaticallyNavigationNibContainer.swift */; };
+		45FEB19F22B5B83000C90110 /* AutomaticallyNibInitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FEB19E22B5B83000C90110 /* AutomaticallyNibInitialViewController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -137,7 +139,7 @@
 		455D1A0F22AEE46100FF9D29 /* ParameterFourthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParameterFourthViewController.xib; sourceTree = "<group>"; };
 		455D1A1022AEE46100FF9D29 /* ParameterFirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParameterFirstViewController.xib; sourceTree = "<group>"; };
 		455D1A1222AEE46100FF9D29 /* AutomaticallyThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutomaticallyThirdViewController.xib; sourceTree = "<group>"; };
-		455D1A1322AEE46100FF9D29 /* AutomaticallyInitialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutomaticallyInitialViewController.xib; sourceTree = "<group>"; };
+		455D1A1322AEE46100FF9D29 /* AutomaticallyNibInitialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutomaticallyNibInitialViewController.xib; sourceTree = "<group>"; };
 		455D1A1422AEE46100FF9D29 /* AutomaticallySecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutomaticallySecondViewController.xib; sourceTree = "<group>"; };
 		455D1A1522AEE46100FF9D29 /* AutomaticallyFirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutomaticallyFirstViewController.xib; sourceTree = "<group>"; };
 		455D1A1822AEE46100FF9D29 /* DeeplinkFourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeeplinkFourthViewController.swift; sourceTree = "<group>"; };
@@ -162,7 +164,7 @@
 		455D1A2E22AEE46100FF9D29 /* AutomaticallyInitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticallyInitialViewController.swift; sourceTree = "<group>"; };
 		455D1A2F22AEE46100FF9D29 /* AutomaticallySecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticallySecondViewController.swift; sourceTree = "<group>"; };
 		455D1A3022AEE46100FF9D29 /* AutomaticallyThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticallyThirdViewController.swift; sourceTree = "<group>"; };
-		455D1A3122AEE46100FF9D29 /* AutomaticallyNavigationContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticallyNavigationContainer.swift; sourceTree = "<group>"; };
+		455D1A3122AEE46100FF9D29 /* AutomaticallyNavigationStoryboardContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticallyNavigationStoryboardContainer.swift; sourceTree = "<group>"; };
 		455D1A3322AEE46100FF9D29 /* FirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
 		455D1A3422AEE46100FF9D29 /* ThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdViewController.xib; sourceTree = "<group>"; };
 		455D1A3522AEE46100FF9D29 /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
@@ -170,6 +172,8 @@
 		455D1A7E22AEED2200FF9D29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		455D1A8022AEEDC300FF9D29 /* NavigateAutomaticallyNibWithLastModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigateAutomaticallyNibWithLastModal.swift; sourceTree = "<group>"; };
 		455D1A8122AEEDC300FF9D29 /* NavigatePassingParameterNib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigatePassingParameterNib.swift; sourceTree = "<group>"; };
+		45FEB19B22B5B7CB00C90110 /* AutomaticallyNavigationNibContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticallyNavigationNibContainer.swift; sourceTree = "<group>"; };
+		45FEB19E22B5B83000C90110 /* AutomaticallyNibInitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticallyNibInitialViewController.swift; sourceTree = "<group>"; };
 		501A9A90E0C06E35943C5B44 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* SwiftyFlow_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyFlow_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -318,10 +322,12 @@
 		455D1A1122AEE46100FF9D29 /* AutomaticallyNavigationFlowNib */ = {
 			isa = PBXGroup;
 			children = (
+				45FEB19D22B5B81200C90110 /* ViewControllers */,
 				455D1A1222AEE46100FF9D29 /* AutomaticallyThirdViewController.xib */,
-				455D1A1322AEE46100FF9D29 /* AutomaticallyInitialViewController.xib */,
+				455D1A1322AEE46100FF9D29 /* AutomaticallyNibInitialViewController.xib */,
 				455D1A1422AEE46100FF9D29 /* AutomaticallySecondViewController.xib */,
 				455D1A1522AEE46100FF9D29 /* AutomaticallyFirstViewController.xib */,
+				45FEB19B22B5B7CB00C90110 /* AutomaticallyNavigationNibContainer.swift */,
 			);
 			path = AutomaticallyNavigationFlowNib;
 			sourceTree = "<group>";
@@ -371,7 +377,7 @@
 			children = (
 				455D1A2B22AEE46100FF9D29 /* AutomaticallyNavigationFlow.storyboard */,
 				455D1A2C22AEE46100FF9D29 /* ViewControllers */,
-				455D1A3122AEE46100FF9D29 /* AutomaticallyNavigationContainer.swift */,
+				455D1A3122AEE46100FF9D29 /* AutomaticallyNavigationStoryboardContainer.swift */,
 			);
 			path = AutomaticallyNavigationFlowStoryboard;
 			sourceTree = "<group>";
@@ -395,6 +401,14 @@
 				455D1A3522AEE46100FF9D29 /* SecondViewController.xib */,
 			);
 			path = NibViewControllers;
+			sourceTree = "<group>";
+		};
+		45FEB19D22B5B81200C90110 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				45FEB19E22B5B83000C90110 /* AutomaticallyNibInitialViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		607FACC71AFB9204008FA782 = {
@@ -606,7 +620,7 @@
 				455D1A4D22AEE46100FF9D29 /* GoAnywhereFourthViewController.xib in Resources */,
 				455D1A6B22AEE46100FF9D29 /* DeeplinkFifthViewController.xib in Resources */,
 				455D1A4A22AEE46100FF9D29 /* GoAnywhereInitialViewController.xib in Resources */,
-				455D1A5B22AEE46100FF9D29 /* AutomaticallyInitialViewController.xib in Resources */,
+				455D1A5B22AEE46100FF9D29 /* AutomaticallyNibInitialViewController.xib in Resources */,
 				455D1A5D22AEE46100FF9D29 /* AutomaticallyFirstViewController.xib in Resources */,
 				455D1A4722AEE46100FF9D29 /* GoAnywhereSixthViewController.xib in Resources */,
 				455D1A5522AEE46100FF9D29 /* ParameterSecondViewController.xib in Resources */,
@@ -702,6 +716,7 @@
 			files = (
 				455D1A4622AEE46100FF9D29 /* GoAnywhereThirdViewController.swift in Sources */,
 				455D1A7022AEE46100FF9D29 /* AutomaticallyFirstViewController.swift in Sources */,
+				45FEB19F22B5B83000C90110 /* AutomaticallyNibInitialViewController.swift in Sources */,
 				455D1A5222AEE46100FF9D29 /* ParameterThirdViewController.swift in Sources */,
 				455D1A5322AEE46100FF9D29 /* ParameterSecondViewController.swift in Sources */,
 				455D1A6322AEE46100FF9D29 /* DeeplinkSeventhViewController.swift in Sources */,
@@ -721,10 +736,11 @@
 				455D1A4022AEE46100FF9D29 /* GoAnywhereSixthViewController.swift in Sources */,
 				455D1A4422AEE46100FF9D29 /* GoAnywhereSecondViewController.swift in Sources */,
 				455D1A7322AEE46100FF9D29 /* AutomaticallyThirdViewController.swift in Sources */,
-				455D1A7422AEE46100FF9D29 /* AutomaticallyNavigationContainer.swift in Sources */,
+				455D1A7422AEE46100FF9D29 /* AutomaticallyNavigationStoryboardContainer.swift in Sources */,
 				455D1A6622AEE46100FF9D29 /* DeeplinkNavigationContainer.swift in Sources */,
 				455D1A5122AEE46100FF9D29 /* ParameterFirstViewController.swift in Sources */,
 				455D1A3822AEE46100FF9D29 /* SecondViewController.swift in Sources */,
+				45FEB19C22B5B7CB00C90110 /* AutomaticallyNavigationNibContainer.swift in Sources */,
 				455D1A6522AEE46100FF9D29 /* DeeplinkFirstViewController.swift in Sources */,
 				455D1A3922AEE46100FF9D29 /* AutomaticallyFourthModalViewController.swift in Sources */,
 				455D1A4122AEE46100FF9D29 /* GoAnywhereFifthViewController.swift in Sources */,

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ContainerFlowStack Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/ContainerFlowStack" class="dashAnchor"></a>
+    <a title="ContainerFlowStack Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">SwiftyFlow Docs</a> (81% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">SwiftyFlow Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        ContainerFlowStack Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ContainerFlowStack.html">ContainerFlowStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FlowElementContainer.html">FlowElementContainer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FlowElementContainer/Scope.html">– Scope</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FlowManager.html">FlowManager</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/NavigationPopStyle.html">NavigationPopStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ViewIntanceFrom.html">ViewIntanceFrom</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/FlowNavigator.html">FlowNavigator</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:10SwiftyFlow20CallbackFunctionTypea">CallbackFunctionType</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>ContainerFlowStack</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ContainerFlowStack</span></code></pre>
+
+                </div>
+              </div>
+            <p>This is the class that will be responsible to create and handle the stack of the view controllers
+that we will register to be used during our navigation using our flow manager class.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow09ContainerB5StackCACycfc"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow09ContainerB5StackCACycfc">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializer for generate ContainerFlowStack so you can create an instance
+and register all the dependencies that you will use in your flow manager</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow09ContainerB5StackC3forACyACXE_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow09ContainerB5StackC3forACyACXE_tcfc">init(for:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Helper initializer that let you setup, register your depencies direct inside the
+constructor, as it&rsquo;s a closure that after initialize the instance return so you can
+use to register your dependencies</p>
+<h3 id='usage-example' class='heading'>Usage Example:</h3>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">navigationStack</span> <span class="o">=</span> <span class="kt">ContainerFlowStack</span> <span class="p">{</span> <span class="n">flowStack</span> <span class="k">in</span>
+    <span class="n">flowStack</span><span class="o">.</span><span class="nf">registerModule</span><span class="p">(</span><span class="nv">for</span><span class="p">:</span> <span class="kt">AutomaticallyFirstViewController</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">resolve</span><span class="p">:</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AutomaticallyFirstViewController</span> <span class="k">in</span>
+       <span class="k">return</span> <span class="kt">AutomaticallyFirstViewController</span><span class="p">()</span>
+    <span class="p">})</span>
+
+    <span class="n">flowStack</span><span class="o">.</span><span class="nf">registerModule</span><span class="p">(</span><span class="nv">for</span><span class="p">:</span> <span class="kt">AutomaticallySecondViewController</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">resolve</span><span class="p">:</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AutomaticallySecondViewController</span> <span class="k">in</span>
+       <span class="k">return</span> <span class="kt">AutomaticallySecondViewController</span><span class="p">()</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="k">for</span> <span class="nv">instances</span><span class="p">:</span> <span class="p">(</span><span class="kt">ContainerFlowStack</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>instance</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Closure that has ContainerFlowStack instance.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow09ContainerB5StackC14registerModule3for7resolveAA0b7ElementC0CySo16UIViewControllerCGxm_xSgyctAJRbzlF"></a>
+                    <a name="//apple_ref/swift/Method/registerModule(for:resolve:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow09ContainerB5StackC14registerModule3for7resolveAA0b7ElementC0CySo16UIViewControllerCGxm_xSgyctAJRbzlF">registerModule(for:resolve:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This is the registration method, it&rsquo;s used for you register the View Controllers that you will use in your flow manager, the order that you declare will be used if you use the automatic navigation method.</p>
+<h3 id='usage-example' class='heading'>Usage Example:</h3>
+<pre class="highlight swift"><code>   <span class="kt">ContainerFlowStack</span><span class="p">()</span><span class="o">.</span><span class="nf">registerModule</span><span class="p">(</span><span class="nv">for</span><span class="p">:</span> <span class="kt">DeeplinkInitialViewController</span><span class="o">.</span><span class="k">self</span><span class="p">)</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">DeeplinkInitialViewController</span> <span class="k">in</span>
+       <span class="k">return</span> <span class="kt">DeeplinkInitialViewController</span><span class="p">()</span>
+   <span class="p">}</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="n">registerModule</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="o">&gt;</span><span class="p">(</span><span class="k">for</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span> <span class="nv">resolve</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/FlowElementContainer.html">FlowElementContainer</a></span><span class="o">&lt;</span><span class="kt">UIViewController</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>type</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The Type of your View Controller that you want to register.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>resolve</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Closure that will be called to get the instance that you registered, is the same as your type.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow09ContainerB5StackC14getModulesListSayAA0b7ElementC0CySo16UIViewControllerCGGyF"></a>
+                    <a name="//apple_ref/swift/Method/getModulesList()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow09ContainerB5StackC14getModulesListSayAA0b7ElementC0CySo16UIViewControllerCGGyF">getModulesList()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Helper method that will return all modules that you have registered inside this container</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getModulesList</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Classes/FlowElementContainer.html">FlowElementContainer</a></span><span class="o">&lt;</span><span class="kt">UIViewController</span><span class="o">&gt;</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Array of type <code><a href="../Classes/FlowElementContainer.html">FlowElementContainer</a></code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow09ContainerB5StackC22getModuleIfHasInstance3forxSgxm_tSo16UIViewControllerCRbzlF"></a>
+                    <a name="//apple_ref/swift/Method/getModuleIfHasInstance(for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow09ContainerB5StackC22getModuleIfHasInstance3forxSgxm_tSo16UIViewControllerCRbzlF">getModuleIfHasInstance(for:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Helper that for check if you have this View controller instance, it&rsquo;s intended to use for you check if that instance already was instantiated or not, if you never called this instance will return nil.</p>
+<h3 id='usage-example' class='heading'>Usage Example:</h3>
+<pre class="highlight swift"><code>   <span class="kt">ContainerFlowStack</span><span class="p">()</span><span class="o">.</span><span class="nf">registerModule</span><span class="p">(</span><span class="nv">for</span><span class="p">:</span> <span class="kt">DeeplinkInitialViewController</span><span class="o">.</span><span class="k">self</span><span class="p">)</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">DeeplinkInitialViewController</span> <span class="k">in</span>
+       <span class="k">return</span> <span class="kt">DeeplinkInitialViewController</span><span class="p">()</span>
+   <span class="p">}</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">getModuleIfHasInstance</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">for</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="p">?</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>type</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>UIViewController type that you want to check.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The object instance reference.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftyFlow09ContainerB5StackC27registerModuleWithParameter3for7resolveAA0b7ElementC0CySo16UIViewControllerCGxm_xSgq_ctAJRbzr0_lF"></a>
+                    <a name="//apple_ref/swift/Method/registerModuleWithParameter(for:resolve:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow09ContainerB5StackC27registerModuleWithParameter3for7resolveAA0b7ElementC0CySo16UIViewControllerCGxm_xSgq_ctAJRbzr0_lF">registerModuleWithParameter(for:resolve:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This is the registration method for your view controller that you will receive some parameter when try to resolve, try to navigate using flow manager, you will be able to declare what you will expect as parameter, here you need to declare the type of the parameters that you will receive, and it&rsquo;s mandatory if you have one or more they be in the same order as when you send the parameter.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>It has <code>@discardableResult</code> because you can use other helper methods just after calling this method as we always return Container Flow Stack instance.</p>
+
+</div>
+<h3 id='usage-example' class='heading'>Usage Example:</h3>
+<pre class="highlight swift"><code>    <span class="n">containerStack</span><span class="o">.</span><span class="nf">registerModuleWithParameter</span><span class="p">(</span><span class="nv">for</span><span class="p">:</span> <span class="kt">ParameterInitialViewController</span><span class="o">.</span><span class="k">self</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">arguments</span><span class="p">:</span> <span class="p">(</span><span class="kt">String</span><span class="p">,</span> <span class="kt">Double</span><span class="p">,</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">Int</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kt">ParameterInitialViewController</span><span class="p">?</span> <span class="k">in</span>
+
+       <span class="k">let</span> <span class="p">(</span><span class="nv">first</span><span class="p">,</span> <span class="nv">second</span><span class="p">,</span> <span class="nv">third</span><span class="p">,</span> <span class="nv">fourth</span><span class="p">)</span> <span class="o">=</span> <span class="n">arguments</span>
+
+       <span class="k">let</span> <span class="nv">initialViewController</span> <span class="o">=</span> <span class="kt">ParameterInitialViewController</span><span class="p">()</span>
+       <span class="n">initialViewController</span><span class="o">.</span><span class="nf">setParameters</span><span class="p">(</span><span class="nv">first</span><span class="p">:</span> <span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span><span class="p">,</span> <span class="n">fourth</span><span class="p">)</span>
+
+       <span class="k">return</span> <span class="n">initialViewController</span>
+    <span class="p">}</span>
+</code></pre>
+<div class="aside aside-important">
+    <p class="aside-title">Important</p>
+    If you want to use more than one parameter it&rsquo;s important to use tuple, as how generic works in order to identify you need to have a type of the thing so generics will understand about, this is why when we have multiples parameter we type as tuple.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="n">registerModuleWithParameter</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">Resolver</span><span class="o">&gt;</span><span class="p">(</span><span class="k">for</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span> <span class="nv">resolve</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">Resolver</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/FlowElementContainer.html">FlowElementContainer</a></span><span class="o">&lt;</span><span class="kt">UIViewController</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>type</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The View Controller type that you want to register.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>resolve</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Closure with the declaration of the type(s) that you will expect as parameter.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>FlowElementContainer container.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://github.com/felipeflorencio/SwiftyFlow" target="_blank" rel="external">Felipe F Garcia</a>. All rights reserved. (Last updated: 2019-06-16)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

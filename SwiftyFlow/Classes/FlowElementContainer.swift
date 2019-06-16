@@ -8,21 +8,32 @@
 
 import UIKit
 
+/**
+ Type alias that we use in our initializer and other places, convenience to show clearly the reason of why use `Any`
+ */
 public typealias CallbackFunctionType = Any
 
-// The idea of have FlowElementContainer is a way of have the reference
-// encapsulated inside a object that we can manage the reference to our
-// real object, as we will be using this inside an array, we need to be
-// able to destroy easily our array without have the risk of some view
-// controller hold the reference to the object
+/**
+ The idea of have FlowElementContainer is a way of have the reference
+ encapsulated inside a object that we can manage the reference to our
+ real object, as we will be using this inside an array, we need to be
+ able to destroy easily our array without have the risk of some view
+ controller hold the reference to the object
+ */
 public class FlowElementContainer<T> {
     
+    /**
+     Enum that will say which type of the registration you want to your instance
+     */
     public enum Scope {
         case none       // fresh instance all the time, default
         case weak       // weak ref to instance, at leas one object
         case strong     // keep alive - you need to know what you are doing
     }
     
+    /**
+     Typealias
+     */
     public typealias Container = () -> T?
     private var factory: (Container)?
     
@@ -35,11 +46,26 @@ public class FlowElementContainer<T> {
     private(set) var arguments: Any?
     private(set) var viewShowing: Bool = false
     
+    /**
+     Flow element container initialiser
+     
+     - Parameters:
+        - for: The type of the View Controller that you want to register.
+        - resolving: Is the closure that will be called when Flow Manager need to get the instance of the type that you declared
+     */
     public init(for type: T.Type, resolving: @escaping Container) {
         factory = resolving
         forType = type
     }
     
+    /**
+     Flow element container initialiser for when you want to resolving receiving the parameters from the caller
+     
+     - Parameters:
+        - for: The type of the View Controller that you want to register.
+        - with: The arguments that you will want to have, `Any` as type.
+        - resolving: Is the closure that will be called when Flow Manager need to get the instance of the type that you declared.
+     */
     public init(for type: T.Type, with arg: Any, resolving: CallbackFunctionType) {
         factoryParameter = resolving
         forType = type
@@ -118,14 +144,23 @@ public class FlowElementContainer<T> {
     }
     
     // MARK: Public methods
-    // Set the scope that we will want for this object
+    
+    /**
+     Set the scope that we will want for this object
+     
+     - Parameter scope: The scope that you want to have your instance reference, `.weak`, `.strong`, or default is `.none`
+     
+     - Note: It has `@discardableResult` because you can use other helper methods just after calling this method as we always return FlowElementContainer instance.
+     */
     @discardableResult
     public func inScope(scope: Scope) -> Self {
         self.scope = scope
         return self
     }
     
-    // Return the type of this element
+    /**
+     Return the type of this element
+     */
     public func type() -> T.Type {
         return self.forType
     }

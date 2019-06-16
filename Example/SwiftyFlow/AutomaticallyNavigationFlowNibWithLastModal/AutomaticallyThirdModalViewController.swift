@@ -15,7 +15,7 @@ class AutomaticallyThirdModalViewController: UIViewController, FlowNavigator {
     
     // MARK: - IBAction
     @IBAction func nextModal() {
-        navigationFlow?.goNextAsModal().dismissedModal({ [unowned self] in
+        navigationFlow?.goNextAsModal().dismissedModal(callback: { [unowned self] in
             debugPrint("Finished close modal view")
             self.getSomeDataFromClosedModal()
         })

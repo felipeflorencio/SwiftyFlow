@@ -6,12 +6,24 @@
 [![Version](https://img.shields.io/cocoapods/v/SwiftyFlow.svg?style=flat)](https://cocoapods.org/pods/SwiftyFlow)
 [![License](https://img.shields.io/cocoapods/l/SwiftyFlow.svg?style=flat)](https://cocoapods.org/pods/SwiftyFlow)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftyFlow.svg?style=flat)](https://cocoapods.org/pods/SwiftyFlow)
+[![Documentation](https://felipeflorencio.github.io/SwiftyFlow/badge.svg?style=flat)](https://felipeflorencio.github.io/SwiftyFlow/)
 
 # SwiftyFlow
 
 
 
 It's the first library that allow you control your navigation as "flows", you can use both .NIB or Storyboard, you can declare the expected flow that you want to have and in a simple way create.
+
+|         | Main Features  |
+----------|-----------------
+&#128581; | Navigate using `goNext` or `getBack`
+&#127968; | Clear architecture and simple implementation
+&#128288; | Pass and receive parameter when navigate, all typed!
+&#128273; | Decoupled and facilitate your navigation
+&#9989;   | Fully unit tested
+&#128241; | Simply need one container `ContainerFlowStack` and `FlowManager` to navigate
+&#128640; | Finally you can test from start to end your navigation flows using Unit Test
+&#128175; | 100% Swift code
 
 Beside all the possibilities the biggest advantage is the possibility to test your flow, your can unit test your flows and make sure that you did not break any of your flows / navigation, you will be able to continue upgrade and change your navigation and maintain a clear control in order to make sure you did not broke anything.
 
@@ -370,7 +382,7 @@ For this we have two ways of doing, both we will use a different method to show 
 Going to `AutomaticallyThirdModalViewController` you will see the implementation as following:
 
 ```swift
-navigationFlow?.goNextAsModal().dismissedModal({ [unowned self] in
+navigationFlow?.goNextAsModal().dismissedModal(callback: { [unowned self] in
             debugPrint("Finished close modal view")
             self.getSomeDataFromClosedModal()
         })
@@ -491,6 +503,11 @@ it, simply add the following line to your Podfile:
 pod 'SwiftyFlow'
 ```
 
+## Documentation
+
+Here you will have the full documentation, with explanation and samples how to use the method available.
+<a href="https://felipeflorencio.github.io/SwiftyFlow/" target="_blank">Go to documentation</a>
+
 ## Author
 
 Felipe F Garcia, felipeflorencio@me.com
@@ -499,6 +516,3 @@ Felipe F Garcia, felipeflorencio@me.com
 
 SwiftyFlow is available under the GPL-3.0 license. See the LICENSE file for more info.
 
-___
-
-#### BETA - Improving the documentation, will be generated documentation to all methods that you can use with explanation to all.
