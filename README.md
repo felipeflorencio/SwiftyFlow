@@ -510,7 +510,7 @@ To install Swinject with Carthage, add the following line to your `Cartfile`.
 
 
 ```
-github "felipeflorencio/SwiftyFlow" ~> 0.0.3
+github "felipeflorencio/SwiftyFlow" ~> 0.2.0
 ```
 
 ## Documentation
