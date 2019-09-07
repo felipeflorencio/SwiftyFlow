@@ -50,16 +50,24 @@ public class FlowManager {
      Flow Manager initialiser
      
      - Parameters:
-        - navigation: This is the basic and convenient custom UINavigationController instance if you want to have your custom one, to work is mandatory, so, if use this you need to set.
+        - navigation: This is the basic and convenient custom UINavigationController instance if you want to have your custom one, to work is mandatory, so, if use this you need to set, when set, we will check if first view controller is there and set the navigation flow.
         - container: It's the `ContainerFlowStack` instance, it's where we will look for the registered View Controller types in order to resolve and show on the screen.
         - setupInstance: It's how will be our navigation, it's a enum, if you don't set we will assume that is nib view that you will be using.
+        - dismissed: `optional` - Closure optional that can tell you when this navigation controller was completely closed.
+
      */
     public init(navigation controller: UINavigationController?,
                   container stack: ContainerFlowStack,
-                  setupInstance type: ViewIntanceFrom? = .nib) {
+                  setupInstance type: ViewIntanceFrom? = .nib,
+                  dismissed navigationFlow: (() -> ())? = nil) {
         self.navigationController = controller
         self.containerStack = stack
         self.defaultNavigationType = type
+        self.dismissedClosure = navigationFlow
+        
+        if let customNavigation = controller, let firstViewController = customNavigation.viewControllers.first {
+            (firstViewController as? FlowNavigator)?.navigationFlow = self
+        }
     }
     
     deinit {
