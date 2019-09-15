@@ -1,20 +1,6 @@
 {
   "warnings": [
     {
-      "file": "/Users/felipeflorencio/PersonalProjects/SwiftyFlow/SwiftyFlow/Classes/ContainerFlowStack.swift",
-      "line": null,
-      "symbol": "ContainerFlowStack",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/felipeflorencio/PersonalProjects/SwiftyFlow/SwiftyFlow/Classes/ContainerFlowStack.swift",
-      "line": 12,
-      "symbol": "ContainerFlowStack",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/felipeflorencio/PersonalProjects/SwiftyFlow/SwiftyFlow/Classes/FlowElementContainer.swift",
       "line": 29,
       "symbol": "FlowElementContainer.Scope.none",

@@ -37,7 +37,7 @@
                 <a href="../Classes/FlowElementContainer.html">FlowElementContainer</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/FlowElementContainer/Scope.html">– Scope</a>
+                <a href="../Classes/FlowElementContainer.html#/s:10SwiftyFlow0B16ElementContainerC5ScopeO">– Scope</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/FlowManager.html">FlowManager</a>
@@ -48,10 +48,10 @@
             <a href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Enums/NavigationPopStyle.html">NavigationPopStyle</a>
+                <a href="../Enums.html#/s:10SwiftyFlow18NavigationPopStyleO">NavigationPopStyle</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/ViewIntanceFrom.html">ViewIntanceFrom</a>
+                <a href="../Enums.html#/s:10SwiftyFlow15ViewIntanceFromO">ViewIntanceFrom</a>
               </li>
             </ul>
           </li>
@@ -107,9 +107,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10SwiftyFlow0B7ManagerC10navigation9container13setupInstanceACSo22UINavigationControllerCSg_AA09ContainerB5StackCAA15ViewIntanceFromOSgtcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(navigation:container:setupInstance:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC10navigation9container13setupInstanceACSo22UINavigationControllerCSg_AA09ContainerB5StackCAA15ViewIntanceFromOSgtcfc">init(navigation:container:setupInstance:)</a>
+                    <a name="/s:10SwiftyFlow0B7ManagerC10navigation9container13setupInstance9dismissedACSo22UINavigationControllerCSg_AA09ContainerB5StackCAA15ViewIntanceFromOSgyycSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(navigation:container:setupInstance:dismissed:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC10navigation9container13setupInstance9dismissedACSo22UINavigationControllerCSg_AA09ContainerB5StackCAA15ViewIntanceFromOSgyycSgtcfc">init(navigation:container:setupInstance:dismissed:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -126,7 +126,8 @@
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">navigation</span> <span class="nv">controller</span><span class="p">:</span> <span class="kt">UINavigationController</span><span class="p">?,</span>
               <span class="n">container</span> <span class="nv">stack</span><span class="p">:</span> <span class="kt"><a href="../Classes/ContainerFlowStack.html">ContainerFlowStack</a></span><span class="p">,</span>
-              <span class="n">setupInstance</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Enums/ViewIntanceFrom.html">ViewIntanceFrom</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="n">nib</span><span class="p">)</span></code></pre>
+              <span class="n">setupInstance</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Enums.html#/s:10SwiftyFlow15ViewIntanceFromO">ViewIntanceFrom</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
+              <span class="n">dismissed</span> <span class="nv">navigationFlow</span><span class="p">:</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -142,7 +143,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>This is the basic and convenient custom UINavigationController instance if you want to have your custom one, to work is mandatory, so, if use this you need to set.</p>
+                                  <p>This is the basic and convenient custom UINavigationController instance if you want to have your custom one, to work is mandatory, so, if use this you need to set, when set, we will check if first view controller is there and set the navigation flow.</p>
                                 </div>
                               </td>
                             </tr>
@@ -167,6 +168,18 @@
                               <td>
                                 <div>
                                   <p>It&rsquo;s how will be our navigation, it&rsquo;s a enum, if you don&rsquo;t set we will assume that is nib view that you will be using.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>dismissed</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - Closure optional that can tell you when this navigation controller was completely closed.</p>
                                 </div>
                               </td>
                             </tr>
@@ -214,7 +227,7 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="o">&gt;</span><span class="p">(</span><span class="n">root</span> <span class="nv">instanceType</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span>
                                              <span class="n">container</span> <span class="nv">stack</span><span class="p">:</span> <span class="kt"><a href="../Classes/ContainerFlowStack.html">ContainerFlowStack</a></span><span class="p">,</span>
                                              <span class="n">withCustom</span> <span class="nv">navigation</span><span class="p">:</span> <span class="kt">UINavigationController</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-                                             <span class="n">setupInstance</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Enums/ViewIntanceFrom.html">ViewIntanceFrom</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
+                                             <span class="n">setupInstance</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Enums.html#/s:10SwiftyFlow15ViewIntanceFromO">ViewIntanceFrom</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
                                              <span class="n">dismissed</span> <span class="nv">navigationFlow</span><span class="p">:</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
@@ -374,7 +387,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">goNext</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="o">&gt;</span><span class="p">(</span><span class="n">screen</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span>
-                                        <span class="n">resolve</span> <span class="nv">asType</span><span class="p">:</span> <span class="kt"><a href="../Enums/ViewIntanceFrom.html">ViewIntanceFrom</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
+                                        <span class="n">resolve</span> <span class="nv">asType</span><span class="p">:</span> <span class="kt"><a href="../Enums.html#/s:10SwiftyFlow15ViewIntanceFromO">ViewIntanceFrom</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
                                         <span class="n">resolved</span> <span class="nv">instance</span><span class="p">:</span> <span class="p">((</span><span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
@@ -457,7 +470,7 @@ item found will just not navigation we do not throw any error</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">goNext</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="o">&gt;</span><span class="p">(</span><span class="n">resolve</span> <span class="nv">asType</span><span class="p">:</span> <span class="kt"><a href="../Enums/ViewIntanceFrom.html">ViewIntanceFrom</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">goNext</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="o">&gt;</span><span class="p">(</span><span class="n">resolve</span> <span class="nv">asType</span><span class="p">:</span> <span class="kt"><a href="../Enums.html#/s:10SwiftyFlow15ViewIntanceFromO">ViewIntanceFrom</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
                                         <span class="n">resolved</span> <span class="nv">instance</span><span class="p">:</span> <span class="p">((</span><span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
@@ -540,7 +553,7 @@ stack declared.</p>
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="n">goNextAsModal</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="o">&gt;</span><span class="p">(</span><span class="n">screen</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-                                               <span class="n">resolve</span> <span class="nv">asType</span><span class="p">:</span> <span class="kt"><a href="../Enums/ViewIntanceFrom.html">ViewIntanceFrom</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
+                                               <span class="n">resolve</span> <span class="nv">asType</span><span class="p">:</span> <span class="kt"><a href="../Enums.html#/s:10SwiftyFlow15ViewIntanceFromO">ViewIntanceFrom</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
                                                <span class="n">animated</span> <span class="nv">modalShow</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
                                                <span class="n">resolved</span> <span class="nv">instance</span><span class="p">:</span> <span class="p">((</span><span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
                                                <span class="nv">completion</span><span class="p">:</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
@@ -655,7 +668,7 @@ to get back passing the type.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="n">getBack</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pop</span> <span class="nv">withStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/NavigationPopStyle.html">NavigationPopStyle</a></span> <span class="o">=</span> <span class="o">.</span><span class="nf">pop</span><span class="p">(</span><span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">),</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="n">getBack</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pop</span> <span class="nv">withStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums.html#/s:10SwiftyFlow18NavigationPopStyleO">NavigationPopStyle</a></span> <span class="o">=</span> <span class="o">.</span><span class="nf">pop</span><span class="p">(</span><span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">),</span>
                                          <span class="n">screen</span> <span class="nv">view</span><span class="p">:</span> <span class="p">(((</span><span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())</span> <span class="o">-&gt;</span> <span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
@@ -1038,7 +1051,7 @@ you want to know if already finished close the presented one.</p>
                                                        <span class="n">container</span> <span class="nv">stack</span><span class="p">:</span> <span class="kt"><a href="../Classes/ContainerFlowStack.html">ContainerFlowStack</a></span><span class="p">,</span>
                                                        <span class="n">parameters</span> <span class="nv">data</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="p">((</span><span class="kt">Resolver</span><span class="p">)),</span>
                                                        <span class="n">withCustom</span> <span class="nv">navigation</span><span class="p">:</span> <span class="kt">UINavigationController</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-                                                       <span class="n">setupInstance</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Enums/ViewIntanceFrom.html">ViewIntanceFrom</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
+                                                       <span class="n">setupInstance</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Enums.html#/s:10SwiftyFlow15ViewIntanceFromO">ViewIntanceFrom</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
                                                        <span class="n">dismissed</span> <span class="nv">navigationFlow</span><span class="p">:</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
@@ -1163,7 +1176,7 @@ always have type and the values are inside</p>
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">goNextWith</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">Resolver</span><span class="o">&gt;</span><span class="p">(</span><span class="n">screen</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span>
                                                       <span class="n">parameters</span> <span class="nv">data</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="p">((</span><span class="kt">Resolver</span><span class="p">)),</span>
-                                                      <span class="n">resolve</span> <span class="nv">asType</span><span class="p">:</span> <span class="kt"><a href="../Enums/ViewIntanceFrom.html">ViewIntanceFrom</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
+                                                      <span class="n">resolve</span> <span class="nv">asType</span><span class="p">:</span> <span class="kt"><a href="../Enums.html#/s:10SwiftyFlow15ViewIntanceFromO">ViewIntanceFrom</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
                                                       <span class="n">resolved</span> <span class="nv">instance</span><span class="p">:</span> <span class="p">((</span><span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
@@ -1293,7 +1306,7 @@ send and you will be able to receive parameter from the caller.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://github.com/felipeflorencio/SwiftyFlow" target="_blank" rel="external">Felipe F Garcia</a>. All rights reserved. (Last updated: 2019-06-16)</p>
+          <p>&copy; 2019 <a class="link" href="https://github.com/felipeflorencio/SwiftyFlow" target="_blank" rel="external">Felipe F Garcia</a>. All rights reserved. (Last updated: 2019-09-14)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
