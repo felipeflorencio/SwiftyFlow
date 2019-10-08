@@ -31,6 +31,16 @@ public enum NavigationPopStyle {
  */
 public class FlowManager {
     
+    // Public set / read variable
+    /**
+    Flow Manager presentation style, as our flow start on top always, it's a modal with navigation controller, by default is `fullScreen`, but with iOS 13 you can change
+     this behaviour to have different style's how to start / present your flow,
+    
+    - Variable:
+       - flowPresentationStyle: This is the variable that you should change / set before call `start()` the flow;
+    */
+    public var flowPresentationStyle: UIModalPresentationStyle = .fullScreen
+    
     // Public read variables
     private(set) var navigationController: UINavigationController?
     private(set) var containerStack: ContainerFlowStack?
@@ -198,6 +208,7 @@ public class FlowManager {
         - resolve: `optional` - How the view for this screen will be loaded, the default one is `.nib`.
         - animated: `optional` - If you want to show the modal view presentation animated or not, default is animated.
         - resolved: `optional` - Convenience closure that will return the loaded instance reference for this loaded view, it's good when you want to set some values or pass any parameter not using the custom resolve, you will have the right reference to pass value.
+        - presentation: `optional` - How the modal will be presented, as iOS 13 is not default `fullScreen` anymore, here the default will be `fullScreen`.
         - completion: `optional` - Called when the modal view is presented, so you know when success show.
      
      - Note: It has `@discardableResult` because you can use other helper methods just after calling this method as we always return FlowManager instance.
@@ -223,6 +234,7 @@ public class FlowManager {
                                                    resolve asType: ViewIntanceFrom = .nib,
                                                    animated modalShow: Bool = true,
                                                    resolved instance: ((T) -> ())? = nil,
+                                                   presentation style: UIModalPresentationStyle = .fullScreen,
                                                    completion: (() -> Void)? = nil) -> Self {
         
         guard let navigation = self.navigationController else {
@@ -249,7 +261,7 @@ public class FlowManager {
             
             // It's mandatory to have this in order to have track about where we are
             self.adjustViewReferenceState(for: type(of: controller.self))
-            
+            controller.modalPresentationStyle = style
             navigation.present(controller, animated: modalShow, completion: completion)
         }
         
@@ -597,6 +609,7 @@ public class FlowManager {
         // controller itself is not yet fully loaded creating `running problem`
         
         self.adjustViewReferenceState(for: type(of: controller.viewControllers.first!))
+        controller.modalPresentationStyle = flowPresentationStyle
         self.rootView?.present(controller, animated: true, completion: {
             instance?()
         })

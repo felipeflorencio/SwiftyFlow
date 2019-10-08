@@ -11,20 +11,18 @@
 
 # SwiftyFlow
 
-
-
 It's the first library that allow you control your navigation as "flows", you can use both .NIB or Storyboard, you can declare the expected flow that you want to have and in a simple way create.
 
-|         | Main Features  |
-----------|-----------------
-&#128581; | Navigate using `goNext` or `getBack`
-&#127968; | Clear architecture and simple implementation
-&#128288; | Pass and receive parameter when navigate, all typed!
-&#128273; | Decoupled and facilitate your navigation
-&#9989;   | Fully unit tested
-&#128241; | Simply need one container `ContainerFlowStack` and `FlowManager` to navigate
-&#128640; | Finally you can test from start to end your navigation flows using Unit Test
-&#128175; | 100% Swift code
+|           | Main Features                                                                |
+| --------- | ---------------------------------------------------------------------------- |
+| &#128581; | Navigate using `goNext` or `getBack`                                         |
+| &#127968; | Clear architecture and simple implementation                                 |
+| &#128288; | Pass and receive parameter when navigate, all typed!                         |
+| &#128273; | Decoupled and facilitate your navigation                                     |
+| &#9989;   | Fully unit tested                                                            |
+| &#128241; | Simply need one container `ContainerFlowStack` and `FlowManager` to navigate |
+| &#128640; | Finally you can test from start to end your navigation flows using Unit Test |
+| &#128175; | 100% Swift code                                                              |
 
 Beside all the possibilities the biggest advantage is the possibility to test your flow, your can unit test your flows and make sure that you did not break any of your flows / navigation, you will be able to continue upgrade and change your navigation and maintain a clear control in order to make sure you did not broke anything.
 
@@ -37,11 +35,12 @@ The navigation can happen in two ways one if you don't want to pass any paramete
 Or you can say at any moment where you want to go or make the navigation the way that you want, for this just need to say the type of your next view controller, only using the type of the class that you declared the library will resolve all for you.
 
 Do you want to dismiss the hole flow in one click? You want to have a callback that your flow was closed? You want to know when your flow is finished loading? You want to pass any value back when finishing your flow?!?! It's all possible with this library without need to care about delegate, notification or any other pattern in order to acomplish this simple task :D :D .
+
 </details>
 
 ## Concept
 
-All the navigation that you have inside your app it's a flow, today the way that we handle this in iOS using the native framework is using Navigation Controller, the down size is that we can't test, if you run unit test maybe the view does not show *(because it's fast) and your method that call the next one or the last one will not be triggered.
+All the navigation that you have inside your app it's a flow, today the way that we handle this in iOS using the native framework is using Navigation Controller, the down size is that we can't test, if you run unit test maybe the view does not show \*(because it's fast) and your method that call the next one or the last one will not be triggered.
 
 I made two diagram to show you visualy the main difference between using only the native way and using the SwiftyFlow framework, take a look, you will be able to see the concept applied in the diagram for SwiftyFlow in the samples inside the project.
 
@@ -54,7 +53,8 @@ I made two diagram to show you visualy the main difference between using only th
 </div>
 </details>
 
-### SwiftyFlow diagram approach: 
+### SwiftyFlow diagram approach:
+
 <details>
 <summary>Show</summary>
 
@@ -76,32 +76,32 @@ It's possible to not conform and still continue working?
 Possible it's, but you will need to set manually, it's your choice of course.
 
 Let's try to build a simple flow.
+
 <details>
 <summary>Implementing SwiftyFlow</summary>
 
 Create one class that will be your "container" it's the one that will have the declaration to all your View Controller that we will navigate:
-
 
 ```swift
 import Foundation
 import SwiftyFlow
 
 class ContainerView {
-    
+
     func setupStackNavigation(using containerStack: ContainerFlowStack) {
-        
+
         containerStack.registerModule(for: ViewController.self) { () -> ViewController in
             return ViewController()
         }
-        
+
         containerStack.registerModule(for: FirstViewController.self) { () -> FirstViewController in
             return FirstViewController()
         }
-        
+
         containerStack.registerModule(for: SecondViewController.self) { () -> SecondViewController in
             return SecondViewController()
         }
-        
+
         containerStack.registerModule(for: ThirdViewController.self) { () -> ThirdViewController in
             return ThirdViewController()
         }
@@ -111,10 +111,9 @@ class ContainerView {
 
 #### What's this container? Why I need to register?
 
->This container is the place that we declare all the types that we want to have in this ***Flow Manager*** that we will use to navigate.
+> This container is the place that we declare all the types that we want to have in this **_Flow Manager_** that we will use to navigate.
 
->Another important part here is that we are just declaring the types, we are for now just registering the classes that latter we will use, we do not instantiate this classes while we are declaring, only when we start the navigation and we request the **type** that our framework will ask if we have that type declared, if yes, will go to your container look for the registration and ***resolve*** the instance and return to be shown.
-
+> Another important part here is that we are just declaring the types, we are for now just registering the classes that latter we will use, we do not instantiate this classes while we are declaring, only when we start the navigation and we request the **type** that our framework will ask if we have that type declared, if yes, will go to your container look for the registration and **_resolve_** the instance and return to be shown.
 
 Inside your class, the one that you want to start your navigation flow you need to create your flow manager.
 
@@ -124,7 +123,7 @@ Imagine that we have a class called `AppInitialViewController` and inside this c
 func createOurNavigation() {
 	let navigationStack = ContainerFlowStack()
     ContainerView().setupStackNavigation(using: navigationStack)
-    
+
     FlowManager(root: FirstViewController.self, container: navigationStack)
 }
 ```
@@ -134,13 +133,12 @@ One important information to know about is, how our flow manager knows that we a
 When we are create our `FlowManager` by default will be created specting that our navigation will have NIB files as View Controller, if you want to use a Storyboard then you need to specify like this:
 
 ```swift
-FlowManager(root: AutomaticallyInitialViewController.self, 
+FlowManager(root: AutomaticallyInitialViewController.self,
 			container: navigationStack,
 			setupInstance: .storyboard("AutomaticallyNavigationFlow"))
 ```
 
 - We say that we want to have this flow using storyboard and we say the name of the Storyboard.
-
 
 Let's dig into and understand the "why's".
 
@@ -152,7 +150,7 @@ let navigationStack = ContainerFlowStack { container in
                 return SecondViewController()
             })
         }
-        
+
 FlowManager(root: FirstViewController.self, container: navigationStack)
 ```
 
@@ -196,17 +194,14 @@ The most important actually it's, you can test, you can test this flow exactly w
 
 </details>
 
-
 ## Example
 
 The sample project has many situation that you perhaps you will use in your daily base, and the reason basically why this project was create, here I will name each one and put a description, just run the sample and take a look in the code is the easiest way to know about.
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-
 <details>
 <summary>Automatically navigation using Storyboard and pass parameter</summary>
-
 
 First, what does mean have "automatically" navigation?
 This mean that the order that you declared your view controllers, when you call `goNext()` and `getBack()` you will not need to specify to where.
@@ -215,18 +210,17 @@ Features in this sample:
 Automatically navigation using View Controller that have View inside Storyboard.
 Pass parameter from one View Controller to another View controller using the framework.
 
-
 1. The navigation will use the automatically way, that use 2 methods:
-  1. `goNext()`
-  1. `getBack()`
+1. `goNext()`
+1. `getBack()`
 
-2. To pass parameter's when using storyboard you have a little different approach, let's understand the problem:
-When you instantiate using the storyboard, what actually happen is you Storyboard that actually instantiate you instance, your view controller class.
-Because this, is not possible (until the last apple update from WWDC 2019) to pass any parameter in the initialiser, the only solution is after you have the instance you pass using method injection, variable injection.
+1. To pass parameter's when using storyboard you have a little different approach, let's understand the problem:
+   When you instantiate using the storyboard, what actually happen is you Storyboard that actually instantiate you instance, your view controller class.
+   Because this, is not possible (until the last apple update from WWDC 2019) to pass any parameter in the initialiser, the only solution is after you have the instance you pass using method injection, variable injection.
 
 But this is not the end, what we did in order to be able to test is, you still send when call go to the next one, specify the parameters and in your instance you "listen" to the parameter, let's see.
 
-First, you will need to use a different method to call you next view, you will use: 
+First, you will need to use a different method to call you next view, you will use:
 
 ```swift
 navigationFlow?.goNextWith(screen: AutomaticallyFirstViewController.self, parameters: { ("Felipe", 3123.232, "Florencio", 31) })
@@ -268,6 +262,7 @@ This is pretty much follow the same as when use the storyboard, but the differen
 
 Features in this sample:
 Automatically navigation using NIB's.
+
 > It's mandatory for the NIB have the same name as your view controller class, as when both have the same name iOS knows how to instantiate.
 
 - Important to know here is, when you use this method, the instance that we will use is the one that you registered into the container, for example:
@@ -292,8 +287,8 @@ containerStack.registerModule(for: AutomaticallyFirstViewController.self) { () -
 This will work's fine too, when you use NIB's I see more advantages because you have better ways of instantiate your object, in this way you can fulfil your instance with any need before you actually show, in the sample using NIB passing parameter you will see even more advantages.
 
 1. The navigation will use the automatically way, that use 2 methods:
-  1. `goNext()`
-  1. `getBack()`
+1. `goNext()`
+1. `getBack()`
 
 ---
 
@@ -323,10 +318,9 @@ This is basically an "idea" of the advantage of use this framework, deeplink som
 
 - Example: You need to have a logic that, when we receive a deeplink user click we send some parameter, I will use as sample that your passing as parameter where you want to go, the name of the controller, and we will need to generate a new Flow Manager using the root of the navigation controller using the type.
 
-- Another requirement is, you want to when this new "flow" that will be generate automatically when user finishes this flow you want to send back some value, like a *boolean* that you can evaluate in your callback to know that user finished.
+- Another requirement is, you want to when this new "flow" that will be generate automatically when user finishes this flow you want to send back some value, like a _boolean_ that you can evaluate in your callback to know that user finished.
 
-> *You can use anything as parameter, as soon you have a object that receive this and "translate" to the view type that you want to initiate it's ok
-
+> \*You can use anything as parameter, as soon you have a object that receive this and "translate" to the view type that you want to initiate it's ok
 
 Sample:
 
@@ -335,11 +329,11 @@ Sample:
     private func createYourNewFlow(for view: UIViewController.Type) {
 
         guard let navigationStack = self.navigationFlow?.container() else { return }
-        
+
         FlowManager(root: view,
                     container: navigationStack)
             .dismissedFlowWith { [weak self] closeAll in
-            
+
             // Using this parameter for the situation that we want to dismiss both navigation from the top one
             if (closeAll as? Bool) == true {
                 self?.navigationFlow?.dismissFlowController()
@@ -352,7 +346,7 @@ Sample:
 2. It's mandatory for you have container where you declared all your possible view controllers that you will be able to go.
 3. Create you `FlowManager`.
 4. Implement the method `dismissedFlowWith` that have as parameter one closure that receive `Any` as type, you just need to check the type if you want or just if receive any value.
-  4. In this scenario I'm using the dismiss callback to close the flow, but you can close by yourself at the end, but as we want to validate the callback it's indicate to finish here, we finish using: `self?.navigationFlow?.dismissFlowController()`
+5. In this scenario I'm using the dismiss callback to close the flow, but you can close by yourself at the end, but as we want to validate the callback it's indicate to finish here, we finish using: `self?.navigationFlow?.dismissFlowController()`
 
 How to finish you flow passing some call back?
 It the `DeeplinkFirstViewController` we the dismiss method passing as parameter a **boolean** value:
@@ -405,9 +399,9 @@ private func getSomeDataFromClosedModal() {
     }
 ```
 
-If you pay attention we have some important thing to analize here, everytime that we close any modal view, or even get back, navigation controller will always *destroy* that object reference, so how we can still have the reference to this object that was close?
+If you pay attention we have some important thing to analize here, everytime that we close any modal view, or even get back, navigation controller will always _destroy_ that object reference, so how we can still have the reference to this object that was close?
 
-On this container, when I registered I said that I want to this object as soon was instantiate have an ***strong*** reference, this means that when we navigate back we will not destroy the reference.
+On this container, when I registered I said that I want to this object as soon was instantiate have an **_strong_** reference, this means that when we navigate back we will not destroy the reference.
 The only moment that will be destroid is when we completely close our `FlowManager`.
 
 How we register as strong:
@@ -420,9 +414,9 @@ containerStack.registerModule(for: AutomaticallyFourthModalViewController.self) 
 
 We are using the method `.inScope(scope: .strong)` that will say to our framework after instantiate do not nullify the reference to this object, and here you need to pay attention, the normal behavior that we have is when get back and go next again, we have a new instance, in this scenario will use the same instance, so, you need to pay attention.
 
-Getting back to `getSomeDataFromClosedModal` how do we access our instance? For this we have in our flow manager the access to our ***container***, and inside we have a method to get the object instance it's: `.getModuleIfHasInstance(for: AutomaticallyFourthModalViewController.self)`, passing the type of the instance that we want to check, if exist will return.
+Getting back to `getSomeDataFromClosedModal` how do we access our instance? For this we have in our flow manager the access to our **_container_**, and inside we have a method to get the object instance it's: `.getModuleIfHasInstance(for: AutomaticallyFourthModalViewController.self)`, passing the type of the instance that we want to check, if exist will return.
 
-To dismiss the presented modal view we need to use another method, as the dismiss when presented as modal it's different, for this we use the method inside the modal view controller `navigationFlow?.getBack(pop: .modal(animated: true))`, passing the type that is ***modal*** and if will be animated or not will dismiss.
+To dismiss the presented modal view we need to use another method, as the dismiss when presented as modal it's different, for this we use the method inside the modal view controller `navigationFlow?.getBack(pop: .modal(animated: true))`, passing the type that is **_modal_** and if will be animated or not will dismiss.
 
 ---
 
@@ -433,18 +427,18 @@ To dismiss the presented modal view we need to use another method, as the dismis
 
 Here we will follow the same principles used for a navigation using NIB files, but with the possibilitie to send parameter to the next view that we are calling.
 
-For this we need to change how we register our view inside our ***Container***, because we will need to say which parameter we are expecting, and for this the parameter are **typed** this mean that the type that I say that i'm expecting will need to be that one otherwise will not resolve.
+For this we need to change how we register our view inside our **_Container_**, because we will need to say which parameter we are expecting, and for this the parameter are **typed** this mean that the type that I say that i'm expecting will need to be that one otherwise will not resolve.
 
 Go to the class `ParameterNavigationContainer` where we register the class to this module, this is one sample:
 
 ```swift
 containerStack.registerModuleWithParameter(for: ParameterInitialViewController.self) { (arguments: (String, Double, String, Int)) -> ParameterInitialViewController? in
-            
+
             let (first, second, third, fourth) = arguments
 
             let initialViewController = ParameterInitialViewController()
             initialViewController.setParameters(first: first, second, third, fourth)
-            
+
             return initialViewController
         }
 ```
@@ -465,18 +459,18 @@ FlowManager(root: ParameterInitialViewController.self, container: container.setu
 - As you can see we are specifying the same type and order that we spect to be resolved, so, as in our container we described that we are specting one tuple with this pattern `(String, Double, String, Int)` will be resolved with success.
 
 2. Calling the navigation method to go next passing any argument.
-  2. First the sample of the registration:
+3. First the sample of the registration:
 
-  ```swift
-  containerStack.registerModuleWithParameter(for: ParameterFirstViewController.self) { (arguments: (String, Int)) -> ParameterFirstViewController? in
-            let (first, second) = arguments
-            
-            let firstViewController = ParameterFirstViewController()
-            firstViewController.setParameters(first: first, second)
-            
-            return firstViewController
-        }
-  ```
+```swift
+containerStack.registerModuleWithParameter(for: ParameterFirstViewController.self) { (arguments: (String, Int)) -> ParameterFirstViewController? in
+          let (first, second) = arguments
+
+          let firstViewController = ParameterFirstViewController()
+          firstViewController.setParameters(first: first, second)
+
+          return firstViewController
+      }
+```
 
 Now inside the `ParameterInitialViewController` we have the method that call `ParameterFirstViewController` this way:
 
@@ -491,7 +485,6 @@ navigationFlow?.goNextWith(screen: ParameterFirstViewController.self, parameters
 ---
 
 </details>
-
 
 ## Requirements
 
@@ -508,9 +501,8 @@ pod 'SwiftyFlow'
 
 To install Swinject with Carthage, add the following line to your `Cartfile`.
 
-
 ```
-github "felipeflorencio/SwiftyFlow" ~> 0.2.0
+github "felipeflorencio/SwiftyFlow" ~> 0.3.0
 ```
 
 ## Documentation
@@ -525,4 +517,3 @@ Felipe F Garcia, felipeflorencio@me.com
 ## License
 
 SwiftyFlow is available under the GPL-3.0 license. See the LICENSE file for more info.
-

@@ -97,7 +97,7 @@
 
 /* Begin PBXFileReference section */
 		1D6384A37DAED15D716E2D17 /* Pods-SwiftyFlow_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyFlow_Tests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftyFlow_Tests/Pods-SwiftyFlow_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		1FC8A539FC2EA81628CCBB0C /* SwiftyFlow.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SwiftyFlow.podspec; path = ../SwiftyFlow.podspec; sourceTree = "<group>"; };
+		1FC8A539FC2EA81628CCBB0C /* SwiftyFlow.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SwiftyFlow.podspec; path = ../SwiftyFlow.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		455D19E922AEE46100FF9D29 /* AutomaticallyFourthModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticallyFourthModalViewController.swift; sourceTree = "<group>"; };
 		455D19EB22AEE46100FF9D29 /* AutomaticallyThirdModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutomaticallyThirdModalViewController.xib; sourceTree = "<group>"; };
 		455D19EC22AEE46100FF9D29 /* AutomaticallyFourthModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutomaticallyFourthModalViewController.xib; sourceTree = "<group>"; };
