@@ -67,15 +67,18 @@ public class FlowManager {
 
      */
     public init(navigation controller: UINavigationController?,
-                  container stack: ContainerFlowStack,
-                  setupInstance type: ViewIntanceFrom? = .nib,
-                  dismissed navigationFlow: (() -> ())? = nil) {
+                container stack: ContainerFlowStack,
+                setupInstance typeOfView: ViewIntanceFrom? = .nib,
+                dismissed navigationFlow: (() -> ())? = nil) {
         self.navigationController = controller
         self.containerStack = stack
-        self.defaultNavigationType = type
+        self.defaultNavigationType = typeOfView
         self.dismissedClosure = navigationFlow
         
         if let customNavigation = controller, let firstViewController = customNavigation.viewControllers.first {
+            // We need to register our first view controller, if don't when we try to `getBack` after just navigate
+            // one level in, will not get back as there's no "previous" screen, but there's the root there.
+            containerStack?.registerRootViewModule(for: UIViewController.self, root: firstViewController)
             (firstViewController as? FlowNavigator)?.navigationFlow = self
         }
     }

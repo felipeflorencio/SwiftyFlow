@@ -79,6 +79,21 @@ public class ContainerFlowStack {
         
         return elementContainer
     }
+    
+    /**
+    This is the method that is used to register the root view when using your own custom navigation controller.
+    
+    - Parameter type: View Controller type that you want to register
+    - Parameter instance: The instance that will be resolved, will use the one that is first in the navigation controller hierarchy
+
+    */
+    func registerRootViewModule<T: UIViewController>(for type: T.Type, root instance: T) {
+        
+        let emptyResolver: () -> T = { return instance }
+        let elementContainer = FlowElementContainer<UIViewController>(for: type, resolving: emptyResolver)
+        elementContainer.inScope(scope: .weak)
+        modules.insert(elementContainer, at: 0)
+    }
 
     // Get the module list that you registered, can have itens that are not being instantiate yet
     // or by you getting back they are nullified the reference, just need to be instantiate again

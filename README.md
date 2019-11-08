@@ -11,7 +11,7 @@
 
 # SwiftyFlow
 
-It's the first library that allow you control your navigation as "flows", you can use both .NIB or Storyboard, you can declare the expected flow that you want to have and in a simple way create.
+It's the first library that allow you to control your navigation as "flows", you can use both .NIB or Storyboard, you can declare the expected flow that you want to have and in a simple way create.
 
 |           | Main Features                                                                |
 | --------- | ---------------------------------------------------------------------------- |
@@ -30,7 +30,7 @@ Beside all the possibilities the biggest advantage is the possibility to test yo
 <summary>Read more...</summary>
 With Swifty Flow you can pass parameter to the next view controller that you are calling and you can instantiate this next view controller already injecting those values, beside this all the values that you pass are all typed, this make sure that any change you are in control and you can test this in your tests.
 
-The navigation can happen in two ways one if you don't want to pass any parameter you can just declare your flow navigation, and the order that you declared will happen, just need to call `goNext()` or `back()` simple like this.
+The navigation can happen in two ways one if you don't want to pass any parameter you can just declare your flow navigation, and the order that you declared will happen, just need to call `goNext()` or `getBack()` simple like this.
 
 Or you can say at any moment where you want to go or make the navigation the way that you want, for this just need to say the type of your next view controller, only using the type of the class that you declared the library will resolve all for you.
 
