@@ -11,9 +11,18 @@ import UIKit
 /**
  Enum that will be utilized when create your flow manager to identify which type is the views that we will need to resolve
  */
-public enum ViewIntanceFrom {
+public enum ViewIntanceFrom: Equatable {
     case nib
     case storyboard(String)
+    
+    public static func == (lhs: Self, rhs: Self) -> Bool {
+        switch (lhs, rhs) {
+        case (.nib, .nib): return true
+        case (let .storyboard(first), let .storyboard(second)):
+            return first == second
+        default: return false
+        }
+    }
 }
 
 /**
@@ -52,7 +61,7 @@ public class FlowManager {
     
     // Private variables for you have callback when finish you flow
     private var dismissCallBackClosure: ((Any) -> ())?
-    private var dismissModalCallBackClosure: (() -> ())?
+    internal var dismissModalCallBackClosure: (() -> ())?
     internal var parameterFactory: AnyObject?
     
     // MARK: Initializers
@@ -87,45 +96,6 @@ public class FlowManager {
         debugPrint("Deallocating FlowManager")
     }
     
-    /**
-     Flow Manager convenience initialiser
-     
-     1 - When we are already in one storyboard, and we want to load another viewcontroller
-         that is inside this storyboard you can resolve using `rootInstance` to resolve and
-         will be set to as your root view controller inside your navigation controller.
-     
-     Example:
-        We have setup our Storyboard, and we embed in on our view controllers our UINavigationController
-        Them as we want to use the Flow Manager to handle our navigation, we need to get the reference to our
-        view controller and set as our `custom navigation`, but we need to know who is the root of this
-        navigation, so for this we pass the `root` type of the view.
-
-     2 - When you are loading a completely new storyboard, as you will need to resolve your
-         first / root view controller using the reference from the storyboar as it's not loaded
-         yet, so for this scenario you only pass the type of the first one `root` that will be resolved
-         so we hande this resolution for you, otherwise will load with a black screen your navigation.
-
-     - Parameters:
-        - root: The view controller type that you will have as `root` view controller for you navigation controller.
-        - container: It's the `ContainerFlowStack` instance, it's where we will look for the registered View Controller types in order to resolve and show on the screen.
-        - withCustom: `optional` - Custom UINavigationController it's optional, if not we will use the default one from UIKit.
-        - setupInstance: `optional` - It's how will be our navigation, it's a enum, if you don't set we will assume that is nib view that you will be using.
-        - dismissed: `optional` - Closure optional that can tell you when this navigation controller was completely closed.
-
-     */
-    public convenience init<T: UIViewController>(root instanceType: T.Type,
-                                                 container stack: ContainerFlowStack,
-                                                 withCustom navigation: UINavigationController? = nil,
-                                                 setupInstance type: ViewIntanceFrom = .nib,
-                                                 dismissed navigationFlow: (() -> ())? = nil) {
-        self.init(navigation: nil, container: stack, setupInstance: type)
-        
-        let emptyParameter: () -> (Void) = {}
-        let rootViewController = self._resolveInstance(viewController: type, for: instanceType, parameters: emptyParameter)
-        
-        self.initializerFunctionality(root: rootViewController, withCustom: navigation, dismissed: navigationFlow)
-    }
-    
     // MARK: - Navigation
     /**
      The method responsible to start the flow, we do not start automatically when instantiate our FlowManager, so you can start as soon you want.
@@ -143,224 +113,130 @@ public class FlowManager {
     }
     
     /**
-     Method responsible to navigate to the next screen
+     This method is only intended when you want to have just a navigation controller but only when start decide which view controller will be the root of that navigation controller.
+     
+     It's basically the same behaviour as the initialiser that you need to pass the type of the view controller to be resolve, but with more
+     options, in the scenario that only when you call start you want to check and validation which screen you want to have as the root, or even have a more generic way to show.
+     
+     Using this, is mandatory to you have the view controller that you intend to use be registered in your `Container` so we can resolve.
      
      - Parameters:
-        - screen: The type of the screen that you want to go, need to be registered in your container flow stack.
-        - resolve: `optional` - How the view for this screen will be loaded, the default one is `.nib`.
-        - resolved: `optional` - Convenience closure that will return the loaded instance reference for this loaded view, it's good when you want to set some values or pass any parameter not using the custom resolve, you will have the right reference to pass value.
+        - root: The view controller type that you will have as `root` view controller for you navigation controller.
+        - resolved: Closure that will return the loaded instance reference for this loaded view, it's good when you want to set some values or pass any parameter not using the custom resolve, you will have the right reference to pass value.
+        - finishedLoad: `optional` - Convenience closure that will let you know when you finished the flow.
      
      ### Usage Example: ###
-     ````
-        navigationFlow?.goNext(screen: SecondViewController.self,
-                               resolve: .nib,
-                               resolved: { resolveViewInstance in
-            resolveViewInstance.nameForTitle = "Setting value on the next view"
-        })
-     ````
+         ````
+            flowManager.startWith(root: { () -> UIViewController.Type in
+                // This is just a way to have some implementation that check the type
+                // and will select the type according to the view controller, would be
+                // your view controller type
+                switch self.flowType {
+                case .normal:
+                    return UIViewController.self
+                case .withConfirmation:
+                    return UIViewController.self
+                case .awareness:
+                    return UIViewController.self
+                }
+            }, resolved: { rootViewInstance in
+                rootInstance.variable = "Any data that you want"
+            })
+         ````
      */
-    public func goNext<T: UIViewController>(screen view: T.Type,
-                                            resolve asType: ViewIntanceFrom = .nib,
-                                            resolved instance: ((T) -> ())? = nil) {
+    public func startWith<T: UIViewController>(root instanceType: () -> T.Type,
+                                               resolved instance: (T) -> (),
+                                               finishedLoad presenting: (() -> ())? = nil) {
+        guard let navigationController = self.navigationController else {
+            fatalError("You need to have a root navigation controller instance")
+        }
         
-        let emptyParameter: (() -> (Void)) = {}
-        self.navigateUsingParameter(parameters: emptyParameter, next: view, resolve: asType, resolved: instance)
-    }
-    
-    /**
-     Method responsible to navigate to the next screen automatically resolve and go to the
-     next view according to the order that you declared in your ContainerFlowStack, if no
-     item found will just not navigation we do not throw any error
-     
-     - Parameters:
-        - resolve: `optional` - How the view for this screen will be loaded, the default one is `.nib`.
-        - resolved: `optional` - Convenience closure that will return the loaded instance reference for this loaded view, it's good when you want to set some values or pass any parameter not using the custom resolve, you will have the right reference to pass value.
-     
-     ### Usage Example: ###
-     ````
-        // Without using any parameter - Indicated to the automatically navigation
-         navigationFlow?.goNext()
-     
-        // Using the parameters available
-         navigationFlow?.goNext(resolve: .nib,
-                                resolved: { resolveViewInstance in
-                resolveViewInstance.nameForTitle = "Setting value on the next view"
-         })
-     ````
-     */
-    public func goNext<T: UIViewController>(resolve asType: ViewIntanceFrom = .nib,
-                                            resolved instance: ((T) -> ())? = nil) {
-        
-        guard let nextViewElement = self.findNextElementToNavigate() else {
-            debugPrint("There's no more itens to go next or there's no declared types")
+        guard let viewInstantiationType = self.defaultNavigationType else {
+            debugPrint("Something went wrong that we do not have the type of the view and we can't continue")
             return
         }
         
-        self.goNext(screen: nextViewElement.forType as! T.Type, resolve: asType, resolved: instance)
-    }
-    
-    /**
-     Method responsible to navigate to the next screen using `Modal Presentation`, this method can
-     automatically resolve too, if you do not need any of the parameters argument just call the method
-     without implement any of the arguments and will automatically resolve according to you container
-     stack declared.
-     
-     
-     - Parameters:
-        - screen: `optional` - The type of the screen that you want to go, need to be registered in your container flow stack.
-        - resolve: `optional` - How the view for this screen will be loaded, the default one is `.nib`.
-        - animated: `optional` - If you want to show the modal view presentation animated or not, default is animated.
-        - resolved: `optional` - Convenience closure that will return the loaded instance reference for this loaded view, it's good when you want to set some values or pass any parameter not using the custom resolve, you will have the right reference to pass value.
-        - presentation: `optional` - How the modal will be presented, as iOS 13 is not default `fullScreen` anymore, here the default will be `fullScreen`.
-        - completion: `optional` - Called when the modal view is presented, so you know when success show.
-     
-     - Note: It has `@discardableResult` because you can use other helper methods just after calling this method as we always return FlowManager instance.
-     
-     ### Usage Example: ###
-     ````
-        // Simple implementation indicated for automatically navigation
-        navigationFlow?.goNextAsModal()
-     
-        // Full implementation using all parameters
-         navigationFlow?.goNextAsModal(screen: SecondViewController.self,
-                                       resolve: .nib,
-                                       animated: true,
-                                       resolved: { resolveViewInstance in
-                resolveViewInstance.nameForTitle = "Setting value on the next view"
-         }, completion: {
-            // Finished presenting this modal.
-         })
-     ````
-     */
-    @discardableResult
-    public func goNextAsModal<T: UIViewController>(screen view: T.Type? = nil,
-                                                   resolve asType: ViewIntanceFrom = .nib,
-                                                   animated modalShow: Bool = true,
-                                                   resolved instance: ((T) -> ())? = nil,
-                                                   presentation style: UIModalPresentationStyle = .fullScreen,
-                                                   completion: (() -> Void)? = nil) -> Self {
-        
-        guard let navigation = self.navigationController else {
-            fatalError("You need to have a root navigation controller instance")
-        }
-        
-        var viewToGoNextType: T.Type?
-        
-        let modalPresentation: () -> Void = {
-            guard let view = viewToGoNextType else {
-                debugPrint("There's not next view to go")
-                return
-            }
-            let navigationType = self.defaultNavigationType ?? asType
-            
-            let emptyParameter: () -> (Void) = {}
-            guard let controller = self._resolveInstance(viewController: navigationType, for: view.self, parameters: emptyParameter) else {
-                debugPrint("Could not retrieve the view controller to present modally")
-                return
-            }
-            
-            (controller as? FlowNavigator)?.navigationFlow = self
-            instance?(controller as! T)
-            
-            // It's mandatory to have this in order to have track about where we are
-            self.adjustViewReferenceState(for: type(of: controller.self))
-            controller.modalPresentationStyle = style
-            navigation.present(controller, animated: modalShow, completion: completion)
-        }
-        
-        
-        if let viewToGo = view {
-            viewToGoNextType = viewToGo
-            modalPresentation()
-        } else {
-            guard let nextViewElement = self.findNextElementToNavigate() else {
-                debugPrint("There's no more itens to go next or there's no declared types")
-                return self
-            }
-            viewToGoNextType = nextViewElement.forType as? T.Type
-            modalPresentation()
-        }
-        
-        return self
-    }
-    
-    /**
-     This is used to get back when you are navigating using flow manager, with this
-     you can easy get back just one view or get back to the root view from you
-     navigation controller stack, it's even possible pass say to which screen you want
-     to get back passing the type.
-     
-     - Parameters:
-        - pop: `optional` - Type of the pop action that you want to do, check NavigationPopStyle to see all possibilities, default is back one animated.
-        - screen: `optional` - The type of the screen that you want to go, need to be registered in your container flow stack.
-  
-     - Note: It has `@discardableResult` because you can use other helper methods just after calling this method as we always return FlowManager instance.
+        // Helper to set the root view controller for our navigation controller and present
+        let setRootAndPresent: (UIViewController) -> () =  { [unowned self] viewController in
+            navigationController.setViewControllers([viewController], animated: false)
+            (viewController as? FlowNavigator)?.navigationFlow = self
 
-     ### Usage Example: ###
-     ````
-         // Basic pop, just get back one screen animated
-         navigationFlow?.getBack()
+            self.presentNewFlow(navigation: navigationController, resolved: {
+                presenting?()
+            })
+        }
+        
+        let emptyParameter: (() -> (Void)) = {}
+        guard let rootViewController = self._resolveInstance(viewController: viewInstantiationType,
+                                                             for: instanceType(),
+                                                             parameters: emptyParameter) else {
+                debugPrint("Could't find the view controller of this type and with this parameters to set as root for our navigation controller")
+                return
+        }
+        
+        instance(rootViewController as! T)
+        setRootAndPresent(rootViewController)
+    }
+
+    /**
+     This method is only intended when you want to have just a navigation controller but only when start decide which view controller will be the root of that navigation controller, but without parameter to be passed during the instantiation.
      
-         // Specifying what type of the pop and the view that you want to get back
-         navigationFlow?.getBack(pop: .pop(animated: true), screen: { viewToGo in
-                viewToGo(FirstViewController.self)
-         })
-     ````
+     It's basically the same behaviour as the initialiser that you need to pass the type of the view controller to be resolve, but with more options, in the scenario that only when you call start you want to check and validation which screen you want to have as the root, or even have a more generic way to show.
+     
+     Using this, is mandatory to you have the view controller that you intend to use be registered in your `Container` so we can resolve.
+     
+     - Parameters:
+        - root: The view controller type that you will have as `root` view controller for you navigation controller.
+        - finishedLoad: `optional` - Convenience closure that will let you know when you finished the flow.
+     
+     ### Usage Example: ###
+         ````
+            flowManager.startWith(root: { () -> UIViewController.Type in
+                // This is just a way to have some implementation that check the type
+                // and will select the type according to the view controller, would be
+                // your view controller type
+                switch self.flowType {
+                case .normal:
+                    return UIViewController.self
+                case .withConfirmation:
+                    return UIViewController.self
+                case .awareness:
+                    return UIViewController.self
+                }
+            })
+         ````
      */
-    @discardableResult
-    public func getBack<T: UIViewController>(pop withStyle: NavigationPopStyle = .pop(animated: true),
-                                             screen view: (((T.Type) -> ()) -> ())? = nil) -> Self {
-        guard let navigation = self.navigationController else {
+    public func startWith<T: UIViewController>(root instanceType: () -> T.Type,
+                                               finishedLoad presenting: (() -> ())? = nil) {
+        guard let navigationController = self.navigationController else {
             fatalError("You need to have a root navigation controller instance")
         }
         
-        switch withStyle {
-        case .popToRoot(let animated):
-            
-            // It's mandatory to have this in order to have track about where we are
-            guard let view = self.whichScreenTo(pop: withStyle) else {
-                debugPrint("Something really wrong happened so we can't say which screen we are getting back")
-                return self
-            }
-            self.adjustViewReferenceState(for: view.forType, back: withStyle)
-            
-            navigation.popToRootViewController(animated: animated)
-        case .pop(let animated):
-            
-            guard let view = self.whichScreenTo(pop: withStyle) else {
-                debugPrint("Something really wrong happened so we can't say which screen we are getting back")
-                return self
-            }
-            self.adjustViewReferenceState(for: view.forType, back: withStyle)
-            
-            navigation.popViewController(animated: animated)
-        case .popTo(let animated):
-            view?({ [weak self] viewToPop in
-                guard let viewController = navigation.viewControllers.first(where: { viewController -> Bool in
-                    return type(of: viewController) == viewToPop
-                }) else {
-                    debugPrint("Have no view controller with this type \"\(String(describing: viewToPop))\" in your navigation controller stack")
-                    return
-                }
-                self?.adjustViewReferenceState(for: type(of: viewController), back: withStyle)
-                
-                navigation.popToViewController(viewController, animated: animated)
-            })
-        case .modal(let animated):
-            
-            guard let view = self.whichScreenTo(pop: withStyle) else {
-                debugPrint("Something really wrong happened so we can't say which screen we are getting back")
-                return self
-            }
-            self.adjustViewReferenceState(for: view.forType, back: withStyle)
-            
-            navigation.dismiss(animated: animated, completion: { [unowned self] in
-                self.dismissModalCallBackClosure?()
-            })
+        guard let viewInstantiationType = self.defaultNavigationType else {
+            debugPrint("Something went wrong that we do not have the type of the view and we can't continue")
+            return
         }
         
-        return self
+        // Helper to set the root view controller for our navigation controller and present
+        let setRootAndPresent: (UIViewController) -> () =  { [unowned self] viewController in
+            navigationController.setViewControllers([viewController], animated: false)
+            (viewController as? FlowNavigator)?.navigationFlow = self
+
+            self.presentNewFlow(navigation: navigationController, resolved: {
+                presenting?()
+            })
+        }
+                
+        let emptyParameter: () -> (Void) = {}
+        guard let rootViewController = self._resolveInstance(viewController: viewInstantiationType,
+                                                       for: instanceType(),
+                                                       parameters: emptyParameter) else {
+                debugPrint("Could't find the view controller of this type to set as root for our navigation controller")
+                return
+        }
+        setRootAndPresent(rootViewController)
     }
+
     
     /**
      Method used to dismiss completely your flow.
@@ -498,21 +374,20 @@ public class FlowManager {
                                            withCustom navigation: UINavigationController? = nil,
                                            dismissed navigationFlow: (() -> ())? = nil) {
         
-        guard (viewController != nil) || (navigation != nil) else {
-            fatalError("You need to have a root view controller instance or navigation")
-        }
-        
         if let customNavigation = navigation {
             self.navigationController = customNavigation
+            if let rootView = viewController {
+                self.navigationController?.setViewControllers([rootView], animated: false)
+            }
         } else {
             guard let rootView = viewController else {
-                fatalError("You need to have a root view controller instance")
+                fatalError("You did not specify any Navigation Controller, them you need to specify one root to the default creation of the navigation controller")
             }
             self.navigationController = UINavigationController(rootViewController: rootView)
         }
         
         guard let firsView = self.navigationController?.viewControllers.first else {
-            fatalError("It's not possible reach here without if happen something really wrong happened")
+            fatalError("You can't continue without root view controller, something is really wrong check if how you initialise")
         }
         (firsView as? FlowNavigator)?.navigationFlow = self
         

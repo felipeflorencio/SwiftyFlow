@@ -62,38 +62,42 @@ extension FlowManager {
     }
     
     /**
-     This is the method that we will use in order to send parameter when resolve our instance
-     Remember that when declare the parameter data that you want to be resolved need to be inside
-     Tuple, as for swift when resolve everything need to have a type, with this we make sure that
-     always have type and the values are inside
+     Flow Manager convenience initialiser
      
+     1 - When we are already in one storyboard, and we want to load another viewcontroller
+         that is inside this storyboard you can resolve using `rootInstance` to resolve and
+         will be set to as your root view controller inside your navigation controller.
+     
+     Example:
+        We have setup our Storyboard, and we embed in on our view controllers our UINavigationController
+        Them as we want to use the Flow Manager to handle our navigation, we need to get the reference to our
+        view controller and set as our `custom navigation`, but we need to know who is the root of this
+        navigation, so for this we pass the `root` type of the view.
+
+     2 - When you are loading a completely new storyboard, as you will need to resolve your
+         first / root view controller using the reference from the storyboar as it's not loaded
+         yet, so for this scenario you only pass the type of the first one `root` that will be resolved
+         so we hande this resolution for you, otherwise will load with a black screen your navigation.
+
      - Parameters:
-        - screen: The type of the view controller that you want to next.
-        - paramer: Closure that expect a `type` that will be used when resolve this screen that you are calling.
-        - resolve: `optional` - How the view for this screen will be loaded, the default one is `.nib`.
-        - resolved: `optional` - Convenience closure that will return the loaded instance reference for this loaded view, it's good when you want to set some values or pass any parameter not using the custom resolve, you will have the right reference to pass value.
-     
-     ### Usage Example: ###
-     ````
-        // Basic implementation
-         navigationFlow?.goNextWith(screen: ParameterFirstViewController.self, parameters: { () -> ((String, Int)) in
-            return ("Felipe Garcia", 232)
-         })
-     
-        // Using the parameters available
-         navigationFlow?.goNextWith(screen: ParameterFirstViewController.self, parameters: { () -> ((String, Int)) in
-            return ("Felipe Garcia", 232)
-         }, resolve: .nib, resolved: { resolveView in
-            // resolve view
-         })
-     ````
+        - root: The view controller type that you will have as `root` view controller for you navigation controller.
+        - container: It's the `ContainerFlowStack` instance, it's where we will look for the registered View Controller types in order to resolve and show on the screen.
+        - withCustom: `optional` - Custom UINavigationController it's optional, if not we will use the default one from UIKit.
+        - setupInstance: `optional` - It's how will be our navigation, it's a enum, if you don't set we will assume that is nib view that you will be using.
+        - dismissed: `optional` - Closure optional that can tell you when this navigation controller was completely closed.
+
      */
-    public func goNextWith<T: UIViewController, Resolver>(screen view: T.Type,
-                                                          parameters data: @escaping () -> ((Resolver)),
-                                                          resolve asType: ViewIntanceFrom = .nib,
-                                                          resolved instance: ((T) -> ())? = nil) {
+    public convenience init<T: UIViewController>(root instanceType: T.Type,
+                                                 container stack: ContainerFlowStack,
+                                                 withCustom navigation: UINavigationController? = nil,
+                                                 setupInstance type: ViewIntanceFrom = .nib,
+                                                 dismissed navigationFlow: (() -> ())? = nil) {
+        self.init(navigation: nil, container: stack, setupInstance: type)
         
-        self.navigateUsingParameter(parameters: data, next: view.self, resolve: asType, resolved: instance)
+        let emptyParameter: () -> (Void) = {}
+        let rootViewController = self._resolveInstance(viewController: type, for: instanceType, parameters: emptyParameter)
+        
+        self.initializerFunctionality(root: rootViewController, withCustom: navigation, dismissed: navigationFlow)
     }
     
     /**
@@ -167,7 +171,7 @@ extension FlowManager {
         navigation.pushViewController(controller, animated: true)
     }
     
-    // Helper that we will set the our internal variable the referene to be able latter
+    // Helper that we will set the our internal variable the reference to be able later
     // to resolve and get the parameter that we intend to get in the next screen
     internal func sendParameters<Resolver>(parameters data: @escaping () -> ((Resolver))) {
         

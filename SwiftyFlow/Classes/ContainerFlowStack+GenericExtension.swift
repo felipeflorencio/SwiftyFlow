@@ -60,7 +60,7 @@ extension ContainerFlowStack {
         
         // As we are registering in a very generic way, basically we need to make sure what we are doing
         // otherwise we can't check what is suppose to be the type to "convert back" to be able to call
-        // the write closure that will pass / get the right parameter data, and resolve the instance that
+        // the right closure that will pass / get the right parameter data, and resolve the instance that
         // we want back, it's very delicate, but it's the way that Swift can provide
         guard let factory = module?.factoryParameter else { return nil }
         

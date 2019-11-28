@@ -107,4 +107,52 @@ class ViewController: UIViewController {
         })
         flowManagerUsingNibWithModalFlow?.start()
     }
+    
+    // MARK: - Navigation Flow Using NIB
+    // If you do not set the return for some class variable after being allocated the
+    // the object will be deallocated as is the normal behaviour in order to avoid
+    // retain cycle
+    enum ScreenToChose {
+        case root
+        case first
+        case second
+        case third
+        
+        var type: String {
+            switch self {
+            case .root: return "Root View"
+            case .first: return "First View"
+            case .second: return "Second View"
+            case .third: return "Third View"
+            }
+        }
+    }
+    var flowManagerChoseRootViewWhenStartNavigation: FlowManager?
+    let screenToStart = ScreenToChose.third
+    @IBAction func selectRootWhenStartNavigationUsingNibFlow() {
+        let container = ResolveRootNavigationNibContainer().setupNavigationStack()
+        
+        flowManagerChoseRootViewWhenStartNavigation = FlowManager(navigation: UINavigationController(), container: container)
+        
+        flowManagerChoseRootViewWhenStartNavigation?.startWith(root: {
+            switch self.screenToStart {
+                case .root: return ResolveRootNibInitialViewController.self
+                case .first: return ResolveRootFirstViewController.self
+                case .second: return ResolveRootSecondViewController.self
+                case .third: return ResolveRootThirdViewController.self
+            }
+        }, resolved: { instance in
+            switch self.screenToStart {
+                case .root:
+                    (instance as! ResolveRootNibInitialViewController).parameterInjection = self.screenToStart.type
+                case .first:
+                    (instance as! ResolveRootFirstViewController).parameterInjection = self.screenToStart.type
+                case .second:
+                    (instance as! ResolveRootSecondViewController).parameterInjection = self.screenToStart.type
+                case .third:
+                    (instance as! ResolveRootThirdViewController).parameterInjection = self.screenToStart.type
+            }
+        })
+    }
 }
+

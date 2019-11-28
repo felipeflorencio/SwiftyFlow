@@ -81,6 +81,15 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		7ABE50EE0EE998D4B1C32E8B /* Pods_SwiftyFlow_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA8A7440F3990CC7B0C0BE5 /* Pods_SwiftyFlow_Tests.framework */; };
+		8C53321E238FD2AC00BAE6EE /* ResolveRootNibInitialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C533217238FD2AC00BAE6EE /* ResolveRootNibInitialViewController.xib */; };
+		8C53321F238FD2AC00BAE6EE /* ResolveRootFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C533218238FD2AC00BAE6EE /* ResolveRootFirstViewController.xib */; };
+		8C533220238FD2AC00BAE6EE /* ResolveRootSecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C533219238FD2AC00BAE6EE /* ResolveRootSecondViewController.xib */; };
+		8C533221238FD2AC00BAE6EE /* ResolveRootThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C53321A238FD2AC00BAE6EE /* ResolveRootThirdViewController.xib */; };
+		8C533222238FD2AC00BAE6EE /* ResolveRootNavigationNibContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C53321B238FD2AC00BAE6EE /* ResolveRootNavigationNibContainer.swift */; };
+		8C533223238FD2AC00BAE6EE /* ResolveRootNibInitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C53321D238FD2AC00BAE6EE /* ResolveRootNibInitialViewController.swift */; };
+		8C533225238FD42400BAE6EE /* ResolveRootFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C533224238FD42400BAE6EE /* ResolveRootFirstViewController.swift */; };
+		8C533228238FD56F00BAE6EE /* ResolveRootSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C533226238FD56F00BAE6EE /* ResolveRootSecondViewController.swift */; };
+		8C533229238FD56F00BAE6EE /* ResolveRootThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C533227238FD56F00BAE6EE /* ResolveRootThirdViewController.swift */; };
 		8CD0BDD622B0E867003F7E62 /* AutomaticallyInitialModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD0BDD522B0E867003F7E62 /* AutomaticallyInitialModalViewController.swift */; };
 		8CD0BDD822B0EA6C003F7E62 /* AutomaticallyInitialModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CD0BDD722B0EA6C003F7E62 /* AutomaticallyInitialModalViewController.xib */; };
 /* End PBXBuildFile section */
@@ -178,6 +187,15 @@
 		67FC5CF129450BA9B485DEE1 /* Pods-SwiftyFlow_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyFlow_Example.debug.xcconfig"; path = "Target Support Files/Pods-SwiftyFlow_Example/Pods-SwiftyFlow_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		6FA8A7440F3990CC7B0C0BE5 /* Pods_SwiftyFlow_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyFlow_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A358D733CB09A20240D6FCE /* Pods_SwiftyFlow_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyFlow_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C533217238FD2AC00BAE6EE /* ResolveRootNibInitialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResolveRootNibInitialViewController.xib; sourceTree = "<group>"; };
+		8C533218238FD2AC00BAE6EE /* ResolveRootFirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResolveRootFirstViewController.xib; sourceTree = "<group>"; };
+		8C533219238FD2AC00BAE6EE /* ResolveRootSecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResolveRootSecondViewController.xib; sourceTree = "<group>"; };
+		8C53321A238FD2AC00BAE6EE /* ResolveRootThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResolveRootThirdViewController.xib; sourceTree = "<group>"; };
+		8C53321B238FD2AC00BAE6EE /* ResolveRootNavigationNibContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResolveRootNavigationNibContainer.swift; sourceTree = "<group>"; };
+		8C53321D238FD2AC00BAE6EE /* ResolveRootNibInitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResolveRootNibInitialViewController.swift; sourceTree = "<group>"; };
+		8C533224238FD42400BAE6EE /* ResolveRootFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolveRootFirstViewController.swift; sourceTree = "<group>"; };
+		8C533226238FD56F00BAE6EE /* ResolveRootSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResolveRootSecondViewController.swift; sourceTree = "<group>"; };
+		8C533227238FD56F00BAE6EE /* ResolveRootThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResolveRootThirdViewController.swift; sourceTree = "<group>"; };
 		8CD0BDD522B0E867003F7E62 /* AutomaticallyInitialModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticallyInitialModalViewController.swift; sourceTree = "<group>"; };
 		8CD0BDD722B0EA6C003F7E62 /* AutomaticallyInitialModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AutomaticallyInitialModalViewController.xib; sourceTree = "<group>"; };
 		A5EAF46B8CAF6E0829DAB0FC /* Pods-SwiftyFlow_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyFlow_Example.release.xcconfig"; path = "Target Support Files/Pods-SwiftyFlow_Example/Pods-SwiftyFlow_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -417,6 +435,7 @@
 		607FACD21AFB9204008FA782 /* Example for SwiftyFlow */ = {
 			isa = PBXGroup;
 			children = (
+				8C533215238FD18400BAE6EE /* ResolveRootViewWhenStart */,
 				455D1A1122AEE46100FF9D29 /* AutomaticallyNavigationFlowNib */,
 				455D19E822AEE46100FF9D29 /* AutomaticallyNavigationFlowNibWithLastModal */,
 				455D1A2A22AEE46100FF9D29 /* AutomaticallyNavigationFlowStoryboard */,
@@ -469,6 +488,30 @@
 				501A9A90E0C06E35943C5B44 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		8C533215238FD18400BAE6EE /* ResolveRootViewWhenStart */ = {
+			isa = PBXGroup;
+			children = (
+				8C53321B238FD2AC00BAE6EE /* ResolveRootNavigationNibContainer.swift */,
+				8C53321C238FD2AC00BAE6EE /* ViewControllers */,
+				8C533217238FD2AC00BAE6EE /* ResolveRootNibInitialViewController.xib */,
+				8C533218238FD2AC00BAE6EE /* ResolveRootFirstViewController.xib */,
+				8C533219238FD2AC00BAE6EE /* ResolveRootSecondViewController.xib */,
+				8C53321A238FD2AC00BAE6EE /* ResolveRootThirdViewController.xib */,
+			);
+			path = ResolveRootViewWhenStart;
+			sourceTree = "<group>";
+		};
+		8C53321C238FD2AC00BAE6EE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8C53321D238FD2AC00BAE6EE /* ResolveRootNibInitialViewController.swift */,
+				8C533224238FD42400BAE6EE /* ResolveRootFirstViewController.swift */,
+				8C533226238FD56F00BAE6EE /* ResolveRootSecondViewController.swift */,
+				8C533227238FD56F00BAE6EE /* ResolveRootThirdViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		8CF8FE179D56E34802318828 /* Pods */ = {
@@ -579,6 +622,7 @@
 			files = (
 				455D1A6822AEE46100FF9D29 /* DeeplinkSecondViewController.xib in Resources */,
 				455D1A6A22AEE46100FF9D29 /* DeeplinkSixthViewController.xib in Resources */,
+				8C533221238FD2AC00BAE6EE /* ResolveRootThirdViewController.xib in Resources */,
 				455D1A6C22AEE46100FF9D29 /* DeeplinkThirdViewController.xib in Resources */,
 				455D1A4C22AEE46100FF9D29 /* GoAnywhereFirstViewController.xib in Resources */,
 				455D1A5A22AEE46100FF9D29 /* AutomaticallyThirdViewController.xib in Resources */,
@@ -587,12 +631,14 @@
 				455D1A5722AEE46100FF9D29 /* ParameterInitialViewController.xib in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				455D1A3B22AEE46100FF9D29 /* AutomaticallyFourthModalViewController.xib in Resources */,
+				8C53321E238FD2AC00BAE6EE /* ResolveRootNibInitialViewController.xib in Resources */,
 				455D1A6722AEE46100FF9D29 /* DeeplinkInitialViewController.xib in Resources */,
 				455D1A6F22AEE46100FF9D29 /* AutomaticallyNavigationFlow.storyboard in Resources */,
 				455D1A5C22AEE46100FF9D29 /* AutomaticallySecondViewController.xib in Resources */,
 				455D1A4822AEE46100FF9D29 /* GoAnywhereSecondViewController.xib in Resources */,
 				455D1A4B22AEE46100FF9D29 /* GoAnywhereFifthViewController.xib in Resources */,
 				455D1A7522AEE46100FF9D29 /* FirstViewController.xib in Resources */,
+				8C533220238FD2AC00BAE6EE /* ResolveRootSecondViewController.xib in Resources */,
 				455D1A6E22AEE46100FF9D29 /* DeeplinkFourthViewController.xib in Resources */,
 				455D1A3A22AEE46100FF9D29 /* AutomaticallyThirdModalViewController.xib in Resources */,
 				455D1A7F22AEED2300FF9D29 /* LaunchScreen.storyboard in Resources */,
@@ -611,6 +657,7 @@
 				455D1A6922AEE46100FF9D29 /* DeeplinkFirstViewController.xib in Resources */,
 				455D1A4922AEE46100FF9D29 /* GoAnywhereThirdViewController.xib in Resources */,
 				455D1A7722AEE46100FF9D29 /* SecondViewController.xib in Resources */,
+				8C53321F238FD2AC00BAE6EE /* ResolveRootFirstViewController.xib in Resources */,
 				455D1A4E22AEE46100FF9D29 /* GoAnywhereSeventhViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -702,6 +749,7 @@
 				455D1A6322AEE46100FF9D29 /* DeeplinkSeventhViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				455D1A6022AEE46100FF9D29 /* DeeplinkSecondViewController.swift in Sources */,
+				8C533222238FD2AC00BAE6EE /* ResolveRootNavigationNibContainer.swift in Sources */,
 				455D1A4322AEE46100FF9D29 /* GoAnywhereSeventhViewController.swift in Sources */,
 				455D1A4F22AEE46100FF9D29 /* ParameterNavigationContainer.swift in Sources */,
 				455D1A7122AEE46100FF9D29 /* AutomaticallyInitialViewController.swift in Sources */,
@@ -709,6 +757,7 @@
 				455D1A6422AEE46100FF9D29 /* DeeplinkFifthViewController.swift in Sources */,
 				455D1A3E22AEE46100FF9D29 /* GoAnywhereNavigationContainer.swift in Sources */,
 				455D1A7222AEE46100FF9D29 /* AutomaticallySecondViewController.swift in Sources */,
+				8C533223238FD2AC00BAE6EE /* ResolveRootNibInitialViewController.swift in Sources */,
 				455D1A6222AEE46100FF9D29 /* DeeplinkThirdViewController.swift in Sources */,
 				455D1A5E22AEE46100FF9D29 /* DeeplinkFourthViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
@@ -724,11 +773,14 @@
 				455D1A4122AEE46100FF9D29 /* GoAnywhereFifthViewController.swift in Sources */,
 				455D1A6122AEE46100FF9D29 /* DeeplinkInitialViewController.swift in Sources */,
 				455D1A3F22AEE46100FF9D29 /* GoAnywhereInitialViewController.swift in Sources */,
+				8C533228238FD56F00BAE6EE /* ResolveRootSecondViewController.swift in Sources */,
 				455D1A3C22AEE46100FF9D29 /* AutomaticallyNavigationWithModalContainer.swift in Sources */,
 				455D1A4222AEE46100FF9D29 /* GoAnywhereFirstViewController.swift in Sources */,
+				8C533225238FD42400BAE6EE /* ResolveRootFirstViewController.swift in Sources */,
 				8CD0BDD622B0E867003F7E62 /* AutomaticallyInitialModalViewController.swift in Sources */,
 				455D1A5022AEE46100FF9D29 /* ParameterFourthViewController.swift in Sources */,
 				455D1A3D22AEE46100FF9D29 /* AutomaticallyThirdModalViewController.swift in Sources */,
+				8C533229238FD56F00BAE6EE /* ResolveRootThirdViewController.swift in Sources */,
 				455D1A5422AEE46100FF9D29 /* ParameterInitialViewController.swift in Sources */,
 				455D1A4522AEE46100FF9D29 /* GoAnywhereFourthViewController.swift in Sources */,
 			);
