@@ -15,7 +15,7 @@ public enum ViewIntanceFrom: Equatable {
     case nib
     case storyboard(String)
     
-    public static func == (lhs: Self, rhs: Self) -> Bool {
+    public static func == (lhs: ViewIntanceFrom, rhs: ViewIntanceFrom) -> Bool {
         switch (lhs, rhs) {
         case (.nib, .nib): return true
         case (let .storyboard(first), let .storyboard(second)):
