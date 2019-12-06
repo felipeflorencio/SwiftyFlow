@@ -14,6 +14,7 @@
 		6F2F0A8D685E59B7FCE825ADA2B16C45 /* ContainerFlowStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B641EA02CD2FA3DED513B52ECB37FA /* ContainerFlowStack.swift */; };
 		7FA839B62DFB7DC0DA5108727BC429D9 /* SwiftyFlow-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8FE784A5C19AB89DE0CAE7981114FE /* SwiftyFlow-dummy.m */; };
 		8C533214238FC63700BAE6EE /* FlowManager+NavigationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C533212238FC63000BAE6EE /* FlowManager+NavigationExtension.swift */; };
+		8C53CD73239A9C5B00C62819 /* FlowManager+HelperExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C53CD72239A9C5B00C62819 /* FlowManager+HelperExtension.swift */; };
 		91E426066AEA3C6D4B86B0B2C2544BE4 /* ContainerFlowStack+GenericExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C0EF2242752B4C8E3432E1F055878 /* ContainerFlowStack+GenericExtension.swift */; };
 		921DEC240FC3C373E243AE8EB2EA5706 /* FlowManagerInitializer+GenericExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D43B43232D77BC3859D4733189340A /* FlowManagerInitializer+GenericExtension.swift */; };
 		969154BFC47E0EC13B01CE846FB69742 /* Pods-SwiftyFlow_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DFF4A466F89BDB00F4AB33A9346526 /* Pods-SwiftyFlow_Example-dummy.m */; };
@@ -66,6 +67,7 @@
 		847C0EF2242752B4C8E3432E1F055878 /* ContainerFlowStack+GenericExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ContainerFlowStack+GenericExtension.swift"; path = "SwiftyFlow/Classes/ContainerFlowStack+GenericExtension.swift"; sourceTree = "<group>"; };
 		8B03A93B1236B6ABC34E47B935EE6676 /* Pods-SwiftyFlow_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftyFlow_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		8C533212238FC63000BAE6EE /* FlowManager+NavigationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FlowManager+NavigationExtension.swift"; path = "SwiftyFlow/Classes/FlowManager+NavigationExtension.swift"; sourceTree = "<group>"; };
+		8C53CD72239A9C5B00C62819 /* FlowManager+HelperExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FlowManager+HelperExtension.swift"; path = "SwiftyFlow/Classes/FlowManager+HelperExtension.swift"; sourceTree = "<group>"; };
 		9010EEEC8919983529321CA52648A0E9 /* SwiftyFlow-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyFlow-umbrella.h"; sourceTree = "<group>"; };
 		907A58E285C40908CD25F66C870332D2 /* SwiftyFlow-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftyFlow-Info.plist"; sourceTree = "<group>"; };
 		92DAD79BA00050A51D2D118C9B2A8F1E /* Pods-SwiftyFlow_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftyFlow_Tests-umbrella.h"; sourceTree = "<group>"; };
@@ -143,9 +145,10 @@
 			isa = PBXGroup;
 			children = (
 				B5B641EA02CD2FA3DED513B52ECB37FA /* ContainerFlowStack.swift */,
-				847C0EF2242752B4C8E3432E1F055878 /* ContainerFlowStack+GenericExtension.swift */,
 				9FC3265CFDE1239E36AD04C059789B8A /* FlowElementContainer.swift */,
 				CA9E0ED6866D8F5BD0DF1BF1677AC98C /* FlowManager.swift */,
+				847C0EF2242752B4C8E3432E1F055878 /* ContainerFlowStack+GenericExtension.swift */,
+				8C53CD72239A9C5B00C62819 /* FlowManager+HelperExtension.swift */,
 				8C533212238FC63000BAE6EE /* FlowManager+NavigationExtension.swift */,
 				61D43B43232D77BC3859D4733189340A /* FlowManagerInitializer+GenericExtension.swift */,
 				52DF866A5D83DAD701A385F2BBB39013 /* NavigationFlowProtocol.swift */,
@@ -416,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10C3154DD3CAB3BA54F836072434043E /* Array+Extension.swift in Sources */,
+				8C53CD73239A9C5B00C62819 /* FlowManager+HelperExtension.swift in Sources */,
 				91E426066AEA3C6D4B86B0B2C2544BE4 /* ContainerFlowStack+GenericExtension.swift in Sources */,
 				6F2F0A8D685E59B7FCE825ADA2B16C45 /* ContainerFlowStack.swift in Sources */,
 				DB1B952F3A898DC7606AF5F17369480F /* FlowElementContainer.swift in Sources */,

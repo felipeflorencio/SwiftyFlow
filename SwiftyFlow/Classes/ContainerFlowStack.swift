@@ -168,7 +168,6 @@ public class ContainerFlowStack {
      */
     func replaceInstanceReference<T: UIViewController>(for type: T.Type, instance reference: () -> UIViewController) {
         let module = modules.first { element -> Bool in
-            debugPrint("Type requesting replace: \(type)")
             debugPrint("Container type replace: \(element.forType)")
             
             return element.forType == type

@@ -126,23 +126,24 @@ public class FlowManager {
         - finishedLoad: `optional` - Convenience closure that will let you know when you finished the flow.
      
      ### Usage Example: ###
-         ````
-            flowManager.startWith(root: { () -> UIViewController.Type in
-                // This is just a way to have some implementation that check the type
-                // and will select the type according to the view controller, would be
-                // your view controller type
-                switch self.flowType {
-                case .normal:
-                    return UIViewController.self
-                case .withConfirmation:
-                    return UIViewController.self
-                case .awareness:
-                    return UIViewController.self
-                }
-            }, resolved: { rootViewInstance in
-                rootInstance.variable = "Any data that you want"
-            })
-         ````
+     
+     ````
+        flowManager.startWith(root: { () -> UIViewController.Type in
+            // This is just a way to have some implementation that check the type
+            // and will select the type according to the view controller, would be
+            // your view controller type
+            switch self.flowType {
+            case .normal:
+                return UIViewController.self
+            case .withConfirmation:
+                return UIViewController.self
+            case .awareness:
+                return UIViewController.self
+            }
+        }, resolved: { rootViewInstance in
+            rootInstance.variable = "Any data that you want"
+        })
+     ````
      */
     public func startWith<T: UIViewController>(root instanceType: () -> T.Type,
                                                resolved instance: (T) -> (),
@@ -347,23 +348,6 @@ public class FlowManager {
         dismissModalCallBackClosure = invoker
         return self
     }
-    
-    // MARK: Public variable accessor
-    /**
-     Helper method that you can get the instance reference to the
-     `UINavigationController` in case you do not provided a custom one
-     */
-    public func managerNavigation() -> UINavigationController? {
-        return self.navigationController
-    }
-    
-    /**
-     Helper method that give you back the container flow stack reference
-     */
-    public func container() -> ContainerFlowStack? {
-        return self.containerStack
-    }
-    
     
     // MARK: Private Helpers
     // This are our initializer functionality splitted, as when we have the scenario that we

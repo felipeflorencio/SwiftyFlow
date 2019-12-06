@@ -162,6 +162,7 @@ extension FlowManager {
         
         // It's mandatory to have this in order to have track about where we are
         self.adjustViewReferenceState(for: type(of: controller.self))
+        stackState()
         
         // Here is used to pass (create reference) of the data tha we will request / resolve
         // when load the next screen, the main purpouse is to be used with storyboards as we

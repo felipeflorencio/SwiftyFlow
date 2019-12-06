@@ -235,6 +235,7 @@ extension FlowManager {
                   return self
               }
               self.adjustViewReferenceState(for: view.forType, back: withStyle)
+              stackState()
               
               navigation.popToRootViewController(animated: animated)
           case .pop(let animated):
@@ -244,6 +245,7 @@ extension FlowManager {
                   return self
               }
               self.adjustViewReferenceState(for: view.forType, back: withStyle)
+              stackState()
               
               navigation.popViewController(animated: animated)
           case .popTo(let animated):
@@ -255,7 +257,8 @@ extension FlowManager {
                       return
                   }
                   self?.adjustViewReferenceState(for: type(of: viewController), back: withStyle)
-                  
+                  self?.stackState()
+                
                   navigation.popToViewController(viewController, animated: animated)
               })
           case .modal(let animated):
@@ -265,6 +268,7 @@ extension FlowManager {
                   return self
               }
               self.adjustViewReferenceState(for: view.forType, back: withStyle)
+              stackState()
               
               navigation.dismiss(animated: animated, completion: { [unowned self] in
                   self.dismissModalCallBackClosure?()
@@ -317,6 +321,8 @@ extension FlowManager {
         
         // It's mandatory to have this in order to have track about where we are
         self.adjustViewReferenceState(for: type(of: controller.self))
+        self.stackState()
+        
         controller.modalPresentationStyle = style
         navigation.present(controller, animated: modalShow, completion: completion)
         
