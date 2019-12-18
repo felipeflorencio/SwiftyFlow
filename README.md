@@ -502,7 +502,7 @@ pod 'SwiftyFlow'
 To install Swinject with Carthage, add the following line to your `Cartfile`.
 
 ```
-github "felipeflorencio/SwiftyFlow" ~> 0.6.0
+github "felipeflorencio/SwiftyFlow" ~> 0.7.0
 ```
 
 ## Documentation
