@@ -143,6 +143,7 @@ extension FlowManager {
     
     // MARK: - Internal Methods
     internal func navigateUsingParameter<T: UIViewController, Resolver>(parameters data: @escaping () -> ((Resolver)),
+                                                                        customIdentifier: String? = nil,
                                                                         next viewTo: T.Type,
                                                                         resolve asType: ViewIntanceFrom = .nib,
                                                                         resolved instance: ((T) -> ())? = nil) {
@@ -151,9 +152,26 @@ extension FlowManager {
         }
         
         let navigationType = self.defaultNavigationType ?? asType
+       
+        var controllerToUse: UIViewController?
         
-        guard let controller = self._resolveInstance(viewController: navigationType, for: viewTo, parameters: data) else {
-            debugPrint("Could not retrieve the view controller to push")
+        if let customIdentifier = customIdentifier {
+            guard let controllerResolved = self._resolveInstance(viewController: navigationType, for: viewTo, customIdentifier: customIdentifier, parameters: data) else {
+                debugPrint("Could not retrieve the view controller to push")
+                return
+            }
+            controllerToUse = controllerResolved
+
+        } else {
+            guard let controllerResolved = self._resolveInstance(viewController: navigationType, for: viewTo, parameters: data) else {
+                debugPrint("Could not retrieve the view controller to push")
+                return
+            }
+            controllerToUse = controllerResolved
+        }
+        
+        guard let controller = controllerToUse else {
+            debugPrint("There's no view controller to push")
             return
         }
         

@@ -382,7 +382,10 @@ public class FlowManager {
     // In order to centralize the resolver methods that because how swift works and in order
     // to be able to be generic enough we are using types to describe how many parameter do we
     // have in order to be able to know which resolve we will call
-    internal func _resolveInstance<T: UIViewController, Resolver>(viewController from: ViewIntanceFrom, for view: T.Type, parameters resolver: (() -> ((Resolver)))? = nil) -> UIViewController? {
+    internal func _resolveInstance<T: UIViewController, Resolver>(viewController from: ViewIntanceFrom,
+                                                                  for view: T.Type,
+                                                                  customIdentifier: String? = nil,
+                                                                  parameters resolver: (() -> ((Resolver)))? = nil) -> UIViewController? {
         switch from {
         case .storyboard(let storyboard):
             let storyboardName = storyboard.count == 0 ? "Main" : storyboard
@@ -409,13 +412,21 @@ public class FlowManager {
             // any parameter it's not possible just to set nil, you need to have some type because
             // otherwise the compiler will complaing that he can't identify the type as is generic
             if let _ = resolver as? () -> (Void) {
-                resolvedInstance = containerStack?.resolve(for: view)
+                if let customIdentifier = customIdentifier {
+                    resolvedInstance = containerStack?.resolve(for: view, customIdentifier: customIdentifier)
+                } else {
+                    resolvedInstance = containerStack?.resolve(for: view)
+                }
             } else {
                 guard let resolverParameters = resolver else {
                     debugPrint("Check if you properly set any argument(s) as we don't have so something is missing")
                     return nil
                 }
-                resolvedInstance = containerStack?.resolve(for: view, parameters: resolverParameters)
+                if let customIdentifier = customIdentifier {
+                    resolvedInstance = containerStack?.resolve(for: view, customIdentifier: customIdentifier, parameters: resolverParameters)
+                } else {
+                    resolvedInstance = containerStack?.resolve(for: view, parameters: resolverParameters)
+                }
             }
             
             return resolvedInstance

@@ -154,5 +154,21 @@ class ViewController: UIViewController {
             }
         })
     }
+    
+    // MARK: - Use same view controller with different identifier
+    // If you do not set the return for some class variable after being allocated the
+    // the object will be deallocated as is the normal behaviour in order to avoid
+    // retain cycle
+    var flowManagerUsingSameViewController: FlowManager?
+    @IBAction func navigationUsingSameViewControllerFlow() {
+        let navigationStack = NavigateWhenHaveSameViewControllerContainer().setup()
+        
+        flowManagerUsingSameViewController = FlowManager(root: SameInitialViewController.self,
+                                                       container: navigationStack,
+                                                       dismissed: {
+                                                        debugPrint("finished")
+        })
+        flowManagerUsingSameViewController?.start()
+    }
 }
 

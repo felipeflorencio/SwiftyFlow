@@ -18,6 +18,7 @@ extension FlowManager {
      
      - Parameters:
         - screen: The type of the view controller that you want to next.
+        - customIdentifier: `optional` - String that is custom identifier to identify particular view
         - paramer: Closure that expect a `type` that will be used when resolve this screen that you are calling.
         - resolve: `optional` - How the view for this screen will be loaded, the default one is `.nib`.
         - resolved: `optional` - Convenience closure that will return the loaded instance reference for this loaded view, it's good when you want to set some values or pass any parameter not using the custom resolve, you will have the right reference to pass value.
@@ -35,14 +36,24 @@ extension FlowManager {
          }, resolve: .nib, resolved: { resolveView in
             // resolve view
          })
+     
+         // Basic implementation with custom Identifier
+         navigationFlow?.goNextWith(screen: ParameterFirstViewController.self, customIdentifier: "ChoseThisScreen", parameters: { () -> ((String, Int)) in
+            return ("Felipe Garcia", 232)
+         })
      ````
      */
     public func goNextWith<T: UIViewController, Resolver>(screen view: T.Type,
+                                                          customIdentifier: String? = nil,
                                                           parameters data: @escaping () -> ((Resolver)),
                                                           resolve asType: ViewIntanceFrom = .nib,
                                                           resolved instance: ((T) -> ())? = nil) {
         
-        self.navigateUsingParameter(parameters: data, next: view.self, resolve: asType, resolved: instance)
+        self.navigateUsingParameter(parameters: data,
+                                    customIdentifier: customIdentifier,
+                                    next: view.self,
+                                    resolve: asType,
+                                    resolved: instance)
     }
     
       /**
@@ -50,6 +61,7 @@ extension FlowManager {
        
        - Parameters:
           - screen: The type of the screen that you want to go, need to be registered in your container flow stack.
+          - customIdentifier: `optional` - String that is custom identifier to identify particular view
           - resolve: `optional` - How the view for this screen will be loaded, the default one is `.nib`.
           - resolved: `optional` - Convenience closure that will return the loaded instance reference for this loaded view, it's good when you want to set some values or pass any parameter not using the custom resolve, you will have the right reference to pass value.
        
@@ -60,14 +72,27 @@ extension FlowManager {
                                  resolved: { resolveViewInstance in
               resolveViewInstance.nameForTitle = "Setting value on the next view"
           })
+     
+          // Basic implementation with custom Identifier
+          navigationFlow?.goNext(screen: SecondViewController.self,
+                                 customIdentifier: "ChoseThisScreen","
+                                 resolve: .nib,
+                                 resolved: { resolveViewInstance in
+              resolveViewInstance.nameForTitle = "Setting value on the next view"
+          })
        ````
        */
       public func goNext<T: UIViewController>(screen view: T.Type,
+                                              customIdentifier: String? = nil,
                                               resolve asType: ViewIntanceFrom = .nib,
                                               resolved instance: ((T) -> ())? = nil) {
           
           let emptyParameter: (() -> (Void)) = {}
-          self.navigateUsingParameter(parameters: emptyParameter, next: view, resolve: asType, resolved: instance)
+          self.navigateUsingParameter(parameters: emptyParameter,
+                                      customIdentifier: customIdentifier,
+                                      next: view,
+                                      resolve: asType,
+                                      resolved: instance)
       }
       
       /**
@@ -77,6 +102,7 @@ extension FlowManager {
        
        - Parameters:
           - resolve: `optional` - How the view for this screen will be loaded, the default one is `.nib`.
+          - customIdentifier: `optional` - String that is custom identifier to identify particular view
           - resolved: `optional` - Convenience closure that will return the loaded instance reference for this loaded view, it's good when you want to set some values or pass any parameter not using the custom resolve, you will have the right reference to pass value.
        
        ### Usage Example: ###
@@ -92,6 +118,7 @@ extension FlowManager {
        ````
        */
       public func goNext<T: UIViewController>(resolve asType: ViewIntanceFrom = .nib,
+                                              customIdentifier: String? = nil,
                                               resolved instance: ((T) -> ())? = nil) {
           
           guard let nextViewElement = self.findNextElementToNavigate() else {
@@ -99,7 +126,10 @@ extension FlowManager {
               return
           }
           
-          self.goNext(screen: nextViewElement.forType as! T.Type, resolve: asType, resolved: instance)
+          self.goNext(screen: nextViewElement.forType as! T.Type,
+                      customIdentifier: customIdentifier,
+                      resolve: asType,
+                      resolved: instance)
       }
       
       /**
@@ -111,6 +141,7 @@ extension FlowManager {
        
        - Parameters:
           - screen: `optional` - The type of the screen that you want to go, need to be registered in your container flow stack.
+          - customIdentifier: `optional` - String that is custom identifier to identify particular view
           - resolve: `optional` - How the view for this screen will be loaded, the default one is `.nib`.
           - animated: `optional` - If you want to show the modal view presentation animated or not, default is animated.
           - resolved: `optional` - Convenience closure that will return the loaded instance reference for this loaded view, it's good when you want to set some values or pass any parameter not using the custom resolve, you will have the right reference to pass value.
@@ -133,10 +164,22 @@ extension FlowManager {
            }, completion: {
               // Finished presenting this modal.
            })
+     
+            // Implementation specifying custom identifier
+            navigationFlow?.goNextAsModal(screen: SecondViewController.self,
+                                          customIdentifier: "MyCustomViewToLoad",
+                                          resolve: .nib,
+                                          animated: true,
+                                          resolved: { resolveViewInstance in
+                   resolveViewInstance.nameForTitle = "Setting value on the next view"
+            }, completion: {
+               // Finished presenting this modal.
+            })
        ````
        */
       @discardableResult
       public func goNextAsModal<T: UIViewController>(screen view: T.Type? = nil,
+                                                     customIdentifier: String? = nil,
                                                      resolve asType: ViewIntanceFrom = .nib,
                                                      animated modalShow: Bool = true,
                                                      resolved instance: ((T) -> ())? = nil,
@@ -144,6 +187,7 @@ extension FlowManager {
                                                      completion: (() -> Void)? = nil) -> Self {
         let emptyParameter: () -> (Void) = {}
         return self.navigateAsModal(screen: view,
+                                    customIdentifier: customIdentifier,
                                     parameters: emptyParameter,
                                     instantiate: asType,
                                     animated: modalShow,
@@ -162,6 +206,7 @@ extension FlowManager {
          - Parameters:
             - paramer: Closure that expect a `type` that will be used when resolve this screen that you are calling.
             - screen: The type of the screen that you want to go, need to be registered in your container flow stack.
+            - customIdentifier: `optional` - String that is custom identifier to identify particular view
             - resolve: `optional` - How the view for this screen will be loaded, the default one is `.nib`.
             - animated: `optional` - If you want to show the modal view presentation animated or not, default is animated.
             - resolved: `optional` - Convenience closure that will return the loaded instance reference for this loaded view, it's good when you want to set some values or pass any parameter not using the custom resolve, you will have the right reference to pass value.
@@ -177,17 +222,24 @@ extension FlowManager {
              navigationFlow?.goNextAsModalWith(parameters: {
                  return ("Any Data")
              }, screen: SecondViewController.self })
+     
+             // Simple implementation with identifier
+             navigationFlow?.goNextAsModalWith(parameters: {
+                 return ("Any Data")
+             }, screen: SecondViewController.self, customIdentifier: "MyCustomViewToLoad" })
          ````
          */
     @discardableResult
     public func goNextAsModalWith<T: UIViewController, Resolver>(parameters data: @escaping () -> ((Resolver)),
                                                                  screen view: T.Type,
+                                                                 customIdentifier: String? = nil,
                                                                  resolve asType: ViewIntanceFrom = .nib,
                                                                  animated modalShow: Bool = true,
                                                                  resolved instance: ((T) -> ())? = nil,
                                                                  presentation style: UIModalPresentationStyle = .fullScreen,
                                                                  completion: (() -> Void)? = nil) -> Self {
             return self.navigateAsModal(screen: view,
+                                        customIdentifier: customIdentifier,
                                         parameters: data,
                                         instantiate: asType,
                                         animated: modalShow,
@@ -282,6 +334,7 @@ extension FlowManager {
     // As we have more than one method that can be use for modal, we abstracted our core
     // functionality to this method, so we can use the same logic between the two methods
     internal func navigateAsModal<T: UIViewController, Resolver>(screen view: T.Type? = nil,
+                                                                 customIdentifier: String? = nil,
                                                                  parameters: @escaping () -> ((Resolver)),
                                                                  instantiate asType: ViewIntanceFrom = .nib,
                                                                  animated modalShow: Bool = true,
@@ -311,8 +364,25 @@ extension FlowManager {
         
         let navigationType = self.defaultNavigationType ?? asType
         
-        guard let controller = self._resolveInstance(viewController: navigationType, for: toGoNext, parameters: parameters) else {
-            debugPrint("Could not retrieve the view controller to present modally")
+        var controllerToUse: UIViewController?
+        
+        if let customIdentifier = customIdentifier {
+            guard let controllerResolved = self._resolveInstance(viewController: navigationType, for: toGoNext, customIdentifier: customIdentifier, parameters: parameters) else {
+                debugPrint("Could not retrieve the view controller to present modally")
+                return self
+            }
+            controllerToUse = controllerResolved
+
+        } else {
+            guard let controllerResolved = self._resolveInstance(viewController: navigationType, for: toGoNext, parameters: parameters) else {
+                debugPrint("Could not retrieve the view controller to present modally")
+                return self
+            }
+            controllerToUse = controllerResolved
+        }
+        
+        guard let controller = controllerToUse else {
+            debugPrint("There's no view controller to present modally")
             return self
         }
         

@@ -81,6 +81,29 @@ public class ContainerFlowStack {
     }
     
     /**
+    This is the registration method, it's used for you register the View Controllers that you will use in your flow manager, the order that you declare will be used if you use the automatic navigation method.
+    
+    - Parameters:
+       - type: The Type of your View Controller that you want to register.
+       - customIdentifier: String that is custom identifier to identify particular view
+       - resolve: Closure that will be called to get the instance that you registered, is the same as your type.
+    
+    ### Usage Example: ###
+    ````
+       ContainerFlowStack().registerModule(for: DeeplinkInitialViewController.self, customIdentifier: "MyCustomView") { () -> DeeplinkInitialViewController in
+           return DeeplinkInitialViewController()
+       }
+    ````
+    */
+    @discardableResult
+    public func registerModule<T: UIViewController>(for type: T.Type, customIdentifier: String, resolve: @escaping () -> T?) -> FlowElementContainer<UIViewController> {
+        let elementContainer = FlowElementContainer<UIViewController>(for: type, customIdentifier: customIdentifier, resolving: resolve)
+        modules.append(elementContainer)
+        
+        return elementContainer
+    }
+    
+    /**
     This is the method that is used to register the root view when using your own custom navigation controller.
     
     - Parameter type: View Controller type that you want to register
@@ -153,6 +176,25 @@ public class ContainerFlowStack {
             debugPrint("Container type: \(element.forType)")
             
             return element.forType == item
+        }
+        
+        return module?.resolve()
+    }
+    
+    /**
+     This is the method that is used to resolve the instances that we declared inside our container.
+     
+     - Parameters:
+        - item: View Controller type that you want to resolve
+        - customIdentifier: String that is custom identifier to identify particular view
+
+     */
+    func resolve<T: UIViewController>(for item: T.Type, customIdentifier: String) -> T? {
+        let module = modules.first { element -> Bool in
+            debugPrint("Type requesting: \(item)")
+            debugPrint("Container type: \(element.forType)")
+            
+            return element.forType == item && element.customIdentifier == customIdentifier
         }
         
         return module?.resolve()

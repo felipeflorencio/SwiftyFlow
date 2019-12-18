@@ -41,6 +41,7 @@ public class FlowElementContainer<T> {
     
     private(set) var scope: Scope = .weak
     private(set) var forType: T.Type
+    private(set) var customIdentifier: String?
     private weak var weakInstance: AnyObject?
     private var strongInstance: T?
     private(set) var arguments: Any?
@@ -59,6 +60,20 @@ public class FlowElementContainer<T> {
     }
     
     /**
+     Flow element container initialiser
+     
+     - Parameters:
+        - for: The type of the View Controller that you want to register.
+        - customIdentifier: String that is custom identifier to identify particular view
+        - resolving: Is the closure that will be called when Flow Manager need to get the instance of the type that you declared
+     */
+    public init(for type: T.Type, customIdentifier: String, resolving: @escaping Container) {
+        factory = resolving
+        forType = type
+        self.customIdentifier = customIdentifier
+    }
+    
+    /**
      Flow element container initialiser for when you want to resolving receiving the parameters from the caller
      
      - Parameters:
@@ -70,6 +85,22 @@ public class FlowElementContainer<T> {
         factoryParameter = resolving
         forType = type
         arguments = arg
+    }
+    
+    /**
+     Flow element container initialiser for when you want to resolving receiving the parameters from the caller
+     
+     - Parameters:
+        - for: The type of the View Controller that you want to register.
+        - customIdentifier: String that is custom identifier to identify particular view
+        - with: The arguments that you will want to have, `Any` as type.
+        - resolving: Is the closure that will be called when Flow Manager need to get the instance of the type that you declared.
+     */
+    public init(for type: T.Type, customIdentifier: String, with arg: Any, resolving: CallbackFunctionType) {
+        factoryParameter = resolving
+        forType = type
+        arguments = arg
+        self.customIdentifier = customIdentifier
     }
     
     deinit {
@@ -163,5 +194,12 @@ public class FlowElementContainer<T> {
      */
     public func type() -> T.Type {
         return self.forType
+    }
+    
+    /**
+     Return the identifier of this element
+     */
+    public func identifier() -> String? {
+        return self.customIdentifier
     }
 }
