@@ -420,9 +420,9 @@ use to register your dependencies</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10SwiftyFlow09ContainerB5StackC27registerModuleWithParameter3for7resolveAA0b7ElementC0CySo16UIViewControllerCGxm_xSgq_ctAJRbzr0_lF"></a>
-                    <a name="//apple_ref/swift/Method/registerModuleWithParameter(for:resolve:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftyFlow09ContainerB5StackC27registerModuleWithParameter3for7resolveAA0b7ElementC0CySo16UIViewControllerCGxm_xSgq_ctAJRbzr0_lF">registerModuleWithParameter(for:resolve:)</a>
+                    <a name="/s:10SwiftyFlow09ContainerB5StackC27registerModuleWithParameter3for16customIdentifier7resolveAA0b7ElementC0CySo16UIViewControllerCGxm_SSSgxSgq_ctAKRbzr0_lF"></a>
+                    <a name="//apple_ref/swift/Method/registerModuleWithParameter(for:customIdentifier:resolve:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow09ContainerB5StackC27registerModuleWithParameter3for16customIdentifier7resolveAA0b7ElementC0CySo16UIViewControllerCGxm_SSSgxSgq_ctAKRbzr0_lF">registerModuleWithParameter(for:customIdentifier:resolve:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -446,6 +446,17 @@ use to register your dependencies</p>
 
        <span class="k">return</span> <span class="n">initialViewController</span>
     <span class="p">}</span>
+
+    <span class="c1">// Or if you have a custom identifier</span>
+    <span class="n">containerStack</span><span class="o">.</span><span class="nf">registerModuleWithParameter</span><span class="p">(</span><span class="nv">for</span><span class="p">:</span> <span class="kt">ParameterInitialViewController</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">customIdentifier</span><span class="p">:</span> <span class="s">"MyCustomViewToLoad"</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">arguments</span><span class="p">:</span> <span class="p">(</span><span class="kt">String</span><span class="p">,</span> <span class="kt">Double</span><span class="p">,</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">Int</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kt">ParameterInitialViewController</span><span class="p">?</span> <span class="k">in</span>
+
+           <span class="nf">let</span> <span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span><span class="p">,</span> <span class="n">fourth</span><span class="p">)</span> <span class="o">=</span> <span class="n">arguments</span>
+
+           <span class="k">let</span> <span class="nv">initialViewController</span> <span class="o">=</span> <span class="kt">ParameterInitialViewController</span><span class="p">()</span>
+           <span class="n">initialViewController</span><span class="o">.</span><span class="nf">setParameters</span><span class="p">(</span><span class="nv">first</span><span class="p">:</span> <span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span><span class="p">,</span> <span class="n">fourth</span><span class="p">)</span>
+
+           <span class="k">return</span> <span class="n">initialViewController</span>
+        <span class="p">}</span>
 </code></pre>
 <div class="aside aside-important">
     <p class="aside-title">Important</p>
@@ -459,7 +470,7 @@ use to register your dependencies</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="n">registerModuleWithParameter</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">Resolver</span><span class="o">&gt;</span><span class="p">(</span><span class="k">for</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span> <span class="nv">resolve</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">Resolver</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/FlowElementContainer.html">FlowElementContainer</a></span><span class="o">&lt;</span><span class="kt">UIViewController</span><span class="o">&gt;</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="n">registerModuleWithParameter</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">Resolver</span><span class="o">&gt;</span><span class="p">(</span><span class="k">for</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span> <span class="nv">customIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">resolve</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">Resolver</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/FlowElementContainer.html">FlowElementContainer</a></span><span class="o">&lt;</span><span class="kt">UIViewController</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -476,6 +487,18 @@ use to register your dependencies</p>
                               <td>
                                 <div>
                                   <p>The View Controller type that you want to register.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>customIdentifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - String that is custom identifier to identify particular view</p>
                                 </div>
                               </td>
                             </tr>

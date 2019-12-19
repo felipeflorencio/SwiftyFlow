@@ -17,6 +17,7 @@ extension ContainerFlowStack {
      
      - Parameters:
         - type: The View Controller type that you want to register.
+        - customIdentifier: `optional` - String that is custom identifier to identify particular view
         - resolve: Closure with the declaration of the type(s) that you will expect as parameter.
      
      - Returns: FlowElementContainer container.
@@ -34,15 +35,32 @@ extension ContainerFlowStack {
      
             return initialViewController
          }
+     
+         // Or if you have a custom identifier
+         containerStack.registerModuleWithParameter(for: ParameterInitialViewController.self, customIdentifier: "MyCustomViewToLoad") { (arguments: (String, Double, String, Int)) -> ParameterInitialViewController? in
+         
+                let (first, second, third, fourth) = arguments
+         
+                let initialViewController = ParameterInitialViewController()
+                initialViewController.setParameters(first: first, second, third, fourth)
+         
+                return initialViewController
+             }
      ````
      
      - Important: If you want to use more than one parameter it's important to use tuple, as how generic works in order to identify you need to have a type of the thing so generics will understand about, this is why when we have multiples parameter we type as tuple.
     */
     @discardableResult
-    public func registerModuleWithParameter<T: UIViewController, Resolver>(for type: T.Type, resolve: @escaping ((Resolver)) -> T?) -> FlowElementContainer<UIViewController> {
+    public func registerModuleWithParameter<T: UIViewController, Resolver>(for type: T.Type, customIdentifier: String? = nil, resolve: @escaping ((Resolver)) -> T?) -> FlowElementContainer<UIViewController> {
         
-        let elementContainer = FlowElementContainer<UIViewController>(for: type, with: (Resolver).self, resolving: resolve)
-        modules.append(elementContainer)
+        let elementContainer: FlowElementContainer<UIViewController>
+        if let customIdentifier = customIdentifier {
+            elementContainer = FlowElementContainer<UIViewController>(for: type, customIdentifier: customIdentifier, with: (Resolver).self, resolving: resolve)
+            modules.append(elementContainer)
+        } else {
+            elementContainer = FlowElementContainer<UIViewController>(for: type, with: (Resolver).self, resolving: resolve)
+            modules.append(elementContainer)
+        }
         
         return elementContainer
     }
