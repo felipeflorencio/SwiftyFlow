@@ -14,7 +14,7 @@
     <a title="FlowManager Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">SwiftyFlow Docs</a> (83% documented)</p>
+        <p><a href="../index.html">SwiftyFlow Docs</a> (85% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -797,9 +797,9 @@ have a visual understand how your stack is right now</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10SwiftyFlow0B7ManagerC10goNextWith6screen10parameters7resolve8resolvedyxm_q_ycAA15ViewIntanceFromOyxcSgtSo16UIViewControllerCRbzr0_lF"></a>
-                    <a name="//apple_ref/swift/Method/goNextWith(screen:parameters:resolve:resolved:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC10goNextWith6screen10parameters7resolve8resolvedyxm_q_ycAA15ViewIntanceFromOyxcSgtSo16UIViewControllerCRbzr0_lF">goNextWith(screen:parameters:resolve:resolved:)</a>
+                    <a name="/s:10SwiftyFlow0B7ManagerC10goNextWith6screen16customIdentifier10parameters7resolve8resolvedyxm_SSSgq_ycAA15ViewIntanceFromOyxcSgtSo16UIViewControllerCRbzr0_lF"></a>
+                    <a name="//apple_ref/swift/Method/goNextWith(screen:customIdentifier:parameters:resolve:resolved:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC10goNextWith6screen16customIdentifier10parameters7resolve8resolvedyxm_SSSgq_ycAA15ViewIntanceFromOyxcSgtSo16UIViewControllerCRbzr0_lF">goNextWith(screen:customIdentifier:parameters:resolve:resolved:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -823,6 +823,11 @@ always have type and the values are inside</p>
     <span class="p">},</span> <span class="nv">resolve</span><span class="p">:</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span> <span class="nv">resolved</span><span class="p">:</span> <span class="p">{</span> <span class="n">resolveView</span> <span class="k">in</span>
        <span class="c1">// resolve view</span>
     <span class="p">})</span>
+
+    <span class="c1">// Basic implementation with custom Identifier</span>
+    <span class="n">navigationFlow</span><span class="p">?</span><span class="o">.</span><span class="nf">goNextWith</span><span class="p">(</span><span class="nv">screen</span><span class="p">:</span> <span class="kt">ParameterFirstViewController</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">customIdentifier</span><span class="p">:</span> <span class="s">"ChoseThisScreen"</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="p">((</span><span class="kt">String</span><span class="p">,</span> <span class="kt">Int</span><span class="p">))</span> <span class="k">in</span>
+       <span class="nf">return</span> <span class="p">(</span><span class="s">"Felipe Garcia"</span><span class="p">,</span> <span class="mi">232</span><span class="p">)</span>
+    <span class="p">})</span>
 </code></pre>
 
                       </div>
@@ -831,6 +836,7 @@ always have type and the values are inside</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">goNextWith</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">Resolver</span><span class="o">&gt;</span><span class="p">(</span><span class="n">screen</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span>
+                                                      <span class="nv">customIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
                                                       <span class="n">parameters</span> <span class="nv">data</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="p">((</span><span class="kt">Resolver</span><span class="p">)),</span>
                                                       <span class="n">resolve</span> <span class="nv">asType</span><span class="p">:</span> <span class="kt"><a href="../Enums/ViewIntanceFrom.html">ViewIntanceFrom</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
                                                       <span class="n">resolved</span> <span class="nv">instance</span><span class="p">:</span> <span class="p">((</span><span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
@@ -850,6 +856,18 @@ always have type and the values are inside</p>
                               <td>
                                 <div>
                                   <p>The type of the view controller that you want to next.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>customIdentifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - String that is custom identifier to identify particular view</p>
                                 </div>
                               </td>
                             </tr>
@@ -898,9 +916,9 @@ always have type and the values are inside</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10SwiftyFlow0B7ManagerC6goNext6screen7resolve8resolvedyxm_AA15ViewIntanceFromOyxcSgtSo16UIViewControllerCRbzlF"></a>
-                    <a name="//apple_ref/swift/Method/goNext(screen:resolve:resolved:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC6goNext6screen7resolve8resolvedyxm_AA15ViewIntanceFromOyxcSgtSo16UIViewControllerCRbzlF">goNext(screen:resolve:resolved:)</a>
+                    <a name="/s:10SwiftyFlow0B7ManagerC6goNext6screen16customIdentifier7resolve8resolvedyxm_SSSgAA15ViewIntanceFromOyxcSgtSo16UIViewControllerCRbzlF"></a>
+                    <a name="//apple_ref/swift/Method/goNext(screen:customIdentifier:resolve:resolved:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC6goNext6screen16customIdentifier7resolve8resolvedyxm_SSSgAA15ViewIntanceFromOyxcSgtSo16UIViewControllerCRbzlF">goNext(screen:customIdentifier:resolve:resolved:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -915,7 +933,15 @@ always have type and the values are inside</p>
                           <span class="nv">resolved</span><span class="p">:</span> <span class="p">{</span> <span class="n">resolveViewInstance</span> <span class="k">in</span>
        <span class="n">resolveViewInstance</span><span class="o">.</span><span class="n">nameForTitle</span> <span class="o">=</span> <span class="s">"Setting value on the next view"</span>
    <span class="p">})</span>
-</code></pre>
+
+   <span class="c1">// Basic implementation with custom Identifier</span>
+   <span class="n">navigationFlow</span><span class="p">?</span><span class="o">.</span><span class="nf">goNext</span><span class="p">(</span><span class="nv">screen</span><span class="p">:</span> <span class="kt">SecondViewController</span><span class="o">.</span><span class="k">self</span><span class="p">,</span>
+                          <span class="nv">customIdentifier</span><span class="p">:</span> <span class="s">"ChoseThisScreen"</span><span class="p">,</span><span class="s">"
+                          resolve: .nib,
+                          resolved: { resolveViewInstance in
+       resolveViewInstance.nameForTitle = "</span><span class="kt">Setting</span> <span class="n">value</span> <span class="n">on</span> <span class="n">the</span> <span class="n">next</span> <span class="n">view</span><span class="s">"
+   })
+</span></code></pre>
 
                       </div>
                       <div class="declaration">
@@ -923,6 +949,7 @@ always have type and the values are inside</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">goNext</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="o">&gt;</span><span class="p">(</span><span class="n">screen</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span>
+                                        <span class="nv">customIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
                                         <span class="n">resolve</span> <span class="nv">asType</span><span class="p">:</span> <span class="kt"><a href="../Enums/ViewIntanceFrom.html">ViewIntanceFrom</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
                                         <span class="n">resolved</span> <span class="nv">instance</span><span class="p">:</span> <span class="p">((</span><span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
@@ -941,6 +968,18 @@ always have type and the values are inside</p>
                               <td>
                                 <div>
                                   <p>The type of the screen that you want to go, need to be registered in your container flow stack.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>customIdentifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - String that is custom identifier to identify particular view</p>
                                 </div>
                               </td>
                             </tr>
@@ -977,9 +1016,9 @@ always have type and the values are inside</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10SwiftyFlow0B7ManagerC6goNext7resolve8resolvedyAA15ViewIntanceFromO_yxcSgtSo16UIViewControllerCRbzlF"></a>
-                    <a name="//apple_ref/swift/Method/goNext(resolve:resolved:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC6goNext7resolve8resolvedyAA15ViewIntanceFromO_yxcSgtSo16UIViewControllerCRbzlF">goNext(resolve:resolved:)</a>
+                    <a name="/s:10SwiftyFlow0B7ManagerC6goNext7resolve16customIdentifier8resolvedyAA15ViewIntanceFromO_SSSgyxcSgtSo16UIViewControllerCRbzlF"></a>
+                    <a name="//apple_ref/swift/Method/goNext(resolve:customIdentifier:resolved:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC6goNext7resolve16customIdentifier8resolvedyAA15ViewIntanceFromO_SSSgyxcSgtSo16UIViewControllerCRbzlF">goNext(resolve:customIdentifier:resolved:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1007,6 +1046,7 @@ item found will just not navigation we do not throw any error</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">goNext</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="o">&gt;</span><span class="p">(</span><span class="n">resolve</span> <span class="nv">asType</span><span class="p">:</span> <span class="kt"><a href="../Enums/ViewIntanceFrom.html">ViewIntanceFrom</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
+                                        <span class="nv">customIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
                                         <span class="n">resolved</span> <span class="nv">instance</span><span class="p">:</span> <span class="p">((</span><span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
@@ -1024,6 +1064,18 @@ item found will just not navigation we do not throw any error</p>
                               <td>
                                 <div>
                                   <p><code>optional</code> - How the view for this screen will be loaded, the default one is <code>.nib</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>customIdentifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - String that is custom identifier to identify particular view</p>
                                 </div>
                               </td>
                             </tr>
@@ -1048,9 +1100,9 @@ item found will just not navigation we do not throw any error</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10SwiftyFlow0B7ManagerC13goNextAsModal6screen7resolve8animated8resolved12presentation10completionACXDxmSg_AA15ViewIntanceFromOSbyxcSgSo24UIModalPresentationStyleVyycSgtSo16UIViewControllerCRbzlF"></a>
-                    <a name="//apple_ref/swift/Method/goNextAsModal(screen:resolve:animated:resolved:presentation:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC13goNextAsModal6screen7resolve8animated8resolved12presentation10completionACXDxmSg_AA15ViewIntanceFromOSbyxcSgSo24UIModalPresentationStyleVyycSgtSo16UIViewControllerCRbzlF">goNextAsModal(screen:resolve:animated:resolved:presentation:completion:)</a>
+                    <a name="/s:10SwiftyFlow0B7ManagerC13goNextAsModal6screen16customIdentifier7resolve8animated8resolved12presentation10completionACXDxmSg_SSSgAA15ViewIntanceFromOSbyxcSgSo24UIModalPresentationStyleVyycSgtSo16UIViewControllerCRbzlF"></a>
+                    <a name="//apple_ref/swift/Method/goNextAsModal(screen:customIdentifier:resolve:animated:resolved:presentation:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC13goNextAsModal6screen16customIdentifier7resolve8animated8resolved12presentation10completionACXDxmSg_SSSgAA15ViewIntanceFromOSbyxcSgSo24UIModalPresentationStyleVyycSgtSo16UIViewControllerCRbzlF">goNextAsModal(screen:customIdentifier:resolve:animated:resolved:presentation:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1080,6 +1132,17 @@ stack declared.</p>
     <span class="p">},</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">{</span>
        <span class="c1">// Finished presenting this modal.</span>
     <span class="p">})</span>
+
+     <span class="c1">// Implementation specifying custom identifier</span>
+     <span class="n">navigationFlow</span><span class="p">?</span><span class="o">.</span><span class="nf">goNextAsModal</span><span class="p">(</span><span class="nv">screen</span><span class="p">:</span> <span class="kt">SecondViewController</span><span class="o">.</span><span class="k">self</span><span class="p">,</span>
+                                   <span class="nv">customIdentifier</span><span class="p">:</span> <span class="s">"MyCustomViewToLoad"</span><span class="p">,</span>
+                                   <span class="nv">resolve</span><span class="p">:</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
+                                   <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                                   <span class="nv">resolved</span><span class="p">:</span> <span class="p">{</span> <span class="n">resolveViewInstance</span> <span class="k">in</span>
+            <span class="n">resolveViewInstance</span><span class="o">.</span><span class="n">nameForTitle</span> <span class="o">=</span> <span class="s">"Setting value on the next view"</span>
+     <span class="p">},</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">{</span>
+        <span class="c1">// Finished presenting this modal.</span>
+     <span class="p">})</span>
 </code></pre>
 
                       </div>
@@ -1089,6 +1152,7 @@ stack declared.</p>
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="n">goNextAsModal</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="o">&gt;</span><span class="p">(</span><span class="n">screen</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+                                               <span class="nv">customIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
                                                <span class="n">resolve</span> <span class="nv">asType</span><span class="p">:</span> <span class="kt"><a href="../Enums/ViewIntanceFrom.html">ViewIntanceFrom</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
                                                <span class="n">animated</span> <span class="nv">modalShow</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
                                                <span class="n">resolved</span> <span class="nv">instance</span><span class="p">:</span> <span class="p">((</span><span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
@@ -1110,6 +1174,18 @@ stack declared.</p>
                               <td>
                                 <div>
                                   <p><code>optional</code> - The type of the screen that you want to go, need to be registered in your container flow stack.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>customIdentifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - String that is custom identifier to identify particular view</p>
                                 </div>
                               </td>
                             </tr>
@@ -1182,9 +1258,9 @@ stack declared.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10SwiftyFlow0B7ManagerC17goNextAsModalWith10parameters6screen7resolve8animated8resolved12presentation10completionACXDq_yc_xmAA15ViewIntanceFromOSbyxcSgSo24UIModalPresentationStyleVyycSgtSo16UIViewControllerCRbzr0_lF"></a>
-                    <a name="//apple_ref/swift/Method/goNextAsModalWith(parameters:screen:resolve:animated:resolved:presentation:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC17goNextAsModalWith10parameters6screen7resolve8animated8resolved12presentation10completionACXDq_yc_xmAA15ViewIntanceFromOSbyxcSgSo24UIModalPresentationStyleVyycSgtSo16UIViewControllerCRbzr0_lF">goNextAsModalWith(parameters:screen:resolve:animated:resolved:presentation:completion:)</a>
+                    <a name="/s:10SwiftyFlow0B7ManagerC17goNextAsModalWith10parameters6screen16customIdentifier7resolve8animated8resolved12presentation10completionACXDq_yc_xmSSSgAA15ViewIntanceFromOSbyxcSgSo24UIModalPresentationStyleVyycSgtSo16UIViewControllerCRbzr0_lF"></a>
+                    <a name="//apple_ref/swift/Method/goNextAsModalWith(parameters:screen:customIdentifier:resolve:animated:resolved:presentation:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftyFlow0B7ManagerC17goNextAsModalWith10parameters6screen16customIdentifier7resolve8animated8resolved12presentation10completionACXDq_yc_xmSSSgAA15ViewIntanceFromOSbyxcSgSo24UIModalPresentationStyleVyycSgtSo16UIViewControllerCRbzr0_lF">goNextAsModalWith(parameters:screen:customIdentifier:resolve:animated:resolved:presentation:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1207,6 +1283,11 @@ You still have all the other method like the modal presentation without paramete
     <span class="n">navigationFlow</span><span class="p">?</span><span class="o">.</span><span class="nf">goNextAsModalWith</span><span class="p">(</span><span class="nv">parameters</span><span class="p">:</span> <span class="p">{</span>
         <span class="nf">return</span> <span class="p">(</span><span class="s">"Any Data"</span><span class="p">)</span>
     <span class="p">},</span> <span class="nv">screen</span><span class="p">:</span> <span class="kt">SecondViewController</span><span class="o">.</span><span class="k">self</span> <span class="p">})</span>
+
+    <span class="c1">// Simple implementation with identifier</span>
+    <span class="n">navigationFlow</span><span class="p">?</span><span class="o">.</span><span class="nf">goNextAsModalWith</span><span class="p">(</span><span class="nv">parameters</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nf">return</span> <span class="p">(</span><span class="s">"Any Data"</span><span class="p">)</span>
+    <span class="p">},</span> <span class="nv">screen</span><span class="p">:</span> <span class="kt">SecondViewController</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">customIdentifier</span><span class="p">:</span> <span class="s">"MyCustomViewToLoad"</span> <span class="p">})</span>
 </code></pre>
 
                       </div>
@@ -1217,6 +1298,7 @@ You still have all the other method like the modal presentation without paramete
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="n">goNextAsModalWith</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">Resolver</span><span class="o">&gt;</span><span class="p">(</span><span class="n">parameters</span> <span class="nv">data</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="p">((</span><span class="kt">Resolver</span><span class="p">)),</span>
                                                              <span class="n">screen</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span>
+                                                             <span class="nv">customIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
                                                              <span class="n">resolve</span> <span class="nv">asType</span><span class="p">:</span> <span class="kt"><a href="../Enums/ViewIntanceFrom.html">ViewIntanceFrom</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">nib</span><span class="p">,</span>
                                                              <span class="n">animated</span> <span class="nv">modalShow</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
                                                              <span class="n">resolved</span> <span class="nv">instance</span><span class="p">:</span> <span class="p">((</span><span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
@@ -1250,6 +1332,18 @@ You still have all the other method like the modal presentation without paramete
                               <td>
                                 <div>
                                   <p>The type of the screen that you want to go, need to be registered in your container flow stack.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>customIdentifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>optional</code> - String that is custom identifier to identify particular view</p>
                                 </div>
                               </td>
                             </tr>
@@ -1706,7 +1800,7 @@ send and you will be able to receive parameter from the caller.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://github.com/felipeflorencio/SwiftyFlow" target="_blank" rel="external">Felipe F Garcia</a>. All rights reserved. (Last updated: 2019-12-06)</p>
+          <p>&copy; 2019 <a class="link" href="https://github.com/felipeflorencio/SwiftyFlow" target="_blank" rel="external">Felipe F Garcia</a>. All rights reserved. (Last updated: 2019-12-19)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
